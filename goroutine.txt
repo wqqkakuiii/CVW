@@ -1,0 +1,87 @@
+goroutine 22 [running]:
+runtime/pprof.writeGoroutineStacks({0x821020, 0xc00027c000})
+	/usr/local/go/src/runtime/pprof/pprof.go:764 +0x6a
+runtime/pprof.writeGoroutine({0x821020?, 0xc00027c000?}, 0x23?)
+	/usr/local/go/src/runtime/pprof/pprof.go:753 +0x25
+runtime/pprof.(*Profile).WriteTo(0xa5cc30?, {0x821020?, 0xc00027c000?}, 0xc?)
+	/usr/local/go/src/runtime/pprof/pprof.go:377 +0x14b
+net/http/pprof.handler.ServeHTTP({0xc000145781, 0x9}, {0x8245e0, 0xc00027c000}, 0xc000260140)
+	/usr/local/go/src/net/http/pprof/pprof.go:272 +0x52f
+net/http/pprof.Index({0x8245e0, 0xc00027c000}, 0xc000260140?)
+	/usr/local/go/src/net/http/pprof/pprof.go:389 +0xde
+net/http.HandlerFunc.ServeHTTP(0xa6a940?, {0x8245e0?, 0xc00027c000?}, 0x662296?)
+	/usr/local/go/src/net/http/server.go:2294 +0x29
+net/http.(*ServeMux).ServeHTTP(0x472519?, {0x8245e0, 0xc00027c000}, 0xc000260140)
+	/usr/local/go/src/net/http/server.go:2822 +0x1c4
+net/http.serverHandler.ServeHTTP({0xc000251e90?}, {0x8245e0?, 0xc00027c000?}, 0x1?)
+	/usr/local/go/src/net/http/server.go:3301 +0x8e
+net/http.(*conn).serve(0xc00016a1b0, {0x824ad8, 0xc00009e2a0})
+	/usr/local/go/src/net/http/server.go:2102 +0x625
+created by net/http.(*Server).Serve in goroutine 20
+	/usr/local/go/src/net/http/server.go:3454 +0x485
+
+goroutine 1 [syscall]:
+syscall.Syscall(0x1, 0x1, 0xc000370000, 0xbf1c2)
+	/usr/local/go/src/syscall/syscall_linux.go:73 +0x25
+syscall.write(0xc00012c060?, {0xc000370000?, 0x30?, 0x41d680?})
+	/usr/local/go/src/syscall/zsyscall_linux_amd64.go:964 +0x3b
+syscall.Write(...)
+	/usr/local/go/src/syscall/syscall_unix.go:211
+internal/poll.ignoringEINTRIO(...)
+	/usr/local/go/src/internal/poll/fd_unix.go:745
+internal/poll.(*FD).Write(0xc00012c060, {0xc000370000, 0xbf1c2, 0x100000})
+	/usr/local/go/src/internal/poll/fd_unix.go:381 +0x394
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:46
+os.(*File).Write(0xc00011c030, {0xc000370000?, 0xbf1c2, 0xe?})
+	/usr/local/go/src/os/file.go:195 +0x4e
+main.runInvoke({0xc0001480a0, 0x46}, {0xc00011a2d0, 0xc}, {0xc00011a230, 0x7}, {0x7ffe5423d997, 0x2}, 0x6800000000?)
+	/home/projects/CVW/chainmaker/run_testinvoke.go:185 +0x2da
+main.main()
+	/home/projects/CVW/chainmaker/run_testinvoke.go:283 +0x1468
+
+goroutine 20 [IO wait]:
+internal/poll.runtime_pollWait(0x7770017cdf58, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc0000a0000?, 0x900000036?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0xc0000a0000)
+	/usr/local/go/src/internal/poll/fd_unix.go:620 +0x295
+net.(*netFD).accept(0xc0000a0000)
+	/usr/local/go/src/net/fd_unix.go:172 +0x29
+net.(*TCPListener).accept(0xc000092040)
+	/usr/local/go/src/net/tcpsock_posix.go:159 +0x1b
+net.(*TCPListener).Accept(0xc000092040)
+	/usr/local/go/src/net/tcpsock.go:380 +0x30
+net/http.(*Server).Serve(0xc00009c000, {0x8247f0, 0xc000092040})
+	/usr/local/go/src/net/http/server.go:3424 +0x30c
+net/http.(*Server).ListenAndServe(0xc00009c000)
+	/usr/local/go/src/net/http/server.go:3350 +0x71
+net/http.ListenAndServe(...)
+	/usr/local/go/src/net/http/server.go:3659
+main.main.func1()
+	/home/projects/CVW/chainmaker/run_testinvoke.go:202 +0x37
+created by main.main in goroutine 1
+	/home/projects/CVW/chainmaker/run_testinvoke.go:200 +0x17f
+
+goroutine 23 [runnable]:
+syscall.Syscall(0x0, 0x8, 0xc000251ea1, 0x1)
+	/usr/local/go/src/syscall/syscall_linux.go:73 +0x25
+syscall.read(0xc000216c00?, {0xc000251ea1?, 0x0?, 0x0?})
+	/usr/local/go/src/syscall/zsyscall_linux_amd64.go:736 +0x38
+syscall.Read(...)
+	/usr/local/go/src/syscall/syscall_unix.go:183
+internal/poll.ignoringEINTRIO(...)
+	/usr/local/go/src/internal/poll/fd_unix.go:745
+internal/poll.(*FD).Read(0xc000216c00, {0xc000251ea1, 0x1, 0x1})
+	/usr/local/go/src/internal/poll/fd_unix.go:161 +0x2ae
+net.(*netFD).Read(0xc000216c00, {0xc000251ea1?, 0x0?, 0x0?})
+	/usr/local/go/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc00011c920, {0xc000251ea1?, 0x0?, 0x0?})
+	/usr/local/go/src/net/net.go:194 +0x45
+net/http.(*connReader).backgroundRead(0xc000251e90)
+	/usr/local/go/src/net/http/server.go:690 +0x37
+created by net/http.(*connReader).startBackgroundRead in goroutine 22
+	/usr/local/go/src/net/http/server.go:686 +0xb6

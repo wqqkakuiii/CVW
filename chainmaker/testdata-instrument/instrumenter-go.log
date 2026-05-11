@@ -1,0 +1,6 @@
+2026/04/14 16:27:48 日志写入: /home/projects/CVW/chainmaker/testdata-instrument/instrumenter-go.log
+2026/04/14 16:27:48 已复制 /home/projects/CVW/chainmaker/testdata -> /home/projects/CVW/chainmaker/testdata-instrument
+2026/04/14 16:27:51 --- 结束：已插桩 7 个包，跳过 0 个包，失败 0 个包 ---
+2026/04/20 16:03:51 日志写入: /home/projects/CVW/chainmaker/testdata-instrument/instrumenter-go.log
+2026/04/20 16:03:51 已复制 /home/projects/CVW/chainmaker/testdata -> /home/projects/CVW/chainmaker/testdata-instrument
+2026/04/20 16:03:55 --- 结束：已插桩 7 个包，跳过 0 个包，失败 0 个包 ---

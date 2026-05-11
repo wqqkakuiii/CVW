@@ -1,0 +1,34 @@
+./cmc client contract user create \
+--contract-name=fact \
+--runtime-type=WASMER \
+--byte-code-path=./testdata/go-wasm-demo/fact-go.wasm \
+--version=1.0 \
+--sdk-conf-path=./testdata/sdk_config_pk.yml \
+--admin-key-file-paths=./testdata/crypto-config/node1/admin/admin1/admin1.key \
+--sync-result=true \
+--params="{}"
+
+
+
+
+
+
+./cmc parallel invoke \
+--loop-num=100 \
+--print-time=60 \
+--thread-num=30 \
+--timeout=6320 \
+--sleep-time=20 \
+--climb-time=5 \
+--show-key=false \
+--contract-name=fact \
+--method=saveAndFindByFileHash \
+--pairs="" \
+--pairs-file="./testdata/go-wasm-demo/save-fact.json" \
+--hosts="127.0.0.1:12301" \
+--auth-type=3 \
+--hash-algorithm=SHA256 \
+--user-keys=./testdata/crypto-config/node1/user/client1/client1.key \
+--sign-keys=./testdata/crypto-config/node1/admin/admin1/admin1.key \
+--chain-id=chain1
+

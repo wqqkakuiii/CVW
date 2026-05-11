@@ -1,0 +1,2441 @@
+2026/02/23 16:45:58 日志写入: D:\BUAA\CVW\instrumenter-go.log
+2026/02/23 16:45:58 复制 C:\Program Files\Go\src -> D:\BUAA\CVW\src-instrument
+2026/02/23 16:46:43 黑名单共 51 个包（os 及其递归依赖）
+2026/02/23 16:46:44 失败 [archive/tar]: exit status 1
+2026/02/23 16:46:44 失败 [archive/zip]: exit status 1
+2026/02/23 16:46:45 失败 [arena]: exit status 1
+2026/02/23 16:46:45 失败 [bufio]: exit status 1
+2026/02/23 16:46:46 失败 [builtin]: exit status 1
+2026/02/23 16:46:46 失败 [bytes]: exit status 1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/addr2line
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/issue21181/dep
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/issue21181/indirect
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/issue21181/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/issue64958/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/pkg/p1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/pkg/p2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/pkg/p3
+2026/02/23 16:46:46 跳过 [排除目录] cmd/api/testdata/src/pkg/p4
+2026/02/23 16:46:46 跳过 [排除目录] cmd/asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/asm/internal/arch
+2026/02/23 16:46:46 跳过 [排除目录] cmd/asm/internal/asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/asm/internal/flags
+2026/02/23 16:46:46 跳过 [排除目录] cmd/asm/internal/lex
+2026/02/23 16:46:46 跳过 [排除目录] cmd/buildid
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/cgotest
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/swig
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/swig/testdata/callback
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/swig/testdata/stdio
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/gcc68255
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue23555a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue23555b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue24161arg
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue24161e0
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue24161e1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue24161e2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue24161res
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue26213
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue26430
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue26743
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue27054
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue27340
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue29563
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue30527
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue41761a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue43639
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue52611a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue52611b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue8756
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue8828
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue9026
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue9400
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue9510a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/test/issue9510b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo10
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo3
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo4
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo6
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo7
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo8
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo9
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/go
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/m1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/m2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/issue36233
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo4
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo5
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testerrors
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testerrors/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testfortran
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testfortran/testdata/testprog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testgodefs
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testgodefs/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testlife
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testlife/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testnocgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/altpath/testdata/common
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/altpath/testdata/plugin-mismatch
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/checkdwarf
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/common
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/forkexec
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/host
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_i
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18584
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18676
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18676/dynamodbstreamsevt
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19418
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19529
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19534
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue22175
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue22295.pkg
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue24351
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue25756
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue25756/plugin
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue44956
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue44956/base
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue52937
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue53989
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue53989/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue62430
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue67976
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/mangle
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method2/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method3
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method3/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/plugin1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/plugin2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/sub/plugin1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/unnamed1
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/unnamed2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testsanitizers
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_global_asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_global_asm2_fail
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_linkerx
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_linkerx/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/dep2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/dep3
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/depBase
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/depBaseInternal
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/division
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe3
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/execgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/explicit
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/gcdata/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/gcdata/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/global
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/globallib
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_i
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/implicit
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/implicitcmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue25065
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue30768
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue30768/issue30768lib
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue39777/a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue39777/b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue47837/a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue47837/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue58966
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue62277
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue62277/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/trivial
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testso
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testso/testdata/so
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testso/testdata/sovar
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/teststdio
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/teststdio/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/teststdio/testdata/stdio
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cgo/internal/testtls
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/abi
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/abt
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/amd64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/arm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/arm64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/base
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/bitvec
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/compare
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/coverage
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/deadlocals
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/devirtualize
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/dwarfgen
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/escape
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/gc
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/importer
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/importer/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/importer/testdata/versions
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/inline
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/inline/inlheur
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/inline/inlheur/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/inline/inlheur/testdata/props
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/inline/interleaved
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/ir
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/liveness
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/logopt
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loong64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loopvar
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loopvar/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/b
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/c
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/mips
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/mips64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/noder
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/objw
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/pgoir
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/pkginit
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/ppc64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/rangefunc
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/reflectdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/riscv64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/rttype
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/s390x
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/ssa
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/ssa/_gen
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/ssa/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/ssagen
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/staticdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/staticinit
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/syntax
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/syntax/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/gen
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/mergelocals
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/mysort
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/devirtualize
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/devirtualize/mult.pkg
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/inline
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/test/testdata/reproducible
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/typebits
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/typecheck
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/typecheck/_builtin
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/types
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/types2
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/types2/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/types2/testdata/local
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/walk
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/wasm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/compile/internal/x86
+2026/02/23 16:46:46 跳过 [排除目录] cmd/covdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/covdata/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cover
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cover/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cover/testdata/html
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cover/testdata/pkgcfg/a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cover/testdata/pkgcfg/noFuncsNoTests
+2026/02/23 16:46:46 跳过 [排除目录] cmd/cover/testdata/pkgcfg/yesFuncsNoTests
+2026/02/23 16:46:46 跳过 [排除目录] cmd/dist
+2026/02/23 16:46:46 跳过 [排除目录] cmd/distpack
+2026/02/23 16:46:46 跳过 [排除目录] cmd/doc
+2026/02/23 16:46:46 跳过 [排除目录] cmd/doc/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/doc/testdata/merge
+2026/02/23 16:46:46 跳过 [排除目录] cmd/doc/testdata/nested
+2026/02/23 16:46:46 跳过 [排除目录] cmd/doc/testdata/nested/empty
+2026/02/23 16:46:46 跳过 [排除目录] cmd/doc/testdata/nested/nested
+2026/02/23 16:46:46 跳过 [排除目录] cmd/fix
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/auth
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/base
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/bug
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/cache
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/cacheprog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/cfg
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/clean
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/cmdflag
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/doc
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/envcmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/fips140
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/fix
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/fmtcmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/fsys
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/generate
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/gover
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/help
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/imports
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/imports/testdata/android
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/imports/testdata/illumos
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/imports/testdata/star
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/list
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/load
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/lockedfile
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/lockedfile/internal/filelock
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/mmap
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modcmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modfetch
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modfetch/codehost
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modfetch/zip_sum_test
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modget
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modindex
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modindex/testdata/ignore_non_source
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modinfo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/modload
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/mvs
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/run
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/search
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/str
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/telemetrycmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/telemetrystats
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/test
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/test/internal/genflags
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/tool
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/toolchain
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/trace
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/vcs
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/vcweb
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/vcweb/vcstest
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/version
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/vet
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/web
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/web/intercept
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/work
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/internal/workcmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/go/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/gofmt
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/archive
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/archive/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/archive/testdata/mycgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/bio
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/bootstrap_test
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/browser
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/buildid
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/codesign
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/cov
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/cov/covcmd
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/cov/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/disasm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/dwarf
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/edit
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/gcprog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/goobj
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/hash
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/macho
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/metadata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/moddeps
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/arm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/arm64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/loong64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/mips
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/ppc64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/riscv
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/riscv/testdata/testbranch
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/s390x
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/wasm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/obj/x86
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/objabi
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/objfile
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/osinfo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/par
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/pathcache
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/pgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/pkgpath
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/pkgpattern
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/quoted
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/robustio
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/script
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/script/scripttest
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/src
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/sys
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/telemetry
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/telemetry/counter
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/test2json
+2026/02/23 16:46:46 跳过 [排除目录] cmd/internal/testdir
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/amd64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/arm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/arm64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/benchmark
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/dwtest
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/deadcode
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/httptest/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue10978
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue25459/a
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue25459/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue26237/b.dir
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue26237/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue32233/lib
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue32233/main
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue38192
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue39256
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue39757
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/issue42484
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ld/testdata/stackcheck
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/loadelf
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/loader
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/loadmacho
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/loadpe
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/loadxcoff
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/loong64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/mips
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/mips64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/ppc64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/riscv64
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/s390x
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/sym
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/wasm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/internal/x86
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/dynimportvar
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/dynimportvar/asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/linkname
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/linkname/coro_asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/linkname/p
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/linkname/textvar
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/pe-binutils
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/pe-llvm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/testBuildFortvOS
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/testHashedSyms
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/testIndexMismatch
+2026/02/23 16:46:46 跳过 [排除目录] cmd/link/testdata/testRO
+2026/02/23 16:46:46 跳过 [排除目录] cmd/nm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/objdump
+2026/02/23 16:46:46 跳过 [排除目录] cmd/objdump/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/objdump/testdata/testfilenum
+2026/02/23 16:46:46 跳过 [排除目录] cmd/pack
+2026/02/23 16:46:46 跳过 [排除目录] cmd/pprof
+2026/02/23 16:46:46 跳过 [排除目录] cmd/pprof/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/preprofile
+2026/02/23 16:46:46 跳过 [排除目录] cmd/relnote
+2026/02/23 16:46:46 跳过 [排除目录] cmd/test2json
+2026/02/23 16:46:46 跳过 [排除目录] cmd/tools
+2026/02/23 16:46:46 跳过 [排除目录] cmd/trace
+2026/02/23 16:46:46 跳过 [排除目录] cmd/trace/testdata
+2026/02/23 16:46:46 跳过 [排除目录] cmd/trace/testdata/testprog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/driver
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/binutils
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/driver
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/elfexec
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/graph
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/measurement
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/plugin
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/report
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/symbolizer
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/symbolz
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/transport
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/profile
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/google/pprof/third_party/svgpan
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/github.com/ianlancetaylor/demangle
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/arm/armasm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/arm64/arm64asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/loong64/loong64asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/ppc64/ppc64asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/riscv64/riscv64asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/s390x/s390xasm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/arch/x86/x86asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/build/relnote
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/internal/lazyregexp
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/modfile
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/module
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/semver
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/dirhash
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/note
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/tlog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/mod/zip
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/sync/errgroup
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/sync/semaphore
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/sys/plan9
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/sys/unix
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/sys/windows
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/counter
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/counter/countertest
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/config
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/configstore
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/counter
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/crashmonitor
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/mmap
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/telemetry
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/upload
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/term
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/cases
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/language
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/language/compact
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/tag
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/language
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/transform
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/text/unicode/norm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/cmd/bisect
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/cover
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/internal/analysisflags
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/appends
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/asmdecl
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/assign
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/atomic
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/bools
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/buildtag
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/cgocall
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/composite
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/copylock
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/ctrlflow
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/defers
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/directive
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/errorsas
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/framepointer
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/httpresponse
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/ifaceassert
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/inspect
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/internal/analysisutil
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/loopclosure
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/lostcancel
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/nilfunc
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/printf
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/shift
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/sigchanyzer
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/slog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stdmethods
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stdversion
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stringintconv
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/structtag
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/testinggoroutine
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/tests
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/timeformat
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unmarshal
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unreachable
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unsafeptr
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unusedresult
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/unitchecker
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/ast/inspector
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/cfg
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/types/objectpath
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/types/typeutil
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/aliases
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/analysisinternal
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/bisect
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/facts
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/stdlib
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/typeparams
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/typesinternal
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/versions
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vendor/rsc.io/markdown
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/appends
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/asm
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/assign
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/atomic
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/bool
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/buildtag
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/cgo
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/composite
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/copylock
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/deadcode
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/directive
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/httpresponse
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/lostcancel
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/method
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/nilfunc
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/print
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/rangeloop
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/shift
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/slog
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/stdversion
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/structtag
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/tagtest
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/testingpkg
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/unmarshal
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/unsafeptr
+2026/02/23 16:46:46 跳过 [排除目录] cmd/vet/testdata/unused
+2026/02/23 16:46:46 跳过 [黑名单] cmp
+2026/02/23 16:46:47 失败 [compress/bzip2]: exit status 1
+2026/02/23 16:46:47 失败 [compress/flate]: exit status 1
+2026/02/23 16:46:47 失败 [compress/gzip]: exit status 1
+2026/02/23 16:46:48 失败 [compress/lzw]: exit status 1
+2026/02/23 16:46:48 失败 [compress/zlib]: exit status 1
+2026/02/23 16:46:49 失败 [container/heap]: exit status 1
+2026/02/23 16:46:49 失败 [container/list]: exit status 1
+2026/02/23 16:46:50 失败 [container/ring]: exit status 1
+2026/02/23 16:46:50 失败 [context]: exit status 1
+2026/02/23 16:46:50 跳过 [排除目录] crypto
+2026/02/23 16:46:50 跳过 [排除目录] crypto/aes
+2026/02/23 16:46:50 跳过 [排除目录] crypto/boring
+2026/02/23 16:46:50 跳过 [排除目录] crypto/cipher
+2026/02/23 16:46:50 跳过 [排除目录] crypto/des
+2026/02/23 16:46:50 跳过 [排除目录] crypto/dsa
+2026/02/23 16:46:50 跳过 [排除目录] crypto/ecdh
+2026/02/23 16:46:50 跳过 [排除目录] crypto/ecdsa
+2026/02/23 16:46:50 跳过 [排除目录] crypto/ed25519
+2026/02/23 16:46:50 跳过 [排除目录] crypto/elliptic
+2026/02/23 16:46:50 跳过 [排除目录] crypto/fips140
+2026/02/23 16:46:50 跳过 [排除目录] crypto/hkdf
+2026/02/23 16:46:50 跳过 [排除目录] crypto/hmac
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/boring
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/boring/bbig
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/boring/bcache
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/boring/sig
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/boring/syso
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/cryptotest
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/entropy
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/aes
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/aes/_asm/ctr
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/aes/_asm/standard
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/aes/gcm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/aes/gcm/_asm/gcm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/alias
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/bigmod
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/bigmod/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/check
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/check/checktest
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/drbg
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/ecdh
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/ecdsa
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/ed25519
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/edwards25519
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/edwards25519/field
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/edwards25519/field/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/hkdf
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/hmac
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/mlkem
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/nistec
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/nistec/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/nistec/fiat
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/pbkdf2
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/rsa
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/sha256
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/sha256/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/sha3
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/sha3/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/sha512
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/sha512/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/ssh
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/subtle
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/tls12
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140/tls13
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140deps
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140deps/byteorder
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140deps/cpu
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140deps/godebug
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140hash
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140only
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/fips140test
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/hpke
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/impl
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/randutil
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/sysrand
+2026/02/23 16:46:50 跳过 [排除目录] crypto/internal/sysrand/internal/seccomp
+2026/02/23 16:46:50 跳过 [排除目录] crypto/md5
+2026/02/23 16:46:50 跳过 [排除目录] crypto/md5/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/mlkem
+2026/02/23 16:46:50 跳过 [排除目录] crypto/pbkdf2
+2026/02/23 16:46:50 跳过 [排除目录] crypto/rand
+2026/02/23 16:46:50 跳过 [排除目录] crypto/rc4
+2026/02/23 16:46:50 跳过 [排除目录] crypto/rsa
+2026/02/23 16:46:50 跳过 [排除目录] crypto/sha1
+2026/02/23 16:46:50 跳过 [排除目录] crypto/sha1/_asm
+2026/02/23 16:46:50 跳过 [排除目录] crypto/sha256
+2026/02/23 16:46:50 跳过 [排除目录] crypto/sha3
+2026/02/23 16:46:50 跳过 [排除目录] crypto/sha512
+2026/02/23 16:46:50 跳过 [排除目录] crypto/subtle
+2026/02/23 16:46:50 跳过 [排除目录] crypto/tls
+2026/02/23 16:46:50 跳过 [排除目录] crypto/tls/fipsonly
+2026/02/23 16:46:50 跳过 [排除目录] crypto/tls/internal/fips140tls
+2026/02/23 16:46:50 跳过 [排除目录] crypto/x509
+2026/02/23 16:46:50 跳过 [排除目录] crypto/x509/internal/macos
+2026/02/23 16:46:50 跳过 [排除目录] crypto/x509/pkix
+2026/02/23 16:46:50 失败 [database/sql]: exit status 1
+2026/02/23 16:46:51 失败 [database/sql/driver]: exit status 1
+2026/02/23 16:46:51 失败 [debug/buildinfo]: exit status 1
+2026/02/23 16:46:52 失败 [debug/buildinfo/testdata/go117]: exit status 1
+2026/02/23 16:46:52 失败 [debug/dwarf]: exit status 1
+2026/02/23 16:46:53 失败 [debug/elf]: exit status 1
+2026/02/23 16:46:53 失败 [debug/gosym]: exit status 1
+2026/02/23 16:46:54 失败 [debug/gosym/testdata]: exit status 1
+2026/02/23 16:46:54 失败 [debug/macho]: exit status 1
+2026/02/23 16:46:54 失败 [debug/pe]: exit status 1
+2026/02/23 16:46:55 失败 [debug/plan9obj]: exit status 1
+2026/02/23 16:46:55 失败 [embed]: exit status 1
+2026/02/23 16:46:56 失败 [embed/internal/embedtest]: exit status 1
+2026/02/23 16:46:56 失败 [encoding]: exit status 1
+2026/02/23 16:46:57 失败 [encoding/ascii85]: exit status 1
+2026/02/23 16:46:57 失败 [encoding/asn1]: exit status 1
+2026/02/23 16:46:57 失败 [encoding/base32]: exit status 1
+2026/02/23 16:46:58 失败 [encoding/base64]: exit status 1
+2026/02/23 16:46:58 失败 [encoding/binary]: exit status 1
+2026/02/23 16:46:59 失败 [encoding/csv]: exit status 1
+2026/02/23 16:46:59 失败 [encoding/gob]: exit status 1
+2026/02/23 16:47:00 失败 [encoding/hex]: exit status 1
+2026/02/23 16:47:00 失败 [encoding/json]: exit status 1
+2026/02/23 16:47:01 失败 [encoding/pem]: exit status 1
+2026/02/23 16:47:01 失败 [encoding/xml]: exit status 1
+2026/02/23 16:47:01 跳过 [黑名单] errors
+2026/02/23 16:47:01 失败 [expvar]: exit status 1
+2026/02/23 16:47:02 失败 [flag]: exit status 1
+2026/02/23 16:47:02 失败 [fmt]: exit status 1
+2026/02/23 16:47:02 跳过 [排除目录] go/ast
+2026/02/23 16:47:02 跳过 [排除目录] go/ast/internal/tests
+2026/02/23 16:47:02 跳过 [排除目录] go/build
+2026/02/23 16:47:02 跳过 [排除目录] go/build/constraint
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/alltags
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/cgo_disabled
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/directives
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/doc
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/multi
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/non_source_tags
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/other
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/other/file
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/withvendor/src/a/b
+2026/02/23 16:47:02 跳过 [排除目录] go/build/testdata/withvendor/src/a/vendor/c/d
+2026/02/23 16:47:02 跳过 [排除目录] go/constant
+2026/02/23 16:47:02 跳过 [排除目录] go/doc
+2026/02/23 16:47:02 跳过 [排除目录] go/doc/comment
+2026/02/23 16:47:02 跳过 [排除目录] go/doc/testdata
+2026/02/23 16:47:02 跳过 [排除目录] go/doc/testdata/examples
+2026/02/23 16:47:02 跳过 [排除目录] go/doc/testdata/pkgdoc
+2026/02/23 16:47:02 跳过 [排除目录] go/format
+2026/02/23 16:47:02 跳过 [排除目录] go/importer
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/gccgoimporter
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/gccgoimporter/testdata
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/gcimporter
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/gcimporter/testdata
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/gcimporter/testdata/versions
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/srcimporter
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/srcimporter/testdata/issue20855
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/srcimporter/testdata/issue23092
+2026/02/23 16:47:02 跳过 [排除目录] go/internal/srcimporter/testdata/issue24392
+2026/02/23 16:47:02 跳过 [排除目录] go/parser
+2026/02/23 16:47:02 跳过 [排除目录] go/parser/testdata/goversion
+2026/02/23 16:47:02 跳过 [排除目录] go/parser/testdata/issue42951/not_a_file.go
+2026/02/23 16:47:02 跳过 [排除目录] go/printer
+2026/02/23 16:47:02 跳过 [排除目录] go/printer/testdata
+2026/02/23 16:47:02 跳过 [排除目录] go/scanner
+2026/02/23 16:47:02 跳过 [排除目录] go/token
+2026/02/23 16:47:02 跳过 [排除目录] go/types
+2026/02/23 16:47:02 跳过 [排除目录] go/types/testdata
+2026/02/23 16:47:02 跳过 [排除目录] go/types/testdata/local
+2026/02/23 16:47:02 跳过 [排除目录] go/version
+2026/02/23 16:47:03 失败 [hash]: exit status 1
+2026/02/23 16:47:03 失败 [hash/adler32]: exit status 1
+2026/02/23 16:47:04 失败 [hash/crc32]: exit status 1
+2026/02/23 16:47:04 失败 [hash/crc64]: exit status 1
+2026/02/23 16:47:05 失败 [hash/fnv]: exit status 1
+2026/02/23 16:47:05 失败 [hash/maphash]: exit status 1
+2026/02/23 16:47:05 失败 [html]: exit status 1
+2026/02/23 16:47:06 失败 [html/template]: exit status 0xc000013a
+2026/02/23 16:50:21 日志写入: D:\BUAA\CVW\instrumenter-go.log
+2026/02/23 16:50:21 复制 C:\Program Files\Go\src -> D:\BUAA\go-instrument\10
+2026/02/23 16:50:32 黑名单共 51 个包（os 及其递归依赖）
+2026/02/23 16:50:33 失败 [archive/tar]: exit status 1
+2026/02/23 16:50:34 失败 [archive/zip]: exit status 1
+2026/02/23 16:50:34 失败 [arena]: exit status 1
+2026/02/23 16:50:35 失败 [bufio]: exit status 1
+2026/02/23 16:50:35 失败 [builtin]: exit status 1
+2026/02/23 16:50:35 失败 [bytes]: exit status 1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/addr2line
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/issue21181/dep
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/issue21181/indirect
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/issue21181/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/issue64958/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/pkg/p1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/pkg/p2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/pkg/p3
+2026/02/23 16:50:35 跳过 [排除目录] cmd/api/testdata/src/pkg/p4
+2026/02/23 16:50:35 跳过 [排除目录] cmd/asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/asm/internal/arch
+2026/02/23 16:50:35 跳过 [排除目录] cmd/asm/internal/asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/asm/internal/flags
+2026/02/23 16:50:35 跳过 [排除目录] cmd/asm/internal/lex
+2026/02/23 16:50:35 跳过 [排除目录] cmd/buildid
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/cgotest
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/swig
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/swig/testdata/callback
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/swig/testdata/stdio
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/gcc68255
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue23555a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue23555b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue24161arg
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue24161e0
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue24161e1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue24161e2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue24161res
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue26213
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue26430
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue26743
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue27054
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue27340
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue29563
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue30527
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue41761a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue43639
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue52611a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue52611b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue8756
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue8828
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue9026
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue9400
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue9510a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/test/issue9510b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo10
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo3
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo4
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo6
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo7
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo8
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo9
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/go
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/m1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/m2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/issue36233
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo4
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo5
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testerrors
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testerrors/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testfortran
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testfortran/testdata/testprog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testgodefs
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testgodefs/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testlife
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testlife/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testnocgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/altpath/testdata/common
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/altpath/testdata/plugin-mismatch
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/checkdwarf
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/common
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/forkexec
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/host
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_i
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18584
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18676
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18676/dynamodbstreamsevt
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19418
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19529
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19534
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue22175
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue22295.pkg
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue24351
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue25756
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue25756/plugin
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue44956
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue44956/base
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue52937
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue53989
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue53989/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue62430
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue67976
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/mangle
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method2/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method3
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method3/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/plugin1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/plugin2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/sub/plugin1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/unnamed1
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/unnamed2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testsanitizers
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_global_asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_global_asm2_fail
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_linkerx
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_linkerx/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/dep2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/dep3
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/depBase
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/depBaseInternal
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/division
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe3
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/execgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/explicit
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/gcdata/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/gcdata/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/global
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/globallib
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_i
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/implicit
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/implicitcmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue25065
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue30768
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue30768/issue30768lib
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue39777/a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue39777/b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue47837/a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue47837/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue58966
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue62277
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue62277/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/trivial
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testso
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testso/testdata/so
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testso/testdata/sovar
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/teststdio
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/teststdio/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/teststdio/testdata/stdio
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cgo/internal/testtls
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/abi
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/abt
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/amd64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/arm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/arm64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/base
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/bitvec
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/compare
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/coverage
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/deadlocals
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/devirtualize
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/dwarfgen
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/escape
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/gc
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/importer
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/importer/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/importer/testdata/versions
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/inline
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/inline/inlheur
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/inline/inlheur/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/inline/inlheur/testdata/props
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/inline/interleaved
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/ir
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/liveness
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/logopt
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loong64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loopvar
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loopvar/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/b
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/c
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/mips
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/mips64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/noder
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/objw
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/pgoir
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/pkginit
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/ppc64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/rangefunc
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/reflectdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/riscv64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/rttype
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/s390x
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/ssa
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/ssa/_gen
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/ssa/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/ssagen
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/staticdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/staticinit
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/syntax
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/syntax/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/gen
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/mergelocals
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/mysort
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/devirtualize
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/devirtualize/mult.pkg
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/inline
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/test/testdata/reproducible
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/typebits
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/typecheck
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/typecheck/_builtin
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/types
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/types2
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/types2/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/types2/testdata/local
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/walk
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/wasm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/compile/internal/x86
+2026/02/23 16:50:35 跳过 [排除目录] cmd/covdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/covdata/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cover
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cover/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cover/testdata/html
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cover/testdata/pkgcfg/a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cover/testdata/pkgcfg/noFuncsNoTests
+2026/02/23 16:50:35 跳过 [排除目录] cmd/cover/testdata/pkgcfg/yesFuncsNoTests
+2026/02/23 16:50:35 跳过 [排除目录] cmd/dist
+2026/02/23 16:50:35 跳过 [排除目录] cmd/distpack
+2026/02/23 16:50:35 跳过 [排除目录] cmd/doc
+2026/02/23 16:50:35 跳过 [排除目录] cmd/doc/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/doc/testdata/merge
+2026/02/23 16:50:35 跳过 [排除目录] cmd/doc/testdata/nested
+2026/02/23 16:50:35 跳过 [排除目录] cmd/doc/testdata/nested/empty
+2026/02/23 16:50:35 跳过 [排除目录] cmd/doc/testdata/nested/nested
+2026/02/23 16:50:35 跳过 [排除目录] cmd/fix
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/auth
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/base
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/bug
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/cache
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/cacheprog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/cfg
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/clean
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/cmdflag
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/doc
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/envcmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/fips140
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/fix
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/fmtcmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/fsys
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/generate
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/gover
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/help
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/imports
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/imports/testdata/android
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/imports/testdata/illumos
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/imports/testdata/star
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/list
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/load
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/lockedfile
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/lockedfile/internal/filelock
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/mmap
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modcmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modfetch
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modfetch/codehost
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modfetch/zip_sum_test
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modget
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modindex
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modindex/testdata/ignore_non_source
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modinfo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/modload
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/mvs
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/run
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/search
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/str
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/telemetrycmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/telemetrystats
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/test
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/test/internal/genflags
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/tool
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/toolchain
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/trace
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/vcs
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/vcweb
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/vcweb/vcstest
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/version
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/vet
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/web
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/web/intercept
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/work
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/internal/workcmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/go/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/gofmt
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/archive
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/archive/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/archive/testdata/mycgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/bio
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/bootstrap_test
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/browser
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/buildid
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/codesign
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/cov
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/cov/covcmd
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/cov/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/disasm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/dwarf
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/edit
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/gcprog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/goobj
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/hash
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/macho
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/metadata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/moddeps
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/arm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/arm64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/loong64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/mips
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/ppc64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/riscv
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/riscv/testdata/testbranch
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/s390x
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/wasm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/obj/x86
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/objabi
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/objfile
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/osinfo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/par
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/pathcache
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/pgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/pkgpath
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/pkgpattern
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/quoted
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/robustio
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/script
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/script/scripttest
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/src
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/sys
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/telemetry
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/telemetry/counter
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/test2json
+2026/02/23 16:50:35 跳过 [排除目录] cmd/internal/testdir
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/amd64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/arm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/arm64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/benchmark
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/dwtest
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/deadcode
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/httptest/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue10978
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue25459/a
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue25459/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue26237/b.dir
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue26237/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue32233/lib
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue32233/main
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue38192
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue39256
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue39757
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/issue42484
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ld/testdata/stackcheck
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/loadelf
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/loader
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/loadmacho
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/loadpe
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/loadxcoff
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/loong64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/mips
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/mips64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/ppc64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/riscv64
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/s390x
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/sym
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/wasm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/internal/x86
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/dynimportvar
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/dynimportvar/asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/linkname
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/linkname/coro_asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/linkname/p
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/linkname/textvar
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/pe-binutils
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/pe-llvm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/testBuildFortvOS
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/testHashedSyms
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/testIndexMismatch
+2026/02/23 16:50:35 跳过 [排除目录] cmd/link/testdata/testRO
+2026/02/23 16:50:35 跳过 [排除目录] cmd/nm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/objdump
+2026/02/23 16:50:35 跳过 [排除目录] cmd/objdump/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/objdump/testdata/testfilenum
+2026/02/23 16:50:35 跳过 [排除目录] cmd/pack
+2026/02/23 16:50:35 跳过 [排除目录] cmd/pprof
+2026/02/23 16:50:35 跳过 [排除目录] cmd/pprof/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/preprofile
+2026/02/23 16:50:35 跳过 [排除目录] cmd/relnote
+2026/02/23 16:50:35 跳过 [排除目录] cmd/test2json
+2026/02/23 16:50:35 跳过 [排除目录] cmd/tools
+2026/02/23 16:50:35 跳过 [排除目录] cmd/trace
+2026/02/23 16:50:35 跳过 [排除目录] cmd/trace/testdata
+2026/02/23 16:50:35 跳过 [排除目录] cmd/trace/testdata/testprog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/driver
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/binutils
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/driver
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/elfexec
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/graph
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/measurement
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/plugin
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/report
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/symbolizer
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/symbolz
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/transport
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/profile
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/google/pprof/third_party/svgpan
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/github.com/ianlancetaylor/demangle
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/arm/armasm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/arm64/arm64asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/loong64/loong64asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/ppc64/ppc64asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/riscv64/riscv64asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/s390x/s390xasm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/arch/x86/x86asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/build/relnote
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/internal/lazyregexp
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/modfile
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/module
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/semver
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/dirhash
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/note
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/tlog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/mod/zip
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/sync/errgroup
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/sync/semaphore
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/sys/plan9
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/sys/unix
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/sys/windows
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/counter
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/counter/countertest
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/config
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/configstore
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/counter
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/crashmonitor
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/mmap
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/telemetry
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/upload
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/term
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/cases
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/language
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/language/compact
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/tag
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/language
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/transform
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/text/unicode/norm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/cmd/bisect
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/cover
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/internal/analysisflags
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/appends
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/asmdecl
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/assign
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/atomic
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/bools
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/buildtag
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/cgocall
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/composite
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/copylock
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/ctrlflow
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/defers
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/directive
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/errorsas
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/framepointer
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/httpresponse
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/ifaceassert
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/inspect
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/internal/analysisutil
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/loopclosure
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/lostcancel
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/nilfunc
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/printf
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/shift
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/sigchanyzer
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/slog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stdmethods
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stdversion
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stringintconv
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/structtag
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/testinggoroutine
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/tests
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/timeformat
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unmarshal
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unreachable
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unsafeptr
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unusedresult
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/unitchecker
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/ast/inspector
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/cfg
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/types/objectpath
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/types/typeutil
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/aliases
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/analysisinternal
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/bisect
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/facts
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/stdlib
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/typeparams
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/typesinternal
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/versions
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vendor/rsc.io/markdown
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/appends
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/asm
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/assign
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/atomic
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/bool
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/buildtag
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/cgo
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/composite
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/copylock
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/deadcode
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/directive
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/httpresponse
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/lostcancel
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/method
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/nilfunc
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/print
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/rangeloop
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/shift
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/slog
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/stdversion
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/structtag
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/tagtest
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/testingpkg
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/unmarshal
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/unsafeptr
+2026/02/23 16:50:35 跳过 [排除目录] cmd/vet/testdata/unused
+2026/02/23 16:50:35 跳过 [黑名单] cmp
+2026/02/23 16:50:36 失败 [compress/bzip2]: exit status 1
+2026/02/23 16:50:36 失败 [compress/flate]: exit status 1
+2026/02/23 16:50:37 失败 [compress/gzip]: exit status 1
+2026/02/23 16:50:37 失败 [compress/lzw]: exit status 1
+2026/02/23 16:50:37 失败 [compress/zlib]: exit status 1
+2026/02/23 16:50:38 失败 [container/heap]: exit status 1
+2026/02/23 16:50:38 失败 [container/list]: exit status 1
+2026/02/23 16:50:39 失败 [container/ring]: exit status 1
+2026/02/23 16:50:39 失败 [context]: exit status 1
+2026/02/23 16:50:39 跳过 [排除目录] crypto
+2026/02/23 16:50:39 跳过 [排除目录] crypto/aes
+2026/02/23 16:50:39 跳过 [排除目录] crypto/boring
+2026/02/23 16:50:39 跳过 [排除目录] crypto/cipher
+2026/02/23 16:50:39 跳过 [排除目录] crypto/des
+2026/02/23 16:50:39 跳过 [排除目录] crypto/dsa
+2026/02/23 16:50:39 跳过 [排除目录] crypto/ecdh
+2026/02/23 16:50:39 跳过 [排除目录] crypto/ecdsa
+2026/02/23 16:50:39 跳过 [排除目录] crypto/ed25519
+2026/02/23 16:50:39 跳过 [排除目录] crypto/elliptic
+2026/02/23 16:50:39 跳过 [排除目录] crypto/fips140
+2026/02/23 16:50:39 跳过 [排除目录] crypto/hkdf
+2026/02/23 16:50:39 跳过 [排除目录] crypto/hmac
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/boring
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/boring/bbig
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/boring/bcache
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/boring/sig
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/boring/syso
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/cryptotest
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/entropy
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/aes
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/aes/_asm/ctr
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/aes/_asm/standard
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/aes/gcm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/aes/gcm/_asm/gcm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/alias
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/bigmod
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/bigmod/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/check
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/check/checktest
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/drbg
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/ecdh
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/ecdsa
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/ed25519
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/edwards25519
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/edwards25519/field
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/edwards25519/field/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/hkdf
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/hmac
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/mlkem
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/nistec
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/nistec/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/nistec/fiat
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/pbkdf2
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/rsa
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/sha256
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/sha256/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/sha3
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/sha3/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/sha512
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/sha512/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/ssh
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/subtle
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/tls12
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140/tls13
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140deps
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140deps/byteorder
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140deps/cpu
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140deps/godebug
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140hash
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140only
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/fips140test
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/hpke
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/impl
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/randutil
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/sysrand
+2026/02/23 16:50:39 跳过 [排除目录] crypto/internal/sysrand/internal/seccomp
+2026/02/23 16:50:39 跳过 [排除目录] crypto/md5
+2026/02/23 16:50:39 跳过 [排除目录] crypto/md5/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/mlkem
+2026/02/23 16:50:39 跳过 [排除目录] crypto/pbkdf2
+2026/02/23 16:50:39 跳过 [排除目录] crypto/rand
+2026/02/23 16:50:39 跳过 [排除目录] crypto/rc4
+2026/02/23 16:50:39 跳过 [排除目录] crypto/rsa
+2026/02/23 16:50:39 跳过 [排除目录] crypto/sha1
+2026/02/23 16:50:39 跳过 [排除目录] crypto/sha1/_asm
+2026/02/23 16:50:39 跳过 [排除目录] crypto/sha256
+2026/02/23 16:50:39 跳过 [排除目录] crypto/sha3
+2026/02/23 16:50:39 跳过 [排除目录] crypto/sha512
+2026/02/23 16:50:39 跳过 [排除目录] crypto/subtle
+2026/02/23 16:50:39 跳过 [排除目录] crypto/tls
+2026/02/23 16:50:39 跳过 [排除目录] crypto/tls/fipsonly
+2026/02/23 16:50:39 跳过 [排除目录] crypto/tls/internal/fips140tls
+2026/02/23 16:50:39 跳过 [排除目录] crypto/x509
+2026/02/23 16:50:39 跳过 [排除目录] crypto/x509/internal/macos
+2026/02/23 16:50:39 跳过 [排除目录] crypto/x509/pkix
+2026/02/23 16:50:39 失败 [database/sql]: exit status 1
+2026/02/23 16:50:40 失败 [database/sql/driver]: exit status 1
+2026/02/23 16:50:40 失败 [debug/buildinfo]: exit status 1
+2026/02/23 16:50:41 失败 [debug/buildinfo/testdata/go117]: exit status 1
+2026/02/23 16:50:41 失败 [debug/dwarf]: exit status 1
+2026/02/23 16:50:41 失败 [debug/elf]: exit status 1
+2026/02/23 16:50:42 失败 [debug/gosym]: exit status 1
+2026/02/23 16:50:42 失败 [debug/gosym/testdata]: exit status 1
+2026/02/23 16:50:43 失败 [debug/macho]: exit status 1
+2026/02/23 16:50:43 失败 [debug/pe]: exit status 1
+2026/02/23 16:50:43 失败 [debug/plan9obj]: exit status 1
+2026/02/23 16:50:44 失败 [embed]: exit status 1
+2026/02/23 16:50:44 失败 [embed/internal/embedtest]: exit status 1
+2026/02/23 16:50:45 失败 [encoding]: exit status 1
+2026/02/23 16:50:45 失败 [encoding/ascii85]: exit status 1
+2026/02/23 16:50:45 失败 [encoding/asn1]: exit status 1
+2026/02/23 16:50:46 失败 [encoding/base32]: exit status 1
+2026/02/23 16:50:46 失败 [encoding/base64]: exit status 1
+2026/02/23 16:50:47 失败 [encoding/binary]: exit status 1
+2026/02/23 16:50:47 失败 [encoding/csv]: exit status 1
+2026/02/23 16:50:47 失败 [encoding/gob]: exit status 1
+2026/02/23 16:50:48 失败 [encoding/hex]: exit status 0xc000013a
+2026/02/23 16:59:09 日志写入: D:\BUAA\CVW\instrumenter-go.log
+2026/02/23 16:59:09 在目录内就地插桩: D:\BUAA\go-instrument\10\src
+2026/02/23 16:59:09 黑名单共 51 个包（os 及其递归依赖）
+2026/02/23 16:59:09 失败 [archive/tar]: exit status 1
+2026/02/23 16:59:10 失败 [archive/zip]: exit status 1
+2026/02/23 16:59:10 失败 [arena]: exit status 1
+2026/02/23 16:59:11 失败 [bufio]: exit status 1
+2026/02/23 16:59:11 失败 [builtin]: exit status 1
+2026/02/23 16:59:12 失败 [bytes]: exit status 1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/addr2line
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/issue21181/dep
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/issue21181/indirect
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/issue21181/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/issue64958/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/pkg/p1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/pkg/p2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/pkg/p3
+2026/02/23 16:59:12 跳过 [排除目录] cmd/api/testdata/src/pkg/p4
+2026/02/23 16:59:12 跳过 [排除目录] cmd/asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/asm/internal/arch
+2026/02/23 16:59:12 跳过 [排除目录] cmd/asm/internal/asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/asm/internal/flags
+2026/02/23 16:59:12 跳过 [排除目录] cmd/asm/internal/lex
+2026/02/23 16:59:12 跳过 [排除目录] cmd/buildid
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/cgotest
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/swig
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/swig/testdata/callback
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/swig/testdata/stdio
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/gcc68255
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue23555a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue23555b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue24161arg
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue24161e0
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue24161e1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue24161e2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue24161res
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue26213
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue26430
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue26743
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue27054
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue27340
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue29563
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue30527
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue41761a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue43639
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue52611a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue52611b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue8756
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue8828
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue9026
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue9400
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue9510a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/test/issue9510b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo10
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo3
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo4
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo6
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo7
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo8
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/libgo9
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcarchive/testdata/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/go
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/m1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/go2c2go/m2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/issue36233
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo4
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/libgo5
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testcshared/testdata/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testerrors
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testerrors/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testfortran
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testfortran/testdata/testprog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testgodefs
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testgodefs/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testlife
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testlife/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testnocgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/altpath/testdata/common
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/altpath/testdata/plugin-mismatch
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/checkdwarf
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/common
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/forkexec
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/host
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/iface_i
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18584
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18676
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue18676/dynamodbstreamsevt
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19418
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19529
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue19534
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue22175
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue22295.pkg
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue24351
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue25756
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue25756/plugin
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue44956
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue44956/base
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue52937
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue53989
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue53989/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue62430
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/issue67976
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/mangle
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method2/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method3
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/method3/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/plugin1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/plugin2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/sub/plugin1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/unnamed1
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testplugin/testdata/unnamed2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testsanitizers
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_global_asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_global_asm2_fail
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_linkerx
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testsanitizers/testdata/asan_linkerx/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/dep2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/dep3
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/depBase
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/depBaseInternal
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/division
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/exe3
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/execgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/explicit
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/gcdata/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/gcdata/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/global
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/globallib
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/iface_i
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/implicit
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/implicitcmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue25065
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue30768
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue30768/issue30768lib
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue39777/a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue39777/b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue44031/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue47837/a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue47837/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue58966
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue62277
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/issue62277/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testshared/testdata/trivial
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testso
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testso/testdata/so
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testso/testdata/sovar
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/teststdio
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/teststdio/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/teststdio/testdata/stdio
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cgo/internal/testtls
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/abi
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/abt
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/amd64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/arm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/arm64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/base
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/bitvec
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/compare
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/coverage
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/deadlocals
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/devirtualize
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/dwarfgen
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/escape
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/gc
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/importer
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/importer/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/importer/testdata/versions
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/inline
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/inline/inlheur
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/inline/inlheur/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/inline/inlheur/testdata/props
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/inline/interleaved
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/ir
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/liveness
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/logopt
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loong64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loopvar
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loopvar/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/b
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/loopvar/testdata/inlines/c
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/mips
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/mips64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/noder
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/objw
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/pgoir
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/pkginit
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/ppc64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/rangefunc
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/reflectdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/riscv64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/rttype
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/s390x
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/ssa
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/ssa/_gen
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/ssa/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/ssagen
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/staticdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/staticinit
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/syntax
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/syntax/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/gen
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/mergelocals
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/mysort
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/devirtualize
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/devirtualize/mult.pkg
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/pgo/inline
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/test/testdata/reproducible
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/typebits
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/typecheck
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/typecheck/_builtin
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/types
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/types2
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/types2/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/types2/testdata/local
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/walk
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/wasm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/compile/internal/x86
+2026/02/23 16:59:12 跳过 [排除目录] cmd/covdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/covdata/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cover
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cover/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cover/testdata/html
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cover/testdata/pkgcfg/a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cover/testdata/pkgcfg/noFuncsNoTests
+2026/02/23 16:59:12 跳过 [排除目录] cmd/cover/testdata/pkgcfg/yesFuncsNoTests
+2026/02/23 16:59:12 跳过 [排除目录] cmd/dist
+2026/02/23 16:59:12 跳过 [排除目录] cmd/distpack
+2026/02/23 16:59:12 跳过 [排除目录] cmd/doc
+2026/02/23 16:59:12 跳过 [排除目录] cmd/doc/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/doc/testdata/merge
+2026/02/23 16:59:12 跳过 [排除目录] cmd/doc/testdata/nested
+2026/02/23 16:59:12 跳过 [排除目录] cmd/doc/testdata/nested/empty
+2026/02/23 16:59:12 跳过 [排除目录] cmd/doc/testdata/nested/nested
+2026/02/23 16:59:12 跳过 [排除目录] cmd/fix
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/auth
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/base
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/bug
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/cache
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/cacheprog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/cfg
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/clean
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/cmdflag
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/doc
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/envcmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/fips140
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/fix
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/fmtcmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/fsys
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/generate
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/gover
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/help
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/imports
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/imports/testdata/android
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/imports/testdata/illumos
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/imports/testdata/star
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/list
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/load
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/lockedfile
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/lockedfile/internal/filelock
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/mmap
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modcmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modfetch
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modfetch/codehost
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modfetch/zip_sum_test
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modget
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modindex
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modindex/testdata/ignore_non_source
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modinfo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/modload
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/mvs
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/run
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/search
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/str
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/telemetrycmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/telemetrystats
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/test
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/test/internal/genflags
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/tool
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/toolchain
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/trace
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/vcs
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/vcweb
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/vcweb/vcstest
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/version
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/vet
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/web
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/web/intercept
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/work
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/internal/workcmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/go/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/gofmt
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/archive
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/archive/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/archive/testdata/mycgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/bio
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/bootstrap_test
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/browser
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/buildid
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/codesign
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/cov
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/cov/covcmd
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/cov/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/disasm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/dwarf
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/edit
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/gcprog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/goobj
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/hash
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/macho
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/metadata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/moddeps
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/arm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/arm64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/loong64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/mips
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/ppc64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/riscv
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/riscv/testdata/testbranch
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/s390x
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/wasm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/obj/x86
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/objabi
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/objfile
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/osinfo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/par
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/pathcache
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/pgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/pkgpath
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/pkgpattern
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/quoted
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/robustio
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/script
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/script/scripttest
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/src
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/sys
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/telemetry
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/telemetry/counter
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/test2json
+2026/02/23 16:59:12 跳过 [排除目录] cmd/internal/testdir
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/amd64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/arm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/arm64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/benchmark
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/dwtest
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/deadcode
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/httptest/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue10978
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue25459/a
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue25459/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue26237/b.dir
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue26237/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue32233/lib
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue32233/main
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue38192
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue39256
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue39757
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/issue42484
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ld/testdata/stackcheck
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/loadelf
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/loader
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/loadmacho
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/loadpe
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/loadxcoff
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/loong64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/mips
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/mips64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/ppc64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/riscv64
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/s390x
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/sym
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/wasm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/internal/x86
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/dynimportvar
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/dynimportvar/asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/linkname
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/linkname/coro_asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/linkname/p
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/linkname/textvar
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/pe-binutils
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/pe-llvm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/testBuildFortvOS
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/testHashedSyms
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/testIndexMismatch
+2026/02/23 16:59:12 跳过 [排除目录] cmd/link/testdata/testRO
+2026/02/23 16:59:12 跳过 [排除目录] cmd/nm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/objdump
+2026/02/23 16:59:12 跳过 [排除目录] cmd/objdump/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/objdump/testdata/testfilenum
+2026/02/23 16:59:12 跳过 [排除目录] cmd/pack
+2026/02/23 16:59:12 跳过 [排除目录] cmd/pprof
+2026/02/23 16:59:12 跳过 [排除目录] cmd/pprof/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/preprofile
+2026/02/23 16:59:12 跳过 [排除目录] cmd/relnote
+2026/02/23 16:59:12 跳过 [排除目录] cmd/test2json
+2026/02/23 16:59:12 跳过 [排除目录] cmd/tools
+2026/02/23 16:59:12 跳过 [排除目录] cmd/trace
+2026/02/23 16:59:12 跳过 [排除目录] cmd/trace/testdata
+2026/02/23 16:59:12 跳过 [排除目录] cmd/trace/testdata/testprog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/driver
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/binutils
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/driver
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/elfexec
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/graph
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/measurement
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/plugin
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/report
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/symbolizer
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/symbolz
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/internal/transport
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/profile
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/google/pprof/third_party/svgpan
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/github.com/ianlancetaylor/demangle
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/arm/armasm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/arm64/arm64asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/loong64/loong64asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/ppc64/ppc64asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/riscv64/riscv64asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/s390x/s390xasm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/arch/x86/x86asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/build/relnote
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/internal/lazyregexp
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/modfile
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/module
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/semver
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/dirhash
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/note
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/sumdb/tlog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/mod/zip
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/sync/errgroup
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/sync/semaphore
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/sys/plan9
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/sys/unix
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/sys/windows
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/counter
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/counter/countertest
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/config
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/configstore
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/counter
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/crashmonitor
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/mmap
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/telemetry
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/telemetry/internal/upload
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/term
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/cases
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/language
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/language/compact
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/internal/tag
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/language
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/transform
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/text/unicode/norm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/cmd/bisect
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/cover
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/internal/analysisflags
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/appends
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/asmdecl
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/assign
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/atomic
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/bools
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/buildtag
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/cgocall
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/composite
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/copylock
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/ctrlflow
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/defers
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/directive
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/errorsas
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/framepointer
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/httpresponse
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/ifaceassert
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/inspect
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/internal/analysisutil
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/loopclosure
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/lostcancel
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/nilfunc
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/printf
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/shift
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/sigchanyzer
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/slog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stdmethods
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stdversion
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/stringintconv
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/structtag
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/testinggoroutine
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/tests
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/timeformat
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unmarshal
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unreachable
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unsafeptr
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/passes/unusedresult
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/analysis/unitchecker
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/ast/inspector
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/cfg
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/types/objectpath
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/go/types/typeutil
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/aliases
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/analysisinternal
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/bisect
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/facts
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/stdlib
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/typeparams
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/typesinternal
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/golang.org/x/tools/internal/versions
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vendor/rsc.io/markdown
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/appends
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/asm
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/assign
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/atomic
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/bool
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/buildtag
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/cgo
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/composite
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/copylock
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/deadcode
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/directive
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/httpresponse
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/lostcancel
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/method
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/nilfunc
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/print
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/rangeloop
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/shift
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/slog
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/stdversion
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/structtag
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/tagtest
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/testingpkg
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/unmarshal
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/unsafeptr
+2026/02/23 16:59:12 跳过 [排除目录] cmd/vet/testdata/unused
+2026/02/23 16:59:12 跳过 [黑名单] cmp
+2026/02/23 16:59:12 失败 [compress/bzip2]: exit status 1
+2026/02/23 16:59:13 失败 [compress/flate]: exit status 1
+2026/02/23 16:59:13 失败 [compress/gzip]: exit status 1
+2026/02/23 16:59:14 失败 [compress/lzw]: exit status 1
+2026/02/23 16:59:14 失败 [compress/zlib]: exit status 1
+2026/02/23 16:59:15 失败 [container/heap]: exit status 1
+2026/02/23 16:59:15 失败 [container/list]: exit status 1
+2026/02/23 16:59:15 失败 [container/ring]: exit status 1
+2026/02/23 16:59:16 失败 [context]: exit status 1
+2026/02/23 16:59:16 跳过 [排除目录] crypto
+2026/02/23 16:59:16 跳过 [排除目录] crypto/aes
+2026/02/23 16:59:16 跳过 [排除目录] crypto/boring
+2026/02/23 16:59:16 跳过 [排除目录] crypto/cipher
+2026/02/23 16:59:16 跳过 [排除目录] crypto/des
+2026/02/23 16:59:16 跳过 [排除目录] crypto/dsa
+2026/02/23 16:59:16 跳过 [排除目录] crypto/ecdh
+2026/02/23 16:59:16 跳过 [排除目录] crypto/ecdsa
+2026/02/23 16:59:16 跳过 [排除目录] crypto/ed25519
+2026/02/23 16:59:16 跳过 [排除目录] crypto/elliptic
+2026/02/23 16:59:16 跳过 [排除目录] crypto/fips140
+2026/02/23 16:59:16 跳过 [排除目录] crypto/hkdf
+2026/02/23 16:59:16 跳过 [排除目录] crypto/hmac
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/boring
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/boring/bbig
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/boring/bcache
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/boring/sig
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/boring/syso
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/cryptotest
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/entropy
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/aes
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/aes/_asm/ctr
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/aes/_asm/standard
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/aes/gcm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/aes/gcm/_asm/gcm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/alias
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/bigmod
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/bigmod/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/check
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/check/checktest
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/drbg
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/ecdh
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/ecdsa
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/ed25519
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/edwards25519
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/edwards25519/field
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/edwards25519/field/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/hkdf
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/hmac
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/mlkem
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/nistec
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/nistec/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/nistec/fiat
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/pbkdf2
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/rsa
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/sha256
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/sha256/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/sha3
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/sha3/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/sha512
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/sha512/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/ssh
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/subtle
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/tls12
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140/tls13
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140deps
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140deps/byteorder
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140deps/cpu
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140deps/godebug
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140hash
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140only
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/fips140test
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/hpke
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/impl
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/randutil
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/sysrand
+2026/02/23 16:59:16 跳过 [排除目录] crypto/internal/sysrand/internal/seccomp
+2026/02/23 16:59:16 跳过 [排除目录] crypto/md5
+2026/02/23 16:59:16 跳过 [排除目录] crypto/md5/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/mlkem
+2026/02/23 16:59:16 跳过 [排除目录] crypto/pbkdf2
+2026/02/23 16:59:16 跳过 [排除目录] crypto/rand
+2026/02/23 16:59:16 跳过 [排除目录] crypto/rc4
+2026/02/23 16:59:16 跳过 [排除目录] crypto/rsa
+2026/02/23 16:59:16 跳过 [排除目录] crypto/sha1
+2026/02/23 16:59:16 跳过 [排除目录] crypto/sha1/_asm
+2026/02/23 16:59:16 跳过 [排除目录] crypto/sha256
+2026/02/23 16:59:16 跳过 [排除目录] crypto/sha3
+2026/02/23 16:59:16 跳过 [排除目录] crypto/sha512
+2026/02/23 16:59:16 跳过 [排除目录] crypto/subtle
+2026/02/23 16:59:16 跳过 [排除目录] crypto/tls
+2026/02/23 16:59:16 跳过 [排除目录] crypto/tls/fipsonly
+2026/02/23 16:59:16 跳过 [排除目录] crypto/tls/internal/fips140tls
+2026/02/23 16:59:16 跳过 [排除目录] crypto/x509
+2026/02/23 16:59:16 跳过 [排除目录] crypto/x509/internal/macos
+2026/02/23 16:59:16 跳过 [排除目录] crypto/x509/pkix
+2026/02/23 16:59:16 失败 [database/sql]: exit status 1
+2026/02/23 16:59:17 失败 [database/sql/driver]: exit status 1
+2026/02/23 16:59:17 失败 [debug/buildinfo]: exit status 1
+2026/02/23 16:59:18 失败 [debug/buildinfo/testdata/go117]: exit status 1
+2026/02/23 16:59:18 失败 [debug/dwarf]: exit status 1
+2026/02/23 16:59:19 失败 [debug/elf]: exit status 1
+2026/02/23 16:59:19 失败 [debug/gosym]: exit status 1
+2026/02/23 16:59:20 失败 [debug/gosym/testdata]: exit status 1
+2026/02/23 16:59:20 失败 [debug/macho]: exit status 1
+2026/02/23 16:59:21 失败 [debug/pe]: exit status 1
+2026/02/23 16:59:21 失败 [debug/plan9obj]: exit status 1
+2026/02/23 16:59:22 失败 [embed]: exit status 1
+2026/02/23 16:59:22 失败 [embed/internal/embedtest]: exit status 1
+2026/02/23 16:59:23 失败 [encoding]: exit status 1
+2026/02/23 16:59:23 失败 [encoding/ascii85]: exit status 1
+2026/02/23 16:59:23 失败 [encoding/asn1]: exit status 1
+2026/02/23 16:59:24 失败 [encoding/base32]: exit status 1
+2026/02/23 16:59:24 失败 [encoding/base64]: exit status 1
+2026/02/23 16:59:25 失败 [encoding/binary]: exit status 1
+2026/02/23 16:59:25 失败 [encoding/csv]: exit status 1
+2026/02/23 16:59:26 失败 [encoding/gob]: exit status 1
+2026/02/23 16:59:26 失败 [encoding/hex]: exit status 1
+2026/02/23 16:59:27 失败 [encoding/json]: exit status 1
+2026/02/23 16:59:27 失败 [encoding/pem]: exit status 1
+2026/02/23 16:59:28 失败 [encoding/xml]: exit status 1
+2026/02/23 16:59:28 跳过 [黑名单] errors
+2026/02/23 16:59:28 失败 [expvar]: exit status 1
+2026/02/23 16:59:29 失败 [flag]: exit status 1
+2026/02/23 16:59:29 失败 [fmt]: exit status 1
+2026/02/23 16:59:29 跳过 [排除目录] go/ast
+2026/02/23 16:59:29 跳过 [排除目录] go/ast/internal/tests
+2026/02/23 16:59:29 跳过 [排除目录] go/build
+2026/02/23 16:59:29 跳过 [排除目录] go/build/constraint
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/alltags
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/cgo_disabled
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/directives
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/doc
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/multi
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/non_source_tags
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/other
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/other/file
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/withvendor/src/a/b
+2026/02/23 16:59:29 跳过 [排除目录] go/build/testdata/withvendor/src/a/vendor/c/d
+2026/02/23 16:59:29 跳过 [排除目录] go/constant
+2026/02/23 16:59:29 跳过 [排除目录] go/doc
+2026/02/23 16:59:29 跳过 [排除目录] go/doc/comment
+2026/02/23 16:59:29 跳过 [排除目录] go/doc/testdata
+2026/02/23 16:59:29 跳过 [排除目录] go/doc/testdata/examples
+2026/02/23 16:59:29 跳过 [排除目录] go/doc/testdata/pkgdoc
+2026/02/23 16:59:29 跳过 [排除目录] go/format
+2026/02/23 16:59:29 跳过 [排除目录] go/importer
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/gccgoimporter
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/gccgoimporter/testdata
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/gcimporter
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/gcimporter/testdata
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/gcimporter/testdata/versions
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/srcimporter
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/srcimporter/testdata/issue20855
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/srcimporter/testdata/issue23092
+2026/02/23 16:59:29 跳过 [排除目录] go/internal/srcimporter/testdata/issue24392
+2026/02/23 16:59:29 跳过 [排除目录] go/parser
+2026/02/23 16:59:29 跳过 [排除目录] go/parser/testdata/goversion
+2026/02/23 16:59:29 跳过 [排除目录] go/parser/testdata/issue42951/not_a_file.go
+2026/02/23 16:59:29 跳过 [排除目录] go/printer
+2026/02/23 16:59:29 跳过 [排除目录] go/printer/testdata
+2026/02/23 16:59:29 跳过 [排除目录] go/scanner
+2026/02/23 16:59:29 跳过 [排除目录] go/token
+2026/02/23 16:59:29 跳过 [排除目录] go/types
+2026/02/23 16:59:29 跳过 [排除目录] go/types/testdata
+2026/02/23 16:59:29 跳过 [排除目录] go/types/testdata/local
+2026/02/23 16:59:29 跳过 [排除目录] go/version
+2026/02/23 16:59:30 失败 [hash]: exit status 1
+2026/02/23 16:59:30 失败 [hash/adler32]: exit status 1
+2026/02/23 16:59:31 失败 [hash/crc32]: exit status 1
+2026/02/23 16:59:31 失败 [hash/crc64]: exit status 1
+2026/02/23 16:59:31 失败 [hash/fnv]: exit status 1
+2026/02/23 16:59:32 失败 [hash/maphash]: exit status 1
+2026/02/23 16:59:32 失败 [html]: exit status 1
+2026/02/23 16:59:33 失败 [html/template]: exit status 1
+2026/02/23 16:59:34 失败 [image]: exit status 1
+2026/02/23 16:59:34 失败 [image/color]: exit status 1
+2026/02/23 16:59:34 失败 [image/color/palette]: exit status 1
+2026/02/23 16:59:35 失败 [image/draw]: exit status 1
+2026/02/23 16:59:35 失败 [image/gif]: exit status 1
+2026/02/23 16:59:36 失败 [image/internal/imageutil]: exit status 1
+2026/02/23 16:59:36 失败 [image/jpeg]: exit status 1
+2026/02/23 16:59:37 失败 [image/png]: exit status 1
+2026/02/23 16:59:37 失败 [index/suffixarray]: exit status 1
+2026/02/23 16:59:37 跳过 [黑名单] internal/abi
+2026/02/23 16:59:37 跳过 [排除目录] internal/abi/testdata
+2026/02/23 16:59:37 跳过 [黑名单] internal/asan
+2026/02/23 16:59:37 跳过 [黑名单] internal/bisect
+2026/02/23 16:59:37 跳过 [排除目录] internal/buildcfg
+2026/02/23 16:59:37 跳过 [黑名单] internal/bytealg
+2026/02/23 16:59:37 跳过 [黑名单] internal/byteorder
+2026/02/23 16:59:37 跳过 [排除目录] internal/cfg
+2026/02/23 16:59:37 跳过 [黑名单] internal/chacha8rand
+2026/02/23 16:59:37 跳过 [排除目录] internal/copyright
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/calloc
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/cfile
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/cfile/testdata
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/cfile/testdata/issue56006
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/cfile/testdata/issue59563
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/cformat
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/cmerge
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/decodecounter
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/decodemeta
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/encodecounter
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/encodemeta
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/pods
+2026/02/23 16:59:37 跳过 [黑名单] internal/coverage/rtcov
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/slicereader
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/slicewriter
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/stringtab
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/test
+2026/02/23 16:59:37 跳过 [排除目录] internal/coverage/uleb128
+2026/02/23 16:59:37 跳过 [黑名单] internal/cpu
+2026/02/23 16:59:37 跳过 [排除目录] internal/dag
+2026/02/23 16:59:37 跳过 [排除目录] internal/diff
+2026/02/23 16:59:37 跳过 [排除目录] internal/exportdata
+2026/02/23 16:59:37 跳过 [黑名单] internal/filepathlite
+2026/02/23 16:59:37 跳过 [排除目录] internal/fmtsort
+2026/02/23 16:59:37 跳过 [排除目录] internal/fuzz
+2026/02/23 16:59:37 跳过 [黑名单] internal/goarch
+2026/02/23 16:59:37 跳过 [黑名单] internal/godebug
+2026/02/23 16:59:37 跳过 [黑名单] internal/godebugs
+2026/02/23 16:59:37 跳过 [黑名单] internal/goexperiment
+2026/02/23 16:59:37 跳过 [黑名单] internal/goos
+2026/02/23 16:59:37 跳过 [排除目录] internal/goroot
+2026/02/23 16:59:37 跳过 [排除目录] internal/gover
+2026/02/23 16:59:37 跳过 [排除目录] internal/goversion
+2026/02/23 16:59:37 跳过 [黑名单] internal/itoa
+2026/02/23 16:59:37 跳过 [排除目录] internal/lazyregexp
+2026/02/23 16:59:37 跳过 [排除目录] internal/lazytemplate
+2026/02/23 16:59:37 跳过 [黑名单] internal/msan
+2026/02/23 16:59:37 跳过 [排除目录] internal/nettrace
+2026/02/23 16:59:37 跳过 [排除目录] internal/obscuretestdata
+2026/02/23 16:59:37 跳过 [黑名单] internal/oserror
+2026/02/23 16:59:37 跳过 [排除目录] internal/pkgbits
+2026/02/23 16:59:37 跳过 [排除目录] internal/platform
+2026/02/23 16:59:37 跳过 [黑名单] internal/poll
+2026/02/23 16:59:37 跳过 [排除目录] internal/profile
+2026/02/23 16:59:37 跳过 [黑名单] internal/profilerecord
+2026/02/23 16:59:37 跳过 [黑名单] internal/race
+2026/02/23 16:59:37 跳过 [黑名单] internal/reflectlite
+2026/02/23 16:59:37 跳过 [黑名单] internal/runtime/atomic
+2026/02/23 16:59:37 跳过 [黑名单] internal/runtime/exithook
+2026/02/23 16:59:37 跳过 [黑名单] internal/runtime/maps
+2026/02/23 16:59:37 跳过 [黑名单] internal/runtime/math
+2026/02/23 16:59:37 跳过 [黑名单] internal/runtime/sys
+2026/02/23 16:59:37 跳过 [排除目录] internal/runtime/syscall
+2026/02/23 16:59:37 跳过 [排除目录] internal/saferio
+2026/02/23 16:59:37 跳过 [排除目录] internal/singleflight
+2026/02/23 16:59:37 跳过 [黑名单] internal/stringslite
+2026/02/23 16:59:37 跳过 [黑名单] internal/sync
+2026/02/23 16:59:37 跳过 [排除目录] internal/synctest
+2026/02/23 16:59:37 跳过 [黑名单] internal/syscall/execenv
+2026/02/23 16:59:37 跳过 [排除目录] internal/syscall/unix
+2026/02/23 16:59:37 跳过 [黑名单] internal/syscall/windows
+2026/02/23 16:59:37 跳过 [黑名单] internal/syscall/windows/registry
+2026/02/23 16:59:37 跳过 [黑名单] internal/syscall/windows/sysdll
+2026/02/23 16:59:37 跳过 [排除目录] internal/sysinfo
+2026/02/23 16:59:37 跳过 [排除目录] internal/syslist
+2026/02/23 16:59:37 跳过 [排除目录] internal/testenv
+2026/02/23 16:59:37 跳过 [黑名单] internal/testlog
+2026/02/23 16:59:37 跳过 [排除目录] internal/testpty
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/event
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/event/go122
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/internal/oldtrace
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/internal/testgen/go122
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/raw
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/testdata
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/testdata/generators
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/testdata/testprog
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/testtrace
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/traceviewer
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/traceviewer/format
+2026/02/23 16:59:37 跳过 [排除目录] internal/trace/version
+2026/02/23 16:59:37 跳过 [排除目录] internal/txtar
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/errors
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/check
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/check/decls2
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/check/importdecl0
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/check/importdecl1
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/check/issue25008
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/examples
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/fixedbugs
+2026/02/23 16:59:37 跳过 [排除目录] internal/types/testdata/spec
+2026/02/23 16:59:37 跳过 [黑名单] internal/unsafeheader
+2026/02/23 16:59:37 跳过 [排除目录] internal/xcoff
+2026/02/23 16:59:37 跳过 [排除目录] internal/zstd
+2026/02/23 16:59:37 跳过 [黑名单] io
+2026/02/23 16:59:37 跳过 [黑名单] io/fs
+2026/02/23 16:59:38 失败 [io/ioutil]: exit status 1
+2026/02/23 16:59:38 跳过 [黑名单] iter
+2026/02/23 16:59:38 失败 [log]: exit status 1
+2026/02/23 16:59:39 失败 [log/internal]: exit status 1
+2026/02/23 16:59:39 失败 [log/slog]: exit status 1
+2026/02/23 16:59:40 失败 [log/slog/internal]: exit status 1
+2026/02/23 16:59:40 失败 [log/slog/internal/benchmarks]: exit status 1
+2026/02/23 16:59:41 失败 [log/slog/internal/buffer]: exit status 1
+2026/02/23 16:59:41 失败 [log/slog/internal/slogtest]: exit status 1
+2026/02/23 16:59:42 失败 [log/syslog]: exit status 1
+2026/02/23 16:59:42 失败 [maps]: exit status 1
+2026/02/23 16:59:43 失败 [math]: exit status 1
+2026/02/23 16:59:44 失败 [math/big]: exit status 1
+2026/02/23 16:59:44 跳过 [黑名单] math/bits
+2026/02/23 16:59:44 失败 [math/cmplx]: exit status 1
+2026/02/23 16:59:45 失败 [math/rand]: exit status 1
+2026/02/23 16:59:45 失败 [math/rand/v2]: exit status 1
+2026/02/23 16:59:46 失败 [mime]: exit status 1
+2026/02/23 16:59:47 失败 [mime/multipart]: exit status 1
+2026/02/23 16:59:47 失败 [mime/quotedprintable]: exit status 1
+2026/02/23 16:59:47 跳过 [排除目录] net
+2026/02/23 16:59:47 跳过 [排除目录] net/http
+2026/02/23 16:59:47 跳过 [排除目录] net/http/cgi
+2026/02/23 16:59:47 跳过 [排除目录] net/http/cookiejar
+2026/02/23 16:59:47 跳过 [排除目录] net/http/fcgi
+2026/02/23 16:59:47 跳过 [排除目录] net/http/httptest
+2026/02/23 16:59:47 跳过 [排除目录] net/http/httptrace
+2026/02/23 16:59:47 跳过 [排除目录] net/http/httputil
+2026/02/23 16:59:47 跳过 [排除目录] net/http/internal
+2026/02/23 16:59:47 跳过 [排除目录] net/http/internal/ascii
+2026/02/23 16:59:47 跳过 [排除目录] net/http/internal/testcert
+2026/02/23 16:59:47 跳过 [排除目录] net/http/pprof
+2026/02/23 16:59:47 跳过 [排除目录] net/http/pprof/testdata
+2026/02/23 16:59:47 跳过 [排除目录] net/internal/cgotest
+2026/02/23 16:59:47 跳过 [排除目录] net/internal/socktest
+2026/02/23 16:59:47 跳过 [排除目录] net/mail
+2026/02/23 16:59:47 跳过 [排除目录] net/netip
+2026/02/23 16:59:47 跳过 [排除目录] net/rpc
+2026/02/23 16:59:47 跳过 [排除目录] net/rpc/jsonrpc
+2026/02/23 16:59:47 跳过 [排除目录] net/smtp
+2026/02/23 16:59:47 跳过 [排除目录] net/textproto
+2026/02/23 16:59:47 跳过 [排除目录] net/url
+2026/02/23 16:59:47 跳过 [黑名单] os
+2026/02/23 16:59:47 跳过 [排除目录] os/exec
+2026/02/23 16:59:47 跳过 [排除目录] os/exec/internal/fdtest
+2026/02/23 16:59:47 跳过 [排除目录] os/signal
+2026/02/23 16:59:47 跳过 [排除目录] os/user
+2026/02/23 16:59:47 跳过 [黑名单] path
+2026/02/23 16:59:47 失败 [path/filepath]: exit status 1
+2026/02/23 16:59:48 失败 [plugin]: exit status 1
+2026/02/23 16:59:49 失败 [reflect]: exit status 1
+2026/02/23 16:59:49 失败 [reflect/internal/example1]: exit status 1
+2026/02/23 16:59:49 失败 [reflect/internal/example2]: exit status 1
+2026/02/23 16:59:50 失败 [regexp]: exit status 1
+2026/02/23 16:59:51 失败 [regexp/syntax]: exit status 1
+2026/02/23 16:59:51 跳过 [黑名单] runtime
+2026/02/23 16:59:51 失败 [runtime/asan]: exit status 1
+2026/02/23 16:59:52 失败 [runtime/cgo]: exit status 1
+2026/02/23 16:59:52 失败 [runtime/coverage]: exit status 1
+2026/02/23 16:59:53 失败 [runtime/debug]: exit status 1
+2026/02/23 16:59:53 失败 [runtime/internal/startlinetest]: exit status 1
+2026/02/23 16:59:54 失败 [runtime/internal/wasitest]: exit status 1
+2026/02/23 16:59:54 失败 [runtime/internal/wasitest/testdata]: exit status 1
+2026/02/23 16:59:55 失败 [runtime/metrics]: exit status 1
+2026/02/23 16:59:55 失败 [runtime/msan]: exit status 1
+2026/02/23 16:59:56 失败 [runtime/pprof]: exit status 1
+2026/02/23 16:59:56 失败 [runtime/pprof/testdata/mappingtest]: exit status 1
+2026/02/23 16:59:57 失败 [runtime/race]: exit status 1
+2026/02/23 16:59:58 失败 [runtime/race/internal/amd64v1]: exit status 1
+2026/02/23 16:59:58 失败 [runtime/race/internal/amd64v3]: exit status 1
+2026/02/23 16:59:59 失败 [runtime/race/testdata]: exit status 1
+2026/02/23 16:59:59 失败 [runtime/testdata/testexithooks]: exit status 1
+2026/02/23 17:00:00 失败 [runtime/testdata/testfaketime]: exit status 1
+2026/02/23 17:00:00 失败 [runtime/testdata/testfds]: exit status 1
+2026/02/23 17:00:01 失败 [runtime/testdata/testprog]: exit status 1
+2026/02/23 17:00:02 失败 [runtime/testdata/testprogcgo]: exit status 1
+2026/02/23 17:00:02 失败 [runtime/testdata/testprogcgo/windows]: exit status 1
+2026/02/23 17:00:02 失败 [runtime/testdata/testprognet]: exit status 1
+2026/02/23 17:00:03 失败 [runtime/testdata/testsuid]: exit status 1
+2026/02/23 17:00:03 失败 [runtime/testdata/testsynctest]: exit status 1
+2026/02/23 17:00:04 失败 [runtime/testdata/testwinlib]: exit status 1
+2026/02/23 17:00:04 失败 [runtime/testdata/testwinlibsignal]: exit status 1
+2026/02/23 17:00:05 失败 [runtime/testdata/testwinlibthrow]: exit status 1
+2026/02/23 17:00:05 失败 [runtime/testdata/testwinsignal]: exit status 1
+2026/02/23 17:00:05 失败 [runtime/testdata/testwintls]: exit status 1
+2026/02/23 17:00:06 失败 [runtime/trace]: exit status 1
+2026/02/23 17:00:06 跳过 [黑名单] slices
+2026/02/23 17:00:06 失败 [sort]: exit status 1
+2026/02/23 17:00:07 失败 [strconv]: exit status 1
+2026/02/23 17:00:08 失败 [strings]: exit status 1
+2026/02/23 17:00:08 失败 [structs]: exit status 1
+2026/02/23 17:00:08 跳过 [黑名单] sync
+2026/02/23 17:00:08 跳过 [黑名单] sync/atomic
+2026/02/23 17:00:08 跳过 [黑名单] syscall
+2026/02/23 17:00:09 失败 [syscall/js]: exit status 1
+2026/02/23 17:00:09 失败 [testing]: exit status 1
+2026/02/23 17:00:10 失败 [testing/fstest]: exit status 1
+2026/02/23 17:00:10 失败 [testing/internal/testdeps]: exit status 1
+2026/02/23 17:00:11 失败 [testing/iotest]: exit status 1
+2026/02/23 17:00:11 失败 [testing/quick]: exit status 1
+2026/02/23 17:00:12 失败 [testing/slogtest]: exit status 1
+2026/02/23 17:00:12 失败 [testing/synctest]: exit status 1
+2026/02/23 17:00:13 失败 [text/scanner]: exit status 1
+2026/02/23 17:00:13 失败 [text/tabwriter]: exit status 1
+2026/02/23 17:00:14 失败 [text/template]: exit status 1
+2026/02/23 17:00:14 失败 [text/template/parse]: exit status 1
+2026/02/23 17:00:14 跳过 [黑名单] time
+2026/02/23 17:00:15 失败 [time/tzdata]: exit status 1
+2026/02/23 17:00:15 失败 [unicode]: exit status 1
+2026/02/23 17:00:15 跳过 [黑名单] unicode/utf16
+2026/02/23 17:00:15 跳过 [黑名单] unicode/utf8
+2026/02/23 17:00:16 失败 [unique]: exit status 1
+2026/02/23 17:00:16 跳过 [黑名单] unsafe
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/crypto/chacha20
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/crypto/chacha20poly1305
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/crypto/cryptobyte
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/crypto/cryptobyte/asn1
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/crypto/internal/alias
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/crypto/internal/poly1305
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/dns/dnsmessage
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/http/httpguts
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/http/httpproxy
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/http2/hpack
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/idna
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/lif
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/nettest
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/net/route
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/sys/cpu
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/text/secure/bidirule
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/text/transform
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/text/unicode/bidi
+2026/02/23 17:00:16 跳过 [排除目录] vendor/golang.org/x/text/unicode/norm
+2026/02/23 17:00:16 失败 [weak]: exit status 1
+2026/02/23 17:00:16 --- 结束：已插桩 0 个包，跳过 854 个包（就地修改于 D:\BUAA\go-instrument\10\src）---
+2026/02/23 17:15:40 日志写入: D:\BUAA\CVW\instrumenter-go.log
+2026/02/23 17:15:40 在目录内就地插桩: D:\BUAA\go-instrument\10\math
+2026/02/23 17:15:41 黑名单共 51 个包（os 及其递归依赖）
+2026/02/23 17:15:44 失败 [math]: exit status 1
+2026/02/23 17:15:45 失败 [big]: exit status 1
+2026/02/23 17:15:45 失败 [bits]: exit status 1
+2026/02/23 17:15:46 失败 [cmplx]: exit status 1
+2026/02/23 17:15:46 失败 [rand]: exit status 1
+2026/02/23 17:15:46 失败 [rand/v2]: exit status 1
+2026/02/23 17:15:46 --- 结束：已插桩 0 个包，跳过 0 个包（就地修改于 D:\BUAA\go-instrument\10\math）---
+2026/02/23 17:23:07 日志写入: D:\BUAA\CVW\instrumenter-go.log
+2026/02/23 17:23:07 从 src-go 插桩到 src-instrument: D:\BUAA\CVW\src-go -> D:\BUAA\CVW\src-instrument
+2026/02/23 17:23:07 黑名单共 51 个包（os 及其递归依赖）
+2026/02/23 17:23:08 失败 [math]: exit status 1
+2026/02/23 17:23:08 失败 [math/big]: exit status 1
+2026/02/23 17:23:08 跳过 [黑名单] math/bits
+2026/02/23 17:23:10 失败 [math/rand]: exit status 1
+2026/02/23 17:23:10 失败 [math/rand/v2]: exit status 1
+2026/02/23 17:23:10 --- 结束：已插桩 1 个包，跳过 1 个包（输出至 D:\BUAA\CVW\src-instrument）---

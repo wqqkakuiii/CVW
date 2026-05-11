@@ -1,0 +1,22 @@
+go 1.24.1
+
+use (
+	.
+	./chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0
+	//./chainmaker/testdata/compute
+	//./chainmaker/testdata/erc721
+	//./chainmaker/testdata/exchange
+	//./chainmaker/testdata/fact
+	//./chainmaker/testdata/identity
+	//./chainmaker/testdata/itinerary
+	//./chainmaker/testdata/raffle
+	./chainmaker/testdata-instrument/compute
+	./chainmaker/testdata-instrument/erc721
+	./chainmaker/testdata-instrument/exchange
+	./chainmaker/testdata-instrument/fact
+	./chainmaker/testdata-instrument/identity
+	./chainmaker/testdata-instrument/itinerary
+	./chainmaker/testdata-instrument/raffle
+
+	//./test/compute
+)
