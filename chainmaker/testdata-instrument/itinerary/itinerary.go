@@ -127,6 +127,14 @@ func ToResult(data interface{}) []byte {
 //
 //go:wasmexport init_contract
 func InitContract() {
+	__cvwGasSave :=
+
+		registry.
+			GetGas()
+	defer registry.
+		SetGas(
+			__cvwGasSave,
+		)
 	registry.
 		ConsumeGas(
 			5,
@@ -308,12 +316,7 @@ func queryHistory() {
 
 			recordMap[location] = *hv
 		} else {
-			registry.
-				ConsumeGas(
-					0,
-				)
-
-				// 只要最新行踪记录
+			// 只要最新行踪记录
 			if record.BlockHeight < km.BlockHeight {
 				registry.
 					ConsumeGas(
@@ -486,12 +489,7 @@ func saveAndQueryHistory() {
 
 			recordMap[location] = *hv
 		} else {
-			registry.
-				ConsumeGas(
-					0,
-				)
-
-				// 只要最新行踪记录
+			// 只要最新行踪记录
 			if record.BlockHeight < km.BlockHeight {
 				registry.
 					ConsumeGas(
@@ -545,10 +543,6 @@ func main() {
 	registry.
 		SetGas(
 			9223372036854775807,
-		)
-	registry.
-		ConsumeGas(
-			0,
 		)
 
 	// 新版SDK无需初始化代码

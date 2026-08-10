@@ -1,0 +1,5 @@
+# summary: contract,method,grow_event_count,grow_sizes
+compute,normalCal,1,5
+
+# detail: contract,method,grow_event_index,grow_size
+compute,normalCal,1,5

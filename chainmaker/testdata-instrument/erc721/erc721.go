@@ -57,6 +57,8 @@ const (
 //
 //go:wasmexport init_contract
 func InitContract() {
+	__cvwGasSave := registry.GetGas()
+	defer registry.SetGas(__cvwGasSave)
 	registry.
 		ConsumeGas(7)
 
@@ -364,14 +366,8 @@ func setApprovalForAll(operator string, approved bool) {
 
 	var approvedStr string
 	if approved {
-		registry.
-			ConsumeGas(0)
-
 		approvedStr = trueString
 	} else {
-		registry.
-			ConsumeGas(0)
-
 		approvedStr = falseString
 	}
 
@@ -1278,7 +1274,5 @@ func main() {
 		Register("gas", GAS)
 	registry.
 		SetGas(9223372036854775807)
-	registry.
-		ConsumeGas(0)
 
 }

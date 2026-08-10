@@ -33,8 +33,8 @@ func GetGas() uint64 {
 //go:wasmexport init_contract
 func initContract() {
 
-	registry.
-		ConsumeGas(0)
+	__cvwGasSave := registry.GetGas()
+	defer registry.SetGas(__cvwGasSave)
 
 	// 此处可写安装合约的初始化逻辑
 
@@ -44,9 +44,6 @@ func initContract() {
 //
 //go:wasmexport upgrade
 func upgrade() {
-	registry.
-		ConsumeGas(0)
-
 	// 此处可写升级合约的逻辑
 
 }
@@ -74,13 +71,7 @@ func NewFact(fileHash string, fileName string, time int32) *Fact {
 
 // 获取序列化对象
 func (f *Fact) getEasyCodec() *sdk.EasyCodec {
-	registry.
-		ConsumeGas(0)
-
 	if f.ec == nil {
-		registry.
-			ConsumeGas(0)
-
 		f.ec = sdk.NewEasyCodec()
 		f.ec.AddString("fileHash", f.fileHash)
 		f.ec.AddString("fileName", f.fileName)
@@ -91,17 +82,11 @@ func (f *Fact) getEasyCodec() *sdk.EasyCodec {
 
 // 序列化为json字符串
 func (f *Fact) toJson() string {
-	registry.
-		ConsumeGas(0)
-
 	return f.getEasyCodec().ToJson()
 }
 
 // 序列化为cmec编码
 func (f *Fact) marshal() []byte {
-	registry.
-		ConsumeGas(0)
-
 	return f.getEasyCodec().Marshal()
 }
 
@@ -314,7 +299,5 @@ func main() {
 		Register("gas", GAS)
 	registry.
 		SetGas(9223372036854775807)
-	registry.
-		ConsumeGas(0)
 
 }

@@ -45,6 +45,14 @@ const (
 
 //go:wasmexport init_contract
 func InitContract() {
+	__cvwGasSave :=
+
+		registry.
+			GetGas()
+	defer registry.
+		SetGas(
+			__cvwGasSave,
+		)
 	registry.
 		ConsumeGas(
 			15,
@@ -76,6 +84,14 @@ func Upgrade() {
 
 // 这个函数不暴露给wasmer，InitContract暴露
 func initContract(adminAddresses []string) {
+	__cvwGasSave :=
+
+		registry.
+			GetGas()
+	defer registry.
+		SetGas(
+			__cvwGasSave,
+		)
 	registry.
 		ConsumeGas(
 			26,
@@ -425,10 +441,6 @@ func main() {
 	registry.
 		SetGas(
 			9223372036854775807,
-		)
-	registry.
-		ConsumeGas(
-			0,
 		)
 
 }

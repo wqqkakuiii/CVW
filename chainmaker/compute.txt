@@ -1,0 +1,5 @@
+# pool OOM load-only report
+# time=2026-06-08T15:24:55+08:00
+# contracts=1 wasm=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/testdata/compute-go.wasm
+
+## note: realtime output enabled, see terminal for [oom-sample] and periodic grow logs

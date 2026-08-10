@@ -1,0 +1,6 @@
+data_size,data_size_human,expected,actual,ok,code,gas,exec_time_sec,mem_bytes,mem_pages,mem_human,message
+1024,1.0KB,1024,1024,true,0,24,0.003878,8388608,128,8.00MB,
+65536,64.0KB,65536,65536,true,0,24,0.028432,8388608,128,8.00MB,
+1048576,1.00MB,1048576,1048576,true,0,24,0.005416,8388608,128,8.00MB,
+8388608,8.00MB,8388608,,false,1,30,0.009154,20971520,320,20.00MB,contract message:missing or invalid param: data
+16777216,16.00MB,16777216,,false,1,30,0.022435,29360128,448,28.00MB,contract message:missing or invalid param: data

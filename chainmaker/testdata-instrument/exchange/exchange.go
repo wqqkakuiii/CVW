@@ -38,6 +38,14 @@ const (
 //go:wasmexport init_contract
 func InitContract() {
 
+	__cvwGasSave :=
+
+		registry.
+			GetGas()
+	defer registry.
+		SetGas(
+			__cvwGasSave,
+		)
 	registry.
 		ConsumeGas(
 			5,
@@ -189,10 +197,6 @@ func main() {
 	registry.
 		SetGas(
 			9223372036854775807,
-		)
-	registry.
-		ConsumeGas(
-			0,
 		)
 
 }

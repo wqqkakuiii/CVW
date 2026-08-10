@@ -14,9 +14,10 @@ CONTRACT_DIRS = [
     "identity",
     "itinerary",
     "raffle",
+    "bigInput",
 ]
 
-DEFAULT_TARGET = "/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/testdata-instrument"
+DEFAULT_TARGET = "/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/testdata"
 
 
 def collect_wasm_files(base_dir: Path):

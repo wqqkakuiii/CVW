@@ -41,6 +41,14 @@ func GetGas() uint64 {
 //go:wasmexport init_contract
 func InitContract() {
 
+	__cvwGasSave :=
+
+		registry.
+			GetGas()
+	defer registry.
+		SetGas(
+			__cvwGasSave,
+		)
 	registry.
 		ConsumeGas(
 			5,

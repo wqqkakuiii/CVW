@@ -1,0 +1,4691 @@
+contract=compute method=hashCal testid=91 block_count=307
+
+--- block 1 ---
+begin
+registry.ConsumeGas amount= 19 remain= 2147483628
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x13)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:95 +0x2
+
+end
+
+--- block 2 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483616
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 3 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483603
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f080, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 4 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483598
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f080, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 5 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483586
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 6 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483573
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f0c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 7 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483568
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f0c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 8 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483556
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 9 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483543
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f100, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 10 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483538
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f100, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 11 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483526
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 12 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483513
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f140, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 13 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483508
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f140, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 14 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483496
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 15 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483483
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f180, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 16 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483478
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f180, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 17 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483466
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 18 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483453
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f1c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 19 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483448
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f1c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 20 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483436
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 21 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483423
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f200, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 22 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483418
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f200, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 23 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483406
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 24 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483393
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f240, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 25 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483388
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f240, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 26 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483376
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 27 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483363
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f280, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 28 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483358
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f280, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 29 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483346
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 30 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483333
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f2c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 31 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483328
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f2c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 32 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483316
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 33 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483303
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f300, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 34 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483298
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f300, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 35 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483286
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 36 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483273
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f340, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 37 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483268
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f340, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 38 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483256
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 39 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483243
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f380, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 40 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483238
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f380, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 41 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483226
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 42 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483213
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f3c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 43 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483208
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f3c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 44 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483196
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 45 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483183
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f400, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 46 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483178
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f400, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 47 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483166
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 48 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483153
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f440, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 49 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483148
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f440, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 50 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483136
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 51 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483123
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f480, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 52 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483118
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f480, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 53 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483106
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 54 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483093
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f4c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 55 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483088
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f4c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 56 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483076
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 57 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483063
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f500, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 58 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483058
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f500, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 59 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483046
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 60 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483033
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f540, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 61 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147483028
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f540, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 62 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483016
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 63 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147483003
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f580, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 64 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482998
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f580, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 65 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482986
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 66 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482973
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f5c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 67 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482968
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f5c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 68 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482956
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 69 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482943
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f600, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 70 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482938
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f600, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 71 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482926
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 72 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482913
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f640, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 73 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482908
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f640, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 74 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482896
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 75 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482883
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f680, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 76 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482878
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f680, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 77 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482866
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 78 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482853
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f6c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 79 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482848
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f6c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 80 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482836
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 81 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482823
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f700, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 82 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482818
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f700, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 83 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482806
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 84 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482793
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f740, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 85 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482788
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f740, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 86 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482776
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 87 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482763
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f780, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 88 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482758
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f780, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 89 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482746
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 90 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482733
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f7c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 91 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482728
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f7c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 92 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482716
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 93 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482703
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f800, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 94 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482698
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f800, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 95 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482686
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 96 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482673
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f840, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 97 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482668
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f840, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 98 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482656
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 99 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482643
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f880, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 100 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482638
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f880, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 101 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482626
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 102 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482613
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f8c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 103 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482608
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f8c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 104 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482596
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 105 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482583
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f900, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 106 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482578
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f900, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 107 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482566
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 108 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482553
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f940, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 109 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482548
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f940, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 110 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482536
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 111 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482523
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f980, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 112 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482518
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f980, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 113 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482506
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 114 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482493
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44f9c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 115 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482488
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44f9c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 116 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482476
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 117 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482463
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fa00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 118 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482458
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fa00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 119 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482446
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 120 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482433
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fa40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 121 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482428
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fa40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 122 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482416
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 123 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482403
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fa80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 124 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482398
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fa80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 125 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482386
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 126 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482373
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fac0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 127 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482368
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fac0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 128 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482356
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 129 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482343
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fb00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 130 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482338
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fb00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 131 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482326
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 132 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482313
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fb40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 133 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482308
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fb40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 134 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482296
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 135 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482283
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fb80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 136 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482278
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fb80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 137 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482266
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 138 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482253
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fbc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 139 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482248
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fbc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 140 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482236
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 141 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482223
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fc00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 142 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482218
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fc00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 143 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482206
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 144 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482193
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fc40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 145 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482188
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fc40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 146 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482176
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 147 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482163
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fc80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 148 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482158
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fc80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 149 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482146
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 150 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482133
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fcc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 151 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482128
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fcc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 152 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482116
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 153 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482103
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fd00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 154 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482098
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fd00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 155 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482086
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 156 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482073
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fd40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 157 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482068
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fd40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 158 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482056
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 159 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482043
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fd80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 160 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482038
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fd80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 161 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147482026
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 162 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147482013
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fdc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 163 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147482008
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fdc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 164 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481996
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 165 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481983
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fe00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 166 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481978
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fe00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 167 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481966
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 168 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481953
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fe40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 169 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481948
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fe40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 170 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481936
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 171 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481923
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fe80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 172 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481918
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fe80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 173 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481906
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 174 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481893
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44fec0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 175 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481888
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44fec0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 176 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481876
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 177 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481863
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44ff00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 178 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481858
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44ff00, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 179 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481846
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 180 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481833
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44ff40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 181 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481828
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44ff40, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 182 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481816
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 183 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481803
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44ff80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 184 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481798
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44ff80, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 185 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481786
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 186 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481773
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x44ffc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 187 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481768
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x44ffc0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 188 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481756
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 189 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481743
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864000, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 190 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481738
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864000, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 191 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481726
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 192 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481713
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864040, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 193 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481708
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864040, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 194 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481696
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 195 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481683
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864080, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 196 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481678
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864080, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 197 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481666
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 198 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481653
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8640c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 199 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481648
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8640c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 200 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481636
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 201 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481623
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864100, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 202 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481618
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864100, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 203 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481606
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 204 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481593
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864140, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 205 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481588
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864140, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 206 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481576
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 207 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481563
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864180, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 208 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481558
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864180, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 209 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481546
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 210 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481533
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8641c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 211 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481528
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8641c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 212 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481516
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 213 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481503
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864200, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 214 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481498
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864200, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 215 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481486
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 216 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481473
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864240, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 217 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481468
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864240, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 218 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481456
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 219 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481443
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864280, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 220 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481438
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864280, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 221 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481426
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 222 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481413
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8642c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 223 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481408
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8642c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 224 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481396
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 225 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481383
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864300, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 226 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481378
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864300, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 227 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481366
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 228 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481353
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864340, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 229 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481348
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864340, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 230 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481336
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 231 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481323
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864380, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 232 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481318
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864380, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 233 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481306
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 234 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481293
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8643c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 235 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481288
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8643c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 236 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481276
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 237 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481263
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864400, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 238 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481258
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864400, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 239 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481246
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 240 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481233
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864440, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 241 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481228
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864440, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 242 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481216
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 243 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481203
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864480, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 244 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481198
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864480, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 245 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481186
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 246 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481173
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8644c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 247 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481168
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8644c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 248 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481156
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 249 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481143
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864500, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 250 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481138
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864500, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 251 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481126
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 252 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481113
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864540, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 253 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481108
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864540, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 254 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481096
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 255 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481083
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864580, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 256 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481078
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864580, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 257 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481066
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 258 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481053
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8645c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 259 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481048
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8645c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 260 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481036
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 261 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147481023
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864600, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 262 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147481018
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864600, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 263 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147481006
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 264 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480993
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864640, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 265 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480988
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864640, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 266 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480976
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 267 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480963
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864680, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 268 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480958
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864680, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 269 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480946
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 270 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480933
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8646c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 271 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480928
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8646c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 272 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480916
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 273 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480903
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864700, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 274 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480898
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864700, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 275 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480886
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 276 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480873
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864740, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 277 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480868
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864740, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 278 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480856
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 279 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480843
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864780, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 280 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480838
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864780, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 281 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480826
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 282 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480813
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8647c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 283 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480808
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8647c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 284 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480796
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 285 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480783
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864800, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 286 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480778
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864800, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 287 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480766
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 288 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480753
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864840, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 289 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480748
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864840, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 290 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480736
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 291 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480723
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864880, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 292 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480718
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864880, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 293 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480706
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 294 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480693
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x8648c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 295 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480688
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x8648c0, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 296 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480676
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 297 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480663
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864900, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 298 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480658
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864900, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 299 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480646
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:105 +0x9
+
+end
+
+--- block 300 ---
+begin
+registry.ConsumeGas amount= 13 remain= 2147480633
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xd)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.Sum256({0x864940, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:77 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 301 ---
+begin
+registry.ConsumeGas amount= 5 remain= 2147480628
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x5)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+crypto/sha256.New()
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:42 +0x2
+crypto/sha256.Sum256({0x864940, 0x1b, 0x20})
+	/usr/local/go-version/go1.24.1/src/crypto/sha256/sha256.go:89 +0x3
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:109 +0xb
+
+end
+
+--- block 302 ---
+begin
+registry.ConsumeGas amount= 6 remain= 2147480622
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x6)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.NewBuffer(...)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:490
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyUnmarshal({0x849a00, 0x18f, 0x18f})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:351 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getArgsMap(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:748
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.Arg({0x42641, 0xf})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:758 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.stringArg(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:754
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getCtxPtr()
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:734 +0x4
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x41fec, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:467 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x4cc0f0, 0x50})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:112 +0x12
+
+end
+
+--- block 303 ---
+begin
+registry.ConsumeGas amount= 7 remain= 2147480615
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x7)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.Equal(...)
+	/usr/local/go-version/go1.24.1/src/bytes/bytes.go:24
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyUnmarshal({0x849a00, 0x18f, 0x18f})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:357 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getArgsMap(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:748
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.Arg({0x42641, 0xf})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:758 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.stringArg(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:754
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getCtxPtr()
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:734 +0x4
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x41fec, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:467 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x4cc0f0, 0x50})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:112 +0x12
+
+end
+
+--- block 304 ---
+begin
+registry.ConsumeGas amount= 6 remain= 2147480609
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x6)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.NewBuffer(...)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:490
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyUnmarshal({0x849a00, 0x18f, 0x18f})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:367 +0x63
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getArgsMap(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:748
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.Arg({0x42641, 0xf})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:758 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.stringArg(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:754
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getCtxPtr()
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:734 +0x4
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x41fec, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:467 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x4cc0f0, 0x50})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:112 +0x12
+
+end
+
+--- block 305 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147480588
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4d60c0, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43edf0, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edf0, {0x43edd4, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edf0, 0x6, {0x43edd4, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x434120, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x41fec, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x4cc0f0, 0x50})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:112 +0x12
+
+end
+
+--- block 306 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147480576
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4d60c0, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43edf0, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edf0, {0x43edd4, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edf0, 0x6, {0x43edd4, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x434120, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x41fec, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x4cc0f0, 0x50})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:112 +0x12
+
+end
+
+--- block 307 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147480575
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x4d60c0, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43edf0, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edf0, {0x43edd4, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edf0, 0x6, {0x43edd4, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x434120, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x41fec, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x4cc0f0, 0x50})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.hashCal()
+	/home/projects/CVW/chainmaker/testdata-instrument/compute/compute.go:112 +0x12
+
+end
+

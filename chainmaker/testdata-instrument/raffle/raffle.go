@@ -54,6 +54,8 @@ type Peoples struct {
 //
 //go:wasmexport init_contract
 func InitContract() {
+	__cvwGasSave := registry.GetGas()
+	defer registry.SetGas(__cvwGasSave)
 	registry.
 		ConsumeGas(5)
 
@@ -438,8 +440,6 @@ func normalCal() {
 
 //go:wasmexport hashCal
 func hashCal() {
-	registry.
-		ConsumeGas(0)
 
 	hashInput := "ChainMaker Performance Test"
 	var hashResult [32]byte
@@ -508,7 +508,5 @@ func main() {
 		Register("gas", GAS)
 	registry.
 		SetGas(9223372036854775807)
-	registry.
-		ConsumeGas(0)
 
 }

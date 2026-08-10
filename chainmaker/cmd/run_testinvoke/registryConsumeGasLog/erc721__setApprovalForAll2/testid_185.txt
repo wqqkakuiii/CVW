@@ -1,0 +1,689 @@
+contract=erc721 method=setApprovalForAll2 testid=185 block_count=25
+
+--- block 1 ---
+begin
+registry.ConsumeGas amount= 36 remain= 2147483611
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x24)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:397 +0x2
+
+end
+
+--- block 2 ---
+begin
+registry.ConsumeGas amount= 6 remain= 2147483605
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x6)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.NewBuffer(...)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:490
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyUnmarshal({0x848960, 0x1d3, 0x1d3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:351 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getArgsMap(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:748
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.Arg({0x45baa, 0xc})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:758 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).ArgString(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:338
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:400 +0xa
+
+end
+
+--- block 3 ---
+begin
+registry.ConsumeGas amount= 7 remain= 2147483598
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x7)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.Equal(...)
+	/usr/local/go-version/go1.24.1/src/bytes/bytes.go:24
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyUnmarshal({0x848960, 0x1d3, 0x1d3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:357 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getArgsMap(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:748
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.Arg({0x45baa, 0xc})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:758 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).ArgString(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:338
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:400 +0xa
+
+end
+
+--- block 4 ---
+begin
+registry.ConsumeGas amount= 6 remain= 2147483592
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x6)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.NewBuffer(...)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:490
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyUnmarshal({0x848960, 0x1d3, 0x1d3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:367 +0x63
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getArgsMap(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:748
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.Arg({0x45baa, 0xc})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:758 +0x5
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).ArgString(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:338
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:400 +0xa
+
+end
+
+--- block 5 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483571
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0280, 0x3b, 0x40}, 0x32)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43edd8, 0x32)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edd8, {0x4f0240, 0x32, 0x32})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350c0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:612 +0x36
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 6 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483559
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0280, 0x3b, 0x40}, 0x32)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43edd8, 0x32)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edd8, {0x4f0240, 0x32, 0x32})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350c0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:612 +0x36
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 7 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483558
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x4f0280, 0x3b, 0x40}, 0x32)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43edd8, 0x32)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edd8, {0x4f0240, 0x32, 0x32})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350c0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:612 +0x36
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 8 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483537
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x83d980, 0x7e, 0x80}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43edd8, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edd8, {0x43edbc, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edd8, 0x1, {0x43edbc, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350c0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:328 +0x12
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:612 +0x36
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 9 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483525
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x83d980, 0x7e, 0x80}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43edd8, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edd8, {0x43edbc, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edd8, 0x1, {0x43edbc, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350c0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:328 +0x12
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:612 +0x36
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 10 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483524
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x83d980, 0x7e, 0x80}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43edd8, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edd8, {0x43edbc, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edd8, 0x1, {0x43edbc, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350c0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:328 +0x12
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:612 +0x36
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 11 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483503
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f02c0, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43ed50, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43ed50, {0x43ed34, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43ed50, 0x6, {0x43ed34, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350e0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45110, 0x8})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:614 +0x38
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 12 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483491
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f02c0, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43ed50, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43ed50, {0x43ed34, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43ed50, 0x6, {0x43ed34, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350e0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45110, 0x8})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:614 +0x38
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 13 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483490
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x4f02c0, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43ed50, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43ed50, {0x43ed34, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43ed50, 0x6, {0x43ed34, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x4350e0, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45110, 0x8})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.PutState({0x4658e, 0xf}, {0x4f0240, 0x32}, {0x449e0, 0x1})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:614 +0x38
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextImpl).PutState(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:288
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:413 +0x15
+
+end
+
+--- block 14 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483469
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0300, 0x3d, 0x40}, 0x28)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43eda0, 0x28)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43eda0, {0x454840, 0x28, 0x28})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435100, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:595 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 15 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483457
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0300, 0x3d, 0x40}, 0x28)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43eda0, 0x28)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43eda0, {0x454840, 0x28, 0x28})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435100, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:595 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 16 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483456
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x4f0300, 0x3d, 0x40}, 0x28)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43eda0, 0x28)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43eda0, {0x454840, 0x28, 0x28})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435100, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:595 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 17 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483435
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x83da80, 0x7a, 0x80}, 0x9)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43eda0, 0x9)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43eda0, {0x40c840, 0x9, 0x9})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435100, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:595 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 18 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483423
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x83da80, 0x7a, 0x80}, 0x9)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43eda0, 0x9)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43eda0, {0x40c840, 0x9, 0x9})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435100, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:595 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 19 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483422
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x83da80, 0x7a, 0x80}, 0x9)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43eda0, 0x9)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43eda0, {0x40c840, 0x9, 0x9})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435100, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:323 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:595 +0x1a
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 20 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483401
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0340, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43ed18, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43ed18, {0x43ecfc, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43ed18, 0x6, {0x43ecfc, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435120, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45322, 0x9})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:598 +0x1c
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 21 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483389
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0340, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43ed18, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43ed18, {0x43ecfc, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43ed18, 0x6, {0x43ecfc, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435120, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45322, 0x9})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:598 +0x1c
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 22 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483388
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x4f0340, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43ed18, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43ed18, {0x43ecfc, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43ed18, 0x6, {0x43ecfc, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435120, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45322, 0x9})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EmitEvent({0x4659d, 0xf}, {0x43ef18, 0x3, 0x3})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:598 +0x1c
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).EmitEvent(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:400
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:420 +0x1d
+
+end
+
+--- block 23 ---
+begin
+registry.ConsumeGas amount= 21 remain= 2147483367
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x15)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0380, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:232 +0x2
+bytes.(*Buffer).grow(0x43edc8, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edc8, {0x43edac, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edc8, 0x6, {0x43edac, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435140, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45ef3, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x48f8a, 0x1a})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:421 +0x1f
+
+end
+
+--- block 24 ---
+begin
+registry.ConsumeGas amount= 12 remain= 2147483355
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0xc)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice({0x4f0380, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:257 +0x4
+bytes.(*Buffer).grow(0x43edc8, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edc8, {0x43edac, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edc8, 0x6, {0x43edac, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435140, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45ef3, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x48f8a, 0x1a})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:421 +0x1f
+
+end
+
+--- block 25 ---
+begin
+registry.ConsumeGas amount= 1 remain= 2147483354
+goroutine 1 [running]:
+runtime/debug.Stack()
+	/usr/local/go-version/go1.24.1/src/runtime/debug/stack.go:26 +0x6
+CVW/registry.ConsumeGas(0x1)
+	/home/projects/CVW/registry/registry.go:61 +0x10
+bytes.growSlice.func1()
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:238 +0x2
+bytes.growSlice({0x4f0380, 0x40, 0x40}, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:267 +0xf
+bytes.(*Buffer).grow(0x43edc8, 0x4)
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:152 +0x20
+bytes.(*Buffer).Write(0x43edc8, {0x43edac, 0x4, 0x4})
+	/usr/local/go-version/go1.24.1/src/bytes/buffer.go:180 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.binaryUint32Marshal(0x43edc8, 0x6, {0x43edac, 0x4, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:423 +0x3
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.EasyMarshal({0x435140, 0x3, 0x4})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:308 +0xb
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*EasyCodec).Marshal(...)
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/easycodec.go:172
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.getRequestHeader({0x45ef3, 0xd})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:470 +0x2e
+github.com/TKOTKCh/contract-sdk-go-wasm/sdk.(*SimContextCommonImpl).SuccessResult(0x43ef48, {0x48f8a, 0x1a})
+	/root/go/pkg/mod/github.com/!t!k!o!t!k!ch/contract-sdk-go-wasm@v0.1.3/sdk/chainmaker.go:351 +0x2
+main.setApprovalForAll2()
+	/home/projects/CVW/chainmaker/testdata-instrument/erc721/erc721.go:421 +0x1f
+
+end
+

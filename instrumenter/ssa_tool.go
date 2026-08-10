@@ -113,6 +113,16 @@ func BuildSSAForExample(path string, fillEmptyPositions bool, srcRoot, importPat
 		env = setEnv(env, "GOPATH", gopath)
 		env = setEnv(env, "GO111MODULE", "off")
 		loadQuery = importPath
+	} else if info, err := os.Stat(path); err == nil && info.IsDir() {
+		// 合约是独立 module；在包目录以 "." 加载。
+		// GOWORK=off 避免被上层 go.work 指到错误 module；
+		// 分析用未插桩 GOROOT（若存在），因 go1.24.1 标准库已插桩依赖 CVW/registry。
+		cfg.Dir = path
+		loadQuery = "."
+		env = setEnv(env, "GOWORK", "off")
+		if cleanRoot := "/usr/local/go"; dirExists(cleanRoot) {
+			env = setEnv(env, "GOROOT", cleanRoot)
+		}
 	}
 	// github.com/TKOTKCh/contract-sdk-go-wasm 使用 //go:wasmimport 无函数体声明；
 	// 仅在 wasip1/wasm 目标下类型检查合法（与合约 build.sh 中 GOOS=wasip1 GOARCH=wasm 一致）。
@@ -178,6 +188,11 @@ func setEnv(env []string, name, value string) []string {
 	}
 	out = append(out, p+value)
 	return out
+}
+
+func dirExists(path string) bool {
+	info, err := os.Stat(path)
+	return err == nil && info.IsDir()
 }
 
 // collectInstructions 收集函数中的所有指令到指令池

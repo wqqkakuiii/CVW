@@ -17,6 +17,7 @@ use (
 	./chainmaker/testdata-instrument/identity
 	./chainmaker/testdata-instrument/itinerary
 	./chainmaker/testdata-instrument/raffle
+	./chainmaker/testdata-instrument/bigInput
 
 	//./test/compute
 )

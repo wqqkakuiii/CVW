@@ -49,6 +49,7 @@ func main() {
 	inputDir := flag.String("input", "", "要插桩的根目录（递归所有子目录中的包），必填")
 	outDir := flag.String("out-dir", "", "插桩副本输出目录，必填")
 	consumeGasOnly := flag.Bool("consume-gas-only", false, "仅插桩 registry.ConsumeGas")
+	gasZeroBlacklist := flag.String("gas-zero-blacklist", "", "透传给 instrumenter：gas 净消耗为 0 的函数黑名单（每行 package.FuncName）")
 	flag.Parse()
 
 	if strings.TrimSpace(*inputDir) == "" {
@@ -79,6 +80,12 @@ func main() {
 	}
 
 	cvwRoot := findCVWRoot()
+
+	debugDepsBlacklist, err := buildRuntimeDebugDepsBlacklist(cvwRoot)
+	if err != nil {
+		log.Fatalf("生成 runtime/debug 依赖黑名单失败: %v", err)
+	}
+	log.Printf("runtime/debug 递归依赖黑名单共 %d 个包", len(debugDepsBlacklist))
 
 	// 1) 生成 os 及其递归依赖的黑名单
 	// blacklist, err := buildOSDepsBlacklist(cvwRoot)
@@ -124,6 +131,11 @@ func main() {
 		if importPath == "." {
 			importPath = filepath.Base(root)
 		}
+		if debugDepsBlacklist[importPath] {
+			skipped++
+			log.Printf("跳过 [runtime/debug 依赖树] %s", importPath)
+			continue
+		}
 		// if blacklist[importPath] {
 		// 	skipped++
 		// 	log.Printf("跳过 [黑名单] %s", importPath)
@@ -161,6 +173,9 @@ func main() {
 		if *consumeGasOnly {
 			args = append(args, "-consume-gas-only")
 		}
+		if strings.TrimSpace(*gasZeroBlacklist) != "" {
+			args = append(args, "-gas-zero-blacklist", *gasZeroBlacklist)
+		}
 		cmd := exec.Command("go", args...)
 		cmd.Dir = cvwRoot
 		cmd.Stdout = os.Stdout
@@ -176,6 +191,25 @@ func main() {
 		done++
 	}
 	log.Printf("--- 结束：已插桩 %d 个包，跳过 %d 个包，失败 %d 个包 ---", done, skipped, failed)
+}
+
+// buildRuntimeDebugDepsBlacklist 运行 go list -deps runtime/debug，得到该包及其全部传递依赖，用于插桩跳过。
+func buildRuntimeDebugDepsBlacklist(workDir string) (map[string]bool, error) {
+	cmd := exec.Command("go", "list", "-deps", "runtime/debug")
+	cmd.Dir = workDir
+	out, err := cmd.Output()
+	if err != nil {
+		return nil, err
+	}
+	set := make(map[string]bool)
+	sc := bufio.NewScanner(strings.NewReader(string(out)))
+	for sc.Scan() {
+		p := strings.TrimSpace(sc.Text())
+		if p != "" {
+			set[p] = true
+		}
+	}
+	return set, sc.Err()
 }
 
 // buildOSDepsBlacklist 运行 go list -deps os 得到 os 及其递归依赖的包列表，作为黑名单

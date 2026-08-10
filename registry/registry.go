@@ -1,5 +1,7 @@
 package registry
 
+// import "runtime/debug"
+
 const gasKey = "gas"
 
 // Value 是空接口
@@ -53,6 +55,11 @@ func ConsumeGas(amount uint64) {
 		panic("registry: no remaining gas")
 	}
 	gasPtr.Remain -= amount
+	// 输出函数调用栈
+	// println("begin")
+	// println("registry.ConsumeGas amount=", amount, "remain=", gasPtr.Remain)
+	// println(string(debug.Stack()))
+	// println("end")
 }
 
 // SetGas 设置 Gas 剩余量

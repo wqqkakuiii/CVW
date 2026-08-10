@@ -34,10 +34,19 @@ func main() {
 		fillEmptyPositions = flag.Bool("fill-empty-positions", true, "对位置为空的指令进行补全（使用前一条指令的位置）")
 		inputFile          = flag.String("input", "../example/test.go", "输入文件路径")
 		outputFile         = flag.String("output", "../output/formatTest.go", "输出文件路径")
+		gasZeroBlacklist   = flag.String("gas-zero-blacklist", "", "gas 净消耗为 0 的函数黑名单文件（每行 package.FuncName）")
 	)
 
 	// 解析命令行参数
 	flag.Parse()
+
+	blacklist, err := LoadGasZeroBlacklist(*gasZeroBlacklist)
+	if err != nil {
+		log.Fatalf("加载 gas-zero 黑名单失败: %v", err)
+	}
+	if blacklist.Len() > 0 {
+		log.Printf("已加载 gas-zero 黑名单 %d 条", blacklist.Len())
+	}
 
 	inputPath := filepath.Clean(*inputFile)
 	outputPath := filepath.Clean(*outputFile)
@@ -106,7 +115,7 @@ func main() {
 			continue
 		}
 
-		inserted, err := ApplyInstrumentation(node, pool, fset, *consumeGasOnly)
+		inserted, err := ApplyInstrumentation(node, pool, fset, *consumeGasOnly, blacklist)
 		if err != nil {
 			log.Printf("插桩失败 %s: %v", filename, err)
 			continue

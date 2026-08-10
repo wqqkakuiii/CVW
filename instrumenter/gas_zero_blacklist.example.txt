@@ -1,0 +1,6 @@
+# gas 净消耗为 0 的函数黑名单
+# 格式：package.FuncName（每行一条；# 开头为注释）
+main.InitContract
+main.initContract
+# main.init
+# main.buyNow

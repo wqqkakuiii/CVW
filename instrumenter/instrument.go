@@ -162,11 +162,48 @@ func AddConsumeGasToCaseClause(clause *ast.CaseClause, amount int) error {
 	return nil
 }
 
+// WrapFuncGasZero 在函数开头保存当前 gas，并用 defer 在返回时写回，使函数净消耗为 0。
+// 插入形态：
+//
+//	__cvwGasSave := registry.GetGas()
+//	defer registry.SetGas(__cvwGasSave)
+func WrapFuncGasZero(fn *ast.FuncDecl) error {
+	if fn == nil || fn.Body == nil {
+		return nil
+	}
+	if isAlreadyGasZeroWrapped(fn) {
+		return nil
+	}
+	saveStmt, err := code2astStmt(`__cvwGasSave := registry.GetGas()`)
+	if err != nil {
+		return fmt.Errorf("无法解析 gas 保存语句: %v", err)
+	}
+	deferStmt, err := code2astStmt(`defer registry.SetGas(__cvwGasSave)`)
+	if err != nil {
+		return fmt.Errorf("无法解析 gas 恢复 defer: %v", err)
+	}
+	fn.Body.List = append([]ast.Stmt{saveStmt, deferStmt}, fn.Body.List...)
+	return nil
+}
+
+func isAlreadyGasZeroWrapped(fn *ast.FuncDecl) bool {
+	if fn == nil || fn.Body == nil || len(fn.Body.List) == 0 {
+		return false
+	}
+	as, ok := fn.Body.List[0].(*ast.AssignStmt)
+	if !ok || len(as.Lhs) != 1 {
+		return false
+	}
+	id, ok := as.Lhs[0].(*ast.Ident)
+	return ok && id.Name == "__cvwGasSave"
+}
+
 // ApplyInstrumentation 使用一次 astutil.Apply 遍历统一处理所有插桩操作
 // 计算 gas 时用 AST 节点的 Position.Filename 与指令池匹配（与 SSA 的 Position 同源，避免路径不一致）
 // consumeGasOnly 为 true 时仅插桩 registry.ConsumeGas，不添加 GAS/Register，不修改 main 函数体
+// blacklist 按 package.函数名 匹配，命中则在函数入口/出口保存/恢复 gas（净消耗 0）
 // 返回 (是否插入了 registry.ConsumeGas 等调用, error)
-func ApplyInstrumentation(node *ast.File, pool *InstructionPool, fset *token.FileSet, consumeGasOnly bool) (bool, error) {
+func ApplyInstrumentation(node *ast.File, pool *InstructionPool, fset *token.FileSet, consumeGasOnly bool, blacklist *GasZeroBlacklist) (bool, error) {
 	inserted := false
 
 	astutil.Apply(node, nil, func(c *astutil.Cursor) bool {
@@ -204,11 +241,12 @@ func ApplyInstrumentation(node *ast.File, pool *InstructionPool, fset *token.Fil
 			targetFile := fset.Position(block.Lbrace).Filename
 			gasAmount := CalculateGasForBlockStmt(block, pool, fset, targetFile)
 
-			// 插入 ConsumeGas 调用
-			if err := AddConsumeGasToBlock(block, gasAmount); err != nil {
-				fmt.Printf("警告: 无法在 BlockStmt 中插入 ConsumeGas: %v\n", err)
-			} else {
-				inserted = true
+			if gasAmount != 0 {
+				if err := AddConsumeGasToBlock(block, gasAmount); err != nil {
+					fmt.Printf("警告: 无法在 BlockStmt 中插入 ConsumeGas: %v\n", err)
+				} else {
+					inserted = true
+				}
 			}
 		}
 
@@ -226,11 +264,12 @@ func ApplyInstrumentation(node *ast.File, pool *InstructionPool, fset *token.Fil
 
 				gasAmount := CalculateGasForStmtList(commClause.Body, startPos, endPos, pool, fset, startPos.Filename)
 
-				// 插入 ConsumeGas 调用
-				if err := AddConsumeGasToCommClause(commClause, gasAmount); err != nil {
-					fmt.Printf("警告: 无法在 CommClause 中插入 ConsumeGas: %v\n", err)
-				} else {
-					inserted = true
+				if gasAmount != 0 {
+					if err := AddConsumeGasToCommClause(commClause, gasAmount); err != nil {
+						fmt.Printf("警告: 无法在 CommClause 中插入 ConsumeGas: %v\n", err)
+					} else {
+						inserted = true
+					}
 				}
 			}
 		}
@@ -249,11 +288,12 @@ func ApplyInstrumentation(node *ast.File, pool *InstructionPool, fset *token.Fil
 
 				gasAmount := CalculateGasForStmtList(caseClause.Body, startPos, endPos, pool, fset, startPos.Filename)
 
-				// 插入 ConsumeGas 调用
-				if err := AddConsumeGasToCaseClause(caseClause, gasAmount); err != nil {
-					fmt.Printf("警告: 无法在 CaseClause 中插入 ConsumeGas: %v\n", err)
-				} else {
-					inserted = true
+				if gasAmount != 0 {
+					if err := AddConsumeGasToCaseClause(caseClause, gasAmount); err != nil {
+						fmt.Printf("警告: 无法在 CaseClause 中插入 ConsumeGas: %v\n", err)
+					} else {
+						inserted = true
+					}
 				}
 			}
 		}
@@ -289,6 +329,24 @@ func ApplyInstrumentation(node *ast.File, pool *InstructionPool, fset *token.Fil
 				}
 				break
 			}
+		}
+	}
+
+	// 黑名单函数：在 ConsumeGas / main Register·SetGas 之后再包一层保存/恢复，
+	// 保证 main 先完成 gas 初始化；函数体内 ConsumeGas 仍执行，但返回时净消耗为 0。
+	if blacklist != nil && blacklist.Len() > 0 && node.Name != nil {
+		pkgName := node.Name.Name
+		for _, decl := range node.Decls {
+			fn, ok := decl.(*ast.FuncDecl)
+			if !ok || !blacklist.MatchFunc(pkgName, fn) {
+				continue
+			}
+			if err := WrapFuncGasZero(fn); err != nil {
+				fmt.Printf("警告: 无法对 %s.%s 做 gas-zero 包装: %v\n", pkgName, fn.Name.Name, err)
+				continue
+			}
+			fmt.Printf("gas-zero 包装: %s.%s\n", pkgName, fn.Name.Name)
+			inserted = true
 		}
 	}
 
