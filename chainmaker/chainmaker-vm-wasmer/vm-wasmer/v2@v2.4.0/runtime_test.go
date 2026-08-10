@@ -1,0 +1,682 @@
+/*
+Copyright (C) BABEC. All rights reserved.
+Copyright (C) THL A29 Limited, a Tencent company. All rights reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
+package wasmer
+
+import (
+	"bytes"
+	"encoding/hex"
+	"flag"
+	"fmt"
+	"math/big"
+	"math/rand"
+	"strconv"
+	"strings"
+	"sync"
+	"testing"
+	"time"
+
+	"chainmaker.org/chainmaker/pb-go/v2/common"
+	"chainmaker.org/chainmaker/protocol/v2"
+)
+
+var (
+	wg                   sync.WaitGroup
+	sdkConfigPaths       []string      // 被压测的cert模式链配置文件数组
+	sdkPKConfigPaths     []string      // 被压测的public模式链配置文件数组
+	SdkPWKConfigPaths    []string      // 被压测的permissionedWithKey模式链配置文件数组
+	Clientslen           int           // 被压测的链个数
+	ContractByteCodePath string        // 存证类合约智能合约路径
+	txCounts             uint32    = 0 // 成功上链交易数
+	timeStart            time.Time     // 压测开始时间
+	timeEnd              time.Time     // 压测开始时间
+	BlockStart           int64         // 压测开始区块
+	Wg                   = sync.WaitGroup{}
+	Model                string             // 身份认证模型
+	ContractName         string             // 智能合约名称
+	ContractType         string             // 智能合约类型
+	RuntimeTypeString    string             // 智能合约语言类型, string类型
+	RuntimeType          common.RuntimeType // 智能合约语言类型, common.RuntimeType类型
+	contractMethod       string             // 智能合约被压测方法
+	Params               string             // 智能合约被压测方法参数
+	ThreadNum            int                // 单次并发进程数
+	LoopNum              int                // 压测并发次数
+	SleepTime            int                // 并发间隔,单位ms
+	ClimbTime            int                // 爬坡时间,单位s
+	AddOption            string
+	RandomSeed           int64 // 生成tokenid的随机种子
+	lastTokenId          = new(big.Int)
+	mu                   sync.Mutex
+
+	// TestInvoke 支持命令行覆盖参数（go test -args ...）
+	invokeContractMethod = flag.String("invoke_contract_method", "bigNumCal", "contract method for TestInvoke")
+	invokeContractName   = flag.String("invoke_contract_name", "compute-test", "contract name for TestInvoke")
+	invokeContractType   = flag.String("invoke_contract_type", "go", "contract type for TestInvoke")
+	invokeTestTime       = flag.Int("invoke_test_time", 1, "loop count for TestInvoke")
+
+	// TestBigInput 大参数输入测试（run_testbiginput 调用）
+	bigInputDataSize       = flag.Int("biginput_data_size", 1024, "data param size in bytes for TestBigInput")
+	bigInputContractName   = flag.String("biginput_contract_name", "bigInput", "contract name for TestBigInput")
+	bigInputContractType   = flag.String("biginput_contract_type", "go", "contract type for TestBigInput")
+	bigInputSweep          = flag.String("biginput_sweep", "", "comma-separated data sizes in bytes, e.g. 1024,65536,1048576")
+	bigInputContractMethod = flag.String("biginput_contract_method", "inputSize", "contract method for TestBigInput")
+)
+
+// 生成随机长度地址（用于生成参数）
+func randomHexString(length int) (string, error) {
+	bytes := make([]byte, length/2)
+	_, err := rand.Read(bytes)
+	if err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes), nil
+}
+
+// 生成指定长度的随机数字字符串（首位不为0），用于erc721的tokenid生成 （用于生成参数）
+func RandomNumberString(length int) string {
+	//加锁这一步对性能影响不大
+	mu.Lock()         // 加锁确保并发安全
+	defer mu.Unlock() // 解锁
+	lastTokenId.Add(lastTokenId, big.NewInt(1))
+
+	return lastTokenId.String()
+}
+
+// 处理参数 （用于生成参数）
+func handleParams(paramString string) map[string]string {
+	FunctionParametersMap := make(map[string]string)
+	initParametersList := strings.Split(paramString, "||")
+	for i := 0; i < len(initParametersList); i++ {
+		index := strings.Index(initParametersList[i], ":")
+		if index != -1 {
+			firstPart := initParametersList[i][:index]
+			secondPart := initParametersList[i][index+1:]
+			FunctionParametersMap[firstPart] = secondPart
+		}
+	}
+	return FunctionParametersMap
+}
+
+// RandParams 随机化参数 （用于生成参数）
+func RandParams(FunctionParametersMap map[string]string) map[string][]byte {
+	normalParams := make(map[string]string)
+	params := make(map[string][]byte)
+	// 获取带压测方法的参数列表
+	set := FunctionParametersMap
+	curTime := strconv.FormatInt(time.Now().Unix(), 10)
+	for k, v := range set {
+		value := v
+		if strings.Contains(strings.ToLower(k), strings.ToLower("time")) || strings.Contains(strings.ToLower(k), strings.ToLower("timestamp")) {
+			value = curTime
+		}
+		if strings.Contains(strings.ToLower(k), strings.ToLower("tokenId")) {
+			value = RandomNumberString(len(value))
+		}
+		normalParams[k] = value
+		params[k] = []byte(value)
+		fmt.Printf("key: %s value:%s \n", k, value)
+	}
+	return params
+}
+
+// 生成调用函数参数
+func getMethodParams(ContractName, contractMethod string) string {
+	var Params string
+	if ContractName == "identity" {
+		if contractMethod == "callerAddress" || contractMethod == "address" {
+			Params = ""
+		} else {
+			Params = "address:"
+			for i := 0; i < 100; i++ {
+				//s, _ := randomHexString(40)
+				s := "f0a5fe0f7154b8a0aad3a979a6e2c95a1107a222"
+				//s := "abcd"
+				Params += s
+				if i != 99 {
+					Params += ","
+				}
+			}
+		}
+	}
+	if ContractName == "erc721" {
+		if contractMethod == "tokenURI" || contractMethod == "ownerOf" || contractMethod == "tokenMetadata" || contractMethod == "tokenLatestTxInfo" || contractMethod == "getApprove" {
+			Params = "tokenId:111111111111111111111112"
+		}
+		if contractMethod == "balanceOf" || contractMethod == "accountTokens" {
+			Params = "account:c0d8e4ce07a48081eff14a3016699b1c839c4375"
+		}
+		if contractMethod == "mint" || strings.Contains(contractMethod, "testgas") {
+			Params = "to:8acfaca5eeec9f6f7c23c4ffac969b86f27799b0||tokenId:111111111111111111111111||metadata:http://chainmaker.org.cn/"
+		}
+		//if contractMethod == "approve" {
+		//	Params = "to:818fac1ac51525aeedf619a9a339b95854930159||tokenId:111111111111111111111111"
+		//}
+		if contractMethod == "setApprovalForAll2" {
+			Params = "approvalFrom:8acfaca5eeec9f6f7c23c4ffac969b86f27799b0"
+		}
+		if contractMethod == "transferFrom" {
+			Params = "from:8acfaca5eeec9f6f7c23c4ffac969b86f27799b0||to:818fac1ac51525aeedf619a9a339b95854930159||tokenId:11111111111111111111111||metadata:http://chainmaker.org.cn/"
+		}
+
+	}
+	if ContractName == "enc_data" || ContractName == "enc_data_modify" { // 比如你的合约名字叫 enc_contract
+		if contractMethod == "enc_data" {
+			Params = `data_key:dataKey||data_value:dataValue||enc_key:encKey||authorized_person:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIDDmp3MAoGCCqGSM49BAMCMIGKMQswCQYDVQQGEwJDTjEQ
+MA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEfMB0GA1UEChMWd3gt
+b3JnMS5jaGFpbm1ha2VyLm9yZzESMBAGA1UECxMJcm9vdC1jZXJ0MSIwIAYDVQQD
+ExljYS53eC1vcmcxLmNoYWlubWFrZXIub3JnMB4XDTI1MDQxODE1NDQyOVoXDTMw
+MDQxNzE1NDQyOVowgZExCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRAw
+DgYDVQQHEwdCZWlqaW5nMR8wHQYDVQQKExZ3eC1vcmcxLmNoYWlubWFrZXIub3Jn
+MQ8wDQYDVQQLEwZjb21tb24xLDAqBgNVBAMTI2NvbW1vbjEuc2lnbi53eC1vcmcx
+LmNoYWlubWFrZXIub3JnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEn4ZMa251
+acwZkmZQ/HBWGyy1hMr40ChHJ29aNvlCp9xUBjl3SEema3Zl8J33iXv9BNGyKH1/
+7p+yHYj2ougY2KNqMGgwDgYDVR0PAQH/BAQDAgbAMCkGA1UdDgQiBCCsMh3Xbs+H
+qbb7iYyi3G2RhZG0+l8GmYPa/i7NSkIxcDArBgNVHSMEJDAigCDStB+0gbNWFT1p
+iPW8+XzJ+vS0m3JZ1gKYSUESt7n/pzAKBggqhkjOPQQDAgNIADBFAiAG3fYB1HEu
+Gi7aUUNBIOizWBCtOuWWvmR5FMVSuuUYdAIhALqbClSD9Kt2gYwYucCE7iPajc3H
+wyi1e7ZVkH5vjHP8
+-----END CERTIFICATE-----
+`
+		}
+		if contractMethod == "enc_auth" {
+			Params = `data_key:dataKey||enc_key:encKey||authorized_person:-----BEGIN CERTIFICATE-----
+MIICfjCCAiSgAwIBAgIDCgn6MAoGCCqGSM49BAMCMIGKMQswCQYDVQQGEwJDTjEQ
+MA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEfMB0GA1UEChMWd3gt
+b3JnMS5jaGFpbm1ha2VyLm9yZzESMBAGA1UECxMJcm9vdC1jZXJ0MSIwIAYDVQQD
+ExljYS53eC1vcmcxLmNoYWlubWFrZXIub3JnMB4XDTI1MDQxODE1NDQyOVoXDTMw
+MDQxNzE1NDQyOVowgZcxCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRAw
+DgYDVQQHEwdCZWlqaW5nMR8wHQYDVQQKExZ3eC1vcmcxLmNoYWlubWFrZXIub3Jn
+MRIwEAYDVQQLEwljb25zZW5zdXMxLzAtBgNVBAMTJmNvbnNlbnN1czEuc2lnbi53
+eC1vcmcxLmNoYWlubWFrZXIub3JnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+XJBsVjVS5zcdQk2RhdA7eRs1DXdVq8xXRCD8G9CQ+YoDp/3bWLTBj7nw2ZYQHdxq
+Bp1iPP0tIbv4S/LAw1WbCqNqMGgwDgYDVR0PAQH/BAQDAgbAMCkGA1UdDgQiBCB0
+oajU1EwCPAWpcyBwnuaUUo98H4W75/0IyqmbvrXuEDArBgNVHSMEJDAigCDStB+0
+gbNWFT1piPW8+XzJ+vS0m3JZ1gKYSUESt7n/pzAKBggqhkjOPQQDAgNIADBFAiEA
+zQIb4bTapNnTqbEyr0B2VahFunoFThRZrZG1PXSicTUCIBk3x7Z/PRR9Q/agNuJI
+NaH1gyFpD5XW1nlTQa4xdrML
+-----END CERTIFICATE-----||authorizer:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIDDmp3MAoGCCqGSM49BAMCMIGKMQswCQYDVQQGEwJDTjEQ
+MA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEfMB0GA1UEChMWd3gt
+b3JnMS5jaGFpbm1ha2VyLm9yZzESMBAGA1UECxMJcm9vdC1jZXJ0MSIwIAYDVQQD
+ExljYS53eC1vcmcxLmNoYWlubWFrZXIub3JnMB4XDTI1MDQxODE1NDQyOVoXDTMw
+MDQxNzE1NDQyOVowgZExCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRAw
+DgYDVQQHEwdCZWlqaW5nMR8wHQYDVQQKExZ3eC1vcmcxLmNoYWlubWFrZXIub3Jn
+MQ8wDQYDVQQLEwZjb21tb24xLDAqBgNVBAMTI2NvbW1vbjEuc2lnbi53eC1vcmcx
+LmNoYWlubWFrZXIub3JnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEn4ZMa251
+acwZkmZQ/HBWGyy1hMr40ChHJ29aNvlCp9xUBjl3SEema3Zl8J33iXv9BNGyKH1/
+7p+yHYj2ougY2KNqMGgwDgYDVR0PAQH/BAQDAgbAMCkGA1UdDgQiBCCsMh3Xbs+H
+qbb7iYyi3G2RhZG0+l8GmYPa/i7NSkIxcDArBgNVHSMEJDAigCDStB+0gbNWFT1p
+iPW8+XzJ+vS0m3JZ1gKYSUESt7n/pzAKBggqhkjOPQQDAgNIADBFAiAG3fYB1HEu
+Gi7aUUNBIOizWBCtOuWWvmR5FMVSuuUYdAIhALqbClSD9Kt2gYwYucCE7iPajc3H
+wyi1e7ZVkH5vjHP8
+-----END CERTIFICATE-----
+||auth_sign:-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIK0M179niQ0F5+iZAjIWSa+frPiYGyrktwUKln/gGOCWoAoGCCqGSM49
+AwEHoUQDQgAEn4ZMa251acwZkmZQ/HBWGyy1hMr40ChHJ29aNvlCp9xUBjl3SEem
+a3Zl8J33iXv9BNGyKH1/7p+yHYj2ougY2A==
+-----END EC PRIVATE KEY-----
+||auth_level:2`
+		}
+		if contractMethod == "get_enc_data" {
+			Params = "data_key:dataKey"
+		}
+		if contractMethod == "get_enc_auth" {
+			Params = `data_key:dataKey||authorizer:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIDDmp3MAoGCCqGSM49BAMCMIGKMQswCQYDVQQGEwJDTjEQ
+MA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEfMB0GA1UEChMWd3gt
+b3JnMS5jaGFpbm1ha2VyLm9yZzESMBAGA1UECxMJcm9vdC1jZXJ0MSIwIAYDVQQD
+ExljYS53eC1vcmcxLmNoYWlubWFrZXIub3JnMB4XDTI1MDQxODE1NDQyOVoXDTMw
+MDQxNzE1NDQyOVowgZExCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRAw
+DgYDVQQHEwdCZWlqaW5nMR8wHQYDVQQKExZ3eC1vcmcxLmNoYWlubWFrZXIub3Jn
+MQ8wDQYDVQQLEwZjb21tb24xLDAqBgNVBAMTI2NvbW1vbjEuc2lnbi53eC1vcmcx
+LmNoYWlubWFrZXIub3JnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEn4ZMa251
+acwZkmZQ/HBWGyy1hMr40ChHJ29aNvlCp9xUBjl3SEema3Zl8J33iXv9BNGyKH1/
+7p+yHYj2ougY2KNqMGgwDgYDVR0PAQH/BAQDAgbAMCkGA1UdDgQiBCCsMh3Xbs+H
+qbb7iYyi3G2RhZG0+l8GmYPa/i7NSkIxcDArBgNVHSMEJDAigCDStB+0gbNWFT1p
+iPW8+XzJ+vS0m3JZ1gKYSUESt7n/pzAKBggqhkjOPQQDAgNIADBFAiAG3fYB1HEu
+Gi7aUUNBIOizWBCtOuWWvmR5FMVSuuUYdAIhALqbClSD9Kt2gYwYucCE7iPajc3H
+wyi1e7ZVkH5vjHP8
+-----END CERTIFICATE-----
+`
+		}
+		if contractMethod == "update_enc_auth" {
+			Params = `data_key:dataKey||authorized_person:-----BEGIN CERTIFICATE-----
+MIICfjCCAiSgAwIBAgIDCgn6MAoGCCqGSM49BAMCMIGKMQswCQYDVQQGEwJDTjEQ
+MA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEfMB0GA1UEChMWd3gt
+b3JnMS5jaGFpbm1ha2VyLm9yZzESMBAGA1UECxMJcm9vdC1jZXJ0MSIwIAYDVQQD
+ExljYS53eC1vcmcxLmNoYWlubWFrZXIub3JnMB4XDTI1MDQxODE1NDQyOVoXDTMw
+MDQxNzE1NDQyOVowgZcxCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRAw
+DgYDVQQHEwdCZWlqaW5nMR8wHQYDVQQKExZ3eC1vcmcxLmNoYWlubWFrZXIub3Jn
+MRIwEAYDVQQLEwljb25zZW5zdXMxLzAtBgNVBAMTJmNvbnNlbnN1czEuc2lnbi53
+eC1vcmcxLmNoYWlubWFrZXIub3JnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+XJBsVjVS5zcdQk2RhdA7eRs1DXdVq8xXRCD8G9CQ+YoDp/3bWLTBj7nw2ZYQHdxq
+Bp1iPP0tIbv4S/LAw1WbCqNqMGgwDgYDVR0PAQH/BAQDAgbAMCkGA1UdDgQiBCB0
+oajU1EwCPAWpcyBwnuaUUo98H4W75/0IyqmbvrXuEDArBgNVHSMEJDAigCDStB+0
+gbNWFT1piPW8+XzJ+vS0m3JZ1gKYSUESt7n/pzAKBggqhkjOPQQDAgNIADBFAiEA
+zQIb4bTapNnTqbEyr0B2VahFunoFThRZrZG1PXSicTUCIBk3x7Z/PRR9Q/agNuJI
+NaH1gyFpD5XW1nlTQa4xdrML
+-----END CERTIFICATE-----||authorizer:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIDDmp3MAoGCCqGSM49BAMCMIGKMQswCQYDVQQGEwJDTjEQ
+MA4GA1UECBMHQmVpamluZzEQMA4GA1UEBxMHQmVpamluZzEfMB0GA1UEChMWd3gt
+b3JnMS5jaGFpbm1ha2VyLm9yZzESMBAGA1UECxMJcm9vdC1jZXJ0MSIwIAYDVQQD
+ExljYS53eC1vcmcxLmNoYWlubWFrZXIub3JnMB4XDTI1MDQxODE1NDQyOVoXDTMw
+MDQxNzE1NDQyOVowgZExCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRAw
+DgYDVQQHEwdCZWlqaW5nMR8wHQYDVQQKExZ3eC1vcmcxLmNoYWlubWFrZXIub3Jn
+MQ8wDQYDVQQLEwZjb21tb24xLDAqBgNVBAMTI2NvbW1vbjEuc2lnbi53eC1vcmcx
+LmNoYWlubWFrZXIub3JnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEn4ZMa251
+acwZkmZQ/HBWGyy1hMr40ChHJ29aNvlCp9xUBjl3SEema3Zl8J33iXv9BNGyKH1/
+7p+yHYj2ougY2KNqMGgwDgYDVR0PAQH/BAQDAgbAMCkGA1UdDgQiBCCsMh3Xbs+H
+qbb7iYyi3G2RhZG0+l8GmYPa/i7NSkIxcDArBgNVHSMEJDAigCDStB+0gbNWFT1p
+iPW8+XzJ+vS0m3JZ1gKYSUESt7n/pzAKBggqhkjOPQQDAgNIADBFAiAG3fYB1HEu
+Gi7aUUNBIOizWBCtOuWWvmR5FMVSuuUYdAIhALqbClSD9Kt2gYwYucCE7iPajc3H
+wyi1e7ZVkH5vjHP8
+-----END CERTIFICATE-----
+||auth_sign:-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIK0M179niQ0F5+iZAjIWSa+frPiYGyrktwUKln/gGOCWoAoGCCqGSM49
+AwEHoUQDQgAEn4ZMa251acwZkmZQ/HBWGyy1hMr40ChHJ29aNvlCp9xUBjl3SEem
+a3Zl8J33iXv9BNGyKH1/7p+yHYj2ougY2A==
+-----END EC PRIVATE KEY-----
+||auth_level:2`
+		}
+	}
+	if ContractName == "compute" {
+		Params = ""
+	}
+	if ContractName == "exchange" {
+		if contractMethod == "buyNow" {
+			Params = "from:8acfaca5eeec9f6f7c23c4ffac969b86f27799b0||to:818fac1ac51525aeedf619a9a339b95854930159||tokenId:11111111111111111111111||metadata:http://chainmaker.org.cn/"
+		}
+	}
+	if ContractName == "counter" {
+		Params = "key:test_key"
+
+	}
+	if ContractName == "raffle" {
+		if contractMethod == "registRaffle" {
+			Params = "peoples:{\"peoples\":[{\"num\":1,\"name\":\"Chris\"},{\"num\":2,\"name\":\"Linus\"}]}||timestamp:13235432||level:1"
+		}
+	}
+	if ContractName == "standard-evidence" {
+		if contractMethod == "evidenceAndFindByHash" || strings.Contains(contractMethod, "testgas") {
+			Params = "evidences:[{\"id\":\"id1\",\"hash\":\"hash1\",\"txId\":\"\",\"blockHeight\":0,\"timestamp\":\"\",\"metadata\":\"11\"},{\"id\":\"id2\",\"hash\":\"hash2\",\"txId\":\"\",\"blockHeight\":0,\"timestamp\":\"\",\"metadata\":\"11\"}]||hash:hash1"
+
+		}
+	}
+	if ContractName == "itinerary" {
+		if contractMethod == "queryHistory" {
+			Params = "phone:18892352495||itinerary:{\"ip\":\"117.107.131.195\",\"city\":\"Beijing\",\"region\":\"Beijing\",\"country\":\"CN\",\"loc\":\"39.9075,116.3972\",\"org\":\"\",\"timezone\":\"Asia/Shanghai\",\"asn\":{\"asn\":\"AS4847\",\"name\":\"China Networks Inter-Exchange\",\"domain\":\"bta.net.cn\",\"route\":\"117.107.128.0/18\",\"type\":\"isp\"},\"company\":{\"name\":\"Beijing Sinnet Technology Co., Ltd.\",\"domain\":\"ghidc.net\",\"type\":\"business\"},\"privacy\":{\"vpn\":false,\"proxy\":false,\"tor\":false,\"relay\":false,\"hosting\":false,\"service\":\"\"},\"abuse\":{\"address\":\"Beijing, China\",\"country\":\"CN\",\"email\":\"ipas@cnnic.cn\",\"name\":\"Chen hao\",\"network\":\"117.107.128.0/17\",\"phone\":\"+86-13311166160\"},\"domains\":{\"total\":0,\"domains\":[]}}"
+
+		}
+
+	}
+	if ContractName == "fact" {
+		if contractMethod == "saveAndFindByFileHash" {
+			Params = "file_hash:005521f27d745a04999c6d09f559764f9c44376a||file_name:aoteman.jpg||time:16456254"
+
+		}
+	}
+	if ContractName == "bigInput" {
+		if contractMethod == "inputSize" {
+			Params = "data:hello"
+		}
+		if contractMethod == "inputSizeMulti" {
+			Params = "part_count:2||data0:aaa||data1:bbb"
+		}
+	}
+	//fmt.Println(Params)
+	return Params
+}
+
+// 生成调用函数参数列表
+func prepareFunc(ContractName, contractMethod string) map[string][]byte {
+	Params := getMethodParams(ContractName, contractMethod)
+	ParamsList := handleParams(Params)
+	parameters := RandParams(ParamsList)
+	return parameters
+}
+
+// 生成合约文件地址
+func prepareFile(ContractName, contractType string) string {
+	var filePath string
+	filePath = "./testdata/" + ContractName + "-" + contractType + ".wasm"
+	return filePath
+}
+
+// 这个函数是用来检测上下文写入putstate，getstate是否正常的，可不用，只要最终返回结果是successresult即可
+func readWriteSet(txSimContext protocol.TxSimContext) ([]byte, error) {
+	rwSet := txSimContext.GetTxRWSet(true)
+	fmt.Printf("rwSet = %v \n", rwSet)
+
+	var result []byte
+	for _, w := range rwSet.TxWrites {
+		if bytes.Equal(w.Key, []byte("count#test_key")) {
+			result = w.Value
+		}
+	}
+	if result == nil {
+		return nil, fmt.Errorf("write set contain no 'count#test_key'")
+	}
+
+	return result, nil
+}
+
+// TestInvoke comment at next version
+func TestInvoke(t *testing.T) {
+	runInvokeWithConfig(t, *invokeContractMethod, *invokeContractName, *invokeContractType, *invokeTestTime)
+}
+
+func runInvokeWithConfig(t *testing.T, contractMethod, ContractName, contractType string, testTime int) {
+	filePath := prepareFile(ContractName, contractType)
+
+	wasmBytes, contractId, logger := prepareContract(filePath, t)
+	vmPool, err := newVmPool(&contractId, wasmBytes, logger)
+	if err != nil {
+		t.Fatalf("create vmPool error: %v", err)
+	}
+
+	defer func() {
+		vmPool.close()
+	}()
+
+	runtimeInst := RuntimeInstance{
+		pool:    vmPool,
+		log:     logger,
+		chainId: ChainId,
+	}
+
+	parameters := prepareFunc(ContractName, contractMethod)
+	fillingBaseParams(parameters)
+	successCnt := int32(0)
+	totalExecutionTime := float64(0)
+	gasDist := make(map[uint64]uint64)
+
+	for j := 0; j < testTime; j++ {
+		txSimContext := prepareTxSimContext(ChainId, BlockVersion, ContractName, contractMethod, parameters, SnapshotMock{})
+		contractResult, _, _, _, executionTime, _ := runtimeInst.InvokeTime(&contractId, contractMethod, wasmBytes, parameters, txSimContext, 0)
+		log.Infof("testid = %d contractResult = %v \n", j, contractResult)
+		gasUsed := contractResult.GasUsed
+		gasDist[gasUsed]++
+		resultList := strings.Split(string(contractResult.Result), ",")
+		result := resultList[len(resultList)-1]
+		index := strings.Index(result, " ")
+		ContractTime, _ := strconv.Atoi(result[index+1:])
+		TotalContractTime += int64(ContractTime)
+		//contractResult.Code为1表示合约函数执行失败
+		if contractResult.Code != 0 {
+			//t.Fatalf("invoke contract failed, contract code")
+		} else {
+			successCnt += 1
+			// 仅统计 SimContext.CallMethod（allocate + 写内存 + 调导出函数），不含 GetInstance/RevertInstance、SetGasLimit、gas 结算等
+			totalExecutionTime += executionTime
+		}
+	}
+	log.Infof(fmt.Sprint(gasDist))
+	maxkey := uint64(0)
+	minkey := uint64(1e19)
+	for key, _ := range gasDist {
+		if key > maxkey {
+			maxkey = key
+		}
+		if minkey > key {
+			minkey = key
+		}
+
+	}
+	log.Infof("maxkey = %d, minkey = %d, minus = %d, minus/minkey = %.15f\n", maxkey, minkey, maxkey-minkey, float64(maxkey-minkey)/float64(minkey))
+	TPS := float64(successCnt) / totalExecutionTime
+	log.Infof("successCnt=%d compileTime=%v totalCallMethodTime=%v TPS(callMethod only)=%v \n", successCnt, compileTime, totalExecutionTime, TPS)
+	exRatio := float64(ExportMemoryTime) / float64(totalExecutionTime*1e9) * 100
+	rfRatio := float64(RealFuncTime) / float64(totalExecutionTime*1e9) * 100
+	rrRatio := float64(ReturnResultTime) / float64(totalExecutionTime*1e9) * 100
+	rpRatio := float64(ReadParamTime) / float64(totalExecutionTime*1e9) * 100
+	niRatio := float64(newInstanceTime) / float64(totalExecutionTime) * 100
+	//tmRatio := float64(TotalFuncTime) / float64(TotalContractTime) * 100
+	ttRatio := float64(TotalFuncTime) / float64(totalExecutionTime*1e9) * 100
+	fmt.Printf("内存导入 平均占比: %.2f%%\n", exRatio)
+	fmt.Printf("读取参数 平均占比: %.2f%%\n", rpRatio)
+	fmt.Printf("实际函数 平均占比: %.2f%%\n", rfRatio)
+	fmt.Printf("结果拷贝 平均占比: %.2f%%\n", rrRatio)
+	fmt.Printf("创建实例 平均占比: %.2f%%\n", niRatio)
+	fmt.Printf("创建实例 平均开销: %.2f%%\n", float64(newInstanceTime))
+	//fmt.Printf("TotalFuncTime/TotalContractTime 平均占比: %.2f%%\n", tmRatio)
+	fmt.Printf("TotalFuncTime/totalExecutionTime 平均占比: %.2f%%\n", ttRatio)
+	minus := totalExecutionTime - float64(TotalContractTime)/1e9
+	fmt.Printf("minus %f\n", minus)
+	fmt.Printf("totalExecutionTime %f\n", totalExecutionTime)
+	// 并发执行测试
+	//for j := 0; j < testTime; j++ {
+	//	wg.Add(1)
+	//	go func(testId int) {
+	//		defer wg.Done()
+	//
+	//		txSimContext := prepareTxSimContext(ChainId, BlockVersion, ContractName, contractMethod, parameters, SnapshotMock{})
+	//		contractResult, _, _, _, executionTime := runtimeInst.InvokeTime(&contractId, contractMethod, wasmBytes, parameters, txSimContext, 0)
+	//
+	//		log.Infof("testid = %d contractResult = %v \n", testId, contractResult)
+	//
+	//		// 更新 gasDist（需要加锁）
+	//		gasUsed := contractResult.GasUsed
+	//		mu.Lock()
+	//		gasDist[gasUsed]++
+	//		mu.Unlock()
+	//
+	//		// 解析合约返回结果
+	//		resultList := strings.Split(string(contractResult.Result), ",")
+	//		result := resultList[len(resultList)-1]
+	//		index := strings.Index(result, " ")
+	//		ContractTime, _ := strconv.Atoi(result[index+1:])
+	//
+	//		// 更新统计信息（需要原子操作或加锁）
+	//		if contractResult.Code == 0 {
+	//			atomic.AddInt32(&successCnt, 1)
+	//			mu.Lock()
+	//			totalExecutionTime += executionTime
+	//			mu.Unlock()
+	//			atomic.AddInt64(&TotalContractTime, int64(ContractTime))
+	//		}
+	//	}(j)
+	//}
+	//// 等待所有 goroutine 完成
+	//wg.Wait()
+	//
+	//// 打印统计信息
+	//log.Infof(fmt.Sprint(gasDist))
+	//maxkey := uint64(0)
+	//minkey := uint64(1e19)
+	//for key := range gasDist {
+	//	if key > maxkey {
+	//		maxkey = key
+	//	}
+	//	if minkey > key {
+	//		minkey = key
+	//	}
+	//}
+	//log.Infof("maxkey = %d, minkey = %d, minus = %d, minus/minkey = %.15f\n",
+	//	maxkey, minkey, maxkey-minkey, float64(maxkey-minkey)/float64(minkey))
+	//
+	//TPS := float64(successCnt) / totalExecutionTime
+	//log.Infof("successCnt=%d totalExecutionTime=%v TPS = %v \n", successCnt, totalExecutionTime, TPS)
+	//
+	//// 计算各部分耗时占比（确保 TotalContractTime 和 totalExecutionTime 是并发安全的）
+	//exRatio := float64(ExportMemoryTime) / (totalExecutionTime * 1e9) * 100
+	//rfRatio := float64(RealFuncTime) / (totalExecutionTime * 1e9) * 100
+	//rrRatio := float64(ReturnResultTime) / (totalExecutionTime * 1e9) * 100
+	//rpRatio := float64(ReadParamTime) / (totalExecutionTime * 1e9) * 100
+	//niRatio := float64(newInstanceTime) / totalExecutionTime * 100
+	//ttRatio := float64(TotalFuncTime) / (totalExecutionTime * 1e9) * 100
+	//
+	//fmt.Printf("内存导入 平均占比: %.2f%%\n", exRatio)
+	//fmt.Printf("读取参数 平均占比: %.2f%%\n", rpRatio)
+	//fmt.Printf("实际函数 平均占比: %.2f%%\n", rfRatio)
+	//fmt.Printf("结果拷贝 平均占比: %.2f%%\n", rrRatio)
+	//fmt.Printf("创建实例 平均占比: %.2f%%\n", niRatio)
+	//fmt.Printf("创建实例 平均开销: %.2f%%\n", float64(newInstanceTime))
+	//fmt.Printf("TotalFuncTime/totalExecutionTime 平均占比: %.2f%%\n", ttRatio)
+	//minus := totalExecutionTime - float64(TotalContractTime)/1e9
+	//fmt.Printf("minus %f", minus)
+}
+
+const wasmPageBytes = 64 * 1024 // 每页 64KB
+
+// TestBigInput 测试 bigInput 合约在大参数输入下的 VM 线性内存扩张行为。
+// 由 chainmaker/cmd/run_testbiginput 驱动，支持 -biginput_data_size 或 -biginput_sweep。
+func TestBigInput(t *testing.T) {
+	sizes := parseBigInputSweep(*bigInputSweep)
+	if len(sizes) == 0 {
+		sizes = []int{*bigInputDataSize}
+	}
+	for _, size := range sizes {
+		size := size
+		t.Run(fmt.Sprintf("data_%dB", size), func(t *testing.T) {
+			if *bigInputContractMethod == "inputSizeMulti" {
+				runBigInputMultiWithTotalSize(t, *bigInputContractMethod, *bigInputContractName, *bigInputContractType, size)
+				return
+			}
+			runBigInputWithSize(t, *bigInputContractMethod, *bigInputContractName, *bigInputContractType, size)
+		})
+	}
+}
+
+func parseBigInputSweep(sweep string) []int {
+	sweep = strings.TrimSpace(sweep)
+	if sweep == "" {
+		return nil
+	}
+	parts := strings.Split(sweep, ",")
+	sizes := make([]int, 0, len(parts))
+	for _, p := range parts {
+		p = strings.TrimSpace(p)
+		if p == "" {
+			continue
+		}
+		n, err := strconv.Atoi(p)
+		if err != nil || n < 0 {
+			continue
+		}
+		sizes = append(sizes, n)
+	}
+	return sizes
+}
+
+const bigInputMaxShardBytes = 1024 * 1024 // EasyCodec MAX_VALUE_LEN
+
+// buildMultiShardParams splits totalSize into data0..data{N-1}, each shard ≤ 1MB.
+func buildMultiShardParams(totalSize int) (map[string][]byte, int) {
+	if totalSize < 0 {
+		totalSize = 0
+	}
+	shardCount := 1
+	if totalSize > 0 {
+		shardCount = (totalSize + bigInputMaxShardBytes - 1) / bigInputMaxShardBytes
+	}
+	params := map[string][]byte{
+		"part_count": []byte(strconv.Itoa(shardCount)),
+	}
+	remaining := totalSize
+	for i := 0; i < shardCount; i++ {
+		chunk := bigInputMaxShardBytes
+		if remaining < chunk {
+			chunk = remaining
+		}
+		if chunk > 0 {
+			params[fmt.Sprintf("data%d", i)] = bytes.Repeat([]byte("X"), chunk)
+			remaining -= chunk
+		} else {
+			params[fmt.Sprintf("data%d", i)] = []byte{}
+		}
+	}
+	return params, shardCount
+}
+
+func runBigInputMultiWithTotalSize(t *testing.T, contractMethod, contractName, contractType string, totalSize int) {
+	filePath := prepareFile(contractName, contractType)
+	wasmBytes, contractId, logger := prepareContract(filePath, t)
+	vmPool, err := newVmPool(&contractId, wasmBytes, logger)
+	if err != nil {
+		t.Fatalf("create vmPool error: %v", err)
+	}
+	defer vmPool.close()
+
+	runtimeInst := RuntimeInstance{
+		pool:    vmPool,
+		log:     logger,
+		chainId: ChainId,
+	}
+
+	parameters, shardCount := buildMultiShardParams(totalSize)
+	fillingBaseParams(parameters)
+
+	txSimContext := prepareTxSimContext(ChainId, BlockVersion, contractName, contractMethod, parameters, SnapshotMock{})
+	contractResult, _, _, _, executionTime, _ := runtimeInst.InvokeTime(
+		&contractId, contractMethod, wasmBytes, parameters, txSimContext, 0)
+
+	resultStr := strings.TrimSpace(string(contractResult.Result))
+	expected := strconv.Itoa(totalSize)
+	ok := contractResult.Code == 0 && resultStr == expected
+
+	fmt.Printf("[biginput-result] data_size=%d shards=%d expected=%s actual=%s code=%d gas=%d exec_time=%.6f ok=%t\n",
+		totalSize, shardCount, expected, resultStr, contractResult.Code, contractResult.GasUsed, executionTime, ok)
+	if contractResult.Message != "" {
+		fmt.Printf("[biginput-message] %s\n", contractResult.Message)
+	}
+	fmt.Printf("[biginput-memory-hint] data_size=%d shards=%d max_pages_limit=512 max_linear_mem_bytes=%d page_bytes=%d\n",
+		totalSize, shardCount, 512*wasmPageBytes, wasmPageBytes)
+
+	if !ok {
+		if contractResult.Code != 0 {
+			t.Logf("invoke failed: code=%d message=%s", contractResult.Code, contractResult.Message)
+		} else {
+			t.Logf("result mismatch: expected %s got %s", expected, resultStr)
+		}
+	}
+}
+
+func runBigInputWithSize(t *testing.T, contractMethod, contractName, contractType string, dataSize int) {
+	filePath := prepareFile(contractName, contractType)
+	wasmBytes, contractId, logger := prepareContract(filePath, t)
+	vmPool, err := newVmPool(&contractId, wasmBytes, logger)
+	if err != nil {
+		t.Fatalf("create vmPool error: %v", err)
+	}
+	defer vmPool.close()
+
+	runtimeInst := RuntimeInstance{
+		pool:    vmPool,
+		log:     logger,
+		chainId: ChainId,
+	}
+
+	data := bytes.Repeat([]byte("X"), dataSize)
+	parameters := map[string][]byte{"data": data}
+	fillingBaseParams(parameters)
+
+	txSimContext := prepareTxSimContext(ChainId, BlockVersion, contractName, contractMethod, parameters, SnapshotMock{})
+	contractResult, _, _, _, executionTime, _ := runtimeInst.InvokeTime(
+		&contractId, contractMethod, wasmBytes, parameters, txSimContext, 0)
+
+	resultStr := strings.TrimSpace(string(contractResult.Result))
+	expected := strconv.Itoa(dataSize)
+	ok := contractResult.Code == 0 && resultStr == expected
+
+	// 结构化输出行，供 cmd 工具解析（exportMemory 页数见 runtime.go 日志）
+	fmt.Printf("[biginput-result] data_size=%d expected=%s actual=%s code=%d gas=%d exec_time=%.6f ok=%t\n",
+		dataSize, expected, resultStr, contractResult.Code, contractResult.GasUsed, executionTime, ok)
+	if contractResult.Message != "" {
+		fmt.Printf("[biginput-message] %s\n", contractResult.Message)
+	}
+	fmt.Printf("[biginput-memory-hint] data_size=%d max_pages_limit=512 max_linear_mem_bytes=%d page_bytes=%d\n",
+		dataSize, 512*wasmPageBytes, wasmPageBytes)
+
+	if !ok {
+		if contractResult.Code != 0 {
+			t.Logf("invoke failed: code=%d message=%s", contractResult.Code, contractResult.Message)
+		} else {
+			t.Logf("result mismatch: expected %s got %s", expected, resultStr)
+		}
+	}
+}
