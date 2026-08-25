@@ -1914,6 +1914,8 @@ void wasm_config_set_target(wasm_config_t *config, struct wasmer_target_t *targe
 
 void wasm_config_sys_canonicalize_nans(wasm_config_t *config, bool enable);
 
+void wasm_config_sys_set_compiler_num_threads(wasm_config_t *config, uint32_t num_threads);
+
 void wasm_config_set_max_pages(wasm_config_t *config,uint32_t maxPagesLimited);
 
 wasm_engine_t *wasm_engine_new(void);

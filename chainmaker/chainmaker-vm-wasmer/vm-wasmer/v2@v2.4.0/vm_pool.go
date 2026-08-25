@@ -947,6 +947,8 @@ func newVmPool(contractId *commonPb.Contract, byteCode []byte, log *logger.CMLog
 
 	//如果不设置默认上限为256页
 	config.MaxPagesLimit(512)
+	// Cap Cranelift compile workers to reduce NewModule RSS peak (wasmer scheme B).
+	config.CompilerNumThreads(4)
 
 	engine := wasmergo.NewEngineWithConfig(config)
 	store := wasmergo.NewStore(engine)

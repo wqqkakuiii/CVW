@@ -788,6 +788,13 @@ func (self *Config) MaxPagesLimit(maxPagesLimited uint32) *Config {
 	return self
 }
 
+// CompilerNumThreads sets parallel Cranelift/LLVM/Singlepass compile workers.
+// Pass 0 to keep Wasmer default (available_parallelism on the host).
+func (self *Config) CompilerNumThreads(n uint32) *Config {
+	C.wasm_config_sys_set_compiler_num_threads(self.inner(), C.uint32_t(n))
+	return self
+}
+
 // PushMeteringMiddlewarePtr allows the middleware metering to be engaged on an unsafe.Pointer
 // this pointer must be a to C based function with a signature of:
 //
