@@ -287,14 +287,21 @@ func DeserializeModule(store *Store, bytes []byte) (*Module, error) {
 // A runtime finalizer is registered on the Module, but it is possible
 // to force the destruction of the Module by calling Close manually.
 func (self *Module) Close() {
+	if self == nil || self._inner == nil {
+		return
+	}
 	runtime.SetFinalizer(self, nil)
-	C.wasm_module_delete(self.inner())
+	C.wasm_module_delete(self._inner)
 
-	if nil != self.importTypes {
+	if self.importTypes != nil {
 		self.importTypes.close()
+		self.importTypes = nil
 	}
 
-	if nil != self.exportTypes {
+	if self.exportTypes != nil {
 		self.exportTypes.close()
+		self.exportTypes = nil
 	}
+	self._inner = nil
+	self.store = nil
 }

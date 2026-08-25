@@ -129,21 +129,62 @@ func (self *Instance) SetGasLimit(newLimit uint64) {
 //	return fn, keepAlive, nil
 //}
 
-// Close the instance
+// Close the instance (enhanced).
 //
-// A runtime finalizer is registered on the Instance, but it is
-// possible to force the destruction of the Instance by calling Close
-// manually.
+// Clears the finalizer, closes Exports/imports once, deletes the native
+// instance, then nils all Go-side pointers so Close is idempotent and the
+// finalizer cannot double-delete.
 func (self *Instance) Close() {
+	if self == nil {
+		return
+	}
 	runtime.SetFinalizer(self, nil)
+	inner := self._inner
+	if inner == nil {
+		return
+	}
 	if self.Exports != nil {
 		self.Exports.Close()
+		self.Exports = nil
 	}
 	if self.imports != nil {
 		self.imports.Close()
+		self.imports = nil
+	}
+	C.wasm_instance_delete(inner)
+	self._inner = nil
+}
+
+// CloseLegacy is the pre-enhancement Close semantics for A/B memory probes:
+// close Exports/imports once, delete native instance, but leave Go fields
+// (_inner / Exports / imports) non-nil. Does not include the historical
+// accidental second Exports.Close() (that double-freed wasm_extern_vec_t).
+func (self *Instance) CloseLegacy() {
+	if self == nil {
+		return
+	}
+	runtime.SetFinalizer(self, nil)
+	if self.Exports != nil {
+		self.Exports.Close()
+		// intentionally leave Exports non-nil (legacy)
+	}
+	if self.imports != nil {
+		self.imports.Close()
+		// intentionally leave imports non-nil (legacy)
 	}
 	C.wasm_instance_delete(self.inner())
-	self.Exports.Close()
+	// intentionally leave _inner non-nil (legacy)
+}
+
+// NativeAlive reports whether the Go wrapper still holds a non-nil wasm_instance_t*.
+// After Close() this is false; after CloseLegacy() this remains true (dangling).
+func (self *Instance) NativeAlive() bool {
+	return self != nil && self._inner != nil
+}
+
+// ExportsHeld reports whether the Exports field is still non-nil.
+func (self *Instance) ExportsHeld() bool {
+	return self != nil && self.Exports != nil
 }
 
 // CloseNativeOnly runs wasm_instance_delete without touching Exports/imports.

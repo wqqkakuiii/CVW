@@ -50,6 +50,10 @@ func (self *Store) Inner() *C.wasm_store_t {
 // A runtime finalizer is registered on the Store, but it is possible
 // to force the destruction of the Store by calling Close manually.
 func (self *Store) Close() {
+	if self == nil || self._inner == nil {
+		return
+	}
 	runtime.SetFinalizer(self, nil)
-	C.wasm_store_delete(self.Inner())
+	C.wasm_store_delete(self._inner)
+	self._inner = nil
 }

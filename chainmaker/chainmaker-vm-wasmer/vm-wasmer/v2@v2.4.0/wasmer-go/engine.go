@@ -61,6 +61,16 @@ func (self *Engine) inner() *C.wasm_engine_t {
 	return self._inner
 }
 
+// Close deletes the underlying wasm_engine_t and clears the Go reference.
+func (self *Engine) Close() {
+	if self == nil || self._inner == nil {
+		return
+	}
+	runtime.SetFinalizer(self, nil)
+	C.wasm_engine_delete(self._inner)
+	self._inner = nil
+}
+
 // NewJITEngine is a deprecated function. Please use NewUniversalEngine instead.
 func NewJITEngine() *Engine {
 	return NewUniversalEngine()

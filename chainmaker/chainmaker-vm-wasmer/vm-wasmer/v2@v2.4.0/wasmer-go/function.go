@@ -340,7 +340,23 @@ func (self *Function) Native() NativeFunction {
 }
 
 func (self *Function) Close() {
-	self.funcType.Close()
+	if self == nil {
+		return
+	}
+	runtime.SetFinalizer(self, nil)
+	if self.environment != nil {
+		hostFunctionStore.remove(self.environment.hostFunctionStoreIndex)
+		self.environment = nil
+	}
+	if self._inner != nil && self._ownedBy == nil {
+		C.wasm_func_delete(self._inner)
+		self._inner = nil
+	}
+	if self.funcType != nil {
+		self.funcType.Close()
+		self.funcType = nil
+	}
+	self.lazyNative = nil
 }
 
 type functionEnvironment struct {
