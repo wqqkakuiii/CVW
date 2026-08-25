@@ -34,10 +34,11 @@ package wasmer
 import "C"
 
 import (
-	"chainmaker.org/chainmaker/logger/v2"
 	"runtime"
 	"sync"
 	"unsafe"
+
+	"chainmaker.org/chainmaker/logger/v2"
 )
 
 // Module contains stateless WebAssembly code that has already been

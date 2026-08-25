@@ -19,7 +19,7 @@ if [[ -z $buildOption ]]; then
 fi
 
 if [[ $buildOption == "tinygo" ]]; then
-  export GOROOT="/usr/local/go"
+  export GOROOT="/usr/local/go-version/go1.24.1"
   export PATH="$GOROOT/bin:$PATH"
   echo "Using TinyGo to compile..."
   tinygo build -no-debug -opt=s -o "$contractName-tinygo.wasm" -target=wasip1

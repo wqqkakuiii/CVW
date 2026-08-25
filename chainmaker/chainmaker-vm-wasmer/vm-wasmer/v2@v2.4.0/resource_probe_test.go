@@ -89,10 +89,9 @@ func TestCreateInstanceResourcePhases(t *testing.T) {
 	logf("repeat=%d cycles=%d settle=%v detail_first=%v",
 		*createProbeRepeat, cycles, *createProbeSettle, *createProbeDetailFirst)
 	logf("pattern=grow(N)→shrink(0) × %d", cycles)
-	logf("destroy=CloseInstance recycles wasiEnv to pool freelist (no wasi_env_delete)")
+	logf("destroy=CloseInstance deletes wasiEnv (wasi_env_delete)")
 	logf("contracts=%v", wasms)
 	logf("note: process RSS/threads accumulate across contracts; compare within each contract section.")
-	logf("expect: c2 grow should NOT add ~13 threads/instance if wasiEnv freelist works.")
 	logf("")
 
 	for i, wasmPath := range wasms {
@@ -218,31 +217,19 @@ func runCreateDestroyProbe(
 		logf("--- %s/%s all %d created ---", contractName, cycle, len(instances))
 		logf("%s", probe.Mark(fmt.Sprintf("%s/%s/peak_all_alive", contractName, cycle)).String())
 
-		logf("===== %s cycle %d/%d: SHRINK to 0 (recycle wasiEnv) =====", contractName, c, cycles)
+		logf("===== %s cycle %d/%d: SHRINK to 0 =====", contractName, c, cycles)
 		for i := len(instances) - 1; i >= 0; i-- {
 			closedID := instances[i].id
-			pool.CloseInstance(instances[i]) // wasm close + wasiEnv → freelist
+			pool.CloseInstance(instances[i])
 			instances[i] = nil
 			settleProbe()
 			alive := i
-			logf("%s closed=%s alive=%d freelist=%d",
+			logf("%s closed=%s alive=%d",
 				probe.Mark(fmt.Sprintf("%s/%s/after_close_alive_%d", contractName, cycle, alive)).String(),
-				closedID, alive, len(pool.freeWasiEnvs))
+				closedID, alive)
 		}
-		logf("%s freelist=%d",
-			probe.Mark(fmt.Sprintf("%s/%s/after_shrink_zero", contractName, cycle)).String(),
-			len(pool.freeWasiEnvs))
-		from, neu, drop, flen := pool.WasiEnvStats()
-		logf("%s/%s wasi_stats from_freelist=%d finalize_new=%d freelist_drop=%d freelist_len=%d",
-			contractName, cycle, from, neu, drop, flen)
-	}
-
-	from, neu, drop, flen := pool.WasiEnvStats()
-	logf("%s final wasi_stats from_freelist=%d finalize_new=%d freelist_drop=%d freelist_len=%d",
-		contractName, from, neu, drop, flen)
-	if cycles >= 2 && from == 0 {
-		return fmt.Errorf("%s: expected freelist reuse on cycle>=2, from_freelist=0 finalize_new=%d",
-			contractName, neu)
+		logf("%s",
+			probe.Mark(fmt.Sprintf("%s/%s/after_shrink_zero", contractName, cycle)).String())
 	}
 
 	module.Close()
@@ -269,26 +256,24 @@ func createInstanceWithProbe(
 	vb := GetVmBridgeManager()
 	env := CMEnvironment{instance: nil, memory: nil}
 
-	// Same freelist as production newInstanceFromModule.
-	wasiEnv, err := p.acquireWasiEnv()
+	// Same path as production newInstanceFromModule.
+	wasiEnv, err := p.newWasiEnv()
 	if err != nil {
-		return nil, fmt.Errorf("acquireWasiEnv: %w", err)
+		return nil, fmt.Errorf("newWasiEnv: %w", err)
 	}
 	settleProbe()
 	if detail {
-		from, neu, drop, flen := p.WasiEnvStats()
-		logf("%s wasi_stats from_freelist=%d finalize_new=%d freelist_drop=%d freelist_len=%d",
-			probe.Mark(prefix+"_4_after_WASI_acquire").String(), from, neu, drop, flen)
+		logf("%s", probe.Mark(prefix+"_4_after_WASI_new").String())
 	}
 
 	importObject, err := wasiEnv.GenerateImportObject(p.store, p.module)
 	if err != nil {
-		p.releaseWasiEnv(wasiEnv)
+		p.deleteWasiEnv(wasiEnv)
 		return nil, fmt.Errorf("GenerateImportObject: %w", err)
 	}
 	imports, err := vb.GetImports(p.store, &env, importObject)
 	if imports == nil && err != nil {
-		p.releaseWasiEnv(wasiEnv)
+		p.deleteWasiEnv(wasiEnv)
 		return nil, fmt.Errorf("GetImports: %w", err)
 	}
 	settleProbe()
@@ -298,7 +283,7 @@ func createInstanceWithProbe(
 
 	wasmInstance, err := wasmergo.NewInstance(p.module, imports)
 	if err != nil {
-		p.releaseWasiEnv(wasiEnv)
+		p.deleteWasiEnv(wasiEnv)
 		return nil, fmt.Errorf("NewInstance: %w", err)
 	}
 	settleProbe()
@@ -308,7 +293,7 @@ func createInstanceWithProbe(
 
 	if err := wasiEnv.Initialize(p.store, wasmInstance); err != nil {
 		wasmInstance.Close()
-		p.releaseWasiEnv(wasiEnv)
+		p.deleteWasiEnv(wasiEnv)
 		return nil, fmt.Errorf("WASI Initialize: %w", err)
 	}
 	if start, _ := wasmInstance.Exports.GetWasiStartRawFunction(); start != nil {

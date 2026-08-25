@@ -24,6 +24,7 @@ type ResourceSnapshot struct {
 	Threads      int
 	VmRSSKB      int64
 	VmSizeKB     int64
+	AnonRSSKB    int64 // from smaps_rollup Anonymous; -1 if unavailable
 	GoAllocMB    float64
 	GoSysMB      float64
 	NumGC        uint32
@@ -36,6 +37,7 @@ type ResourceDelta struct {
 	Threads      int
 	VmRSSKB      int64
 	VmSizeKB     int64
+	AnonRSSKB    int64
 	GoAllocMB    float64
 	GoSysMB      float64
 	NumGoroutine int
@@ -54,12 +56,14 @@ func SampleResource(label string) ResourceSnapshot {
 		Threads:      -1,
 		VmRSSKB:      -1,
 		VmSizeKB:     -1,
+		AnonRSSKB:    -1,
 		GoAllocMB:    float64(mem.Alloc) / 1024 / 1024,
 		GoSysMB:      float64(mem.Sys) / 1024 / 1024,
 		NumGC:        mem.NumGC,
 		NumGoroutine: runtime.NumGoroutine(),
 	}
 	fillProcStatus(&s)
+	fillSmapsRollup(&s)
 	return s
 }
 
@@ -73,12 +77,14 @@ func SampleResourceNoGC(label string) ResourceSnapshot {
 		Threads:      -1,
 		VmRSSKB:      -1,
 		VmSizeKB:     -1,
+		AnonRSSKB:    -1,
 		GoAllocMB:    float64(mem.Alloc) / 1024 / 1024,
 		GoSysMB:      float64(mem.Sys) / 1024 / 1024,
 		NumGC:        mem.NumGC,
 		NumGoroutine: runtime.NumGoroutine(),
 	}
 	fillProcStatus(&s)
+	fillSmapsRollup(&s)
 	return s
 }
 
@@ -99,12 +105,26 @@ func fillProcStatus(s *ResourceSnapshot) {
 	}
 }
 
+func fillSmapsRollup(s *ResourceSnapshot) {
+	data, err := os.ReadFile("/proc/self/smaps_rollup")
+	if err != nil {
+		return
+	}
+	for _, line := range strings.Split(string(data), "\n") {
+		if strings.HasPrefix(line, "Anonymous:") {
+			fmt.Sscanf(line, "Anonymous: %d kB", &s.AnonRSSKB)
+			return
+		}
+	}
+}
+
 func (s ResourceSnapshot) Sub(base ResourceSnapshot) ResourceDelta {
 	return ResourceDelta{
 		Label:        s.Label,
 		Threads:      s.Threads - base.Threads,
 		VmRSSKB:      s.VmRSSKB - base.VmRSSKB,
 		VmSizeKB:     s.VmSizeKB - base.VmSizeKB,
+		AnonRSSKB:    s.AnonRSSKB - base.AnonRSSKB,
 		GoAllocMB:    s.GoAllocMB - base.GoAllocMB,
 		GoSysMB:      s.GoSysMB - base.GoSysMB,
 		NumGoroutine: s.NumGoroutine - base.NumGoroutine,
@@ -113,16 +133,16 @@ func (s ResourceSnapshot) Sub(base ResourceSnapshot) ResourceDelta {
 }
 
 func (s ResourceSnapshot) String() string {
-	return fmt.Sprintf("%s threads=%d VmRSS=%.2fMB VmSize=%.2fMB goAlloc=%.2fMB goSys=%.2fMB goroutine=%d numGC=%d",
+	return fmt.Sprintf("%s threads=%d VmRSS=%.2fMB Anon=%.2fMB VmSize=%.2fMB goAlloc=%.2fMB goSys=%.2fMB goroutine=%d numGC=%d",
 		s.Label, s.Threads,
-		float64(s.VmRSSKB)/1024, float64(s.VmSizeKB)/1024,
+		float64(s.VmRSSKB)/1024, float64(s.AnonRSSKB)/1024, float64(s.VmSizeKB)/1024,
 		s.GoAllocMB, s.GoSysMB, s.NumGoroutine, s.NumGC)
 }
 
 func (d ResourceDelta) String() string {
-	return fmt.Sprintf("Δ%-28s threads=%+d VmRSS=%+.2fMB VmSize=%+.2fMB goAlloc=%+.2fMB goSys=%+.2fMB goroutine=%+d elapsed=%v",
+	return fmt.Sprintf("Δ%-28s threads=%+d VmRSS=%+.2fMB Anon=%+.2fMB VmSize=%+.2fMB goAlloc=%+.2fMB goSys=%+.2fMB goroutine=%+d elapsed=%v",
 		d.Label, d.Threads,
-		float64(d.VmRSSKB)/1024, float64(d.VmSizeKB)/1024,
+		float64(d.VmRSSKB)/1024, float64(d.AnonRSSKB)/1024, float64(d.VmSizeKB)/1024,
 		d.GoAllocMB, d.GoSysMB, d.NumGoroutine, d.Elapsed)
 }
 

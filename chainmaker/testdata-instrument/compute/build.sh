@@ -22,7 +22,7 @@ fi
 # 根据 buildOption 选择编译方式
 if [[ $buildOption == "tinygo" ]]; then
 
-    export GOROOT="/usr/local/go"
+    export GOROOT="/usr/local/go-version/go1.24.1"
     export PATH="$GOROOT/bin:$PATH"
     echo "Using TinyGo to compile..."
 #    tinygo build -buildmode=c-shared -o "$contractName-tinygo.wasm" -target=wasip1 "$contractName.go"

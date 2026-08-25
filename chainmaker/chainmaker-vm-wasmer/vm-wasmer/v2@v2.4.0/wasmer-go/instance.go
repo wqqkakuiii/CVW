@@ -145,3 +145,17 @@ func (self *Instance) Close() {
 	C.wasm_instance_delete(self.inner())
 	self.Exports.Close()
 }
+
+// CloseNativeOnly runs wasm_instance_delete without touching Exports/imports.
+// Use only when Exports were already closed (e.g. destroy-step probes) to avoid
+// double wasm_extern_vec_delete.
+func (self *Instance) CloseNativeOnly() {
+	runtime.SetFinalizer(self, nil)
+	if self._inner == nil {
+		return
+	}
+	C.wasm_instance_delete(self.inner())
+	self._inner = nil
+	self.Exports = nil
+	self.imports = nil
+}

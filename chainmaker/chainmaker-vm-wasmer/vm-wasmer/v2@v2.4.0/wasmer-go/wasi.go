@@ -293,6 +293,16 @@ func (self *WasiEnvironment) inner() *C.wasi_env_t {
 	return self._inner
 }
 
+// Close deletes the native wasi_env. Clears the finalizer to avoid double-delete on GC.
+func (self *WasiEnvironment) Close() {
+	if self == nil || self._inner == nil {
+		return
+	}
+	runtime.SetFinalizer(self, nil)
+	C.wasi_env_delete(self._inner)
+	self._inner = nil
+}
+
 func (self *WasiEnvironment) Initialize(store *Store, instance *Instance) error {
 
 	err := maybeNewErrorFromWasmer(func() bool {
