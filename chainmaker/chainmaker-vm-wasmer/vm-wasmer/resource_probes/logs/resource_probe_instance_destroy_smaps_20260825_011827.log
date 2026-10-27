@@ -1,0 +1,3 @@
+=== TestInstanceDestroySmaps ===
+wasm=./testdata/fact-go.wasm log_file=./resource_probe_instance_destroy_smaps_20260825_011827.log
+[Arc] baseline strong=2

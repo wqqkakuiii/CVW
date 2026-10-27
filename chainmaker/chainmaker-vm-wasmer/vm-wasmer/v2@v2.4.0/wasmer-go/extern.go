@@ -45,6 +45,19 @@ func (self *Extern) IntoExtern() *Extern {
 	return self
 }
 
+// Close drops an owned extern. WASI import copies are owned here and each
+// holds a StoreRef; release that before Store.Close.
+func (self *Extern) Close() {
+	if self == nil || self._inner == nil {
+		return
+	}
+	runtime.SetFinalizer(self, nil)
+	if self._ownedBy == nil {
+		C.wasm_extern_delete(self._inner)
+	}
+	self._inner = nil
+}
+
 // Kind returns the Extern's ExternKind.
 //
 //	global, _ := instance.Exports.GetGlobal("exported_global")

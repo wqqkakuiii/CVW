@@ -1,0 +1,13 @@
+=== TestInstanceDestroyStepsAF ===
+time=2026-08-25T01:18:54+08:00
+log_file=./resource_probe_destroy_20260825_011854.log
+wasm=./testdata/fact-go.wasm n=4 settle=300ms reclaim_frac=0.15
+note: wasiEnv held alive (no wasi_env_delete); focus = Instance / linear memory RSS
+
+===== arm A/B/C: create → dealloc-only → full Close =====
+A_peak_alive threads=75 VmRSS=268.84MB Anon=214.71MB VmSize=30817.61MB goAlloc=6.64MB goSys=38.40MB goroutine=2 numGC=8 alive=4
+--- B_deallocate_only ---
+  before: A_peak_alive threads=75 VmRSS=268.84MB Anon=214.71MB VmSize=30817.61MB goAlloc=6.64MB goSys=38.40MB goroutine=2 numGC=8
+  after:  B_after_deallocate_only threads=75 VmRSS=268.86MB Anon=214.73MB VmSize=30818.68MB goAlloc=6.63MB goSys=38.40MB goroutine=2 numGC=9
+  ΔB_after_deallocate_only      threads=+0 VmRSS=+0.02MB Anon=+0.02MB VmSize=+1.07MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=308.5254ms
+  note: expect ~0 RSS drop (Guest args only)

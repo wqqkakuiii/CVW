@@ -1,0 +1,33 @@
+=== TestModuleCompileRSS ===
+time=2026-08-22T21:18:21+08:00
+log_file=./resource_probe_module_20260822_211821.log
+wasm=./wasmer-go/testdata/tests.wasm size=0.00MB n=1 settle=300ms close_each=true
+focus: ΔRSS of NewModule (wasm_module_new / LLVM compile); no Instance
+
+0_baseline threads=9 VmRSS=47.27MB Anon=6.29MB VmSize=1847.77MB goAlloc=1.90MB goSys=13.33MB goroutine=2 numGC=2
+1_after_engine_store threads=9 VmRSS=48.32MB Anon=6.41MB VmSize=1847.77MB goAlloc=1.91MB goSys=13.33MB goroutine=2 numGC=3
+  Δ1_after_engine_store         threads=+0 VmRSS=+1.04MB Anon=+0.12MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=306.276016ms
+2_after_ReadFile threads=9 VmRSS=48.38MB Anon=6.42MB VmSize=1847.77MB goAlloc=1.87MB goSys=13.33MB goroutine=2 numGC=4
+  Δ2_after_ReadFile             threads=+0 VmRSS=+0.07MB Anon=+0.01MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=301.481106ms  (file=0.00MB)
+3_after_ValidateModule threads=9 VmRSS=49.29MB Anon=6.51MB VmSize=1848.02MB goAlloc=1.87MB goSys=13.58MB goroutine=2 numGC=5
+  Δ3_after_ValidateModule       threads=+0 VmRSS=+0.91MB Anon=+0.09MB VmSize=+0.25MB goAlloc=+0.00MB goSys=+0.25MB goroutine=+0 elapsed=301.70035ms
+--- NewModule #1/1 elapsed=6.064342ms ---
+  before: 3_after_ValidateModule threads=9 VmRSS=49.29MB Anon=6.51MB VmSize=1848.02MB goAlloc=1.87MB goSys=13.58MB goroutine=2 numGC=5
+  after:  4_compile_0_after_NewModule threads=9 VmRSS=54.73MB Anon=7.93MB VmSize=2640.82MB goAlloc=1.95MB goSys=14.33MB goroutine=2 numGC=7
+  Δ4_compile_0_after_NewModule  threads=+0 VmRSS=+5.44MB Anon=+1.42MB VmSize=+792.80MB goAlloc=+0.08MB goSys=+0.75MB goroutine=+0 elapsed=609.206773ms
+  ratio: ΔVmRSS / wasm_file = 16868.73x  ΔAnon / wasm_file = 4398.96x
+  after Close: 5_compile_0_after_Module_Close threads=9 VmRSS=54.83MB Anon=7.97MB VmSize=2641.07MB goAlloc=1.93MB goSys=14.58MB goroutine=2 numGC=9
+  Δ5_compile_0_after_Module_Close threads=+0 VmRSS=+0.10MB Anon=+0.04MB VmSize=+0.25MB goAlloc=-0.02MB goSys=+0.25MB goroutine=+0 elapsed=302.551243ms
+6_final threads=9 VmRSS=54.83MB Anon=7.97MB VmSize=2641.07MB goAlloc=1.92MB goSys=14.58MB goroutine=2 numGC=11
+  vs baseline: Δ6_final                      threads=+0 VmRSS=+7.56MB Anon=+1.68MB VmSize=+793.30MB goAlloc=+0.02MB goSys=+1.25MB goroutine=+0 elapsed=2.124095351s
+
+=== ANALYSIS ===
+wasm_file=0.00MB
+Δ_engine_store: VmRSS=+1.04MB Anon=+0.12MB
+Δ_ReadFile:     VmRSS=+0.07MB Anon=+0.01MB (Go heap for bytecode)
+Δ_Validate:     VmRSS=+0.91MB Anon=+0.09MB
+Δ_NewModule:    VmRSS=+5.44MB Anon=+1.42MB  ← compile / native artifact
+Δ_Module_Close: VmRSS=+0.10MB Anon=+0.04MB
+VERDICT_CLOSE: Module.Close did NOT return most compile RSS to kernel
+VERDICT_COMPILE: NewModule Host cost ≈ VmRSS +5.44MB / Anon +1.42MB for this wasm
+log_file=./resource_probe_module_20260822_211821.log

@@ -1,0 +1,310 @@
+2026-08-10 11:36:27.997	[INFO]	create_probe_fact-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:36:27.997	[INFO]	create_probe_fact-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc001474000 
+2026-08-10 11:36:27.997	[INFO]	create_probe_fact-go	wasmer-go/module.go:104	wasmBytesLength => 4871418 
+Total function bodies: 2868
+2026-08-10 11:36:28.608	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+2026-08-10 11:36:36.675	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-9
+2026-08-10 11:36:36.675	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:36.876	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-8
+2026-08-10 11:36:36.876	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:37.077	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-7
+2026-08-10 11:36:37.077	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:37.277	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-6
+2026-08-10 11:36:37.277	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:37.478	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-5
+2026-08-10 11:36:37.478	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:37.679	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-4
+2026-08-10 11:36:37.679	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:37.880	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-3
+2026-08-10 11:36:37.880	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:38.081	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-2
+2026-08-10 11:36:38.081	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:38.282	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-1
+2026-08-10 11:36:38.282	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:38.483	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-0
+2026-08-10 11:36:38.483	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:46.734	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-9
+2026-08-10 11:36:46.734	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:46.935	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-8
+2026-08-10 11:36:46.935	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:47.136	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-7
+2026-08-10 11:36:47.136	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:47.337	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-6
+2026-08-10 11:36:47.337	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:47.538	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-5
+2026-08-10 11:36:47.538	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:47.739	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-4
+2026-08-10 11:36:47.739	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:47.939	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-3
+2026-08-10 11:36:47.940	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:48.140	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-2
+2026-08-10 11:36:48.140	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:48.341	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-1
+2026-08-10 11:36:48.341	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:48.542	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c2-0
+2026-08-10 11:36:48.542	[DEBUG]	create_probe_fact-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:49.388	[INFO]	create_probe_exchange-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:36:49.388	[INFO]	create_probe_exchange-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc0012c4000 
+2026-08-10 11:36:49.388	[INFO]	create_probe_exchange-go	wasmer-go/module.go:104	wasmBytesLength => 4283547 
+Total function bodies: 2630
+2026-08-10 11:36:58.026	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-9
+2026-08-10 11:36:58.026	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:58.227	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-8
+2026-08-10 11:36:58.227	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:58.428	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-7
+2026-08-10 11:36:58.428	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:58.629	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-6
+2026-08-10 11:36:58.629	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:58.829	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-5
+2026-08-10 11:36:58.830	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:59.034	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-4
+2026-08-10 11:36:59.034	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:59.235	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-3
+2026-08-10 11:36:59.235	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:59.436	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-2
+2026-08-10 11:36:59.436	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:59.637	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-1
+2026-08-10 11:36:59.637	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:36:59.837	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c1-0
+2026-08-10 11:36:59.837	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:08.090	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-9
+2026-08-10 11:37:08.090	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:08.291	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-8
+2026-08-10 11:37:08.291	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:08.492	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-7
+2026-08-10 11:37:08.492	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:08.692	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-6
+2026-08-10 11:37:08.692	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:08.893	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-5
+2026-08-10 11:37:08.893	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:09.094	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-4
+2026-08-10 11:37:09.094	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:09.295	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-3
+2026-08-10 11:37:09.295	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:09.496	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-2
+2026-08-10 11:37:09.496	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:09.696	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-1
+2026-08-10 11:37:09.697	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:09.897	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-exchange-go-c2-0
+2026-08-10 11:37:09.897	[DEBUG]	create_probe_exchange-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:10.750	[INFO]	create_probe_erc721-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:37:10.750	[INFO]	create_probe_erc721-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc001552000 
+2026-08-10 11:37:10.750	[INFO]	create_probe_erc721-go	wasmer-go/module.go:104	wasmBytesLength => 5176627 
+Total function bodies: 3015
+2026-08-10 11:37:19.446	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-9
+2026-08-10 11:37:19.446	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:19.647	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-8
+2026-08-10 11:37:19.647	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:19.847	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-7
+2026-08-10 11:37:19.847	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:20.048	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-6
+2026-08-10 11:37:20.048	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:20.249	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-5
+2026-08-10 11:37:20.249	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:20.450	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-4
+2026-08-10 11:37:20.450	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:20.650	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-3
+2026-08-10 11:37:20.651	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:20.851	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-2
+2026-08-10 11:37:20.851	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:21.052	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-1
+2026-08-10 11:37:21.052	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:21.253	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c1-0
+2026-08-10 11:37:21.253	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:29.507	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-9
+2026-08-10 11:37:29.507	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:29.707	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-8
+2026-08-10 11:37:29.707	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:29.908	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-7
+2026-08-10 11:37:29.908	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:30.109	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-6
+2026-08-10 11:37:30.109	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:30.310	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-5
+2026-08-10 11:37:30.310	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:30.511	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-4
+2026-08-10 11:37:30.511	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:30.712	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-3
+2026-08-10 11:37:30.712	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:30.913	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-2
+2026-08-10 11:37:30.913	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:31.113	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-1
+2026-08-10 11:37:31.113	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:31.314	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-erc721-go-c2-0
+2026-08-10 11:37:31.314	[DEBUG]	create_probe_erc721-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:32.161	[INFO]	create_probe_compute-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:37:32.161	[INFO]	create_probe_compute-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc0013c0000 
+2026-08-10 11:37:32.161	[INFO]	create_probe_compute-go	wasmer-go/module.go:104	wasmBytesLength => 4628317 
+Total function bodies: 2819
+2026-08-10 11:37:40.828	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-9
+2026-08-10 11:37:40.828	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:41.029	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-8
+2026-08-10 11:37:41.029	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:41.230	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-7
+2026-08-10 11:37:41.230	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:41.431	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-6
+2026-08-10 11:37:41.431	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:41.631	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-5
+2026-08-10 11:37:41.632	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:41.832	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-4
+2026-08-10 11:37:41.832	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:42.033	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-3
+2026-08-10 11:37:42.033	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:42.234	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-2
+2026-08-10 11:37:42.234	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:42.435	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-1
+2026-08-10 11:37:42.435	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:42.636	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c1-0
+2026-08-10 11:37:42.636	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:50.887	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-9
+2026-08-10 11:37:50.887	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:51.088	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-8
+2026-08-10 11:37:51.088	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:51.289	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-7
+2026-08-10 11:37:51.289	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:51.490	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-6
+2026-08-10 11:37:51.490	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:51.690	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-5
+2026-08-10 11:37:51.691	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:51.891	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-4
+2026-08-10 11:37:51.891	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:52.092	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-3
+2026-08-10 11:37:52.092	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:52.293	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-2
+2026-08-10 11:37:52.293	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:52.494	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-1
+2026-08-10 11:37:52.494	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:52.695	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-compute-go-c2-0
+2026-08-10 11:37:52.695	[DEBUG]	create_probe_compute-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:37:53.535	[INFO]	create_probe_identity-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:37:53.536	[INFO]	create_probe_identity-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc00148c000 
+2026-08-10 11:37:53.536	[INFO]	create_probe_identity-go	wasmer-go/module.go:104	wasmBytesLength => 4906752 
+Total function bodies: 2889
+2026-08-10 11:38:02.211	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-9
+2026-08-10 11:38:02.211	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:02.412	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-8
+2026-08-10 11:38:02.412	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:02.613	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-7
+2026-08-10 11:38:02.613	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:02.813	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-6
+2026-08-10 11:38:02.814	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:03.014	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-5
+2026-08-10 11:38:03.015	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:03.215	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-4
+2026-08-10 11:38:03.215	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:03.416	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-3
+2026-08-10 11:38:03.416	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:03.617	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-2
+2026-08-10 11:38:03.617	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:03.818	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-1
+2026-08-10 11:38:03.818	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:04.018	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c1-0
+2026-08-10 11:38:04.019	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:12.272	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-9
+2026-08-10 11:38:12.272	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:12.473	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-8
+2026-08-10 11:38:12.473	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:12.673	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-7
+2026-08-10 11:38:12.673	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:12.874	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-6
+2026-08-10 11:38:12.874	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:13.075	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-5
+2026-08-10 11:38:13.075	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:13.276	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-4
+2026-08-10 11:38:13.276	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:13.476	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-3
+2026-08-10 11:38:13.476	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:13.677	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-2
+2026-08-10 11:38:13.677	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:13.878	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-1
+2026-08-10 11:38:13.878	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:14.079	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-identity-go-c2-0
+2026-08-10 11:38:14.079	[DEBUG]	create_probe_identity-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:14.943	[INFO]	create_probe_raffle-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:38:14.943	[INFO]	create_probe_raffle-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc001594000 
+2026-08-10 11:38:14.943	[INFO]	create_probe_raffle-go	wasmer-go/module.go:104	wasmBytesLength => 5260316 
+Total function bodies: 3083
+2026-08-10 11:38:23.689	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-9
+2026-08-10 11:38:23.689	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:23.889	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-8
+2026-08-10 11:38:23.889	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:24.090	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-7
+2026-08-10 11:38:24.090	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:24.291	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-6
+2026-08-10 11:38:24.291	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:24.492	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-5
+2026-08-10 11:38:24.492	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:24.693	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-4
+2026-08-10 11:38:24.693	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:24.894	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-3
+2026-08-10 11:38:24.894	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:25.094	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-2
+2026-08-10 11:38:25.095	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:25.295	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-1
+2026-08-10 11:38:25.295	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:25.496	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c1-0
+2026-08-10 11:38:25.496	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:33.752	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-9
+2026-08-10 11:38:33.752	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:33.953	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-8
+2026-08-10 11:38:33.953	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:34.153	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-7
+2026-08-10 11:38:34.154	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:34.354	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-6
+2026-08-10 11:38:34.354	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:34.555	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-5
+2026-08-10 11:38:34.555	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:34.756	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-4
+2026-08-10 11:38:34.756	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:34.957	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-3
+2026-08-10 11:38:34.957	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:35.157	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-2
+2026-08-10 11:38:35.157	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:35.358	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-1
+2026-08-10 11:38:35.358	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:35.559	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-raffle-go-c2-0
+2026-08-10 11:38:35.559	[DEBUG]	create_probe_raffle-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:36.397	[INFO]	create_probe_itinerary-go	wasmer-go/module.go:102	store.inner() => &{{{}}} 
+2026-08-10 11:38:36.397	[INFO]	create_probe_itinerary-go	wasmer-go/module.go:103	wasmBytesPtr => 0xc001480000 
+2026-08-10 11:38:36.397	[INFO]	create_probe_itinerary-go	wasmer-go/module.go:104	wasmBytesLength => 4886356 
+Total function bodies: 2879
+2026-08-10 11:38:45.059	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-9
+2026-08-10 11:38:45.059	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:45.260	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-8
+2026-08-10 11:38:45.260	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:45.461	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-7
+2026-08-10 11:38:45.461	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:45.662	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-6
+2026-08-10 11:38:45.662	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:45.863	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-5
+2026-08-10 11:38:45.863	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:46.064	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-4
+2026-08-10 11:38:46.064	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:46.264	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-3
+2026-08-10 11:38:46.265	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:46.465	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-2
+2026-08-10 11:38:46.465	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:46.666	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-1
+2026-08-10 11:38:46.666	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:46.867	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c1-0
+2026-08-10 11:38:46.867	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:55.120	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-9
+2026-08-10 11:38:55.120	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:55.320	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-8
+2026-08-10 11:38:55.320	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:55.521	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-7
+2026-08-10 11:38:55.521	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:55.722	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-6
+2026-08-10 11:38:55.722	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:55.923	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-5
+2026-08-10 11:38:55.923	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:56.123	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-4
+2026-08-10 11:38:56.124	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:56.324	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-3
+2026-08-10 11:38:56.324	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:56.525	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-2
+2026-08-10 11:38:56.525	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:56.726	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-1
+2026-08-10 11:38:56.726	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+2026-08-10 11:38:56.927	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:688	CallDeallocate site=CloseInstance instance_id=probe-itinerary-go-c2-0
+2026-08-10 11:38:56.927	[DEBUG]	create_probe_itinerary-go	v2@v2.4.0/vm_pool.go:700	instance closed.
+PASS

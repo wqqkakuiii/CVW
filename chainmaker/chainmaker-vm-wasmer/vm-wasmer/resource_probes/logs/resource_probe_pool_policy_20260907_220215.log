@@ -1,0 +1,21 @@
+=== TestPoolPolicyTpsAndMemory ===
+note: Wasmer has no Wasmtime CoW pooling; recreate≈slot semantic-new (shared Module)
+contract=compute method=normalCal iters=50 wasm=./testdata/compute-go.wasm
+
+--- policy=recreate ---
+  baseline VmRSS=209908 kB Anon=155716 kB thr=25
+  ok=50/50 wall=0.819s TPS(full Invoke)=61.07
+  VmRSS base=209908 peak=240820 end=240812 Δend=+30904 kB
+  gas min=100000072 max=100000072 variant=0
+
+--- policy=reuse ---
+  baseline VmRSS=345044 kB Anon=290844 kB thr=25
+  ok=50/50 wall=0.833s TPS(full Invoke)=60.05
+  VmRSS base=345044 peak=345368 end=344808 Δend=-236 kB
+  gas min=100000072 max=100000072 variant=0
+
+=== SUMMARY ===
+policy         ok      TPS    base_kB    peak_kB     end_kB    Δend_kB      gas_var
+recreate       50    61.07     209908     240820     240812      30904            0
+reuse          50    60.05     345044     345368     344808       -236            0
+log_file=../resource_probes/logs/resource_probe_pool_policy_20260907_220215.log

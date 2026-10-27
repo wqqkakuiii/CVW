@@ -1,0 +1,31 @@
+=== TestEngineCloseRSS ===
+time=2026-08-22T21:37:47+08:00
+log_file=./resource_probe_engine_close_test_wasm.log
+wasm=./testdata/test.wasm size=11.56MB close_engine=true with_instance=false settle=500ms
+close_order: [optional Instance.Close] → Module.Close → Store.Close → [optional Engine.Close] → GC
+
+0_baseline threads=9 VmRSS=48.93MB Anon=6.41MB VmSize=1848.29MB goAlloc=1.90MB goSys=13.83MB goroutine=2 numGC=2
+1_after_engine_store threads=9 VmRSS=50.00MB Anon=6.52MB VmSize=1848.29MB goAlloc=1.91MB goSys=13.83MB goroutine=2 numGC=3
+  Δ1_after_engine_store         threads=+0 VmRSS=+1.07MB Anon=+0.10MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=501.955685ms
+--- NewModule elapsed=922.907372ms ---
+2_after_NewModule threads=10 VmRSS=411.05MB Anon=361.68MB VmSize=2802.66MB goAlloc=1.95MB goSys=62.58MB goroutine=2 numGC=6
+  Δ2_after_NewModule            threads=+1 VmRSS=+361.05MB Anon=+355.16MB VmSize=+954.37MB goAlloc=+0.05MB goSys=+48.75MB goroutine=+0 elapsed=1.490303655s
+5_after_Module_Close threads=10 VmRSS=398.89MB Anon=350.45MB VmSize=2802.66MB goAlloc=1.93MB goSys=62.58MB goroutine=2 numGC=8
+  vs compile peak: Δ5_after_Module_Close         threads=+0 VmRSS=-12.17MB Anon=-11.23MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=510.225485ms
+6_after_Store_Close threads=10 VmRSS=364.91MB Anon=316.47MB VmSize=2802.91MB goAlloc=1.93MB goSys=62.83MB goroutine=2 numGC=10
+  vs module close: Δ6_after_Store_Close          threads=+0 VmRSS=-33.98MB Anon=-33.98MB VmSize=+0.25MB goAlloc=+0.00MB goSys=+0.25MB goroutine=+0 elapsed=507.55362ms
+7_after_Engine_Close threads=10 VmRSS=350.91MB Anon=302.47MB VmSize=2788.91MB goAlloc=1.93MB goSys=62.83MB goroutine=2 numGC=12
+  vs store close: Δ7_after_Engine_Close         threads=+0 VmRSS=-14.00MB Anon=-14.00MB VmSize=-14.01MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=509.753923ms
+8_after_final_GC threads=10 VmRSS=350.94MB Anon=302.51MB VmSize=2788.91MB goAlloc=1.93MB goSys=62.83MB goroutine=2 numGC=14
+  vs baseline: Δ8_after_final_GC             threads=+1 VmRSS=+302.01MB Anon=+296.09MB VmSize=+940.61MB goAlloc=+0.03MB goSys=+49.00MB goroutine=+0 elapsed=4.02619069s
+
+=== ANALYSIS ===
+wasm_file=11.56MB
+Δ_NewModule:      VmRSS=+361.05MB Anon=+355.16MB
+Δ_Module_Close:   VmRSS=-12.17MB Anon=-11.23MB
+Δ_Store_Close:    VmRSS=-33.98MB Anon=-33.98MB
+Δ_Engine_step:    VmRSS=-14.00MB Anon=-14.00MB (explicit Close or GC-only arm)
+Δ_total_reclaim:  VmRSS=-60.11MB Anon=-59.17MB (final vs compile peak)
+reclaim_ratio: 16.6% of compile ΔVmRSS returned to kernel
+VERDICT: partial reclaim after Engine.Close (see per-step deltas)
+log_file=./resource_probe_engine_close_test_wasm.log

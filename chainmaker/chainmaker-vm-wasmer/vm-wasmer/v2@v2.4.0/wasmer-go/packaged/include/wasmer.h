@@ -1965,6 +1965,8 @@ struct wasmer_middleware_t *wasmer_metering_as_middleware(struct wasmer_metering
 
 void wasmer_metering_delete(struct wasmer_metering_t *_metering);
 
+void wasmer_drain_stack_pool(void);
+
 uint64_t wasmer_metering_get_remaining_points(wasm_instance_t *instance);
 
 struct wasmer_metering_t *wasmer_metering_new(uint64_t initial_limit,

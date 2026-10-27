@@ -1,0 +1,64 @@
+=== TestInstanceDestroyStepsAF ===
+time=2026-08-24T22:33:08+08:00
+log_file=./resource_probe_destroy_fact_tinygo.log
+wasm=./testdata/fact-tinygo.wasm n=8 settle=300ms reclaim_frac=0.15
+note: wasiEnv held alive (no wasi_env_delete); focus = Instance / linear memory RSS
+
+===== arm A/B/C: create → dealloc-only → full Close =====
+A_peak_alive threads=114 VmRSS=195.41MB Anon=144.86MB VmSize=56796.90MB goAlloc=2.88MB goSys=17.83MB goroutine=2 numGC=11 alive=8
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+  CallDeallocate warn: unreachable
+--- B_deallocate_only ---
+  before: A_peak_alive threads=114 VmRSS=195.41MB Anon=144.86MB VmSize=56796.90MB goAlloc=2.88MB goSys=17.83MB goroutine=2 numGC=11
+  after:  B_after_deallocate_only threads=122 VmRSS=195.93MB Anon=145.00MB VmSize=56812.93MB goAlloc=2.87MB goSys=17.83MB goroutine=2 numGC=12
+  ΔB_after_deallocate_only      threads=+8 VmRSS=+0.52MB Anon=+0.14MB VmSize=+16.03MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.074452ms
+  note: expect ~0 RSS drop (Guest args only)
+--- C_full_Close_no_recreate ---
+  before: A_peak_alive threads=114 VmRSS=195.41MB Anon=144.86MB VmSize=56796.90MB goAlloc=2.88MB goSys=17.83MB goroutine=2 numGC=11
+  after:  C_after_full_Close threads=122 VmRSS=195.89MB Anon=144.98MB VmSize=56812.93MB goAlloc=2.80MB goSys=17.83MB goroutine=2 numGC=14
+  ΔC_after_full_Close           threads=+8 VmRSS=+0.48MB Anon=+0.11MB VmSize=+16.03MB goAlloc=-0.08MB goSys=+0.00MB goroutine=+0 elapsed=914.087311ms
+  note: expect reclaim if wasm_instance_delete returns pages; compare |Δ| to create cost
+===== arm D: create → Close (skip deallocate) =====
+--- D_Close_skip_deallocate ---
+  before: D_peak_alive threads=226 VmRSS=199.73MB Anon=148.80MB VmSize=106173.41MB goAlloc=2.89MB goSys=17.83MB goroutine=2 numGC=23
+  after:  D_after_Close_no_dealloc threads=226 VmRSS=199.73MB Anon=148.81MB VmSize=106173.41MB goAlloc=2.80MB goSys=17.83MB goroutine=2 numGC=25
+  ΔD_after_Close_no_dealloc     threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=-0.08MB goSys=+0.00MB goroutine=+0 elapsed=604.601252ms
+  note: compare to C; should be similar if dealloc irrelevant to Host RSS
+===== arm E: create → Exports.Close only =====
+--- E_Exports_Close_only ---
+  before: E_peak_alive threads=323 VmRSS=203.71MB Anon=152.79MB VmSize=155542.27MB goAlloc=2.89MB goSys=17.83MB goroutine=2 numGC=34
+  after:  E_after_Exports_Close_only threads=323 VmRSS=203.68MB Anon=152.77MB VmSize=155542.27MB goAlloc=2.87MB goSys=18.08MB goroutine=2 numGC=35
+  ΔE_after_Exports_Close_only   threads=+0 VmRSS=-0.03MB Anon=-0.02MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.25MB goroutine=+0 elapsed=304.162232ms
+  note: expect ~0 RSS drop (exports vec only)
+  E cleanup CloseNativeOnly count=8 (not part of E delta)
+===== arm F: Close count == N =====
+--- F_close_count ---
+  before: F_peak_alive threads=427 VmRSS=207.12MB Anon=156.20MB VmSize=204902.68MB goAlloc=2.00MB goSys=18.08MB goroutine=2 numGC=44
+  after:  F_after_Close threads=427 VmRSS=207.12MB Anon=156.20MB VmSize=204902.68MB goAlloc=1.98MB goSys=18.08MB goroutine=2 numGC=45
+  ΔF_after_Close                threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.03MB goSys=+0.00MB goroutine=+0 elapsed=304.166771ms
+  note: closeN=8 want=8 wasmInstance_nil=true
+
+=== ANALYSIS ===
+C: peak_VmRSS=195.41MB after_Close=195.89MB reclaimed=-0.48MB (Anon peak=144.86 after=144.98 reclaimed=0.00)
+C: close_calls=8
+VERDICT_C: Host RSS NOT reclaimed after wasm_instance_delete (reclaimed=-0.48MB < expectMin=2.40MB)
+  → bottleneck is after delete (allocator/Wasmer), not a missing Go Close step
+B: ΔVmRSS=+0.52MB ΔAnon=+0.14MB
+VERDICT_B: unexpected RSS move on deallocate-only
+D vs C reclaimed: D=-0.00MB C=-0.48MB
+VERDICT_D: skip deallocate ≈ full Close → CallDeallocate not the Host leak point
+E: ΔVmRSS=-0.03MB ΔAnon=-0.02MB
+VERDICT_E: Exports.Close alone does not free Instance linear memory (as expected)
+F: closeN=8 want=8 wasmInstance_nil=true closeN=8
+VERDICT_F: Close count matches N — Go path invokes delete N times
+SUMMARY:
+  Host Instance pages are released (logically) only in Instance.Close → wasm_instance_delete.
+  If C shows little/no VmRSS/Anon drop while F confirms N deletes, pages stay in native allocator.
+  B/E ~flat confirms CallDeallocate / Exports.Close are not the reclaim step.
+log_file=./resource_probe_destroy_fact_tinygo.log

@@ -1,0 +1,330 @@
+=== TestSmapsStepProbe ===
+time=2026-08-25T00:11:24+08:00
+log_file=./resource_probe_smaps_fact_go.log
+wasm=./testdata/fact-go.wasm size=4.65MB contract=fact-go with_instance=false close_engine=true settle=300ms top_n=12
+
+[RSS] 0_baseline threads=9 VmRSS=46.40MB Anon=6.12MB VmSize=1848.58MB goAlloc=2.11MB goSys=13.27MB goroutine=2 numGC=1
+--- smaps step: 0_baseline ---
+rollup: rss=46.46MB anon=6.17MB privDirty=42.87MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw                56       4.83       4.83       4.83       0.00    1774.65
+file_executable         6      14.85       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1       0.01       0.01       0.01       0.00       0.13
+libwasmer_data          4       2.43       1.05       1.05       0.00       7.19
+libwasmer_exec          1       0.19       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+
+[RSS] 1_after_engine_store threads=9 VmRSS=47.94MB Anon=6.23MB VmSize=1848.83MB goAlloc=2.36MB goSys=13.52MB goroutine=2 numGC=1
+--- smaps step: 1_after_engine_store ---
+rollup: rss=48.05MB anon=6.35MB privDirty=43.04MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw                56       4.95       4.95       4.95       0.00    1774.90
+file_executable         6      14.91       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1       0.01       0.01       0.01       0.00       0.13
+libwasmer_data          4       2.68       1.05       1.05       0.00       7.19
+libwasmer_exec          1       1.29       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                 +0.11      +0.11      +0.11      +0.00
+file_executable         +0.06      +0.00      +0.00      +0.00
+libwasmer_data          +0.25      +0.00      +0.00      +0.00
+libwasmer_exec          +1.10      +0.00      +0.00      +0.00
+  top VMA Δ vs previous:
+  [libwasmer_exec] Δrss=+1.10MB Δanon=+0.00MB Δsize=+0.00MB after_rss=1.29MB | 000076896eb60000-000076896fda9000 r-xp /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  [anon_rw] Δrss=+0.29MB Δanon=+0.29MB Δsize=+1.25MB after_rss=0.29MB | 0000768924049000-0000768924189000 rw-p (empty)
+  [anon_rw] Δrss=-0.28MB Δanon=-0.28MB Δsize=-1.00MB after_rss=0.00MB | 0000768924089000-0000768924189000 rw-p (empty)
+  [libwasmer_data] Δrss=+0.25MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.25MB | 000076896fda9000-000076897026d000 r--p /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  [file_executable] Δrss=+0.06MB Δanon=+0.00MB Δsize=+0.00MB after_rss=1.09MB | 000076896e628000-000076896e7b0000 r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
+  [anon_rw] Δrss=+0.06MB Δanon=+0.06MB Δsize=+0.00MB after_rss=3.43MB | 000000c000000000-000000c000800000 rw-p (empty)
+  [anon_rw] Δrss=+0.05MB Δanon=+0.05MB Δsize=+0.00MB after_rss=0.34MB | 000076896e818000-000076896e8e9000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                 +0.11      +0.11      +0.11      +0.00
+file_executable         +0.06      +0.00      +0.00      +0.00
+libwasmer_data          +0.25      +0.00      +0.00      +0.00
+libwasmer_exec          +1.10      +0.00      +0.00      +0.00
+
+[RSS] 2_after_ReadFile threads=10 VmRSS=53.35MB Anon=11.65MB VmSize=1921.21MB goAlloc=6.62MB goSys=21.90MB goroutine=2 numGC=2
+--- smaps step: 2_after_ReadFile ---
+rollup: rss=53.39MB anon=11.69MB privDirty=48.38MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw                61      10.35      10.35      10.35       0.00    1847.28
+file_executable         6      14.91       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1       0.01       0.01       0.01       0.00       0.13
+libwasmer_data          4       2.68       1.05       1.05       0.00       7.19
+libwasmer_exec          1       1.29       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                 +5.41      +5.41      +5.41      +0.00
+  top VMA Δ vs previous:
+  [anon_rw] Δrss=+8.29MB Δanon=+8.29MB Δsize=+16.00MB after_rss=8.29MB | 000000c000000000-000000c001000000 rw-p (empty)
+  [anon_rw] Δrss=-3.43MB Δanon=-3.43MB Δsize=-8.00MB after_rss=0.00MB | 000000c000000000-000000c000800000 rw-p (empty)
+  [anon_rw] Δrss=+0.44MB Δanon=+0.44MB Δsize=+1.38MB after_rss=0.44MB | 0000768924029000-0000768924189000 rw-p (empty)
+  [anon_rw] Δrss=-0.29MB Δanon=-0.29MB Δsize=-1.25MB after_rss=0.00MB | 0000768924049000-0000768924189000 rw-p (empty)
+  [anon_rw] Δrss=+0.23MB Δanon=+0.23MB Δsize=+0.00MB after_rss=0.55MB | 000076892518b000-000076892525b000 rw-p (empty)
+  [anon_rw] Δrss=+0.13MB Δanon=+0.13MB Δsize=+0.25MB after_rss=0.13MB | 0000768906fbe000-0000768906ffe000 rw-p (empty)
+  [anon_rw] Δrss=+0.01MB Δanon=+0.01MB Δsize=+8.00MB after_rss=0.01MB | 0000768906fff000-00007689077ff000 rw-p (empty)
+  [anon_rw] Δrss=+0.01MB Δanon=+0.01MB Δsize=+0.00MB after_rss=0.25MB | 000076892625d000-00007689263fd000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.13MB | 00000000030d2000-0000000003118000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.13MB after_rss=0.00MB | 00007688f8000000-00007688f8021000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.34MB | 000076896e818000-000076896e8e9000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                 +5.52      +5.52      +5.52      +0.00
+file_executable         +0.06      +0.00      +0.00      +0.00
+libwasmer_data          +0.25      +0.00      +0.00      +0.00
+libwasmer_exec          +1.10      +0.00      +0.00      +0.00
+
+[RSS] 3_after_ValidateModule threads=11 VmRSS=68.74MB Anon=26.10MB VmSize=1997.86MB goAlloc=11.24MB goSys=29.90MB goroutine=2 numGC=3
+--- smaps step: 3_after_ValidateModule ---
+rollup: rss=68.75MB anon=26.11MB privDirty=62.81MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw                65      24.81      24.81      24.81       0.00    1923.93
+file_executable         6      14.91       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1       0.01       0.01       0.01       0.00       0.13
+libwasmer_data          4       2.80       1.05       1.05       0.00       7.19
+libwasmer_exec          1       2.10       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                +14.46     +14.46     +14.46      +0.00
+libwasmer_data          +0.12      +0.00      +0.00      +0.00
+libwasmer_exec          +0.81      +0.00      +0.00      +0.00
+  top VMA Δ vs previous:
+  [anon_rw] Δrss=+17.67MB Δanon=+17.67MB Δsize=+24.00MB after_rss=17.67MB | 000000c000000000-000000c001800000 rw-p (empty)
+  [anon_rw] Δrss=-8.29MB Δanon=-8.29MB Δsize=-16.00MB after_rss=0.00MB | 000000c000000000-000000c001000000 rw-p (empty)
+  [anon_rw] Δrss=+4.82MB Δanon=+4.82MB Δsize=+4.90MB after_rss=4.82MB | 0000768906b18000-0000768906ffe000 rw-p (empty)
+  [libwasmer_exec] Δrss=+0.81MB Δanon=+0.00MB Δsize=+0.00MB after_rss=2.10MB | 000076896eb60000-000076896fda9000 r-xp /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  [anon_rw] Δrss=+0.29MB Δanon=+0.29MB Δsize=+0.44MB after_rss=0.29MB | 00007688fc000000-00007688fc071000 rw-p (empty)
+  [anon_rw] Δrss=-0.13MB Δanon=-0.13MB Δsize=-0.25MB after_rss=0.00MB | 0000768906fbe000-0000768906ffe000 rw-p (empty)
+  [libwasmer_data] Δrss=+0.12MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.38MB | 000076896fda9000-000076897026d000 r--p /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  [anon_rw] Δrss=+0.07MB Δanon=+0.07MB Δsize=+0.00MB after_rss=0.41MB | 000076896e818000-000076896e8e9000 rw-p (empty)
+  [anon_rw] Δrss=+0.02MB Δanon=+0.02MB Δsize=+8.00MB after_rss=0.02MB | 00007689059cc000-00007689061cc000 rw-p (empty)
+  [anon_rw] Δrss=+0.01MB Δanon=+0.01MB Δsize=+0.00MB after_rss=0.26MB | 000076892625d000-00007689263fd000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.44MB | 0000768924029000-0000768924189000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.55MB | 000076892518b000-000076892525b000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                +19.98     +19.98     +19.98      +0.00
+file_executable         +0.06      +0.00      +0.00      +0.00
+libwasmer_data          +0.38      +0.00      +0.00      +0.00
+libwasmer_exec          +1.91      +0.00      +0.00      +0.00
+
+NewModule elapsed=465.850596ms
+[RSS] 4_after_NewModule threads=11 VmRSS=238.50MB Anon=191.85MB VmSize=2827.49MB goAlloc=20.99MB goSys=37.90MB goroutine=2 numGC=3
+--- smaps step: 4_after_NewModule ---
+rollup: rss=238.70MB anon=192.05MB privDirty=228.75MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_executable         1       6.10       6.10       6.10       0.00       6.10
+anon_rw               114     153.09     153.09     153.09       0.00    2716.11
+file_executable         6      15.07       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1      31.38      31.38      31.38       0.00      31.49
+libwasmer_data          4       3.14       1.05       1.05       0.00       7.19
+libwasmer_exec          1       5.60       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_executable         +6.10      +6.10      +6.10      +0.00
+anon_rw               +128.28    +128.28    +128.28      +0.00
+file_executable         +0.16      +0.00      +0.00      +0.00
+heap                   +31.37     +31.37     +31.37      +0.00
+libwasmer_data          +0.34      +0.00      +0.00      +0.00
+libwasmer_exec          +3.50      +0.00      +0.00      +0.00
+stack                   +0.00      +0.00      +0.00      +0.00
+  top VMA Δ vs previous:
+  [heap] Δrss=+31.38MB Δanon=+31.38MB Δsize=+31.49MB after_rss=31.38MB | 000000001017c000-00000000120fa000 rw-p [heap]
+  [anon_rw] Δrss=+22.45MB Δanon=+22.45MB Δsize=+32.00MB after_rss=22.45MB | 000000c000000000-000000c002000000 rw-p (empty)
+  [anon_rw] Δrss=-17.67MB Δanon=-17.67MB Δsize=-24.00MB after_rss=0.00MB | 000000c000000000-000000c001800000 rw-p (empty)
+  [anon_rw] Δrss=+16.98MB Δanon=+16.98MB Δsize=+24.63MB after_rss=16.98MB | 00007688c8000000-00007688c98a2000 rw-p (empty)
+  [anon_rw] Δrss=+14.36MB Δanon=+14.36MB Δsize=+19.31MB after_rss=14.36MB | 00007688f0000000-00007688f1350000 rw-p (empty)
+  [anon_rw] Δrss=+14.05MB Δanon=+14.05MB Δsize=+16.54MB after_rss=14.05MB | 00007688c0000000-00007688c108b000 rw-p (empty)
+  [anon_rw] Δrss=+12.80MB Δanon=+12.80MB Δsize=+14.77MB after_rss=12.80MB | 00007688d0000000-00007688d0ec6000 rw-p (empty)
+  [anon_rw] Δrss=+11.50MB Δanon=+11.50MB Δsize=+15.27MB after_rss=11.50MB | 00007688d8000000-00007688d8f45000 rw-p (empty)
+  [anon_rw] Δrss=+9.26MB Δanon=+9.26MB Δsize=+10.51MB after_rss=9.26MB | 00007688e4000000-00007688e4a83000 rw-p (empty)
+  [anon_rw] Δrss=+8.98MB Δanon=+8.98MB Δsize=+15.34MB after_rss=8.98MB | 00007688cc000000-00007688ccf56000 rw-p (empty)
+  [anon_rw] Δrss=+7.77MB Δanon=+7.77MB Δsize=+9.74MB after_rss=7.77MB | 00007688e0000000-00007688e09be000 rw-p (empty)
+  [anon_rw] Δrss=+7.04MB Δanon=+7.04MB Δsize=+7.62MB after_rss=7.04MB | 00007688dc000000-00007688dc79f000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_executable         +6.10      +6.10      +6.10      +0.00
+anon_rw               +148.26    +148.26    +148.26      +0.00
+file_executable         +0.23      +0.00      +0.00      +0.00
+heap                   +31.37     +31.37     +31.37      +0.00
+libwasmer_data          +0.71      +0.00      +0.00      +0.00
+libwasmer_exec          +5.41      +0.00      +0.00      +0.00
+stack                   +0.00      +0.00      +0.00      +0.00
+
+[RSS] 5_after_Module_Close threads=11 VmRSS=219.68MB Anon=172.67MB VmSize=2827.49MB goAlloc=6.66MB goSys=37.90MB goroutine=2 numGC=4
+--- smaps step: 5_after_Module_Close ---
+rollup: rss=219.40MB anon=172.70MB privDirty=209.39MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_executable         1       6.10       6.10       6.10       0.00       6.10
+anon_rw               114     133.91     133.91     133.91       0.00    2716.11
+file_executable         6      15.07       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1      31.38      31.38      31.38       0.00      31.49
+libwasmer_data          4       3.14       1.05       1.05       0.00       7.19
+libwasmer_exec          1       5.66       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                -19.18     -19.18     -19.18      +0.00
+libwasmer_exec          +0.06      +0.00      +0.00      +0.00
+  top VMA Δ vs previous:
+  [anon_rw] Δrss=-12.09MB Δanon=-12.09MB Δsize=+0.00MB after_rss=4.89MB | 00007688c8000000-00007688c98a2000 rw-p (empty)
+  [anon_rw] Δrss=-7.13MB Δanon=-7.13MB Δsize=+0.00MB after_rss=7.23MB | 00007688f0000000-00007688f1350000 rw-p (empty)
+  [libwasmer_exec] Δrss=+0.06MB Δanon=+0.00MB Δsize=+0.00MB after_rss=5.66MB | 000076896eb60000-000076896fda9000 r-xp /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  [anon_rw] Δrss=+0.05MB Δanon=+0.05MB Δsize=+0.00MB after_rss=0.61MB | 000076892518b000-000076892525b000 rw-p (empty)
+  [anon_rw] Δrss=-0.04MB Δanon=-0.04MB Δsize=+0.00MB after_rss=22.41MB | 000000c000000000-000000c002000000 rw-p (empty)
+  [anon_rw] Δrss=+0.03MB Δanon=+0.03MB Δsize=+0.00MB after_rss=0.48MB | 0000768924029000-0000768924189000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.02MB | 0000768925a5d000-000076892625d000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_executable         +6.10      +6.10      +6.10      +0.00
+anon_rw               +129.08    +129.08    +129.08      +0.00
+file_executable         +0.23      +0.00      +0.00      +0.00
+heap                   +31.37     +31.37     +31.37      +0.00
+libwasmer_data          +0.71      +0.00      +0.00      +0.00
+libwasmer_exec          +5.47      +0.00      +0.00      +0.00
+stack                   +0.00      +0.00      +0.00      +0.00
+
+[RSS] 8_after_Store_Close threads=11 VmRSS=219.47MB Anon=172.77MB VmSize=2827.49MB goAlloc=7.14MB goSys=37.90MB goroutine=2 numGC=4
+--- smaps step: 8_after_Store_Close ---
+rollup: rss=219.55MB anon=172.85MB privDirty=209.54MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_executable         1       6.10       6.10       6.10       0.00       6.10
+anon_rw               114     134.02     134.02     134.02       0.00    2716.11
+file_executable         6      15.07       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1      31.38      31.38      31.38       0.00      31.49
+libwasmer_data          4       3.14       1.05       1.05       0.00       7.19
+libwasmer_exec          1       5.66       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                 +0.11      +0.11      +0.11      +0.00
+  top VMA Δ vs previous:
+  [anon_rw] Δrss=+0.08MB Δanon=+0.08MB Δsize=+0.00MB after_rss=0.56MB | 0000768924029000-0000768924189000 rw-p (empty)
+  [anon_rw] Δrss=+0.02MB Δanon=+0.02MB Δsize=+0.00MB after_rss=22.43MB | 000000c000000000-000000c002000000 rw-p (empty)
+  [anon_rw] Δrss=+0.00MB Δanon=+0.00MB Δsize=+0.00MB after_rss=0.27MB | 000076892625d000-00007689263fd000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_executable         +6.10      +6.10      +6.10      +0.00
+anon_rw               +129.18    +129.18    +129.18      +0.00
+file_executable         +0.23      +0.00      +0.00      +0.00
+heap                   +31.37     +31.37     +31.37      +0.00
+libwasmer_data          +0.71      +0.00      +0.00      +0.00
+libwasmer_exec          +5.47      +0.00      +0.00      +0.00
+stack                   +0.00      +0.00      +0.00      +0.00
+
+[RSS] 9_after_Engine_Close threads=11 VmRSS=210.74MB Anon=150.03MB VmSize=2821.27MB goAlloc=2.00MB goSys=37.90MB goroutine=2 numGC=5
+--- smaps step: 9_after_Engine_Close ---
+rollup: rss=195.00MB anon=148.30MB privDirty=184.99MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw               113     115.47     115.47     115.47       0.00    2715.98
+file_executable         6      15.07       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1      31.38      31.38      31.38       0.00      31.49
+libwasmer_data          4       3.14       1.05       1.05       0.00       7.19
+libwasmer_exec          1       5.66       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                -18.55     -18.55     -18.55      +0.00
+  top VMA Δ vs previous:
+  [anon_rw] Δrss=-18.49MB Δanon=-18.49MB Δsize=+0.00MB after_rss=3.94MB | 000000c000000000-000000c002000000 rw-p (empty)
+  [anon_executable] Δrss=-6.10MB Δanon=-6.10MB Δsize=-6.10MB after_rss=0.00MB | 000076890438a000-00007689049a3000 r-xp (empty)
+  [anon_rw] Δrss=-0.12MB Δanon=-0.12MB Δsize=-0.12MB after_rss=0.00MB | 00007689049a3000-00007689049c3000 rw-p (empty)
+  [anon_rw] Δrss=+0.07MB Δanon=+0.07MB Δsize=+0.00MB after_rss=0.63MB | 0000768924029000-0000768924189000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw               +110.64    +110.64    +110.64      +0.00
+file_executable         +0.23      +0.00      +0.00      +0.00
+heap                   +31.37     +31.37     +31.37      +0.00
+libwasmer_data          +0.71      +0.00      +0.00      +0.00
+libwasmer_exec          +5.47      +0.00      +0.00      +0.00
+stack                   +0.00      +0.00      +0.00      +0.00
+
+[RSS] 10_final_GC threads=11 VmRSS=194.86MB Anon=148.15MB VmSize=2821.27MB goAlloc=2.00MB goSys=37.90MB goroutine=2 numGC=6
+--- smaps step: 10_final_GC ---
+rollup: rss=194.86MB anon=148.15MB privDirty=184.85MB lazyFree=0.00MB
+  by category (absolute):
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw               113     115.48     115.48     115.48       0.00    2715.98
+file_executable         6      15.07       0.00      13.29       0.00      18.74
+file_mmap              20      24.10       0.22      23.62       0.00      29.43
+heap                    1      31.38      31.38      31.38       0.00      31.49
+libwasmer_data          4       3.14       1.05       1.05       0.00       7.19
+libwasmer_exec          1       5.66       0.00       0.00       0.00      18.29
+other                   2       0.00       0.00       0.00       0.00       0.02
+stack                   1       0.02       0.02       0.02       0.00       0.13
+  Δ category vs previous:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw                 +0.01      +0.01      +0.01      +0.00
+  top VMA Δ vs previous:
+  [anon_rw] Δrss=+0.01MB Δanon=+0.01MB Δsize=+0.00MB after_rss=3.95MB | 000000c000000000-000000c002000000 rw-p (empty)
+  Δ category vs baseline:
+category              Δrss_MB   Δanon_MB ΔprivDirty  ΔlazyFree
+anon_rw               +110.65    +110.65    +110.65      +0.00
+file_executable         +0.23      +0.00      +0.00      +0.00
+heap                   +31.37     +31.37     +31.37      +0.00
+libwasmer_data          +0.71      +0.00      +0.00      +0.00
+libwasmer_exec          +5.47      +0.00      +0.00      +0.00
+stack                   +0.00      +0.00      +0.00      +0.00
+
+
+=== SMAPS UNRECLAIMED (final vs baseline) ===
+categories still above baseline:
+category             vmas     rss_MB    anon_MB  privDirty   lazyFree    size_MB
+anon_rw                57     110.65     110.65     110.65       0.00     941.33
+file_executable         0       0.23       0.00       0.00       0.00       0.00
+heap                    0      31.37      31.37      31.37       0.00      31.36
+libwasmer_data          0       0.71       0.00       0.00       0.00       0.00
+libwasmer_exec          0       5.47       0.00       0.00       0.00       0.00
+stack                   0       0.00       0.00       0.00       0.00       0.00
+top VMA still above baseline (mmap/CodeMemory candidates):
+  [heap] Δrss=+31.38MB Δanon=+31.38MB Δsize=+31.49MB after_rss=31.38MB | 000000001017c000-00000000120fa000 rw-p [heap]
+  [anon_rw] Δrss=+14.05MB Δanon=+14.05MB Δsize=+16.54MB after_rss=14.05MB | 00007688c0000000-00007688c108b000 rw-p (empty)
+  [anon_rw] Δrss=+12.80MB Δanon=+12.80MB Δsize=+14.77MB after_rss=12.80MB | 00007688d0000000-00007688d0ec6000 rw-p (empty)
+  [anon_rw] Δrss=+11.50MB Δanon=+11.50MB Δsize=+15.27MB after_rss=11.50MB | 00007688d8000000-00007688d8f45000 rw-p (empty)
+  [anon_rw] Δrss=+9.26MB Δanon=+9.26MB Δsize=+10.51MB after_rss=9.26MB | 00007688e4000000-00007688e4a83000 rw-p (empty)
+  [anon_rw] Δrss=+8.98MB Δanon=+8.98MB Δsize=+15.34MB after_rss=8.98MB | 00007688cc000000-00007688ccf56000 rw-p (empty)
+  [anon_rw] Δrss=+7.77MB Δanon=+7.77MB Δsize=+9.74MB after_rss=7.77MB | 00007688e0000000-00007688e09be000 rw-p (empty)
+  [anon_rw] Δrss=+7.23MB Δanon=+7.23MB Δsize=+19.31MB after_rss=7.23MB | 00007688f0000000-00007688f1350000 rw-p (empty)
+  [anon_rw] Δrss=+7.04MB Δanon=+7.04MB Δsize=+7.62MB after_rss=7.04MB | 00007688dc000000-00007688dc79f000 rw-p (empty)
+  [anon_rw] Δrss=+6.88MB Δanon=+6.88MB Δsize=+7.93MB after_rss=6.88MB | 00007688ec000000-00007688ec7ee000 rw-p (empty)
+  [anon_rw] Δrss=+6.88MB Δanon=+6.88MB Δsize=+7.25MB after_rss=6.88MB | 00007688e8000000-00007688e8740000 rw-p (empty)
+  [anon_rw] Δrss=+6.52MB Δanon=+6.52MB Δsize=+7.33MB after_rss=6.52MB | 00007688f4000000-00007688f4755000 rw-p (empty)
+  [libwasmer_exec] Δrss=+5.47MB Δanon=+0.00MB Δsize=+0.00MB after_rss=5.66MB | 000076896eb60000-000076896fda9000 r-xp /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  [anon_rw] Δrss=+4.89MB Δanon=+4.89MB Δsize=+24.63MB after_rss=4.89MB | 00007688c8000000-00007688c98a2000 rw-p (empty)
+  [anon_rw] Δrss=+4.83MB Δanon=+4.83MB Δsize=+4.90MB after_rss=4.83MB | 0000768906b18000-0000768906ffe000 rw-p (empty)
+interpretation:
+  anon_executable ↑  → Cranelift AOT / CodeMemory (r-xp anonymous mmap)
+  anon_rw ↑        → guest linear memory / anonymous mmap arenas
+  libwasmer_exec   → DSO text (usually stable); growth may mean remapping
+  lazyFree > 0     → madvise(MADV_FREE) pending kernel reclaim
+
+log_file=./resource_probe_smaps_fact_go.log

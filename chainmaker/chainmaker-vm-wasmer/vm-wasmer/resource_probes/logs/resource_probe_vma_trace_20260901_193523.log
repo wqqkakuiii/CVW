@@ -1,0 +1,17 @@
+=== TestVMAMemoryBaseTrace ===
+time=2026-09-01T19:35:23+08:00 wasm=./testdata/fact-go.wasm
+wasm_memory_data_ptr=0x702dc4000000 pages=128 bytes=8388608
+
+--- VMA containing memory.Data() ---
+  MATCH 702dc4000000-702dc4800000 rss=3.82MB anon=3.82MB cat=anon_rw_small path=
+
+--- anon_rw_large VMAs (rss>=4MB), excluding wasm match ---
+  OTHER c000000000-c001800000 rss=12.06MB anon=12.06MB path=
+  OTHER 702f48000000-702f4a238000 rss=34.16MB anon=34.16MB path=
+  OTHER 702f7c000000-702f7e240000 rss=34.18MB anon=34.18MB path=
+  OTHER 702f84000000-702f84478000 rss=4.47MB anon=4.47MB path=
+  OTHER 702f8c000000-702f8cdf1000 rss=13.94MB anon=13.94MB path=
+  OTHER 702f90000000-702f91fd9000 rss=31.85MB anon=31.85MB path=
+  OTHER 702f94000000-702f9447d000 rss=4.48MB anon=4.48MB path=
+  OTHER 702f99b56000-702f99ffc000 rss=4.65MB anon=4.65MB path=
+  OTHER 702f9c000000-702f9df9c000 rss=31.61MB anon=31.61MB path=

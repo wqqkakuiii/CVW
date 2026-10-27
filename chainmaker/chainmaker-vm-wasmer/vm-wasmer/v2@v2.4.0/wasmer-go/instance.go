@@ -26,6 +26,17 @@ type Instance struct {
 //	importObject := wasmer.NewImportObject()
 //	instance, err := wasmer.NewInstance(module, importObject)
 func NewInstance(module *Module, imports *ImportObject) (*Instance, error) {
+	return NewInstanceByStore(module, imports, module.store)
+}
+
+// NewInstanceByStore instantiates a Module into the given Store instead of
+// the Store the Module was compiled with. Use this when each Instance owns
+// a private Store (shared Module/Engine, per-instance Store).
+func NewInstanceByStore(module *Module, imports *ImportObject, store *Store) (*Instance, error) {
+	if store == nil {
+		return nil, newErrorWith("wasmer: NewInstanceByStore requires a non-nil Store")
+	}
+
 	var traps *C.wasm_trap_t
 	externs, err := imports.intoInner(module)
 	if err != nil {
@@ -36,7 +47,7 @@ func NewInstance(module *Module, imports *ImportObject) (*Instance, error) {
 
 	err2 := maybeNewErrorFromWasmer(func() bool {
 		instance = C.wasm_instance_new(
-			module.store.Inner(),
+			store.Inner(),
 			module.inner(),
 			externs,
 			&traps,
@@ -147,12 +158,14 @@ func (self *Instance) Close() {
 		self.Exports.Close()
 		self.Exports = nil
 	}
+	// Drop the instance before the import wrappers. Host functions still hold
+	// StoreRef until imports.Close; CloseInstance calls store.Close after this.
+	C.wasm_instance_delete(inner)
+	self._inner = nil
 	if self.imports != nil {
 		self.imports.Close()
 		self.imports = nil
 	}
-	C.wasm_instance_delete(inner)
-	self._inner = nil
 }
 
 // CloseLegacy is the pre-enhancement Close semantics for A/B memory probes:

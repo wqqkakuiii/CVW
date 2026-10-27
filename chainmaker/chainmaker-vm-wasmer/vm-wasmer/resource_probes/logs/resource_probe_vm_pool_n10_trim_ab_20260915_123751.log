@@ -1,0 +1,126 @@
+=== TestVmPoolCreate10ThenDestroy10RSS (Go / wasmer-go) ===
+pattern=vm_pool.newInstanceFromModule + CloseInstance
+compare=MallocTrim ON vs OFF; rounds=2 create/destroy ×10 each
+time=2026-09-15T12:37:51+08:00 wasm=./testdata/fact-go.wasm settle=300ms
+
+########## ARM MallocTrim=OFF ##########
+  MallocTrim=OFF 0 baseline (engine+module) VmRSS=  145848 kB (Δ     +0)  Anon=   97264 kB (Δ     +0)  thr=23
+--- MallocTrim=OFF round 1/2 ---
+  MallocTrim=OFF r1 pre                VmRSS=  145876 kB (Δ    +28)  Anon=   97280 kB (Δ    +16)  thr=23
+  MallocTrim=OFF r1 +create #1 (alive=1) VmRSS=  154456 kB (Δ  +8608)  Anon=  100420 kB (Δ  +3156)  thr=25
+  MallocTrim=OFF r1 +create #2 (alive=2) VmRSS=  158472 kB (Δ +12624)  Anon=  104436 kB (Δ  +7172)  thr=25
+  MallocTrim=OFF r1 +create #3 (alive=3) VmRSS=  167024 kB (Δ +21176)  Anon=  112988 kB (Δ +15724)  thr=25
+  MallocTrim=OFF r1 +create #4 (alive=4) VmRSS=  171204 kB (Δ +25356)  Anon=  117168 kB (Δ +19904)  thr=25
+  MallocTrim=OFF r1 +create #5 (alive=5) VmRSS=  179692 kB (Δ +33844)  Anon=  125656 kB (Δ +28392)  thr=25
+  MallocTrim=OFF r1 +create #6 (alive=6) VmRSS=  184052 kB (Δ +38204)  Anon=  130016 kB (Δ +32752)  thr=25
+  MallocTrim=OFF r1 +create #7 (alive=7) VmRSS=  188024 kB (Δ +42176)  Anon=  133988 kB (Δ +36724)  thr=25
+  MallocTrim=OFF r1 +create #8 (alive=8) VmRSS=  192168 kB (Δ +46320)  Anon=  138132 kB (Δ +40868)  thr=25
+  MallocTrim=OFF r1 +create #9 (alive=9) VmRSS=  196376 kB (Δ +50528)  Anon=  142340 kB (Δ +45076)  thr=25
+  MallocTrim=OFF r1 +create #10 (alive=10) VmRSS=  200544 kB (Δ +54696)  Anon=  146508 kB (Δ +49244)  thr=25
+  MallocTrim=OFF r1 * after create all 10 VmRSS=  200544 kB (Δ +54696)  Anon=  146516 kB (Δ +49252)  thr=25
+  MallocTrim=OFF r1 -destroy #10 (alive=9) VmRSS=  196980 kB (Δ +51132)  Anon=  142564 kB (Δ +45300)  thr=25
+  MallocTrim=OFF r1 -destroy #9 (alive=8) VmRSS=  193024 kB (Δ +47176)  Anon=  138604 kB (Δ +41340)  thr=25
+  MallocTrim=OFF r1 -destroy #8 (alive=7) VmRSS=  189080 kB (Δ +43232)  Anon=  134660 kB (Δ +37396)  thr=25
+  MallocTrim=OFF r1 -destroy #7 (alive=6) VmRSS=  185136 kB (Δ +39288)  Anon=  130724 kB (Δ +33460)  thr=25
+  MallocTrim=OFF r1 -destroy #6 (alive=5) VmRSS=  181196 kB (Δ +35348)  Anon=  126780 kB (Δ +29516)  thr=25
+  MallocTrim=OFF r1 -destroy #5 (alive=4) VmRSS=  177244 kB (Δ +31396)  Anon=  122828 kB (Δ +25564)  thr=25
+  MallocTrim=OFF r1 -destroy #4 (alive=3) VmRSS=  173296 kB (Δ +27448)  Anon=  118876 kB (Δ +21612)  thr=25
+  MallocTrim=OFF r1 -destroy #3 (alive=2) VmRSS=  169348 kB (Δ +23500)  Anon=  114948 kB (Δ +17684)  thr=25
+  MallocTrim=OFF r1 -destroy #2 (alive=1) VmRSS=  165416 kB (Δ +19568)  Anon=  111004 kB (Δ +13740)  thr=25
+  MallocTrim=OFF r1 -destroy #1 (alive=0) VmRSS=  161472 kB (Δ +15624)  Anon=  107060 kB (Δ  +9796)  thr=25
+  MallocTrim=OFF r1 * after destroy all VmRSS=  161488 kB (Δ +15640)  Anon=  107072 kB (Δ  +9808)  thr=25
+  MallocTrim=OFF r1 summary(vs round-pre): create ΔVmRSS=+54668 destroy ΔVmRSS=-39056 net=+15612 | Anon create=+49236 destroy=-39444 net=+9792
+  MallocTrim=OFF r1 vs arm-baseline: after_destroy ΔVmRSS=+15640 ΔAnon=+9808
+--- MallocTrim=OFF round 2/2 ---
+  MallocTrim=OFF r2 pre                VmRSS=  161496 kB (Δ +15648)  Anon=  107080 kB (Δ  +9816)  thr=25
+  MallocTrim=OFF r2 +create #1 (alive=1) VmRSS=  165492 kB (Δ +19644)  Anon=  111072 kB (Δ +13808)  thr=25
+  MallocTrim=OFF r2 +create #2 (alive=2) VmRSS=  169456 kB (Δ +23608)  Anon=  115036 kB (Δ +17772)  thr=25
+  MallocTrim=OFF r2 +create #3 (alive=3) VmRSS=  173476 kB (Δ +27628)  Anon=  119056 kB (Δ +21792)  thr=25
+  MallocTrim=OFF r2 +create #4 (alive=4) VmRSS=  177456 kB (Δ +31608)  Anon=  123036 kB (Δ +25772)  thr=25
+  MallocTrim=OFF r2 +create #5 (alive=5) VmRSS=  181444 kB (Δ +35596)  Anon=  127024 kB (Δ +29760)  thr=25
+  MallocTrim=OFF r2 +create #6 (alive=6) VmRSS=  185472 kB (Δ +39624)  Anon=  131052 kB (Δ +33788)  thr=25
+  MallocTrim=OFF r2 +create #7 (alive=7) VmRSS=  189600 kB (Δ +43752)  Anon=  135180 kB (Δ +37916)  thr=25
+  MallocTrim=OFF r2 +create #8 (alive=8) VmRSS=  193824 kB (Δ +47976)  Anon=  139404 kB (Δ +42140)  thr=25
+  MallocTrim=OFF r2 +create #9 (alive=9) VmRSS=  197956 kB (Δ +52108)  Anon=  143536 kB (Δ +46272)  thr=25
+  MallocTrim=OFF r2 +create #10 (alive=10) VmRSS=  202108 kB (Δ +56260)  Anon=  147688 kB (Δ +50424)  thr=25
+  MallocTrim=OFF r2 * after create all 10 VmRSS=  202108 kB (Δ +56260)  Anon=  147688 kB (Δ +50424)  thr=25
+  MallocTrim=OFF r2 -destroy #10 (alive=9) VmRSS=  198148 kB (Δ +52300)  Anon=  143728 kB (Δ +46464)  thr=25
+  MallocTrim=OFF r2 -destroy #9 (alive=8) VmRSS=  194188 kB (Δ +48340)  Anon=  139768 kB (Δ +42504)  thr=25
+  MallocTrim=OFF r2 -destroy #8 (alive=7) VmRSS=  190232 kB (Δ +44384)  Anon=  135812 kB (Δ +38548)  thr=25
+  MallocTrim=OFF r2 -destroy #7 (alive=6) VmRSS=  186272 kB (Δ +40424)  Anon=  131852 kB (Δ +34588)  thr=25
+  MallocTrim=OFF r2 -destroy #6 (alive=5) VmRSS=  182316 kB (Δ +36468)  Anon=  127896 kB (Δ +30632)  thr=25
+  MallocTrim=OFF r2 -destroy #5 (alive=4) VmRSS=  178360 kB (Δ +32512)  Anon=  123940 kB (Δ +26676)  thr=25
+  MallocTrim=OFF r2 -destroy #4 (alive=3) VmRSS=  174400 kB (Δ +28552)  Anon=  119980 kB (Δ +22716)  thr=25
+  MallocTrim=OFF r2 -destroy #3 (alive=2) VmRSS=  170444 kB (Δ +24596)  Anon=  116024 kB (Δ +18760)  thr=25
+  MallocTrim=OFF r2 -destroy #2 (alive=1) VmRSS=  166484 kB (Δ +20636)  Anon=  112064 kB (Δ +14800)  thr=25
+  MallocTrim=OFF r2 -destroy #1 (alive=0) VmRSS=  162528 kB (Δ +16680)  Anon=  108108 kB (Δ +10844)  thr=25
+  MallocTrim=OFF r2 * after destroy all VmRSS=  162528 kB (Δ +16680)  Anon=  108108 kB (Δ +10844)  thr=25
+  MallocTrim=OFF r2 summary(vs round-pre): create ΔVmRSS=+40612 destroy ΔVmRSS=-39580 net=+1032 | Anon create=+40608 destroy=-39580 net=+1028
+  MallocTrim=OFF r2 vs arm-baseline: after_destroy ΔVmRSS=+16680 ΔAnon=+10844
+
+########## ARM MallocTrim=ON ##########
+  MallocTrim=ON 0 baseline (engine+module) VmRSS=  198404 kB (Δ     +0)  Anon=  143988 kB (Δ     +0)  thr=26
+--- MallocTrim=ON round 1/2 ---
+  MallocTrim=ON r1 pre                 VmRSS=  198408 kB (Δ     +4)  Anon=  143988 kB (Δ     +0)  thr=26
+  MallocTrim=ON r1 +create #1 (alive=1) VmRSS=  199696 kB (Δ  +1292)  Anon=  145276 kB (Δ  +1288)  thr=26
+  MallocTrim=ON r1 +create #2 (alive=2) VmRSS=  202048 kB (Δ  +3644)  Anon=  147628 kB (Δ  +3640)  thr=26
+  MallocTrim=ON r1 +create #3 (alive=3) VmRSS=  206200 kB (Δ  +7796)  Anon=  151780 kB (Δ  +7792)  thr=26
+  MallocTrim=ON r1 +create #4 (alive=4) VmRSS=  210340 kB (Δ +11936)  Anon=  155920 kB (Δ +11932)  thr=26
+  MallocTrim=ON r1 +create #5 (alive=5) VmRSS=  214488 kB (Δ +16084)  Anon=  160068 kB (Δ +16080)  thr=26
+  MallocTrim=ON r1 +create #6 (alive=6) VmRSS=  218636 kB (Δ +20232)  Anon=  164216 kB (Δ +20228)  thr=26
+  MallocTrim=ON r1 +create #7 (alive=7) VmRSS=  222784 kB (Δ +24380)  Anon=  168364 kB (Δ +24376)  thr=26
+  MallocTrim=ON r1 +create #8 (alive=8) VmRSS=  226916 kB (Δ +28512)  Anon=  172496 kB (Δ +28508)  thr=26
+  MallocTrim=ON r1 +create #9 (alive=9) VmRSS=  231072 kB (Δ +32668)  Anon=  176652 kB (Δ +32664)  thr=26
+  MallocTrim=ON r1 +create #10 (alive=10) VmRSS=  235200 kB (Δ +36796)  Anon=  180780 kB (Δ +36792)  thr=26
+  MallocTrim=ON r1 * after create all 10 VmRSS=  235200 kB (Δ +36796)  Anon=  180780 kB (Δ +36792)  thr=26
+  MallocTrim=ON r1 -destroy #10 (alive=9) VmRSS=  227964 kB (Δ +29560)  Anon=  173544 kB (Δ +29556)  thr=26
+  MallocTrim=ON r1 -destroy #9 (alive=8) VmRSS=  223832 kB (Δ +25428)  Anon=  169412 kB (Δ +25424)  thr=26
+  MallocTrim=ON r1 -destroy #8 (alive=7) VmRSS=  219708 kB (Δ +21304)  Anon=  165288 kB (Δ +21300)  thr=26
+  MallocTrim=ON r1 -destroy #7 (alive=6) VmRSS=  215580 kB (Δ +17176)  Anon=  161164 kB (Δ +17176)  thr=26
+  MallocTrim=ON r1 -destroy #6 (alive=5) VmRSS=  211468 kB (Δ +13064)  Anon=  157056 kB (Δ +13068)  thr=26
+  MallocTrim=ON r1 -destroy #5 (alive=4) VmRSS=  207348 kB (Δ  +8944)  Anon=  152932 kB (Δ  +8944)  thr=26
+  MallocTrim=ON r1 -destroy #4 (alive=3) VmRSS=  203232 kB (Δ  +4828)  Anon=  148812 kB (Δ  +4824)  thr=26
+  MallocTrim=ON r1 -destroy #3 (alive=2) VmRSS=  199112 kB (Δ   +708)  Anon=  144692 kB (Δ   +704)  thr=26
+  MallocTrim=ON r1 -destroy #2 (alive=1) VmRSS=  194920 kB (Δ  -3484)  Anon=  140508 kB (Δ  -3480)  thr=26
+  MallocTrim=ON r1 -destroy #1 (alive=0) VmRSS=  190804 kB (Δ  -7600)  Anon=  136384 kB (Δ  -7604)  thr=26
+  MallocTrim=ON r1 * after destroy all VmRSS=  190812 kB (Δ  -7592)  Anon=  136400 kB (Δ  -7588)  thr=26
+  MallocTrim=ON r1 summary(vs round-pre): create ΔVmRSS=+36792 destroy ΔVmRSS=-44388 net=-7596 | Anon create=+36792 destroy=-44380 net=-7588
+  MallocTrim=ON r1 vs arm-baseline: after_destroy ΔVmRSS=-7592 ΔAnon=-7588
+--- MallocTrim=ON round 2/2 ---
+  MallocTrim=ON r2 pre                 VmRSS=  190820 kB (Δ  -7584)  Anon=  136404 kB (Δ  -7584)  thr=26
+  MallocTrim=ON r2 +create #1 (alive=1) VmRSS=  195788 kB (Δ  -2616)  Anon=  141368 kB (Δ  -2620)  thr=26
+  MallocTrim=ON r2 +create #2 (alive=2) VmRSS=  199916 kB (Δ  +1512)  Anon=  145496 kB (Δ  +1508)  thr=26
+  MallocTrim=ON r2 +create #3 (alive=3) VmRSS=  204080 kB (Δ  +5676)  Anon=  149660 kB (Δ  +5672)  thr=26
+  MallocTrim=ON r2 +create #4 (alive=4) VmRSS=  208220 kB (Δ  +9816)  Anon=  153800 kB (Δ  +9812)  thr=26
+  MallocTrim=ON r2 +create #5 (alive=5) VmRSS=  212356 kB (Δ +13952)  Anon=  157936 kB (Δ +13948)  thr=26
+  MallocTrim=ON r2 +create #6 (alive=6) VmRSS=  216496 kB (Δ +18092)  Anon=  162076 kB (Δ +18088)  thr=26
+  MallocTrim=ON r2 +create #7 (alive=7) VmRSS=  220636 kB (Δ +22232)  Anon=  166216 kB (Δ +22228)  thr=26
+  MallocTrim=ON r2 +create #8 (alive=8) VmRSS=  224780 kB (Δ +26376)  Anon=  170360 kB (Δ +26372)  thr=26
+  MallocTrim=ON r2 +create #9 (alive=9) VmRSS=  229540 kB (Δ +31136)  Anon=  175120 kB (Δ +31132)  thr=26
+  MallocTrim=ON r2 +create #10 (alive=10) VmRSS=  233512 kB (Δ +35108)  Anon=  179092 kB (Δ +35104)  thr=26
+  MallocTrim=ON r2 * after create all 10 VmRSS=  233512 kB (Δ +35108)  Anon=  179092 kB (Δ +35104)  thr=26
+  MallocTrim=ON r2 -destroy #10 (alive=9) VmRSS=  228916 kB (Δ +30512)  Anon=  174496 kB (Δ +30508)  thr=26
+  MallocTrim=ON r2 -destroy #9 (alive=8) VmRSS=  224788 kB (Δ +26384)  Anon=  170368 kB (Δ +26380)  thr=26
+  MallocTrim=ON r2 -destroy #8 (alive=7) VmRSS=  220664 kB (Δ +22260)  Anon=  166244 kB (Δ +22256)  thr=26
+  MallocTrim=ON r2 -destroy #7 (alive=6) VmRSS=  216540 kB (Δ +18136)  Anon=  162120 kB (Δ +18132)  thr=26
+  MallocTrim=ON r2 -destroy #6 (alive=5) VmRSS=  212416 kB (Δ +14012)  Anon=  157996 kB (Δ +14008)  thr=26
+  MallocTrim=ON r2 -destroy #5 (alive=4) VmRSS=  208284 kB (Δ  +9880)  Anon=  153864 kB (Δ  +9876)  thr=26
+  MallocTrim=ON r2 -destroy #4 (alive=3) VmRSS=  204152 kB (Δ  +5748)  Anon=  149732 kB (Δ  +5744)  thr=26
+  MallocTrim=ON r2 -destroy #3 (alive=2) VmRSS=  200024 kB (Δ  +1620)  Anon=  145604 kB (Δ  +1616)  thr=26
+  MallocTrim=ON r2 -destroy #2 (alive=1) VmRSS=  195900 kB (Δ  -2504)  Anon=  141480 kB (Δ  -2508)  thr=26
+  MallocTrim=ON r2 -destroy #1 (alive=0) VmRSS=  191780 kB (Δ  -6624)  Anon=  137360 kB (Δ  -6628)  thr=26
+  MallocTrim=ON r2 * after destroy all VmRSS=  191780 kB (Δ  -6624)  Anon=  137360 kB (Δ  -6628)  thr=26
+  MallocTrim=ON r2 summary(vs round-pre): create ΔVmRSS=+42692 destroy ΔVmRSS=-41732 net=+960 | Anon create=+42688 destroy=-41732 net=+956
+  MallocTrim=ON r2 vs arm-baseline: after_destroy ΔVmRSS=-6624 ΔAnon=-6628
+
+========== COMPARISON (2 rounds × create10/destroy10) ==========
+[MallocTrim=OFF]
+  round 1: create ΔRSS=+54668 destroy ΔRSS=-39056 net=+15612 | Anon net=+9792
+  round 2: create ΔRSS=+40612 destroy ΔRSS=-39580 net=+1032 | Anon net=+1028
+[MallocTrim=ON]
+  round 1: create ΔRSS=+36792 destroy ΔRSS=-44388 net=-7596 | Anon net=-7588
+  round 2: create ΔRSS=+42692 destroy ΔRSS=-41732 net=+960 | Anon net=+956
+[delta ON - OFF] (negative destroy Δ means ON reclaimed more)
+  round 1: netRSS(ON-OFF)=-23208  destroyRSS(ON-OFF)=-5332  netAnon(ON-OFF)=-17380
+  round 2: netRSS(ON-OFF)=-72  destroyRSS(ON-OFF)=-2152  netAnon(ON-OFF)=-72
+log_file=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/resource_probes/logs/resource_probe_vm_pool_n10_trim_ab_20260915_123751.log

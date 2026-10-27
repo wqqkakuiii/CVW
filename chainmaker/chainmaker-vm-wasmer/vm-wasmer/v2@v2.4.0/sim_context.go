@@ -8,10 +8,11 @@ SPDX-License-Identifier: Apache-2.0
 package wasmer
 
 import (
-	"chainmaker.org/chainmaker/common/v2/serialize"
 	"fmt"
 	"strconv"
 	"sync"
+
+	"chainmaker.org/chainmaker/common/v2/serialize"
 
 	"chainmaker.org/chainmaker/logger/v2"
 
@@ -27,6 +28,9 @@ type SimContext struct {
 	ContractResult *commonPb.ContractResult
 	Log            *logger.CMLogger
 	Instance       *wasmer.Instance
+	// GasRemaining mirrors WASM GetGas when Instance lives in a process-isolation
+	// worker (sc.Instance is nil on the parent). Updated on each host_call round-trip.
+	GasRemaining uint64
 
 	method             string
 	parameters         map[string][]byte
@@ -161,11 +165,12 @@ func CallDeallocate(instance *wasmer.Instance) error {
 	// TODO 这里setgaslimit是否会影响gas计量？
 	instance.SetGasLimit(1e19)
 	// TODO 这里deallocate，主要是因为原本做法参数是写在合约实例的全局变量，这里把合约实例的参数argsmap设置为空
-	deallocFunc, err := instance.Exports.GetFunction(protocol.ContractDeallocateMethod)
+	deallocFunc, err := instance.Exports.GetRawFunction(protocol.ContractDeallocateMethod)
 	if err != nil {
 		return err
 	}
-	_, err = deallocFunc(0)
+	defer deallocFunc.Close()
+	_, err = deallocFunc.Call(0)
 	return err
 	//return nil
 }

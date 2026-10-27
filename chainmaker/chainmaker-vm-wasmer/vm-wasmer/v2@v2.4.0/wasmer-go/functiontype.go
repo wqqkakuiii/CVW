@@ -90,7 +90,16 @@ func (self *FunctionType) IntoExternType() *ExternType {
 	return newExternType(pointer, self.ownedBy())
 }
 
-// MODIFIED
+// Close deletes the owned wasm_functype_t. The finalizer is cleared first so
+// it cannot delete the same box again.
 func (self *FunctionType) Close() {
+	if self == nil {
+		return
+	}
+	runtime.SetFinalizer(self, nil)
+	if self._inner == nil {
+		return
+	}
 	C.wasm_functype_delete(self._inner)
+	self._inner = nil
 }

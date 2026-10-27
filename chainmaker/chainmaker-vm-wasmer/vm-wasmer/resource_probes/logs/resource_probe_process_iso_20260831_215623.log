@@ -1,0 +1,9 @@
+=== TestProcessIsolationLifecycleProbe ===
+time=2026-08-31T21:56:23+08:00 wasm=./testdata/fact-go.wasm n=4 settle=400ms
+log_file=./resource_probe_process_iso_20260831_215623.log
+worker_bin=/tmp/wasmer-process-worker
+model: parent Serialize once; each worker NewEngine+NewStore+Deserialize+Instance; Close=Kill
+
+0_baseline threads=10 VmRSS=50.84MB Anon=11.30MB VmSize=1924.97MB goAlloc=6.56MB goSys=21.83MB goroutine=2 numGC=2
+1_after_parent_module threads=23 VmRSS=211.20MB Anon=163.81MB VmSize=2803.55MB goAlloc=6.63MB goSys=30.08MB goroutine=2 numGC=3
+2_after_serialize threads=23 VmRSS=271.81MB Anon=224.42MB VmSize=2831.80MB goAlloc=30.18MB goSys=62.08MB goroutine=2 numGC=4 artifact_bytes=29624280

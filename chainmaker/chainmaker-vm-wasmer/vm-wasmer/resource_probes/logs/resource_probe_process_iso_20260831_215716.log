@@ -1,0 +1,34 @@
+=== TestProcessIsolationLifecycleProbe ===
+time=2026-08-31T21:57:16+08:00 wasm=./testdata/fact-go.wasm n=4 settle=400ms
+log_file=./resource_probe_process_iso_20260831_215716.log
+worker_bin=/tmp/wasmer-process-worker
+model: parent Serialize once; each worker NewEngine+NewStore+Deserialize+Instance; Close=Kill
+
+0_baseline threads=10 VmRSS=51.07MB Anon=11.66MB VmSize=1924.71MB goAlloc=6.60MB goSys=21.58MB goroutine=2 numGC=2
+1_after_parent_module threads=22 VmRSS=209.68MB Anon=162.35MB VmSize=2731.29MB goAlloc=6.63MB goSys=29.83MB goroutine=2 numGC=3
+2_after_serialize threads=23 VmRSS=270.44MB Anon=223.11MB VmSize=2831.80MB goAlloc=30.19MB goSys=62.08MB goroutine=2 numGC=4 artifact_bytes=29624280
+3_create_01 threads=23 VmRSS=270.47MB Anon=223.12MB VmSize=2831.80MB goAlloc=30.22MB goSys=62.08MB goroutine=2 numGC=4 pid=11357
+3_create_02 threads=23 VmRSS=270.48MB Anon=223.16MB VmSize=2831.80MB goAlloc=30.26MB goSys=62.08MB goroutine=2 numGC=4 pid=11380
+3_create_03 threads=23 VmRSS=270.51MB Anon=223.17MB VmSize=2831.80MB goAlloc=30.29MB goSys=62.08MB goroutine=2 numGC=4 pid=11403
+3_create_04 threads=23 VmRSS=270.53MB Anon=223.18MB VmSize=2831.80MB goAlloc=30.32MB goSys=62.08MB goroutine=2 numGC=4 pid=11426
+4_kill_01 threads=23 VmRSS=270.54MB Anon=223.20MB VmSize=2831.80MB goAlloc=30.33MB goSys=62.08MB goroutine=2 numGC=4
+4_kill_02 threads=23 VmRSS=270.55MB Anon=223.21MB VmSize=2831.80MB goAlloc=30.34MB goSys=62.08MB goroutine=2 numGC=4
+4_kill_03 threads=23 VmRSS=270.57MB Anon=223.23MB VmSize=2831.80MB goAlloc=30.36MB goSys=62.08MB goroutine=2 numGC=4
+4_kill_04 threads=23 VmRSS=270.58MB Anon=223.25MB VmSize=2831.80MB goAlloc=30.37MB goSys=62.08MB goroutine=2 numGC=4
+
+=== PARENT MEMORY TABLE (Wasmer Instance lives in children) ===
+step                         alive   VmRSS_MB threads    ΔRSS_MB   Δthr
+0_baseline                       0      51.07      10       0.00      0
+1_after_parent_module            0     209.68      22     158.62     12
+2_after_serialize                0     270.44      23      60.76      1
+3_create_01                      1     270.47      23       0.03      0
+3_create_02                      2     270.48      23       0.02      0
+3_create_03                      3     270.51      23       0.03      0
+3_create_04                      4     270.53      23       0.02      0
+4_kill_01_alive_3                3     270.54      23       0.01      0
+4_kill_02_alive_2                2     270.55      23       0.02      0
+4_kill_03_alive_1                1     270.57      23       0.02      0
+4_kill_04_alive_0                0     270.58      23       0.01      0
+
+note: parent ΔRSS on create should stay small vs in-process; kill returns child pages to OS
+log_file=./resource_probe_process_iso_20260831_215716.log

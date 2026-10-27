@@ -1,0 +1,64 @@
+=== TestGoEnhancedClose10Steps (Go enhanced Close) ===
+time=2026-09-01T17:16:29+08:00 wasm=./testdata/fact-go.wasm n=10 settle=300ms
+log_file=./resource_probe_go_enhanced_20260901_171629.log
+
+0_baseline                   alive=0 0_baseline threads=10 VmRSS=51.95MB Anon=11.19MB VmSize=1924.55MB goAlloc=6.60MB goSys=21.65MB goroutine=2 numGC=2 Δ Δ0_baseline                   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=0s
+1_engine_store               alive=0 1_engine_store threads=10 VmRSS=54.10MB Anon=11.22MB VmSize=1924.55MB goAlloc=6.62MB goSys=21.65MB goroutine=2 numGC=2 Δ Δ1_engine_store               threads=+0 VmRSS=+2.16MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=301.554199ms
+2_module                     alive=0 2_module threads=23 VmRSS=171.36MB Anon=122.50MB VmSize=2799.49MB goAlloc=11.27MB goSys=29.90MB goroutine=2 numGC=3 Δ Δ2_module                     threads=+13 VmRSS=+117.26MB Anon=+111.29MB VmSize=+874.95MB goAlloc=+4.65MB goSys=+8.25MB goroutine=+0 elapsed=1.060537696s
+3_create_01                  alive=1 3_create_01 threads=36 VmRSS=180.49MB Anon=125.88MB VmSize=9802.61MB goAlloc=6.63MB goSys=29.90MB goroutine=2 numGC=4 Δ Δ3_create_01                  threads=+13 VmRSS=+9.13MB Anon=+3.38MB VmSize=+7003.12MB goAlloc=-4.64MB goSys=+0.00MB goroutine=+0 elapsed=1.117116578s
+3_create_02                  alive=2 3_create_02 threads=49 VmRSS=184.62MB Anon=130.02MB VmSize=16805.73MB goAlloc=6.61MB goSys=29.90MB goroutine=2 numGC=5 Δ Δ3_create_02                  threads=+13 VmRSS=+4.14MB Anon=+4.14MB VmSize=+7003.12MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.117781175s
+3_create_03                  alive=3 3_create_03 threads=62 VmRSS=188.87MB Anon=134.26MB VmSize=23808.86MB goAlloc=6.60MB goSys=29.90MB goroutine=2 numGC=6 Δ Δ3_create_03                  threads=+13 VmRSS=+4.25MB Anon=+4.25MB VmSize=+7003.12MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.117235075s
+3_create_04                  alive=4 3_create_04 threads=75 VmRSS=193.45MB Anon=138.84MB VmSize=30811.98MB goAlloc=6.61MB goSys=29.90MB goroutine=2 numGC=7 Δ Δ3_create_04                  threads=+13 VmRSS=+4.58MB Anon=+4.58MB VmSize=+7003.12MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.117328275s
+3_create_05                  alive=5 3_create_05 threads=88 VmRSS=202.00MB Anon=147.39MB VmSize=37814.03MB goAlloc=6.62MB goSys=29.90MB goroutine=2 numGC=8 Δ Δ3_create_05                  threads=+13 VmRSS=+8.55MB Anon=+8.55MB VmSize=+7002.05MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.131724075s
+3_create_06                  alive=6 3_create_06 threads=101 VmRSS=210.52MB Anon=155.91MB VmSize=44500.53MB goAlloc=6.62MB goSys=29.90MB goroutine=2 numGC=9 Δ Δ3_create_06                  threads=+13 VmRSS=+8.52MB Anon=+8.52MB VmSize=+6686.50MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.120323975s
+3_create_07                  alive=7 3_create_07 threads=114 VmRSS=216.44MB Anon=161.83MB VmSize=50670.58MB goAlloc=6.63MB goSys=29.90MB goroutine=2 numGC=10 Δ Δ3_create_07                  threads=+13 VmRSS=+5.92MB Anon=+5.92MB VmSize=+6170.05MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.124195375s
+3_create_08                  alive=8 3_create_08 threads=127 VmRSS=220.85MB Anon=166.24MB VmSize=56840.63MB goAlloc=6.64MB goSys=29.90MB goroutine=2 numGC=11 Δ Δ3_create_08                  threads=+13 VmRSS=+4.41MB Anon=+4.41MB VmSize=+6170.05MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.115588581s
+3_create_09                  alive=9 3_create_09 threads=140 VmRSS=224.86MB Anon=170.25MB VmSize=63010.68MB goAlloc=6.65MB goSys=29.90MB goroutine=2 numGC=12 Δ Δ3_create_09                  threads=+13 VmRSS=+4.02MB Anon=+4.02MB VmSize=+6170.05MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.115147883s
+3_create_10                  alive=10 3_create_10 threads=153 VmRSS=229.03MB Anon=174.42MB VmSize=69181.80MB goAlloc=6.66MB goSys=29.90MB goroutine=2 numGC=13 Δ Δ3_create_10                  threads=+13 VmRSS=+4.16MB Anon=+4.16MB VmSize=+6171.12MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=1.118344084s
+4_destroy_01                 alive=9 4_destroy_01_alive_9 threads=140 VmRSS=225.47MB Anon=170.61MB VmSize=63037.80MB goAlloc=6.64MB goSys=29.90MB goroutine=2 numGC=14 Δ Δ4_destroy_01_alive_9         threads=-13 VmRSS=-3.55MB Anon=-3.80MB VmSize=-6144.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=307.624895ms
+4_destroy_02                 alive=8 4_destroy_02_alive_8 threads=127 VmRSS=221.58MB Anon=166.72MB VmSize=56880.84MB goAlloc=6.63MB goSys=29.90MB goroutine=2 numGC=15 Δ Δ4_destroy_02_alive_8         threads=-13 VmRSS=-3.89MB Anon=-3.89MB VmSize=-6156.96MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.806396ms
+4_destroy_03                 alive=7 4_destroy_03_alive_7 threads=114 VmRSS=217.60MB Anon=162.74MB VmSize=50710.79MB goAlloc=6.63MB goSys=29.90MB goroutine=2 numGC=16 Δ Δ4_destroy_03_alive_7         threads=-13 VmRSS=-3.98MB Anon=-3.98MB VmSize=-6170.05MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=306.261195ms
+4_destroy_04                 alive=6 4_destroy_04_alive_6 threads=101 VmRSS=213.64MB Anon=158.78MB VmSize=44541.81MB goAlloc=6.62MB goSys=29.90MB goroutine=2 numGC=17 Δ Δ4_destroy_04_alive_6         threads=-13 VmRSS=-3.96MB Anon=-3.96MB VmSize=-6168.98MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=306.902196ms
+4_destroy_05                 alive=5 4_destroy_05_alive_5 threads=88 VmRSS=209.66MB Anon=154.80MB VmSize=38371.76MB goAlloc=6.61MB goSys=29.90MB goroutine=2 numGC=18 Δ Δ4_destroy_05_alive_5         threads=-13 VmRSS=-3.97MB Anon=-3.97MB VmSize=-6170.05MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=305.143895ms
+4_destroy_06                 alive=4 4_destroy_06_alive_4 threads=75 VmRSS=205.69MB Anon=150.84MB VmSize=32201.71MB goAlloc=6.61MB goSys=29.90MB goroutine=2 numGC=19 Δ Δ4_destroy_06_alive_4         threads=-13 VmRSS=-3.97MB Anon=-3.96MB VmSize=-6170.05MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=305.531396ms
+4_destroy_07                 alive=3 4_destroy_07_alive_3 threads=62 VmRSS=201.76MB Anon=146.91MB VmSize=26031.66MB goAlloc=6.60MB goSys=29.90MB goroutine=2 numGC=20 Δ Δ4_destroy_07_alive_3         threads=-13 VmRSS=-3.93MB Anon=-3.93MB VmSize=-6170.05MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=305.860795ms
+4_destroy_08                 alive=2 4_destroy_08_alive_2 threads=49 VmRSS=197.84MB Anon=142.98MB VmSize=19861.86MB goAlloc=6.59MB goSys=30.15MB goroutine=2 numGC=21 Δ Δ4_destroy_08_alive_2         threads=-13 VmRSS=-3.92MB Anon=-3.93MB VmSize=-6169.80MB goAlloc=-0.01MB goSys=+0.25MB goroutine=+0 elapsed=306.350796ms
+4_destroy_09                 alive=1 4_destroy_09_alive_1 threads=36 VmRSS=193.88MB Anon=139.02MB VmSize=13691.81MB goAlloc=6.59MB goSys=30.15MB goroutine=2 numGC=22 Δ Δ4_destroy_09_alive_1         threads=-13 VmRSS=-3.97MB Anon=-3.97MB VmSize=-6170.05MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=305.576995ms
+4_destroy_10                 alive=0 4_destroy_10_alive_0 threads=23 VmRSS=189.91MB Anon=135.05MB VmSize=7521.76MB goAlloc=6.58MB goSys=30.15MB goroutine=2 numGC=23 Δ Δ4_destroy_10_alive_0         threads=-13 VmRSS=-3.97MB Anon=-3.96MB VmSize=-6170.05MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=307.148596ms
+5_all_instances_closed       alive=0 5_all_instances_closed threads=23 VmRSS=189.92MB Anon=135.06MB VmSize=7521.76MB goAlloc=6.60MB goSys=30.15MB goroutine=2 numGC=23 Δ Δ5_all_instances_closed       threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=303.428995ms
+6_module_close               alive=0 6_module_close threads=23 VmRSS=189.92MB Anon=135.07MB VmSize=7521.76MB goAlloc=6.61MB goSys=30.15MB goroutine=2 numGC=23 Δ Δ6_module_close               threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=307.911096ms
+7_store_close                alive=0 7_store_close threads=23 VmRSS=189.93MB Anon=135.08MB VmSize=7521.76MB goAlloc=6.62MB goSys=30.15MB goroutine=2 numGC=23 Δ Δ7_store_close                threads=+0 VmRSS=+0.01MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.388995ms
+8_engine_close               alive=0 8_engine_close threads=23 VmRSS=189.94MB Anon=135.08MB VmSize=7521.76MB goAlloc=6.64MB goSys=30.15MB goroutine=2 numGC=23 Δ Δ8_engine_close               threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.062996ms
+9_after_gc                   alive=0 9_after_gc threads=23 VmRSS=186.63MB Anon=130.17MB VmSize=7521.76MB goAlloc=1.92MB goSys=30.15MB goroutine=2 numGC=24 Δ Δ9_after_gc                   threads=+0 VmRSS=-3.30MB Anon=-4.91MB VmSize=+0.00MB goAlloc=-4.72MB goSys=+0.00MB goroutine=+0 elapsed=305.219695ms
+=== MEMORY TABLE (absolute + Δ vs previous step) ===
+step                         alive   VmRSS_MB    Anon_MB threads    ΔRSS_MB   ΔAnon_MB   Δthr
+0_baseline                       0      51.95      11.19      10       0.00       0.00      0
+1_engine_store                   0      54.10      11.22      10       2.16       0.03      0
+2_module                         0     171.36     122.50      23     117.26     111.29     13
+3_create_01                      1     180.49     125.88      36       9.13       3.38     13
+3_create_02                      2     184.62     130.02      49       4.14       4.14     13
+3_create_03                      3     188.87     134.26      62       4.25       4.25     13
+3_create_04                      4     193.45     138.84      75       4.58       4.58     13
+3_create_05                      5     202.00     147.39      88       8.55       8.55     13
+3_create_06                      6     210.52     155.91     101       8.52       8.52     13
+3_create_07                      7     216.44     161.83     114       5.92       5.92     13
+3_create_08                      8     220.85     166.24     127       4.41       4.41     13
+3_create_09                      9     224.86     170.25     140       4.02       4.02     13
+3_create_10                     10     229.03     174.42     153       4.16       4.16     13
+4_destroy_01                     9     225.47     170.61     140      -3.55      -3.80    -13
+4_destroy_02                     8     221.58     166.72     127      -3.89      -3.89    -13
+4_destroy_03                     7     217.60     162.74     114      -3.98      -3.98    -13
+4_destroy_04                     6     213.64     158.78     101      -3.96      -3.96    -13
+4_destroy_05                     5     209.66     154.80      88      -3.97      -3.97    -13
+4_destroy_06                     4     205.69     150.84      75      -3.97      -3.96    -13
+4_destroy_07                     3     201.76     146.91      62      -3.93      -3.93    -13
+4_destroy_08                     2     197.84     142.98      49      -3.92      -3.93    -13
+4_destroy_09                     1     193.88     139.02      36      -3.97      -3.97    -13
+4_destroy_10                     0     189.91     135.05      23      -3.97      -3.96    -13
+5_all_instances_closed           0     189.92     135.06      23       0.01       0.00      0
+6_module_close                   0     189.92     135.07      23       0.00       0.01      0
+7_store_close                    0     189.93     135.08      23       0.01       0.01      0
+8_engine_close                   0     189.94     135.08      23       0.01       0.00      0
+9_after_gc                       0     186.63     130.17      23      -3.30      -4.91      0
+
+log_file=./resource_probe_go_enhanced_20260901_171629.log

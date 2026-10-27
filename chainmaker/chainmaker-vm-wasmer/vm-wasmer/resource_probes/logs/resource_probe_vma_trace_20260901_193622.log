@@ -1,0 +1,18 @@
+=== TestVMAMemoryBaseTrace ===
+time=2026-09-01T19:36:22+08:00 wasm=./testdata/fact-go.wasm
+wasm_memory_data_ptr=0x7cb9c8000000 pages=128 bytes=8388608
+
+--- VMA containing memory.Data() ---
+  MATCH 7cb9c8000000-7cb9c8800000 rss=3.82MB anon=3.82MB cat=anon_rw_small path=
+
+--- anon_rw_large VMAs (rss>=4MB), excluding wasm match ---
+  OTHER c000000000-c001800000 rss=12.23MB anon=12.23MB path=
+  OTHER 7cbb80000000-7cbb82240000 rss=34.18MB anon=34.18MB path=
+  OTHER 7cbb84000000-7cbb85fd9000 rss=31.85MB anon=31.85MB path=
+  OTHER 7cbba0000000-7cbba047d000 rss=4.48MB anon=4.48MB path=
+  OTHER 7cbba8353000-7cbba87f9000 rss=4.65MB anon=4.65MB path=
+
+--- large anon VMA persistence after destroy ---
+  STILL c000000000-c001800000 before=12.23MB after=3.98MB Δ=-8.25MB
+
+log_file=../resource_probes/logs/resource_probe_vma_trace_20260901_193622.log

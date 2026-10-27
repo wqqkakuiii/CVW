@@ -1,0 +1,177 @@
+=== TestCompileCloseReclaimAudit ===
+time=2026-08-25T16:59:29+08:00
+log_file=./resource_probe_close_reclaim_audit.log
+wasm=./testdata/fact-go.wasm threads=4 settle=400ms
+goal: which Go ops allocate Rust/native memory, and whether incomplete Close explains unreclaimed RSS
+
+########## subprocess arm=full ##########
+=== RUN   TestCompileCloseReclaimArm
+    resource_probe_close_reclaim_test.go:192: === TestCompileCloseReclaimArm arm=full wasm=./testdata/fact-go.wasm threads=4 ===
+=== TestCompileCloseReclaimArm arm=full wasm=./testdata/fact-go.wasm threads=4 ===
+    resource_probe_close_reclaim_test.go:192: 0_baseline threads=10 VmRSS=51.23MB Anon=11.02MB VmSize=1924.55MB goAlloc=6.56MB goSys=21.58MB goroutine=2 numGC=3
+0_baseline threads=10 VmRSS=51.23MB Anon=11.02MB VmSize=1924.55MB goAlloc=6.56MB goSys=21.58MB goroutine=2 numGC=3
+    resource_probe_close_reclaim_test.go:192: 1_after_NewEngine threads=10 VmRSS=52.39MB Anon=11.12MB VmSize=1924.55MB goAlloc=6.52MB goSys=21.58MB goroutine=2 numGC=4
+1_after_NewEngine threads=10 VmRSS=52.39MB Anon=11.12MB VmSize=1924.55MB goAlloc=6.52MB goSys=21.58MB goroutine=2 numGC=4
+    resource_probe_close_reclaim_test.go:192:   Δ1_after_NewEngine            threads=+0 VmRSS=+1.16MB Anon=+0.10MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=407.0664ms
+  Δ1_after_NewEngine            threads=+0 VmRSS=+1.16MB Anon=+0.10MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=407.0664ms
+    resource_probe_close_reclaim_test.go:192: 2_after_NewStore threads=10 VmRSS=52.55MB Anon=11.19MB VmSize=1924.55MB goAlloc=6.52MB goSys=21.58MB goroutine=2 numGC=5
+2_after_NewStore threads=10 VmRSS=52.55MB Anon=11.19MB VmSize=1924.55MB goAlloc=6.52MB goSys=21.58MB goroutine=2 numGC=5
+    resource_probe_close_reclaim_test.go:192:   Δ2_after_NewStore             threads=+0 VmRSS=+0.15MB Anon=+0.07MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.516801ms
+  Δ2_after_NewStore             threads=+0 VmRSS=+0.15MB Anon=+0.07MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.516801ms
+    resource_probe_close_reclaim_test.go:192: 3_after_ValidateModule threads=10 VmRSS=67.96MB Anon=21.33MB VmSize=1929.20MB goAlloc=6.52MB goSys=29.58MB goroutine=2 numGC=7
+3_after_ValidateModule threads=10 VmRSS=67.96MB Anon=21.33MB VmSize=1929.20MB goAlloc=6.52MB goSys=29.58MB goroutine=2 numGC=7
+    resource_probe_close_reclaim_test.go:192:   Δ3_after_ValidateModule       threads=+0 VmRSS=+15.41MB Anon=+10.14MB VmSize=+4.65MB goAlloc=-0.00MB goSys=+8.00MB goroutine=+0 elapsed=433.8134ms
+  Δ3_after_ValidateModule       threads=+0 VmRSS=+15.41MB Anon=+10.14MB VmSize=+4.65MB goAlloc=-0.00MB goSys=+8.00MB goroutine=+0 elapsed=433.8134ms
+2026-08-25 16:59:33.551	[INFO]	close_reclaim	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 16:59:33.553	[INFO]	close_reclaim	wasmer-go/module.go:104	wasmBytesPtr => 0xc000fce000 
+2026-08-25 16:59:33.553	[INFO]	close_reclaim	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+    resource_probe_close_reclaim_test.go:192: 4_after_NewModule threads=23 VmRSS=173.92MB Anon=120.22MB VmSize=2804.39MB goAlloc=1.92MB goSys=30.08MB goroutine=2 numGC=9
+4_after_NewModule threads=23 VmRSS=173.92MB Anon=120.22MB VmSize=2804.39MB goAlloc=1.92MB goSys=30.08MB goroutine=2 numGC=9
+    resource_probe_close_reclaim_test.go:192:   Δ4_after_NewModule            threads=+13 VmRSS=+105.96MB Anon=+98.89MB VmSize=+875.20MB goAlloc=-4.60MB goSys=+0.50MB goroutine=+0 elapsed=1.082984201s
+  Δ4_after_NewModule            threads=+13 VmRSS=+105.96MB Anon=+98.89MB VmSize=+875.20MB goAlloc=-4.60MB goSys=+0.50MB goroutine=+0 elapsed=1.082984201s
+    resource_probe_close_reclaim_test.go:192: --- NewModule elapsed=680.705601ms ---
+--- NewModule elapsed=680.705601ms ---
+    resource_probe_close_reclaim_test.go:192:   compile Δ vs validate: Δ4_after_NewModule            threads=+13 VmRSS=+105.96MB Anon=+98.89MB VmSize=+875.20MB goAlloc=-4.60MB goSys=+0.50MB goroutine=+0 elapsed=1.082984201s
+  compile Δ vs validate: Δ4_after_NewModule            threads=+13 VmRSS=+105.96MB Anon=+98.89MB VmSize=+875.20MB goAlloc=-4.60MB goSys=+0.50MB goroutine=+0 elapsed=1.082984201s
+    resource_probe_close_reclaim_test.go:192:   note: goAlloc Δ=-4.60MB vs Anon Δ=98.89MB (native >> Go heap)
+  note: goAlloc Δ=-4.60MB vs Anon Δ=98.89MB (native >> Go heap)
+    resource_probe_close_reclaim_test.go:192: 5_after_Module_Close threads=23 VmRSS=165.80MB Anon=118.04MB VmSize=2804.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=10
+5_after_Module_Close threads=23 VmRSS=165.80MB Anon=118.04MB VmSize=2804.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=10
+    resource_probe_close_reclaim_test.go:192:   Δ5_after_Module_Close         threads=+0 VmRSS=-8.11MB Anon=-2.18MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=407.5626ms
+  Δ5_after_Module_Close         threads=+0 VmRSS=-8.11MB Anon=-2.18MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=407.5626ms
+    resource_probe_close_reclaim_test.go:192:   reclaim vs compile: VmRSS=-8.11MB Anon=-2.18MB
+  reclaim vs compile: VmRSS=-8.11MB Anon=-2.18MB
+    resource_probe_close_reclaim_test.go:192: 6_after_Store_Close threads=23 VmRSS=161.36MB Anon=113.59MB VmSize=2804.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=11
+6_after_Store_Close threads=23 VmRSS=161.36MB Anon=113.59MB VmSize=2804.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=11
+    resource_probe_close_reclaim_test.go:192:   Δ6_after_Store_Close          threads=+0 VmRSS=-4.45MB Anon=-4.45MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.476301ms
+  Δ6_after_Store_Close          threads=+0 VmRSS=-4.45MB Anon=-4.45MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.476301ms
+    resource_probe_close_reclaim_test.go:192:   reclaim vs module-close: VmRSS=-4.45MB Anon=-4.45MB
+  reclaim vs module-close: VmRSS=-4.45MB Anon=-4.45MB
+    resource_probe_close_reclaim_test.go:192: 7_after_Engine_Close threads=23 VmRSS=155.36MB Anon=107.60MB VmSize=2798.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=12
+7_after_Engine_Close threads=23 VmRSS=155.36MB Anon=107.60MB VmSize=2798.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=12
+    resource_probe_close_reclaim_test.go:192:   Δ7_after_Engine_Close         threads=+0 VmRSS=-6.00MB Anon=-5.99MB VmSize=-6.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.7113ms
+  Δ7_after_Engine_Close         threads=+0 VmRSS=-6.00MB Anon=-5.99MB VmSize=-6.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.7113ms
+    resource_probe_close_reclaim_test.go:192:   reclaim vs store-close: VmRSS=-6.00MB Anon=-5.99MB
+  reclaim vs store-close: VmRSS=-6.00MB Anon=-5.99MB
+    resource_probe_close_reclaim_test.go:192: 8_after_final_GC threads=23 VmRSS=155.37MB Anon=107.61MB VmSize=2798.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=14
+8_after_final_GC threads=23 VmRSS=155.37MB Anon=107.61MB VmSize=2798.39MB goAlloc=1.90MB goSys=30.08MB goroutine=2 numGC=14
+    resource_probe_close_reclaim_test.go:192:   Δ8_after_final_GC             threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.3779ms
+  Δ8_after_final_GC             threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.3779ms
+    resource_probe_close_reclaim_test.go:192: 
+
+    resource_probe_close_reclaim_test.go:192: === ARM=full ANALYSIS ===
+=== ARM=full ANALYSIS ===
+    resource_probe_close_reclaim_test.go:192: Δ_Engine_or_Store_create: small (see stage 1-2)
+Δ_Engine_or_Store_create: small (see stage 1-2)
+    resource_probe_close_reclaim_test.go:192: Δ_Validate:               VmRSS=+15.41MB Anon=+10.14MB
+Δ_Validate:               VmRSS=+15.41MB Anon=+10.14MB
+    resource_probe_close_reclaim_test.go:192: Δ_NewModule (Rust compile+CodeMemory): VmRSS=+105.96MB Anon=+98.89MB goAlloc=-4.60MB
+Δ_NewModule (Rust compile+CodeMemory): VmRSS=+105.96MB Anon=+98.89MB goAlloc=-4.60MB
+    resource_probe_close_reclaim_test.go:192: Δ_Module_Close:  VmRSS=-8.11MB Anon=-2.18MB
+Δ_Module_Close:  VmRSS=-8.11MB Anon=-2.18MB
+    resource_probe_close_reclaim_test.go:192: Δ_Store_Close:   VmRSS=-4.45MB Anon=-4.45MB
+Δ_Store_Close:   VmRSS=-4.45MB Anon=-4.45MB
+    resource_probe_close_reclaim_test.go:192: Δ_Engine_Close:  VmRSS=-5.99MB Anon=-5.99MB
+Δ_Engine_Close:  VmRSS=-5.99MB Anon=-5.99MB
+    resource_probe_close_reclaim_test.go:192: final vs compile peak: VmRSS=-18.55MB Anon=-12.62MB (reclaimed≈17.5% of compile Δ)
+final vs compile peak: VmRSS=-18.55MB Anon=-12.62MB (reclaimed≈17.5% of compile Δ)
+    resource_probe_close_reclaim_test.go:192: final vs baseline:     VmRSS=+104.14MB Anon=+96.59MB threads=+13
+final vs baseline:     VmRSS=+104.14MB Anon=+96.59MB threads=+13
+    resource_probe_close_reclaim_test.go:192: VERDICT: Go Closed Module/Store+Engine but most compile Anon/VmRSS NOT returned to kernel
+VERDICT: Go Closed Module/Store+Engine but most compile Anon/VmRSS NOT returned to kernel
+    resource_probe_close_reclaim_test.go:192: CAUSE: not primarily incomplete Go Close — Rust Universal CodeMemory/mmap + allocator
+CAUSE: not primarily incomplete Go Close — Rust Universal CodeMemory/mmap + allocator
+    resource_probe_close_reclaim_test.go:192:        retention; Engine.Close can drop Arc but pages often stay in process RSS
+       retention; Engine.Close can drop Arc but pages often stay in process RSS
+--- PASS: TestCompileCloseReclaimArm (4.35s)
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	4.374s
+
+########## subprocess arm=no_engine ##########
+=== RUN   TestCompileCloseReclaimArm
+    resource_probe_close_reclaim_test.go:192: === TestCompileCloseReclaimArm arm=no_engine wasm=./testdata/fact-go.wasm threads=4 ===
+=== TestCompileCloseReclaimArm arm=no_engine wasm=./testdata/fact-go.wasm threads=4 ===
+    resource_probe_close_reclaim_test.go:192: 0_baseline threads=10 VmRSS=51.20MB Anon=11.10MB VmSize=1924.80MB goAlloc=6.56MB goSys=21.83MB goroutine=2 numGC=3
+0_baseline threads=10 VmRSS=51.20MB Anon=11.10MB VmSize=1924.80MB goAlloc=6.56MB goSys=21.83MB goroutine=2 numGC=3
+    resource_probe_close_reclaim_test.go:192: 1_after_NewEngine threads=10 VmRSS=52.55MB Anon=11.18MB VmSize=1924.80MB goAlloc=6.52MB goSys=21.83MB goroutine=2 numGC=4
+1_after_NewEngine threads=10 VmRSS=52.55MB Anon=11.18MB VmSize=1924.80MB goAlloc=6.52MB goSys=21.83MB goroutine=2 numGC=4
+    resource_probe_close_reclaim_test.go:192:   Δ1_after_NewEngine            threads=+0 VmRSS=+1.35MB Anon=+0.09MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=402.0224ms
+  Δ1_after_NewEngine            threads=+0 VmRSS=+1.35MB Anon=+0.09MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=402.0224ms
+    resource_probe_close_reclaim_test.go:192: 2_after_NewStore threads=10 VmRSS=52.79MB Anon=11.29MB VmSize=1924.80MB goAlloc=6.52MB goSys=21.83MB goroutine=2 numGC=5
+2_after_NewStore threads=10 VmRSS=52.79MB Anon=11.29MB VmSize=1924.80MB goAlloc=6.52MB goSys=21.83MB goroutine=2 numGC=5
+    resource_probe_close_reclaim_test.go:192:   Δ2_after_NewStore             threads=+0 VmRSS=+0.24MB Anon=+0.11MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=402.6712ms
+  Δ2_after_NewStore             threads=+0 VmRSS=+0.24MB Anon=+0.11MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=402.6712ms
+    resource_probe_close_reclaim_test.go:192: 3_after_ValidateModule threads=11 VmRSS=68.23MB Anon=21.40MB VmSize=2001.70MB goAlloc=6.52MB goSys=30.08MB goroutine=2 numGC=7
+3_after_ValidateModule threads=11 VmRSS=68.23MB Anon=21.40MB VmSize=2001.70MB goAlloc=6.52MB goSys=30.08MB goroutine=2 numGC=7
+    resource_probe_close_reclaim_test.go:192:   Δ3_after_ValidateModule       threads=+1 VmRSS=+15.44MB Anon=+10.11MB VmSize=+76.90MB goAlloc=+0.00MB goSys=+8.25MB goroutine=+0 elapsed=432.615001ms
+  Δ3_after_ValidateModule       threads=+1 VmRSS=+15.44MB Anon=+10.11MB VmSize=+76.90MB goAlloc=+0.00MB goSys=+8.25MB goroutine=+0 elapsed=432.615001ms
+2026-08-25 16:59:40.133	[INFO]	close_reclaim	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 16:59:40.133	[INFO]	close_reclaim	wasmer-go/module.go:104	wasmBytesPtr => 0xc000fde000 
+2026-08-25 16:59:40.133	[INFO]	close_reclaim	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+    resource_probe_close_reclaim_test.go:192: 4_after_NewModule threads=23 VmRSS=181.56MB Anon=127.79MB VmSize=2799.99MB goAlloc=1.92MB goSys=30.33MB goroutine=2 numGC=9
+4_after_NewModule threads=23 VmRSS=181.56MB Anon=127.79MB VmSize=2799.99MB goAlloc=1.92MB goSys=30.33MB goroutine=2 numGC=9
+    resource_probe_close_reclaim_test.go:192:   Δ4_after_NewModule            threads=+12 VmRSS=+113.32MB Anon=+106.39MB VmSize=+798.29MB goAlloc=-4.60MB goSys=+0.25MB goroutine=+0 elapsed=1.077421s
+  Δ4_after_NewModule            threads=+12 VmRSS=+113.32MB Anon=+106.39MB VmSize=+798.29MB goAlloc=-4.60MB goSys=+0.25MB goroutine=+0 elapsed=1.077421s
+    resource_probe_close_reclaim_test.go:192: --- NewModule elapsed=674.9921ms ---
+--- NewModule elapsed=674.9921ms ---
+    resource_probe_close_reclaim_test.go:192:   compile Δ vs validate: Δ4_after_NewModule            threads=+12 VmRSS=+113.32MB Anon=+106.39MB VmSize=+798.29MB goAlloc=-4.60MB goSys=+0.25MB goroutine=+0 elapsed=1.077421s
+  compile Δ vs validate: Δ4_after_NewModule            threads=+12 VmRSS=+113.32MB Anon=+106.39MB VmSize=+798.29MB goAlloc=-4.60MB goSys=+0.25MB goroutine=+0 elapsed=1.077421s
+    resource_probe_close_reclaim_test.go:192:   note: goAlloc Δ=-4.60MB vs Anon Δ=106.39MB (native >> Go heap)
+  note: goAlloc Δ=-4.60MB vs Anon Δ=106.39MB (native >> Go heap)
+    resource_probe_close_reclaim_test.go:192: 5_after_Module_Close threads=23 VmRSS=173.41MB Anon=125.64MB VmSize=2799.99MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=10
+5_after_Module_Close threads=23 VmRSS=173.41MB Anon=125.64MB VmSize=2799.99MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=10
+    resource_probe_close_reclaim_test.go:192:   Δ5_after_Module_Close         threads=+0 VmRSS=-8.15MB Anon=-2.15MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=407.2328ms
+  Δ5_after_Module_Close         threads=+0 VmRSS=-8.15MB Anon=-2.15MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=407.2328ms
+    resource_probe_close_reclaim_test.go:192:   reclaim vs compile: VmRSS=-8.15MB Anon=-2.15MB
+  reclaim vs compile: VmRSS=-8.15MB Anon=-2.15MB
+    resource_probe_close_reclaim_test.go:192: 6_after_Store_Close threads=23 VmRSS=168.93MB Anon=121.16MB VmSize=2799.99MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=11
+6_after_Store_Close threads=23 VmRSS=168.93MB Anon=121.16MB VmSize=2799.99MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=11
+    resource_probe_close_reclaim_test.go:192:   Δ6_after_Store_Close          threads=+0 VmRSS=-4.48MB Anon=-4.48MB VmSize=+0.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.14ms
+  Δ6_after_Store_Close          threads=+0 VmRSS=-4.48MB Anon=-4.48MB VmSize=+0.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.14ms
+    resource_probe_close_reclaim_test.go:192:   reclaim vs module-close: VmRSS=-4.48MB Anon=-4.48MB
+  reclaim vs module-close: VmRSS=-4.48MB Anon=-4.48MB
+    resource_probe_close_reclaim_test.go:192: 7_skip_Engine_Close (arm=no_engine); Engine kept alive until process exit / finalizer
+7_skip_Engine_Close (arm=no_engine); Engine kept alive until process exit / finalizer
+    resource_probe_close_reclaim_test.go:192: 7_no_Engine_Close_keepalive threads=23 VmRSS=168.93MB Anon=121.17MB VmSize=2799.99MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=12
+7_no_Engine_Close_keepalive threads=23 VmRSS=168.93MB Anon=121.17MB VmSize=2799.99MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=12
+    resource_probe_close_reclaim_test.go:192:   Δ7_no_Engine_Close_keepalive  threads=+0 VmRSS=+0.01MB Anon=+0.01MB VmSize=+0.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.139201ms
+  Δ7_no_Engine_Close_keepalive  threads=+0 VmRSS=+0.01MB Anon=+0.01MB VmSize=+0.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=403.139201ms
+    resource_probe_close_reclaim_test.go:192: 8_after_final_GC threads=23 VmRSS=162.95MB Anon=115.19MB VmSize=2794.00MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=14
+8_after_final_GC threads=23 VmRSS=162.95MB Anon=115.19MB VmSize=2794.00MB goAlloc=1.90MB goSys=30.33MB goroutine=2 numGC=14
+    resource_probe_close_reclaim_test.go:192:   Δ8_after_final_GC             threads=+0 VmRSS=-5.98MB Anon=-5.98MB VmSize=-6.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=404.3228ms
+  Δ8_after_final_GC             threads=+0 VmRSS=-5.98MB Anon=-5.98MB VmSize=-6.00MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=404.3228ms
+    resource_probe_close_reclaim_test.go:192: 
+
+    resource_probe_close_reclaim_test.go:192: === ARM=no_engine ANALYSIS ===
+=== ARM=no_engine ANALYSIS ===
+    resource_probe_close_reclaim_test.go:192: Δ_Engine_or_Store_create: small (see stage 1-2)
+Δ_Engine_or_Store_create: small (see stage 1-2)
+    resource_probe_close_reclaim_test.go:192: Δ_Validate:               VmRSS=+15.44MB Anon=+10.11MB
+Δ_Validate:               VmRSS=+15.44MB Anon=+10.11MB
+    resource_probe_close_reclaim_test.go:192: Δ_NewModule (Rust compile+CodeMemory): VmRSS=+113.32MB Anon=+106.39MB goAlloc=-4.60MB
+Δ_NewModule (Rust compile+CodeMemory): VmRSS=+113.32MB Anon=+106.39MB goAlloc=-4.60MB
+    resource_probe_close_reclaim_test.go:192: Δ_Module_Close:  VmRSS=-8.15MB Anon=-2.15MB
+Δ_Module_Close:  VmRSS=-8.15MB Anon=-2.15MB
+    resource_probe_close_reclaim_test.go:192: Δ_Store_Close:   VmRSS=-4.48MB Anon=-4.48MB
+Δ_Store_Close:   VmRSS=-4.48MB Anon=-4.48MB
+    resource_probe_close_reclaim_test.go:192: final vs compile peak: VmRSS=-18.61MB Anon=-12.61MB (reclaimed≈16.4% of compile Δ)
+final vs compile peak: VmRSS=-18.61MB Anon=-12.61MB (reclaimed≈16.4% of compile Δ)
+    resource_probe_close_reclaim_test.go:192: final vs baseline:     VmRSS=+111.75MB Anon=+104.09MB threads=+13
+final vs baseline:     VmRSS=+111.75MB Anon=+104.09MB threads=+13
+    resource_probe_close_reclaim_test.go:192: VERDICT: Go Closed Module/Store but most compile Anon/VmRSS NOT returned to kernel
+VERDICT: Go Closed Module/Store but most compile Anon/VmRSS NOT returned to kernel
+    resource_probe_close_reclaim_test.go:192: CAUSE: not primarily incomplete Go Close — Rust Universal CodeMemory/mmap + allocator
+CAUSE: not primarily incomplete Go Close — Rust Universal CodeMemory/mmap + allocator
+    resource_probe_close_reclaim_test.go:192:        retention; Engine.Close can drop Arc but pages often stay in process RSS
+       retention; Engine.Close can drop Arc but pages often stay in process RSS
+--- PASS: TestCompileCloseReclaimArm (4.34s)
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	4.360s
+
+=== CROSS-ARM CONCLUSION ===
+1) Dominant allocation: NewModule (Cranelift compile + Universal CodeMemory mmap), Anon≈VmRSS, goAlloc tiny.
+2) Module.Close / Store.Close: small reclaim only (metadata / some scratch).
+3) Engine.Close: may drop EngineInner Arc, but VmRSS often still far above baseline → NOT mainly Go leak.
+4) no_engine arm: if RSS similar to full arm after Module+Store Close, unreclaimed pages are not waiting on Engine.Close.
+5) Extra threads after compile often persist (rayon trampoline pool / runtime), independent of Module/Store Close.
+log_file=./resource_probe_close_reclaim_audit.log

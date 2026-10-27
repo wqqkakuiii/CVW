@@ -1,0 +1,29 @@
+=== TestVmPoolCreate10ThenDestroy10RSS (Go / wasmer-go) ===
+pattern=vm_pool.newInstanceFromModule + CloseInstance
+time=2026-09-07T21:44:33+08:00 wasm=./testdata/fact-go.wasm n=10 settle=300ms
+  0 baseline (engine+module)   VmRSS=  153240 kB (Δ     +0)  Anon=  101240 kB (Δ     +0)  thr=22
+  + create #1 (alive=1)        VmRSS=  161980 kB (Δ  +8740)  Anon=  104528 kB (Δ  +3288)  thr=24
+  + create #2 (alive=2)        VmRSS=  166496 kB (Δ +13256)  Anon=  109044 kB (Δ  +7804)  thr=24
+  + create #3 (alive=3)        VmRSS=  174984 kB (Δ +21744)  Anon=  117532 kB (Δ +16292)  thr=24
+  + create #4 (alive=4)        VmRSS=  183552 kB (Δ +30312)  Anon=  126100 kB (Δ +24860)  thr=25
+  + create #5 (alive=5)        VmRSS=  187920 kB (Δ +34680)  Anon=  130468 kB (Δ +29228)  thr=25
+  + create #6 (alive=6)        VmRSS=  193900 kB (Δ +40660)  Anon=  136448 kB (Δ +35208)  thr=25
+  + create #7 (alive=7)        VmRSS=  202396 kB (Δ +49156)  Anon=  144944 kB (Δ +43704)  thr=25
+  + create #8 (alive=8)        VmRSS=  210880 kB (Δ +57640)  Anon=  153428 kB (Δ +52188)  thr=25
+  + create #9 (alive=9)        VmRSS=  215260 kB (Δ +62020)  Anon=  157808 kB (Δ +56568)  thr=25
+  + create #10 (alive=10)      VmRSS=  219224 kB (Δ +65984)  Anon=  161772 kB (Δ +60532)  thr=25
+  * after create all 10        VmRSS=  219224 kB (Δ +65984)  Anon=  161772 kB (Δ +60532)  thr=25
+  - destroy #10 (alive=9)      VmRSS=  215652 kB (Δ +62412)  Anon=  157828 kB (Δ +56588)  thr=25
+  - destroy #9 (alive=8)       VmRSS=  211704 kB (Δ +58464)  Anon=  153868 kB (Δ +52628)  thr=25
+  - destroy #8 (alive=7)       VmRSS=  207764 kB (Δ +54524)  Anon=  149928 kB (Δ +48688)  thr=25
+  - destroy #7 (alive=6)       VmRSS=  203832 kB (Δ +50592)  Anon=  145996 kB (Δ +44756)  thr=25
+  - destroy #6 (alive=5)       VmRSS=  199880 kB (Δ +46640)  Anon=  142048 kB (Δ +40808)  thr=25
+  - destroy #5 (alive=4)       VmRSS=  195920 kB (Δ +42680)  Anon=  138084 kB (Δ +36844)  thr=25
+  - destroy #4 (alive=3)       VmRSS=  191968 kB (Δ +38728)  Anon=  134132 kB (Δ +32892)  thr=25
+  - destroy #3 (alive=2)       VmRSS=  188012 kB (Δ +34772)  Anon=  130180 kB (Δ +28940)  thr=25
+  - destroy #2 (alive=1)       VmRSS=  184076 kB (Δ +30836)  Anon=  126248 kB (Δ +25008)  thr=25
+  - destroy #1 (alive=0)       VmRSS=  180144 kB (Δ +26904)  Anon=  122312 kB (Δ +21072)  thr=25
+  * after destroy all          VmRSS=  180148 kB (Δ +26908)  Anon=  122324 kB (Δ +21084)  thr=25
+  summary: create ΔVmRSS=+65984 kB, destroy ΔVmRSS=-39076 kB, net vs baseline=+26908 kB
+  Anon: create Δ=+60532 kB, destroy Δ=-39448 kB, net=+21084 kB
+log_file=../resource_probes/logs/resource_probe_vm_pool_n10_20260907_214433.log

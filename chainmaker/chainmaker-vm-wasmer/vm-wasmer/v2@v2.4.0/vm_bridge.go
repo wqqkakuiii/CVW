@@ -123,6 +123,9 @@ func logMessageWithType(environment interface{}, args []wasmer.Value) ([]wasmer.
 //
 //export sysCall
 func sysCall(environment interface{}, args []wasmer.Value) ([]wasmer.Value, error) {
+	if activeWorkerIPC != nil {
+		return sysCallProcessWorker(environment, args)
+	}
 
 	env, ok := environment.(*CMEnvironment)
 	if !ok {
@@ -380,7 +383,7 @@ func (s *WaciInstance) CallContract() int32 {
 }
 
 func (s *WaciInstance) callContractCore(isLen bool) int32 {
-	gasRemaining, err := getGasByExport(s.Sc.Instance)
+	gasRemaining, err := s.getGasRemaining()
 	if err != nil {
 		s.recordMsg(err.Error())
 		return protocol.ContractSdkSignalResultFail
@@ -396,7 +399,7 @@ func (s *WaciInstance) callContractCore(isLen bool) int32 {
 		s.Sc.ContractEvent = append(s.Sc.ContractEvent, result.ContractEvent...)
 	}
 	s.Sc.SpecialTxType = specialTxType
-	if err = setGasByExport(s.Sc.Instance, runtimeGasLimit-gas); err != nil {
+	if err = s.setGasRemaining(runtimeGasLimit - gas); err != nil {
 		s.recordMsg(err.Error())
 		return protocol.ContractSdkSignalResultFail
 	}
@@ -405,6 +408,23 @@ func (s *WaciInstance) callContractCore(isLen bool) int32 {
 		return protocol.ContractSdkSignalResultFail
 	}
 	return protocol.ContractSdkSignalResultSuccess
+}
+
+// getGasRemaining reads gas from the local Instance, or from SimContext when the
+// instance runs in a process-isolation worker (parent has no Instance).
+func (s *WaciInstance) getGasRemaining() (uint64, error) {
+	if s.Sc.Instance != nil {
+		return getGasByExport(s.Sc.Instance)
+	}
+	return s.Sc.GasRemaining, nil
+}
+
+func (s *WaciInstance) setGasRemaining(gas uint64) error {
+	if s.Sc.Instance != nil {
+		return setGasByExport(s.Sc.Instance, gas)
+	}
+	s.Sc.GasRemaining = gas
+	return nil
 }
 
 // EmitEvent emit event to chain
@@ -564,7 +584,7 @@ func (b *vmBridgeManager) NewWasmInstance(store *wasmer.Store, byteCode []byte) 
 		return nil, errors.New("get imports failed when new wasm instance,because of " + err.Error())
 	}
 
-	instance, err := wasmer.NewInstance(module, imports)
+	instance, err := wasmer.NewInstanceByStore(module, imports, store)
 	if err != nil {
 		return nil, err
 	}

@@ -288,6 +288,9 @@ func fromGoValue(value interface{}, kind ValueKind) (C.wasm_val_t, error) {
 
 func toValueVec(list []Value, vec *C.wasm_val_vec_t) {
 	numberOfValues := len(list)
+	if numberOfValues == 0 {
+		return
+	}
 	values := make([]C.wasm_val_t, numberOfValues)
 
 	for nth, item := range list {
@@ -299,9 +302,13 @@ func toValueVec(list []Value, vec *C.wasm_val_vec_t) {
 		values[nth] = value
 	}
 
-	if numberOfValues > 0 {
-		C.wasm_val_vec_new(vec, C.size_t(numberOfValues), (*C.wasm_val_t)(unsafe.Pointer(&values[0])))
+	// 引擎传给主机回调的结果向量已经持有一块缓冲区。
+	//wasm_val_vec_new 会替换该缓冲区，且不会释放旧缓冲区，
+	// 每次回调返回时都会泄漏一块 16 字节的 wasm_val_t 内存。
+	if vec.data != nil {
+		C.wasm_val_vec_delete(vec)
 	}
+	C.wasm_val_vec_new(vec, C.size_t(numberOfValues), (*C.wasm_val_t)(unsafe.Pointer(&values[0])))
 }
 
 func toValueList(values *C.wasm_val_vec_t) []Value {

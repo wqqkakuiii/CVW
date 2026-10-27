@@ -1,0 +1,7 @@
+=== TestGoEnhancedClose10Steps (Go enhanced Close) ===
+time=2026-09-01T19:33:42+08:00 wasm=./testdata/fact-go.wasm n=10 settle=300ms
+log_file=../resource_probes/logs/resource_probe_go_enhanced_20260901_193340.log
+
+0_baseline                   alive=0 0_baseline threads=11 VmRSS=53.88MB Anon=11.42MB VmSize=1996.79MB goAlloc=6.61MB goSys=21.90MB goroutine=2 numGC=2 Δ Δ0_baseline                   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=0s
+1_engine_store               alive=0 1_engine_store threads=11 VmRSS=55.98MB Anon=11.45MB VmSize=1996.79MB goAlloc=6.62MB goSys=21.90MB goroutine=2 numGC=2 Δ Δ1_engine_store               threads=+0 VmRSS=+2.10MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=301.415399ms
+2_module                     alive=0 2_module threads=23 VmRSS=149.85MB Anon=99.13MB VmSize=2799.48MB goAlloc=11.25MB goSys=29.90MB goroutine=2 numGC=3 Δ Δ2_module                     threads=+12 VmRSS=+93.87MB Anon=+87.68MB VmSize=+802.69MB goAlloc=+4.63MB goSys=+8.00MB goroutine=+0 elapsed=2.630682195s

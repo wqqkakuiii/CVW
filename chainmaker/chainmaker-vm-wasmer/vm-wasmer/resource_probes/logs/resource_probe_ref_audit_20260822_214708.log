@@ -1,0 +1,30 @@
+=== TestRefAuditAfterPoolClose ===
+time=2026-08-22T21:47:08+08:00
+log_file=./resource_probe_ref_audit_20260822_214708.log
+wasm=./testdata/fact-go.wasm size=4.65MB grow=1 close_engine=false settle=500ms
+
+0_baseline threads=10 VmRSS=53.91MB Anon=11.36MB VmSize=1920.06MB goAlloc=6.52MB goSys=21.58MB goroutine=2 numGC=5
+=== RefRegistry live entries ===
+  (empty — no tracked Go wrappers registered)
+1_after_pool_init threads=24 VmRSS=261.89MB Anon=208.75MB VmSize=15150.33MB goAlloc=6.58MB goSys=37.83MB goroutine=3 numGC=7
+  vs baseline: Δ1_after_pool_init            threads=+14 VmRSS=+207.97MB Anon=+197.39MB VmSize=+13230.27MB goAlloc=+0.06MB goSys=+16.25MB goroutine=+1 elapsed=443.008142ms
+=== RefRegistry live entries ===
+  Engine id=1 ptr=0xc0003bc308
+  Instance id=6 ptr=0xc000011950
+  Module id=3 ptr=0xc0003c20a0
+  Store id=2 ptr=0xc00005a220
+  WasiEnv id=4 ptr=0xc000012338
+counts: Engine=1 Store=1 Module=1 Instance=1 WasiEnv=1 
+2_after_pool_close threads=24 VmRSS=243.20MB Anon=190.00MB VmSize=15150.39MB goAlloc=1.89MB goSys=37.83MB goroutine=2 numGC=10
+  vs baseline: Δ2_after_pool_close           threads=+14 VmRSS=+189.28MB Anon=+178.64MB VmSize=+13230.33MB goAlloc=-4.63MB goSys=+16.25MB goroutine=+0 elapsed=949.254899ms
+  vs pool peak: Δ2_after_pool_close           threads=+0 VmRSS=-18.69MB Anon=-18.75MB VmSize=+0.07MB goAlloc=-4.69MB goSys=+0.00MB goroutine=-1 elapsed=506.246757ms
+=== RefRegistry live entries ===
+  Engine id=1 ptr=0xc0003bc308
+counts: Engine=1 Store=0 Module=0 Instance=0 WasiEnv=0 
+=== Ref audit classification ===
+CATEGORY_GO_REF: CLEAR (no Module/Store/Instance/WasiEnv registered)
+CATEGORY_GO_REF_ENGINE: Engine still registered count=1 (expected if vm_pool skips engine.Close)
+CATEGORY_RSS baseline_VmRSS=53.91MB after_close_VmRSS=243.20MB delta=+189.28MB
+CATEGORY_NON_REF_RSS: 189.28MB above baseline with no Module/Store/Instance/WasiEnv refs (mmap/allocator/threads — not Go wrapper refs)
+NOTE: Engine still registered (expected — vm_pool does not call engine.Close)
+log_file=./resource_probe_ref_audit_20260822_214708.log

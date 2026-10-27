@@ -1,0 +1,80 @@
+=== TestProcessIsolationWarmPerf ===
+time=2026-09-07T20:14:55+08:00 wasm=./testdata/fact-go.wasm n_per_round=10 rounds=3
+worker_bin=./wasmer-process-worker rss_limit_mb=2048
+
+TIMING newVmPool_total_ms=3846.400  (compile+serialize+verify create/destroy)
+--- round 1/3 ---
+  first_create_ms=9.702 worker_pid=29444 (includes deserialize already done at spawn)
+  CREATE r1_01 ms=9.702 active=1 worker_VmRSS=122.00MB
+  CREATE r1_02 ms=8.771 active=2 worker_VmRSS=126.24MB
+  CREATE r1_03 ms=10.038 active=3 worker_VmRSS=130.47MB
+  CREATE r1_04 ms=10.177 active=4 worker_VmRSS=134.54MB
+  CREATE r1_05 ms=9.066 active=5 worker_VmRSS=138.61MB
+  CREATE r1_06 ms=8.750 active=6 worker_VmRSS=142.67MB
+  CREATE r1_07 ms=9.083 active=7 worker_VmRSS=146.74MB
+  CREATE r1_08 ms=9.685 active=8 worker_VmRSS=150.81MB
+  CREATE r1_09 ms=10.031 active=9 worker_VmRSS=154.88MB
+  CREATE r1_10 ms=8.364 active=10 worker_VmRSS=158.95MB
+  DESTROY r1_01 ms=2.836
+  DESTROY r1_02 ms=2.364
+  DESTROY r1_03 ms=2.193
+  DESTROY r1_04 ms=2.484
+  DESTROY r1_05 ms=3.023
+  DESTROY r1_06 ms=2.185
+  DESTROY r1_07 ms=2.554
+  DESTROY r1_08 ms=2.541
+  DESTROY r1_09 ms=2.645
+  DESTROY r1_10 ms=2.129
+--- round 2/3 ---
+  CREATE r2_01 ms=8.601 active=1 worker_VmRSS=127.38MB
+  CREATE r2_02 ms=6.097 active=2 worker_VmRSS=131.41MB
+  CREATE r2_03 ms=6.925 active=3 worker_VmRSS=135.45MB
+  CREATE r2_04 ms=6.714 active=4 worker_VmRSS=139.50MB
+  CREATE r2_05 ms=6.432 active=5 worker_VmRSS=143.55MB
+  CREATE r2_06 ms=6.009 active=6 worker_VmRSS=147.59MB
+  CREATE r2_07 ms=7.037 active=7 worker_VmRSS=147.86MB
+  CREATE r2_08 ms=7.153 active=8 worker_VmRSS=151.70MB
+  CREATE r2_09 ms=8.792 active=9 worker_VmRSS=155.67MB
+  CREATE r2_10 ms=7.647 active=10 worker_VmRSS=159.71MB
+  DESTROY r2_01 ms=2.604
+  DESTROY r2_02 ms=3.564
+  DESTROY r2_03 ms=2.767
+  DESTROY r2_04 ms=2.217
+  DESTROY r2_05 ms=2.238
+  DESTROY r2_06 ms=2.216
+  DESTROY r2_07 ms=2.017
+  DESTROY r2_08 ms=2.924
+  DESTROY r2_09 ms=2.787
+  DESTROY r2_10 ms=1.963
+--- round 3/3 ---
+  CREATE r3_01 ms=7.959 active=1 worker_VmRSS=128.05MB
+  CREATE r3_02 ms=7.249 active=2 worker_VmRSS=131.88MB
+  CREATE r3_03 ms=7.392 active=3 worker_VmRSS=135.75MB
+  CREATE r3_04 ms=6.945 active=4 worker_VmRSS=139.68MB
+  CREATE r3_05 ms=7.647 active=5 worker_VmRSS=143.73MB
+  CREATE r3_06 ms=8.350 active=6 worker_VmRSS=147.81MB
+  CREATE r3_07 ms=6.755 active=7 worker_VmRSS=151.87MB
+  CREATE r3_08 ms=7.196 active=8 worker_VmRSS=155.92MB
+  CREATE r3_09 ms=6.990 active=9 worker_VmRSS=159.95MB
+  CREATE r3_10 ms=7.668 active=10 worker_VmRSS=163.99MB
+  DESTROY r3_01 ms=2.569
+  DESTROY r3_02 ms=2.679
+  DESTROY r3_03 ms=2.674
+  DESTROY r3_04 ms=2.150
+  DESTROY r3_05 ms=2.262
+  DESTROY r3_06 ms=2.066
+  DESTROY r3_07 ms=2.355
+  DESTROY r3_08 ms=1.859
+  DESTROY r3_09 ms=2.146
+  DESTROY r3_10 ms=2.001
+
+=== SUMMARY (warm worker multi-instance IPC) ===
+newVmPool_ms=3846.400
+create_n=30  avg=7.974ms  min=6.009  max=10.177
+create_steady_n=29 avg=7.915ms min=6.009 max=10.177  (exclude first create sample)
+destroy_n=30 avg=2.434ms min=1.859 max=3.564
+worker_VmRSS_at_create peak=163.99MB last=163.99MB
+
+note: Invoke/sysCall not measured (IPC not wired). This is lifecycle-only perf.
+compare(old 1-proc-per-instance reclaim 20260901): spawn≈55ms kill≈7.6ms per instance
+log_file=../resource_probes/logs/resource_probe_process_iso_warm_perf_20260907_201455.log

@@ -1,0 +1,8 @@
+=== TestRefAuditAfterPoolClose ===
+time=2026-08-22T21:47:00+08:00
+log_file=./resource_probe_ref_audit_20260822_214700.log
+wasm=./wasmer-go/testdata/tests.wasm size=0.00MB grow=1 close_engine=false settle=500ms
+
+0_baseline threads=10 VmRSS=48.93MB Anon=6.42MB VmSize=1920.06MB goAlloc=1.87MB goSys=13.58MB goroutine=2 numGC=4
+=== RefRegistry live entries ===
+  (empty — no tracked Go wrappers registered)

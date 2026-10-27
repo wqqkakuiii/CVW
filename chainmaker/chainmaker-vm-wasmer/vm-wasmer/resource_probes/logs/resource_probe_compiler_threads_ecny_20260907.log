@@ -1,0 +1,144 @@
+=== TestCompilerThreadsMatrixIsolated (fresh process per case) ===
+time=2026-09-07T11:16:08+08:00
+log_file=../resource_probes/logs/resource_probe_compiler_threads_ecny_20260907.log
+host_nproc=12
+pkg_dir=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0
+threads=[12 4 2 1]
+contracts=[./testdata/synthetic/E_CNY-go.wasm ./testdata/synthetic/E_CNY_mock_1.wasm]
+settle=300ms
+
+--- [1/8] E_CNY-go threads=12 subprocess_elapsed=4.606199925s ---
+  E_CNY-go,12,4.9696,0.440813,+183.1406,+178.0742,12,22
+  process_baseline threads=9 VmRSS=55.11MB Anon=11.61MB VmSize=1852.32MB goAlloc=6.93MB goSys=21.40MB goroutine=2 numGC=2
+  after_store threads=9 VmRSS=56.72MB Anon=11.64MB VmSize=1852.32MB goAlloc=6.94MB goSys=21.40MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.62MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=306.253259ms
+  after_validate threads=10 VmRSS=73.12MB Anon=27.04MB VmSize=1929.55MB goAlloc=11.87MB goSys=29.65MB goroutine=2 numGC=3  Δafter_validate               threads=+1 VmRSS=+16.40MB Anon=+15.40MB VmSize=+77.23MB goAlloc=+4.93MB goSys=+8.25MB goroutine=+0 elapsed=330.885788ms
+  2026-09-07 11:16:11.292	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:11.294	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc0014f8000 
+  2026-09-07 11:16:11.294	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 5211003 
+  after_NewModule threads=22 VmRSS=256.26MB Anon=205.11MB VmSize=2767.76MB goAlloc=21.94MB goSys=38.40MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+183.14MB Anon=+178.07MB VmSize=+838.21MB goAlloc=+10.07MB goSys=+8.75MB goroutine=+0 elapsed=742.391992ms
+  after_teardown threads=22 VmRSS=247.79MB Anon=196.62MB VmSize=2761.64MB goAlloc=1.96MB goSys=38.65MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-8.47MB Anon=-8.49MB VmSize=-6.11MB goAlloc=-19.97MB goSys=+0.25MB goroutine=+0 elapsed=307.712211ms
+  ratio ΔVmRSS/wasm=36.85x ΔAnon/wasm=35.83x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	2.019s
+
+--- [2/8] E_CNY-go threads=4 subprocess_elapsed=4.554816064s ---
+  E_CNY-go,4,4.9696,0.746901,+114.6562,+109.6680,12,23
+  process_baseline threads=10 VmRSS=55.06MB Anon=11.57MB VmSize=1924.32MB goAlloc=6.93MB goSys=21.40MB goroutine=2 numGC=2
+  after_store threads=10 VmRSS=56.79MB Anon=11.60MB VmSize=1924.32MB goAlloc=6.94MB goSys=21.40MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.72MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.394479ms
+  after_validate threads=11 VmRSS=73.22MB Anon=27.05MB VmSize=2001.55MB goAlloc=11.87MB goSys=29.65MB goroutine=2 numGC=3  Δafter_validate               threads=+1 VmRSS=+16.44MB Anon=+15.45MB VmSize=+77.23MB goAlloc=+4.93MB goSys=+8.25MB goroutine=+0 elapsed=330.225762ms
+  2026-09-07 11:16:15.910	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:15.910	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc00147e000 
+  2026-09-07 11:16:15.910	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 5211003 
+  after_NewModule threads=23 VmRSS=187.88MB Anon=136.71MB VmSize=2799.96MB goAlloc=21.90MB goSys=37.65MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+114.66MB Anon=+109.67MB VmSize=+798.41MB goAlloc=+10.03MB goSys=+8.00MB goroutine=+0 elapsed=1.048322434s
+  after_teardown threads=23 VmRSS=178.57MB Anon=127.40MB VmSize=2793.60MB goAlloc=1.92MB goSys=37.65MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-9.30MB Anon=-9.32MB VmSize=-6.36MB goAlloc=-19.97MB goSys=+0.00MB goroutine=+0 elapsed=306.872074ms
+  ratio ΔVmRSS/wasm=23.07x ΔAnon/wasm=22.07x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	2.312s
+
+--- [3/8] E_CNY-go threads=2 subprocess_elapsed=5.095220087s ---
+  E_CNY-go,2,4.9696,1.324920,+93.8320,+88.8281,12,23
+  process_baseline threads=11 VmRSS=55.20MB Anon=11.67MB VmSize=1996.77MB goAlloc=6.94MB goSys=21.83MB goroutine=2 numGC=2
+  after_store threads=11 VmRSS=56.93MB Anon=11.70MB VmSize=1996.77MB goAlloc=6.95MB goSys=21.83MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.73MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.527814ms
+  after_validate threads=11 VmRSS=73.27MB Anon=27.05MB VmSize=2001.74MB goAlloc=11.87MB goSys=29.83MB goroutine=2 numGC=3  Δafter_validate               threads=+0 VmRSS=+16.35MB Anon=+15.35MB VmSize=+4.97MB goAlloc=+4.92MB goSys=+8.00MB goroutine=+0 elapsed=327.102339ms
+  2026-09-07 11:16:20.426	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:20.426	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc001622000 
+  2026-09-07 11:16:20.426	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 5211003 
+  after_NewModule threads=23 VmRSS=167.11MB Anon=115.88MB VmSize=2839.04MB goAlloc=21.89MB goSys=37.83MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+93.83MB Anon=+88.83MB VmSize=+837.30MB goAlloc=+10.01MB goSys=+8.00MB goroutine=+0 elapsed=1.62639644s
+  after_teardown threads=23 VmRSS=159.42MB Anon=108.18MB VmSize=2832.68MB goAlloc=1.91MB goSys=37.83MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-7.69MB Anon=-7.70MB VmSize=-6.36MB goAlloc=-19.98MB goSys=+0.00MB goroutine=+0 elapsed=306.977042ms
+  ratio ΔVmRSS/wasm=18.88x ΔAnon/wasm=17.87x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	2.884s
+
+--- [4/8] E_CNY-go threads=1 subprocess_elapsed=6.283998504s ---
+  E_CNY-go,1,4.9696,2.522778,+93.3477,+88.3711,12,21
+  process_baseline threads=9 VmRSS=54.90MB Anon=11.36MB VmSize=1852.26MB goAlloc=6.93MB goSys=21.33MB goroutine=2 numGC=2
+  after_store threads=9 VmRSS=56.61MB Anon=11.38MB VmSize=1852.26MB goAlloc=6.94MB goSys=21.33MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.71MB Anon=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.328433ms
+  after_validate threads=9 VmRSS=72.96MB Anon=26.73MB VmSize=1857.23MB goAlloc=11.86MB goSys=29.33MB goroutine=2 numGC=3  Δafter_validate               threads=+0 VmRSS=+16.35MB Anon=+15.35MB VmSize=+4.97MB goAlloc=+4.92MB goSys=+8.00MB goroutine=+0 elapsed=327.982105ms
+  2026-09-07 11:16:25.515	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:25.515	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc00147e000 
+  2026-09-07 11:16:25.515	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 5211003 
+  after_NewModule threads=21 VmRSS=166.30MB Anon=115.11MB VmSize=2694.53MB goAlloc=21.87MB goSys=37.33MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+93.35MB Anon=+88.37MB VmSize=+837.30MB goAlloc=+10.01MB goSys=+8.00MB goroutine=+0 elapsed=2.824367525s
+  after_teardown threads=21 VmRSS=157.06MB Anon=105.86MB VmSize=2688.17MB goAlloc=1.89MB goSys=37.33MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-9.24MB Anon=-9.25MB VmSize=-6.36MB goAlloc=-19.98MB goSys=+0.00MB goroutine=+0 elapsed=305.863009ms
+  ratio ΔVmRSS/wasm=18.78x ΔAnon/wasm=17.78x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	4.084s
+
+########## contract[1/2] E_CNY-go done ##########
+--- [5/8] E_CNY_mock_1 threads=12 subprocess_elapsed=4.44557304s ---
+  E_CNY_mock_1,12,6.7659,0.599156,+221.6836,+216.6836,12,23
+  process_baseline threads=10 VmRSS=56.97MB Anon=13.44MB VmSize=1924.51MB goAlloc=8.73MB goSys=21.58MB goroutine=2 numGC=2
+  after_store threads=10 VmRSS=58.70MB Anon=13.47MB VmSize=1924.51MB goAlloc=8.74MB goSys=21.58MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.72MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.36398ms
+  after_validate threads=11 VmRSS=80.48MB Anon=34.25MB VmSize=2003.75MB goAlloc=15.47MB goSys=37.58MB goroutine=2 numGC=3  Δafter_validate               threads=+1 VmRSS=+21.79MB Anon=+20.79MB VmSize=+79.23MB goAlloc=+6.72MB goSys=+16.00MB goroutine=+0 elapsed=339.670117ms
+  2026-09-07 11:16:31.874	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:31.875	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc001a04000 
+  2026-09-07 11:16:31.875	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 7094607 
+  after_NewModule threads=23 VmRSS=302.16MB Anon=250.94MB VmSize=2805.18MB goAlloc=29.13MB goSys=46.33MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+221.68MB Anon=+216.68MB VmSize=+801.43MB goAlloc=+13.67MB goSys=+8.75MB goroutine=+0 elapsed=900.783944ms
+  after_teardown threads=23 VmRSS=291.26MB Anon=240.02MB VmSize=2796.54MB goAlloc=1.97MB goSys=46.33MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-10.91MB Anon=-10.92MB VmSize=-8.64MB goAlloc=-27.16MB goSys=+0.00MB goroutine=+0 elapsed=308.503997ms
+  ratio ΔVmRSS/wasm=32.76x ΔAnon/wasm=32.03x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	2.184s
+
+--- [6/8] E_CNY_mock_1 threads=4 subprocess_elapsed=5.214271161s ---
+  E_CNY_mock_1,4,6.7659,1.308206,+136.8633,+131.8555,12,22
+  process_baseline threads=9 VmRSS=56.84MB Anon=13.32MB VmSize=1852.76MB goAlloc=8.72MB goSys=21.83MB goroutine=2 numGC=2
+  after_store threads=9 VmRSS=58.57MB Anon=13.35MB VmSize=1852.76MB goAlloc=8.74MB goSys=21.83MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.73MB Anon=+0.03MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.442761ms
+  after_validate threads=10 VmRSS=80.42MB Anon=34.20MB VmSize=1931.53MB goAlloc=15.46MB goSys=37.83MB goroutine=2 numGC=3  Δafter_validate               threads=+1 VmRSS=+21.85MB Anon=+20.86MB VmSize=+78.77MB goAlloc=+6.72MB goSys=+16.00MB goroutine=+0 elapsed=340.152156ms
+  2026-09-07 11:16:36.357	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:36.358	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc001aa2000 
+  2026-09-07 11:16:36.358	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 7094607 
+  after_NewModule threads=22 VmRSS=217.29MB Anon=166.06MB VmSize=2784.95MB goAlloc=29.08MB goSys=46.08MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+136.86MB Anon=+131.86MB VmSize=+853.41MB goAlloc=+13.62MB goSys=+8.25MB goroutine=+0 elapsed=1.610075308s
+  after_teardown threads=22 VmRSS=206.52MB Anon=155.29MB VmSize=2776.31MB goAlloc=1.92MB goSys=46.08MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-10.76MB Anon=-10.77MB VmSize=-8.64MB goAlloc=-27.16MB goSys=+0.00MB goroutine=+0 elapsed=309.842882ms
+  ratio ΔVmRSS/wasm=20.23x ΔAnon/wasm=19.49x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	2.898s
+
+--- [7/8] E_CNY_mock_1 threads=2 subprocess_elapsed=6.993776576s ---
+  E_CNY_mock_1,2,6.7659,2.288876,+123.7617,+118.7617,12,23
+  process_baseline threads=10 VmRSS=56.88MB Anon=13.36MB VmSize=1924.26MB goAlloc=8.73MB goSys=21.33MB goroutine=2 numGC=2
+  after_store threads=10 VmRSS=58.60MB Anon=13.38MB VmSize=1924.26MB goAlloc=8.74MB goSys=21.33MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.72MB Anon=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.633036ms
+  after_validate threads=11 VmRSS=80.45MB Anon=34.22MB VmSize=2003.04MB goAlloc=15.47MB goSys=37.33MB goroutine=2 numGC=3  Δafter_validate               threads=+1 VmRSS=+21.84MB Anon=+20.84MB VmSize=+78.77MB goAlloc=+6.72MB goSys=+16.00MB goroutine=+0 elapsed=346.186937ms
+  2026-09-07 11:16:42.399	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:42.400	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc001a74000 
+  2026-09-07 11:16:42.400	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 7094607 
+  after_NewModule threads=23 VmRSS=204.21MB Anon=152.98MB VmSize=2803.72MB goAlloc=29.07MB goSys=45.33MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+123.76MB Anon=+118.76MB VmSize=+800.68MB goAlloc=+13.61MB goSys=+8.00MB goroutine=+0 elapsed=2.590510768s
+  after_teardown threads=23 VmRSS=193.23MB Anon=142.00MB VmSize=2795.08MB goAlloc=1.91MB goSys=45.33MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-10.97MB Anon=-10.98MB VmSize=-8.64MB goAlloc=-27.16MB goSys=+0.00MB goroutine=+0 elapsed=308.920903ms
+  ratio ΔVmRSS/wasm=18.29x ΔAnon/wasm=17.55x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	3.878s
+
+--- [8/8] E_CNY_mock_1 threads=1 subprocess_elapsed=8.56936097s ---
+  E_CNY_mock_1,1,6.7659,4.396456,+122.9961,+118.0156,12,23
+  process_baseline threads=10 VmRSS=56.78MB Anon=13.25MB VmSize=1924.51MB goAlloc=8.73MB goSys=21.58MB goroutine=2 numGC=2
+  after_store threads=10 VmRSS=58.50MB Anon=13.28MB VmSize=1924.51MB goAlloc=8.74MB goSys=21.58MB goroutine=2 numGC=2  Δafter_store                  threads=+0 VmRSS=+1.72MB Anon=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.962368ms
+  after_validate threads=11 VmRSS=80.36MB Anon=34.13MB VmSize=2003.54MB goAlloc=15.46MB goSys=37.83MB goroutine=2 numGC=3  Δafter_validate               threads=+1 VmRSS=+21.86MB Anon=+20.86MB VmSize=+79.02MB goAlloc=+6.72MB goSys=+16.25MB goroutine=+0 elapsed=339.998977ms
+  2026-09-07 11:16:48.849	[INFO]	compiler_threads_probe	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+  2026-09-07 11:16:48.849	[INFO]	compiler_threads_probe	wasmer-go/module.go:104	wasmBytesPtr => 0xc001b52000 
+  2026-09-07 11:16:48.849	[INFO]	compiler_threads_probe	wasmer-go/module.go:105	wasmBytesLength => 7094607 
+  after_NewModule threads=23 VmRSS=203.35MB Anon=152.15MB VmSize=2804.22MB goAlloc=29.07MB goSys=45.83MB goroutine=2 numGC=3  Δafter_NewModule              threads=+12 VmRSS=+123.00MB Anon=+118.02MB VmSize=+800.68MB goAlloc=+13.60MB goSys=+8.00MB goroutine=+0 elapsed=4.698079205s
+  after_teardown threads=23 VmRSS=193.21MB Anon=142.00MB VmSize=2795.58MB goAlloc=1.91MB goSys=45.83MB goroutine=2 numGC=4  Δafter_teardown               threads=+0 VmRSS=-10.14MB Anon=-10.14MB VmSize=-8.64MB goAlloc=-27.16MB goSys=+0.00MB goroutine=+0 elapsed=309.0675ms
+  ratio ΔVmRSS/wasm=18.18x ΔAnon/wasm=17.44x
+  PASS
+  ok  	chainmaker.org/chainmaker/vm-wasmer/v2	5.983s
+
+########## contract[2/2] E_CNY_mock_1 done ##########
+=== SUMMARY (ΔVmRSS MB: validate → NewModule) ===
+contract | threads | wasm_MB | compile_s | ΔVmRSS_MB | ΔAnon_MB | Δthreads | proc_threads
+E_CNY-go | 12 | 4.97 | 0.441 | +183.14 | +178.07 | +12 | 22
+E_CNY-go | 4 | 4.97 | 0.747 | +114.66 | +109.67 | +12 | 23
+E_CNY-go | 2 | 4.97 | 1.325 | +93.83 | +88.83 | +12 | 23
+E_CNY-go | 1 | 4.97 | 2.523 | +93.35 | +88.37 | +12 | 21
+E_CNY_mock_1 | 12 | 6.77 | 0.599 | +221.68 | +216.68 | +12 | 23
+E_CNY_mock_1 | 4 | 6.77 | 1.308 | +136.86 | +131.86 | +12 | 22
+E_CNY_mock_1 | 2 | 6.77 | 2.289 | +123.76 | +118.76 | +12 | 23
+E_CNY_mock_1 | 1 | 6.77 | 4.396 | +123.00 | +118.02 | +12 | 23
+
+=== PIVOT: ΔVmRSS_MB by contract × threads ===
+contract | t=12 | t=4 | t=2 | t=1
+E_CNY-go | +183.1 | +114.7 | +93.8 | +93.3
+E_CNY_mock_1 | +221.7 | +136.9 | +123.8 | +123.0
+
+=== PIVOT: compile_seconds by contract × threads ===
+contract | t=12 | t=4 | t=2 | t=1
+E_CNY-go | 0.44 | 0.75 | 1.32 | 2.52
+E_CNY_mock_1 | 0.60 | 1.31 | 2.29 | 4.40
+log_file=../resource_probes/logs/resource_probe_compiler_threads_ecny_20260907.log

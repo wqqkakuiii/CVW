@@ -1,0 +1,302 @@
+=== TestCompilerThreadsMatrix (scheme B: wasm_config_sys_set_compiler_num_threads) ===
+time=2026-08-25T11:27:12+08:00
+log_file=./resource_probe_compiler_threads_matrix.log
+host_nproc=12
+threads=[12 4 2 1]
+contracts=[./testdata/fact-go.wasm ./testdata/exchange-go.wasm ./testdata/erc721-go.wasm ./testdata/compute-go.wasm ./testdata/identity-go.wasm ./testdata/raffle-go.wasm ./testdata/itinerary-go.wasm ./testdata/bigInput-go.wasm]
+settle=300ms
+
+process_baseline threads=9 VmRSS=49.05MB Anon=6.18MB VmSize=1852.19MB goAlloc=2.06MB goSys=13.27MB goroutine=2 numGC=1
+
+########## contract[1/8] fact-go (4.65MB) ##########
+--- fact-go compiler_threads=12 compile_elapsed=323.51886ms total_elapsed=1.55660139s ---
+  store:    fact-go/t=12/after_store threads=10 VmRSS=56.34MB Anon=11.34MB VmSize=1924.57MB goAlloc=6.62MB goSys=21.65MB goroutine=2 numGC=2  Δfact-go/t=12/after_store     threads=+0 VmRSS=+2.14MB Anon=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.16277ms
+  validate: fact-go/t=12/after_validate threads=11 VmRSS=72.07MB Anon=25.77MB VmSize=2001.72MB goAlloc=11.18MB goSys=30.15MB goroutine=2 numGC=3  Δfact-go/t=12/after_validate  threads=+1 VmRSS=+15.73MB Anon=+14.43MB VmSize=+77.15MB goAlloc=+4.56MB goSys=+8.50MB goroutine=+0 elapsed=322.69716ms
+  compile:  fact-go/t=12/after_NewModule threads=23 VmRSS=247.55MB Anon=196.39MB VmSize=2836.54MB goAlloc=20.59MB goSys=38.15MB goroutine=2 numGC=3  Δfact-go/t=12/after_NewModule threads=+12 VmRSS=+175.48MB Anon=+170.62MB VmSize=+834.82MB goAlloc=+9.41MB goSys=+8.00MB goroutine=+0 elapsed=624.76551ms
+  teardown: fact-go/t=12/after_teardown threads=23 VmRSS=241.38MB Anon=189.92MB VmSize=2830.54MB goAlloc=6.62MB goSys=38.15MB goroutine=2 numGC=4  Δfact-go/t=12/after_teardown  threads=+0 VmRSS=-6.17MB Anon=-6.47MB VmSize=-6.00MB goAlloc=-13.97MB goSys=+0.00MB goroutine=+0 elapsed=306.08721ms
+  ratio ΔVmRSS/wasm_file=37.77x ΔAnon/wasm_file=36.73x
+
+--- fact-go compiler_threads=4 compile_elapsed=584.8965ms total_elapsed=1.8253638s ---
+  store:    fact-go/t=4/after_store threads=23 VmRSS=241.09MB Anon=189.95MB VmSize=2830.54MB goAlloc=6.66MB goSys=38.15MB goroutine=2 numGC=4  Δfact-go/t=4/after_store      threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=302.90994ms
+  validate: fact-go/t=4/after_validate threads=23 VmRSS=241.61MB Anon=190.46MB VmSize=2830.55MB goAlloc=11.25MB goSys=38.15MB goroutine=2 numGC=5  Δfact-go/t=4/after_validate   threads=+0 VmRSS=+0.52MB Anon=+0.52MB VmSize=+0.00MB goAlloc=+4.59MB goSys=+0.00MB goroutine=+0 elapsed=326.13345ms
+  compile:  fact-go/t=4/after_NewModule threads=23 VmRSS=341.26MB Anon=290.11MB VmSize=3100.56MB goAlloc=20.57MB goSys=38.15MB goroutine=2 numGC=5  Δfact-go/t=4/after_NewModule  threads=+0 VmRSS=+99.65MB Anon=+99.64MB VmSize=+270.01MB goAlloc=+9.32MB goSys=+0.00MB goroutine=+0 elapsed=888.43545ms
+  teardown: fact-go/t=4/after_teardown threads=23 VmRSS=334.74MB Anon=282.88MB VmSize=3094.56MB goAlloc=6.61MB goSys=38.15MB goroutine=2 numGC=6  Δfact-go/t=4/after_teardown   threads=+0 VmRSS=-6.52MB Anon=-7.23MB VmSize=-6.00MB goAlloc=-13.96MB goSys=+0.00MB goroutine=+0 elapsed=307.01502ms
+  ratio ΔVmRSS/wasm_file=21.45x ΔAnon/wasm_file=21.45x
+
+--- fact-go compiler_threads=2 compile_elapsed=996.79617ms total_elapsed=2.234882759s ---
+  store:    fact-go/t=2/after_store threads=23 VmRSS=334.05MB Anon=282.90MB VmSize=3094.56MB goAlloc=6.65MB goSys=38.15MB goroutine=2 numGC=6  Δfact-go/t=2/after_store      threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=303.80904ms
+  validate: fact-go/t=2/after_validate threads=23 VmRSS=348.03MB Anon=296.88MB VmSize=3094.56MB goAlloc=11.25MB goSys=38.15MB goroutine=2 numGC=7  Δfact-go/t=2/after_validate   threads=+0 VmRSS=+13.98MB Anon=+13.98MB VmSize=+0.00MB goAlloc=+4.60MB goSys=+0.00MB goroutine=+0 elapsed=322.29396ms
+  compile:  fact-go/t=2/after_NewModule threads=23 VmRSS=374.52MB Anon=323.36MB VmSize=3100.56MB goAlloc=20.57MB goSys=38.15MB goroutine=2 numGC=7  Δfact-go/t=2/after_NewModule  threads=+0 VmRSS=+26.49MB Anon=+26.48MB VmSize=+6.00MB goAlloc=+9.32MB goSys=+0.00MB goroutine=+0 elapsed=1.300875941s
+  teardown: fact-go/t=2/after_teardown threads=23 VmRSS=367.40MB Anon=316.16MB VmSize=3094.56MB goAlloc=6.61MB goSys=38.15MB goroutine=2 numGC=8  Δfact-go/t=2/after_teardown   threads=+0 VmRSS=-7.12MB Anon=-7.20MB VmSize=-6.00MB goAlloc=-13.96MB goSys=+0.00MB goroutine=+0 elapsed=307.260705ms
+  ratio ΔVmRSS/wasm_file=5.70x ΔAnon/wasm_file=5.70x
+
+--- fact-go compiler_threads=1 compile_elapsed=2.04913545s total_elapsed=3.296860766s ---
+  store:    fact-go/t=1/after_store threads=23 VmRSS=367.32MB Anon=316.17MB VmSize=3094.56MB goAlloc=6.65MB goSys=38.15MB goroutine=2 numGC=8  Δfact-go/t=1/after_store      threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=305.034621ms
+  validate: fact-go/t=1/after_validate threads=23 VmRSS=376.57MB Anon=325.41MB VmSize=3094.56MB goAlloc=11.25MB goSys=38.15MB goroutine=2 numGC=9  Δfact-go/t=1/after_validate   threads=+0 VmRSS=+9.25MB Anon=+9.25MB VmSize=+0.00MB goAlloc=+4.60MB goSys=+0.00MB goroutine=+0 elapsed=328.262047ms
+  compile:  fact-go/t=1/after_NewModule threads=23 VmRSS=435.27MB Anon=384.11MB VmSize=3100.56MB goAlloc=20.57MB goSys=38.15MB goroutine=2 numGC=9  Δfact-go/t=1/after_NewModule  threads=+0 VmRSS=+58.70MB Anon=+58.70MB VmSize=+6.00MB goAlloc=+9.32MB goSys=+0.00MB goroutine=+0 elapsed=2.354658582s
+  teardown: fact-go/t=1/after_teardown threads=23 VmRSS=428.05MB Anon=376.90MB VmSize=3094.56MB goAlloc=6.61MB goSys=38.15MB goroutine=2 numGC=10  Δfact-go/t=1/after_teardown   threads=+0 VmRSS=-7.22MB Anon=-7.21MB VmSize=-6.00MB goAlloc=-13.96MB goSys=+0.00MB goroutine=+0 elapsed=308.643361ms
+  ratio ΔVmRSS/wasm_file=12.64x ΔAnon/wasm_file=12.64x
+
+########## contract[2/8] exchange-go (4.09MB) ##########
+--- exchange-go compiler_threads=12 compile_elapsed=300.966176ms total_elapsed=1.552992633s ---
+  store:    exchange-go/t=12/after_store threads=23 VmRSS=428.07MB Anon=376.92MB VmSize=3094.56MB goAlloc=10.74MB goSys=38.15MB goroutine=2 numGC=10  Δexchange-go/t=12/after_store threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=305.609182ms
+  validate: exchange-go/t=12/after_validate threads=23 VmRSS=440.25MB Anon=389.09MB VmSize=3098.65MB goAlloc=14.21MB goSys=38.15MB goroutine=2 numGC=11  Δexchange-go/t=12/after_validate threads=+0 VmRSS=+12.18MB Anon=+12.17MB VmSize=+4.09MB goAlloc=+3.47MB goSys=+0.00MB goroutine=+0 elapsed=327.924749ms
+  compile:  exchange-go/t=12/after_NewModule threads=23 VmRSS=551.80MB Anon=500.65MB VmSize=3632.12MB goAlloc=10.13MB goSys=38.40MB goroutine=2 numGC=12  Δexchange-go/t=12/after_NewModule threads=+0 VmRSS=+111.55MB Anon=+111.55MB VmSize=+533.47MB goAlloc=-4.07MB goSys=+0.25MB goroutine=+0 elapsed=607.191032ms
+  teardown: exchange-go/t=12/after_teardown threads=23 VmRSS=513.30MB Anon=455.07MB VmSize=3626.93MB goAlloc=6.05MB goSys=38.40MB goroutine=2 numGC=13  Δexchange-go/t=12/after_teardown threads=+0 VmRSS=-38.50MB Anon=-45.58MB VmSize=-5.19MB goAlloc=-4.09MB goSys=+0.00MB goroutine=+0 elapsed=311.156493ms
+  ratio ΔVmRSS/wasm_file=27.31x ΔAnon/wasm_file=27.31x
+
+--- exchange-go compiler_threads=4 compile_elapsed=510.99525ms total_elapsed=1.757383592s ---
+  store:    exchange-go/t=4/after_store threads=23 VmRSS=506.24MB Anon=455.09MB VmSize=3626.93MB goAlloc=6.09MB goSys=38.40MB goroutine=2 numGC=13  Δexchange-go/t=4/after_store  threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=306.316126ms
+  validate: exchange-go/t=4/after_validate threads=23 VmRSS=526.66MB Anon=475.51MB VmSize=3626.93MB goAlloc=10.12MB goSys=38.40MB goroutine=2 numGC=14  Δexchange-go/t=4/after_validate threads=+0 VmRSS=+20.42MB Anon=+20.43MB VmSize=+0.00MB goAlloc=+4.04MB goSys=+0.00MB goroutine=+0 elapsed=324.189499ms
+  compile:  exchange-go/t=4/after_NewModule threads=23 VmRSS=562.21MB Anon=511.05MB VmSize=3632.12MB goAlloc=18.32MB goSys=38.40MB goroutine=2 numGC=14  Δexchange-go/t=4/after_NewModule threads=+0 VmRSS=+35.55MB Anon=+35.54MB VmSize=+5.19MB goAlloc=+8.20MB goSys=+0.00MB goroutine=+0 elapsed=817.94355ms
+  teardown: exchange-go/t=4/after_teardown threads=23 VmRSS=555.95MB Anon=495.66MB VmSize=3626.93MB goAlloc=6.05MB goSys=38.40MB goroutine=2 numGC=15  Δexchange-go/t=4/after_teardown threads=+0 VmRSS=-6.25MB Anon=-15.39MB VmSize=-5.19MB goAlloc=-12.27MB goSys=+0.00MB goroutine=+0 elapsed=308.85564ms
+  ratio ΔVmRSS/wasm_file=8.70x ΔAnon/wasm_file=8.70x
+
+--- exchange-go compiler_threads=2 compile_elapsed=960.257431ms total_elapsed=2.213785465s ---
+  store:    exchange-go/t=2/after_store threads=23 VmRSS=546.26MB Anon=495.11MB VmSize=3626.93MB goAlloc=6.09MB goSys=38.40MB goroutine=2 numGC=15  Δexchange-go/t=2/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=306.941958ms
+  validate: exchange-go/t=2/after_validate threads=23 VmRSS=553.49MB Anon=502.34MB VmSize=3626.93MB goAlloc=10.12MB goSys=38.40MB goroutine=2 numGC=16  Δexchange-go/t=2/after_validate threads=+0 VmRSS=+7.23MB Anon=+7.23MB VmSize=+0.00MB goAlloc=+4.04MB goSys=+0.00MB goroutine=+0 elapsed=329.157159ms
+  compile:  exchange-go/t=2/after_NewModule threads=23 VmRSS=578.48MB Anon=527.32MB VmSize=3632.12MB goAlloc=18.32MB goSys=38.40MB goroutine=2 numGC=16  Δexchange-go/t=2/after_NewModule threads=+0 VmRSS=+24.99MB Anon=+24.99MB VmSize=+5.19MB goAlloc=+8.20MB goSys=+0.00MB goroutine=+0 elapsed=1.267786141s
+  teardown: exchange-go/t=2/after_teardown threads=23 VmRSS=566.72MB Anon=515.56MB VmSize=3626.93MB goAlloc=6.05MB goSys=38.40MB goroutine=2 numGC=17  Δexchange-go/t=2/after_teardown threads=+0 VmRSS=-11.76MB Anon=-11.76MB VmSize=-5.19MB goAlloc=-12.27MB goSys=+0.00MB goroutine=+0 elapsed=309.90729ms
+  ratio ΔVmRSS/wasm_file=6.12x ΔAnon/wasm_file=6.12x
+
+--- exchange-go compiler_threads=1 compile_elapsed=1.782759622s total_elapsed=3.040834511s ---
+  store:    exchange-go/t=1/after_store threads=23 VmRSS=566.72MB Anon=515.57MB VmSize=3626.93MB goAlloc=6.09MB goSys=38.40MB goroutine=2 numGC=17  Δexchange-go/t=1/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=307.122361ms
+  validate: exchange-go/t=1/after_validate threads=24 VmRSS=582.12MB Anon=530.96MB VmSize=3647.19MB goAlloc=10.13MB goSys=38.40MB goroutine=2 numGC=18  Δexchange-go/t=1/after_validate threads=+1 VmRSS=+15.39MB Anon=+15.39MB VmSize=+20.26MB goAlloc=+4.04MB goSys=+0.00MB goroutine=+0 elapsed=332.499724ms
+  compile:  exchange-go/t=1/after_NewModule threads=24 VmRSS=605.91MB Anon=554.76MB VmSize=3652.38MB goAlloc=18.33MB goSys=38.40MB goroutine=2 numGC=18  Δexchange-go/t=1/after_NewModule threads=+0 VmRSS=+23.80MB Anon=+23.80MB VmSize=+5.19MB goAlloc=+8.20MB goSys=+0.00MB goroutine=+0 elapsed=2.091217296s
+  teardown: exchange-go/t=1/after_teardown threads=24 VmRSS=594.09MB Anon=542.93MB VmSize=3647.19MB goAlloc=6.05MB goSys=38.40MB goroutine=2 numGC=19  Δexchange-go/t=1/after_teardown threads=+0 VmRSS=-11.82MB Anon=-11.82MB VmSize=-5.19MB goAlloc=-12.27MB goSys=+0.00MB goroutine=+0 elapsed=310.238979ms
+  ratio ΔVmRSS/wasm_file=5.83x ΔAnon/wasm_file=5.83x
+
+########## contract[3/8] erc721-go (4.94MB) ##########
+--- erc721-go compiler_threads=12 compile_elapsed=357.847353ms total_elapsed=1.622087187s ---
+  store:    erc721-go/t=12/after_store threads=24 VmRSS=594.34MB Anon=543.18MB VmSize=3647.19MB goAlloc=11.03MB goSys=38.40MB goroutine=2 numGC=19  Δerc721-go/t=12/after_store   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=307.452574ms
+  validate: erc721-go/t=12/after_validate threads=24 VmRSS=602.97MB Anon=551.82MB VmSize=3647.19MB goAlloc=16.77MB goSys=38.40MB goroutine=2 numGC=20  Δerc721-go/t=12/after_validate threads=+0 VmRSS=+8.63MB Anon=+8.64MB VmSize=+0.00MB goAlloc=+5.74MB goSys=+0.00MB goroutine=+0 elapsed=337.16275ms
+  compile:  erc721-go/t=12/after_NewModule threads=24 VmRSS=663.73MB Anon=612.57MB VmSize=3717.84MB goAlloc=11.84MB goSys=46.40MB goroutine=2 numGC=21  Δerc721-go/t=12/after_NewModule threads=+0 VmRSS=+60.76MB Anon=+60.75MB VmSize=+70.65MB goAlloc=-4.93MB goSys=+8.00MB goroutine=+0 elapsed=667.225329ms
+  teardown: erc721-go/t=12/after_teardown threads=24 VmRSS=652.86MB Anon=593.70MB VmSize=3711.44MB goAlloc=6.90MB goSys=46.65MB goroutine=2 numGC=22  Δerc721-go/t=12/after_teardown threads=+0 VmRSS=-10.87MB Anon=-18.88MB VmSize=-6.40MB goAlloc=-4.94MB goSys=+0.25MB goroutine=+0 elapsed=310.097109ms
+  ratio ΔVmRSS/wasm_file=12.31x ΔAnon/wasm_file=12.31x
+
+--- erc721-go compiler_threads=4 compile_elapsed=625.851191ms total_elapsed=1.879361976s ---
+  store:    erc721-go/t=4/after_store threads=24 VmRSS=643.62MB Anon=592.47MB VmSize=3711.44MB goAlloc=6.94MB goSys=46.65MB goroutine=2 numGC=22  Δerc721-go/t=4/after_store    threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=307.591776ms
+  validate: erc721-go/t=4/after_validate threads=24 VmRSS=653.54MB Anon=602.38MB VmSize=3711.44MB goAlloc=11.83MB goSys=46.65MB goroutine=2 numGC=23  Δerc721-go/t=4/after_validate threads=+0 VmRSS=+9.91MB Anon=+9.91MB VmSize=+0.00MB goAlloc=+4.89MB goSys=+0.00MB goroutine=+0 elapsed=326.746913ms
+  compile:  erc721-go/t=4/after_NewModule threads=24 VmRSS=694.77MB Anon=643.61MB VmSize=3717.84MB goAlloc=21.73MB goSys=46.65MB goroutine=2 numGC=23  Δerc721-go/t=4/after_NewModule threads=+0 VmRSS=+41.23MB Anon=+41.23MB VmSize=+6.40MB goAlloc=+9.90MB goSys=+0.00MB goroutine=+0 elapsed=933.950379ms
+  teardown: erc721-go/t=4/after_teardown threads=24 VmRSS=684.43MB Anon=625.96MB VmSize=3711.44MB goAlloc=6.90MB goSys=46.65MB goroutine=2 numGC=24  Δerc721-go/t=4/after_teardown threads=+0 VmRSS=-10.33MB Anon=-17.64MB VmSize=-6.40MB goAlloc=-14.83MB goSys=+0.00MB goroutine=+0 elapsed=311.289083ms
+  ratio ΔVmRSS/wasm_file=8.35x ΔAnon/wasm_file=8.35x
+
+--- erc721-go compiler_threads=2 compile_elapsed=1.11365678s total_elapsed=2.383918224s ---
+  store:    erc721-go/t=2/after_store threads=24 VmRSS=676.72MB Anon=625.57MB VmSize=3711.44MB goAlloc=6.94MB goSys=46.65MB goroutine=2 numGC=24  Δerc721-go/t=2/after_store    threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=307.331315ms
+  validate: erc721-go/t=2/after_validate threads=24 VmRSS=686.66MB Anon=635.50MB VmSize=3711.44MB goAlloc=11.83MB goSys=46.65MB goroutine=2 numGC=25  Δerc721-go/t=2/after_validate threads=+0 VmRSS=+9.93MB Anon=+9.93MB VmSize=+0.00MB goAlloc=+4.89MB goSys=+0.00MB goroutine=+0 elapsed=339.611769ms
+  compile:  erc721-go/t=2/after_NewModule threads=24 VmRSS=729.84MB Anon=678.69MB VmSize=3717.84MB goAlloc=21.73MB goSys=46.65MB goroutine=2 numGC=25  Δerc721-go/t=2/after_NewModule threads=+0 VmRSS=+43.19MB Anon=+43.19MB VmSize=+6.40MB goAlloc=+9.90MB goSys=+0.00MB goroutine=+0 elapsed=1.423543728s
+  teardown: erc721-go/t=2/after_teardown threads=24 VmRSS=674.38MB Anon=623.23MB VmSize=3711.44MB goAlloc=6.90MB goSys=46.65MB goroutine=2 numGC=26  Δerc721-go/t=2/after_teardown threads=+0 VmRSS=-55.47MB Anon=-55.46MB VmSize=-6.40MB goAlloc=-14.83MB goSys=+0.00MB goroutine=+0 elapsed=313.598141ms
+  ratio ΔVmRSS/wasm_file=8.75x ΔAnon/wasm_file=8.75x
+
+--- erc721-go compiler_threads=1 compile_elapsed=2.169240909s total_elapsed=3.433169777s ---
+  store:    erc721-go/t=1/after_store threads=24 VmRSS=674.39MB Anon=623.24MB VmSize=3711.44MB goAlloc=6.94MB goSys=46.65MB goroutine=2 numGC=26  Δerc721-go/t=1/after_store    threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=308.146007ms
+  validate: erc721-go/t=1/after_validate threads=24 VmRSS=680.39MB Anon=629.24MB VmSize=3711.44MB goAlloc=11.83MB goSys=46.65MB goroutine=2 numGC=27  Δerc721-go/t=1/after_validate threads=+0 VmRSS=+6.00MB Anon=+6.00MB VmSize=+0.00MB goAlloc=+4.89MB goSys=+0.00MB goroutine=+0 elapsed=336.081941ms
+  compile:  erc721-go/t=1/after_NewModule threads=24 VmRSS=751.53MB Anon=700.38MB VmSize=3717.84MB goAlloc=21.73MB goSys=46.65MB goroutine=2 numGC=27  Δerc721-go/t=1/after_NewModule threads=+0 VmRSS=+71.14MB Anon=+71.13MB VmSize=+6.40MB goAlloc=+9.90MB goSys=+0.00MB goroutine=+0 elapsed=2.478107969s
+  teardown: erc721-go/t=1/after_teardown threads=24 VmRSS=712.87MB Anon=657.18MB VmSize=3711.44MB goAlloc=6.90MB goSys=46.65MB goroutine=2 numGC=28  Δerc721-go/t=1/after_teardown threads=+0 VmRSS=-38.66MB Anon=-43.19MB VmSize=-6.40MB goAlloc=-14.83MB goSys=+0.00MB goroutine=+0 elapsed=311.290968ms
+  ratio ΔVmRSS/wasm_file=14.41x ΔAnon/wasm_file=14.41x
+
+########## contract[4/8] compute-go (4.41MB) ##########
+--- compute-go compiler_threads=12 compile_elapsed=315.221331ms total_elapsed=1.58051434s ---
+  store:    compute-go/t=12/after_store threads=24 VmRSS=712.76MB Anon=661.60MB VmSize=3711.44MB goAlloc=11.36MB goSys=46.65MB goroutine=2 numGC=28  Δcompute-go/t=12/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.724499ms
+  validate: compute-go/t=12/after_validate threads=24 VmRSS=727.35MB Anon=676.20MB VmSize=3711.44MB goAlloc=15.20MB goSys=46.65MB goroutine=2 numGC=29  Δcompute-go/t=12/after_validate threads=+0 VmRSS=+14.59MB Anon=+14.59MB VmSize=+0.00MB goAlloc=+3.84MB goSys=+0.00MB goroutine=+0 elapsed=334.741338ms
+  compile:  compute-go/t=12/after_NewModule threads=24 VmRSS=779.67MB Anon=728.52MB VmSize=3717.04MB goAlloc=10.80MB goSys=46.65MB goroutine=2 numGC=30  Δcompute-go/t=12/after_NewModule threads=+0 VmRSS=+52.32MB Anon=+52.32MB VmSize=+5.61MB goAlloc=-4.40MB goSys=+0.00MB goroutine=+0 elapsed=626.138213ms
+  teardown: compute-go/t=12/after_teardown threads=24 VmRSS=773.07MB Anon=710.86MB VmSize=3711.44MB goAlloc=6.38MB goSys=46.65MB goroutine=2 numGC=31  Δcompute-go/t=12/after_teardown threads=+0 VmRSS=-6.61MB Anon=-17.66MB VmSize=-5.61MB goAlloc=-4.42MB goSys=+0.00MB goroutine=+0 elapsed=311.352465ms
+  ratio ΔVmRSS/wasm_file=11.85x ΔAnon/wasm_file=11.85x
+
+--- compute-go compiler_threads=4 compile_elapsed=546.858849ms total_elapsed=1.813668518s ---
+  store:    compute-go/t=4/after_store threads=24 VmRSS=762.02MB Anon=710.86MB VmSize=3711.44MB goAlloc=6.42MB goSys=46.65MB goroutine=2 numGC=31  Δcompute-go/t=4/after_store   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.640741ms
+  validate: compute-go/t=4/after_validate threads=24 VmRSS=779.62MB Anon=728.46MB VmSize=3711.44MB goAlloc=10.78MB goSys=46.65MB goroutine=2 numGC=32  Δcompute-go/t=4/after_validate threads=+0 VmRSS=+17.61MB Anon=+17.60MB VmSize=+0.00MB goAlloc=+4.36MB goSys=+0.00MB goroutine=+0 elapsed=336.00709ms
+  compile:  compute-go/t=4/after_NewModule threads=24 VmRSS=818.61MB Anon=767.45MB VmSize=3717.04MB goAlloc=19.64MB goSys=46.65MB goroutine=2 numGC=32  Δcompute-go/t=4/after_NewModule threads=+0 VmRSS=+38.98MB Anon=+38.98MB VmSize=+5.61MB goAlloc=+8.85MB goSys=+0.00MB goroutine=+0 elapsed=857.241918ms
+  teardown: compute-go/t=4/after_teardown threads=24 VmRSS=791.86MB Anon=740.46MB VmSize=3711.44MB goAlloc=6.38MB goSys=46.65MB goroutine=2 numGC=33  Δcompute-go/t=4/after_teardown threads=+0 VmRSS=-26.75MB Anon=-26.99MB VmSize=-5.61MB goAlloc=-13.26MB goSys=+0.00MB goroutine=+0 elapsed=311.345231ms
+  ratio ΔVmRSS/wasm_file=8.83x ΔAnon/wasm_file=8.83x
+
+--- compute-go compiler_threads=2 compile_elapsed=987.362957ms total_elapsed=2.253101011s ---
+  store:    compute-go/t=2/after_store threads=24 VmRSS=791.62MB Anon=740.46MB VmSize=3711.44MB goAlloc=6.42MB goSys=46.65MB goroutine=2 numGC=33  Δcompute-go/t=2/after_store   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.628312ms
+  validate: compute-go/t=2/after_validate threads=24 VmRSS=800.00MB Anon=748.85MB VmSize=3711.69MB goAlloc=10.79MB goSys=46.90MB goroutine=2 numGC=34  Δcompute-go/t=2/after_validate threads=+0 VmRSS=+8.39MB Anon=+8.39MB VmSize=+0.25MB goAlloc=+4.36MB goSys=+0.25MB goroutine=+0 elapsed=333.023954ms
+  compile:  compute-go/t=2/after_NewModule threads=24 VmRSS=847.64MB Anon=796.48MB VmSize=3717.29MB goAlloc=19.64MB goSys=46.90MB goroutine=2 numGC=34  Δcompute-go/t=2/after_NewModule threads=+0 VmRSS=+47.64MB Anon=+47.64MB VmSize=+5.61MB goAlloc=+8.85MB goSys=+0.00MB goroutine=+0 elapsed=1.297447537s
+  teardown: compute-go/t=2/after_teardown threads=24 VmRSS=824.73MB Anon=773.57MB VmSize=3711.69MB goAlloc=6.38MB goSys=46.90MB goroutine=2 numGC=35  Δcompute-go/t=2/after_teardown threads=+0 VmRSS=-22.91MB Anon=-22.91MB VmSize=-5.61MB goAlloc=-13.26MB goSys=+0.00MB goroutine=+0 elapsed=312.806142ms
+  ratio ΔVmRSS/wasm_file=10.79x ΔAnon/wasm_file=10.79x
+
+--- compute-go compiler_threads=1 compile_elapsed=1.839114862s total_elapsed=3.102394761s ---
+  store:    compute-go/t=1/after_store threads=24 VmRSS=824.74MB Anon=773.59MB VmSize=3711.69MB goAlloc=6.42MB goSys=46.90MB goroutine=2 numGC=35  Δcompute-go/t=1/after_store   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.871054ms
+  validate: compute-go/t=1/after_validate threads=24 VmRSS=837.89MB Anon=786.74MB VmSize=3711.69MB goAlloc=10.79MB goSys=46.90MB goroutine=2 numGC=36  Δcompute-go/t=1/after_validate threads=+0 VmRSS=+13.15MB Anon=+13.16MB VmSize=+0.00MB goAlloc=+4.36MB goSys=+0.00MB goroutine=+0 elapsed=334.257057ms
+  compile:  compute-go/t=1/after_NewModule threads=24 VmRSS=857.48MB Anon=806.32MB VmSize=3717.29MB goAlloc=19.64MB goSys=46.90MB goroutine=2 numGC=36  Δcompute-go/t=1/after_NewModule threads=+0 VmRSS=+19.59MB Anon=+19.58MB VmSize=+5.61MB goAlloc=+8.85MB goSys=+0.00MB goroutine=+0 elapsed=2.148085581s
+  teardown: compute-go/t=1/after_teardown threads=24 VmRSS=851.59MB Anon=800.43MB VmSize=3711.69MB goAlloc=6.38MB goSys=46.90MB goroutine=2 numGC=37  Δcompute-go/t=1/after_teardown threads=+0 VmRSS=-5.89MB Anon=-5.89MB VmSize=-5.61MB goAlloc=-13.26MB goSys=+0.00MB goroutine=+0 elapsed=311.27766ms
+  ratio ΔVmRSS/wasm_file=4.44x ΔAnon/wasm_file=4.44x
+
+########## contract[5/8] identity-go (4.68MB) ##########
+--- identity-go compiler_threads=12 compile_elapsed=338.714971ms total_elapsed=1.606033888s ---
+  store:    identity-go/t=12/after_store threads=24 VmRSS=851.60MB Anon=800.45MB VmSize=3711.69MB goAlloc=11.10MB goSys=46.90MB goroutine=2 numGC=37  Δidentity-go/t=12/after_store threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=310.251417ms
+  validate: identity-go/t=12/after_validate threads=24 VmRSS=860.29MB Anon=809.14MB VmSize=3711.69MB goAlloc=16.00MB goSys=46.90MB goroutine=2 numGC=38  Δidentity-go/t=12/after_validate threads=+0 VmRSS=+8.69MB Anon=+8.68MB VmSize=+0.00MB goAlloc=+4.89MB goSys=+0.00MB goroutine=+0 elapsed=334.390696ms
+  compile:  identity-go/t=12/after_NewModule threads=24 VmRSS=897.83MB Anon=846.68MB VmSize=3781.73MB goAlloc=11.33MB goSys=46.90MB goroutine=2 numGC=39  Δidentity-go/t=12/after_NewModule threads=+0 VmRSS=+37.54MB Anon=+37.55MB VmSize=+70.05MB goAlloc=-4.67MB goSys=+0.00MB goroutine=+0 elapsed=649.307636ms
+  teardown: identity-go/t=12/after_teardown threads=24 VmRSS=877.45MB Anon=826.30MB VmSize=3775.69MB goAlloc=6.65MB goSys=46.90MB goroutine=2 numGC=40  Δidentity-go/t=12/after_teardown threads=+0 VmRSS=-20.38MB Anon=-20.38MB VmSize=-6.05MB goAlloc=-4.68MB goSys=+0.00MB goroutine=+0 elapsed=313.151987ms
+  ratio ΔVmRSS/wasm_file=8.02x ΔAnon/wasm_file=8.02x
+
+--- identity-go compiler_threads=4 compile_elapsed=586.848798ms total_elapsed=1.860018042s ---
+  store:    identity-go/t=4/after_store threads=24 VmRSS=877.47MB Anon=826.32MB VmSize=3775.69MB goAlloc=6.69MB goSys=46.90MB goroutine=2 numGC=40  Δidentity-go/t=4/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.173648ms
+  validate: identity-go/t=4/after_validate threads=24 VmRSS=900.88MB Anon=849.73MB VmSize=3775.69MB goAlloc=11.32MB goSys=46.90MB goroutine=2 numGC=41  Δidentity-go/t=4/after_validate threads=+0 VmRSS=+23.41MB Anon=+23.41MB VmSize=+0.00MB goAlloc=+4.63MB goSys=+0.00MB goroutine=+0 elapsed=338.415234ms
+  compile:  identity-go/t=4/after_NewModule threads=24 VmRSS=928.54MB Anon=877.38MB VmSize=3781.73MB goAlloc=20.70MB goSys=46.90MB goroutine=2 numGC=41  Δidentity-go/t=4/after_NewModule threads=+0 VmRSS=+27.66MB Anon=+27.65MB VmSize=+6.05MB goAlloc=+9.39MB goSys=+0.00MB goroutine=+0 elapsed=898.127013ms
+  teardown: identity-go/t=4/after_teardown threads=24 VmRSS=908.24MB Anon=857.09MB VmSize=3775.69MB goAlloc=6.65MB goSys=46.90MB goroutine=2 numGC=42  Δidentity-go/t=4/after_teardown threads=+0 VmRSS=-20.30MB Anon=-20.29MB VmSize=-6.05MB goAlloc=-14.05MB goSys=+0.00MB goroutine=+0 elapsed=314.056653ms
+  ratio ΔVmRSS/wasm_file=5.91x ΔAnon/wasm_file=5.91x
+
+--- identity-go compiler_threads=2 compile_elapsed=1.0528067s total_elapsed=2.317169658s ---
+  store:    identity-go/t=2/after_store threads=24 VmRSS=908.25MB Anon=857.09MB VmSize=3775.69MB goAlloc=6.69MB goSys=46.90MB goroutine=2 numGC=42  Δidentity-go/t=2/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.305701ms
+  validate: identity-go/t=2/after_validate threads=24 VmRSS=915.33MB Anon=864.18MB VmSize=3775.69MB goAlloc=11.32MB goSys=46.90MB goroutine=2 numGC=43  Δidentity-go/t=2/after_validate threads=+0 VmRSS=+7.09MB Anon=+7.08MB VmSize=+0.00MB goAlloc=+4.63MB goSys=+0.00MB goroutine=+0 elapsed=329.150845ms
+  compile:  identity-go/t=2/after_NewModule threads=24 VmRSS=959.79MB Anon=908.63MB VmSize=3781.73MB goAlloc=20.70MB goSys=46.90MB goroutine=2 numGC=43  Δidentity-go/t=2/after_NewModule threads=+0 VmRSS=+44.45MB Anon=+44.45MB VmSize=+6.05MB goAlloc=+9.39MB goSys=+0.00MB goroutine=+0 elapsed=1.364628021s
+  teardown: identity-go/t=2/after_teardown threads=24 VmRSS=940.57MB Anon=888.93MB VmSize=3775.69MB goAlloc=6.65MB goSys=46.90MB goroutine=2 numGC=44  Δidentity-go/t=2/after_teardown threads=+0 VmRSS=-19.21MB Anon=-19.70MB VmSize=-6.05MB goAlloc=-14.06MB goSys=+0.00MB goroutine=+0 elapsed=313.140694ms
+  ratio ΔVmRSS/wasm_file=9.50x ΔAnon/wasm_file=9.50x
+
+--- identity-go compiler_threads=1 compile_elapsed=1.988485177s total_elapsed=3.264076038s ---
+  store:    identity-go/t=1/after_store threads=24 VmRSS=940.09MB Anon=888.94MB VmSize=3775.69MB goAlloc=6.69MB goSys=46.90MB goroutine=2 numGC=44  Δidentity-go/t=1/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=310.645468ms
+  validate: identity-go/t=1/after_validate threads=24 VmRSS=949.36MB Anon=898.21MB VmSize=3775.69MB goAlloc=11.32MB goSys=46.90MB goroutine=2 numGC=45  Δidentity-go/t=1/after_validate threads=+0 VmRSS=+9.27MB Anon=+9.27MB VmSize=+0.00MB goAlloc=+4.63MB goSys=+0.00MB goroutine=+0 elapsed=339.797652ms
+  compile:  identity-go/t=1/after_NewModule threads=24 VmRSS=974.21MB Anon=923.06MB VmSize=3781.73MB goAlloc=20.70MB goSys=46.90MB goroutine=2 numGC=45  Δidentity-go/t=1/after_NewModule threads=+0 VmRSS=+24.85MB Anon=+24.85MB VmSize=+6.05MB goAlloc=+9.39MB goSys=+0.00MB goroutine=+0 elapsed=2.301628967s
+  teardown: identity-go/t=1/after_teardown threads=24 VmRSS=966.41MB Anon=915.25MB VmSize=3775.69MB goAlloc=6.65MB goSys=46.90MB goroutine=2 numGC=46  Δidentity-go/t=1/after_teardown threads=+0 VmRSS=-7.81MB Anon=-7.80MB VmSize=-6.05MB goAlloc=-14.06MB goSys=+0.00MB goroutine=+0 elapsed=312.519374ms
+  ratio ΔVmRSS/wasm_file=5.31x ΔAnon/wasm_file=5.31x
+
+########## contract[6/8] raffle-go (5.02MB) ##########
+--- raffle-go compiler_threads=12 compile_elapsed=354.121238ms total_elapsed=1.629161784s ---
+  store:    raffle-go/t=12/after_store threads=24 VmRSS=966.43MB Anon=915.29MB VmSize=3775.69MB goAlloc=11.71MB goSys=46.90MB goroutine=2 numGC=46  Δraffle-go/t=12/after_store   threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=312.92599ms
+  validate: raffle-go/t=12/after_validate threads=24 VmRSS=970.89MB Anon=919.74MB VmSize=3775.69MB goAlloc=17.03MB goSys=46.90MB goroutine=2 numGC=47  Δraffle-go/t=12/after_validate threads=+0 VmRSS=+4.46MB Anon=+4.45MB VmSize=+0.00MB goAlloc=+5.32MB goSys=+0.00MB goroutine=+0 elapsed=337.782674ms
+  compile:  raffle-go/t=12/after_NewModule threads=24 VmRSS=988.83MB Anon=937.68MB VmSize=3782.17MB goAlloc=12.02MB goSys=46.90MB goroutine=2 numGC=48  Δraffle-go/t=12/after_NewModule threads=+0 VmRSS=+17.94MB Anon=+17.94MB VmSize=+6.48MB goAlloc=-5.01MB goSys=+0.00MB goroutine=+0 elapsed=667.562838ms
+  teardown: raffle-go/t=12/after_teardown threads=24 VmRSS=945.51MB Anon=894.36MB VmSize=3775.69MB goAlloc=6.99MB goSys=46.90MB goroutine=2 numGC=49  Δraffle-go/t=12/after_teardown threads=+0 VmRSS=-43.32MB Anon=-43.32MB VmSize=-6.48MB goAlloc=-5.03MB goSys=+0.00MB goroutine=+0 elapsed=313.850936ms
+  ratio ΔVmRSS/wasm_file=3.58x ΔAnon/wasm_file=3.58x
+
+--- raffle-go compiler_threads=4 compile_elapsed=637.840824ms total_elapsed=1.907922399s ---
+  store:    raffle-go/t=4/after_store threads=24 VmRSS=945.53MB Anon=894.38MB VmSize=3775.69MB goAlloc=7.03MB goSys=46.90MB goroutine=2 numGC=49  Δraffle-go/t=4/after_store    threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=310.861767ms
+  validate: raffle-go/t=4/after_validate threads=24 VmRSS=959.29MB Anon=908.13MB VmSize=3775.69MB goAlloc=12.00MB goSys=46.90MB goroutine=2 numGC=50  Δraffle-go/t=4/after_validate threads=+0 VmRSS=+13.76MB Anon=+13.76MB VmSize=+0.00MB goAlloc=+4.97MB goSys=+0.00MB goroutine=+0 elapsed=338.055439ms
+  compile:  raffle-go/t=4/after_NewModule threads=24 VmRSS=1002.80MB Anon=951.65MB VmSize=3782.17MB goAlloc=22.08MB goSys=46.90MB goroutine=2 numGC=50  Δraffle-go/t=4/after_NewModule threads=+0 VmRSS=+43.52MB Anon=+43.52MB VmSize=+6.48MB goAlloc=+10.07MB goSys=+0.00MB goroutine=+0 elapsed=947.67399ms
+  teardown: raffle-go/t=4/after_teardown threads=24 VmRSS=994.89MB Anon=934.09MB VmSize=3775.69MB goAlloc=6.99MB goSys=46.90MB goroutine=2 numGC=51  Δraffle-go/t=4/after_teardown threads=+0 VmRSS=-7.92MB Anon=-17.56MB VmSize=-6.48MB goAlloc=-15.09MB goSys=+0.00MB goroutine=+0 elapsed=312.49044ms
+  ratio ΔVmRSS/wasm_file=8.67x ΔAnon/wasm_file=8.67x
+
+--- raffle-go compiler_threads=2 compile_elapsed=1.08165915s total_elapsed=2.35705932s ---
+  store:    raffle-go/t=2/after_store threads=24 VmRSS=983.79MB Anon=932.63MB VmSize=3775.69MB goAlloc=7.03MB goSys=46.90MB goroutine=2 numGC=51  Δraffle-go/t=2/after_store    threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=309.66003ms
+  validate: raffle-go/t=2/after_validate threads=24 VmRSS=993.73MB Anon=942.57MB VmSize=3775.69MB goAlloc=12.00MB goSys=46.90MB goroutine=2 numGC=52  Δraffle-go/t=2/after_validate threads=+0 VmRSS=+9.94MB Anon=+9.94MB VmSize=+0.00MB goAlloc=+4.97MB goSys=+0.00MB goroutine=+0 elapsed=339.93738ms
+  compile:  raffle-go/t=2/after_NewModule threads=24 VmRSS=1013.94MB Anon=962.79MB VmSize=3782.17MB goAlloc=22.08MB goSys=46.90MB goroutine=2 numGC=52  Δraffle-go/t=2/after_NewModule threads=+0 VmRSS=+20.21MB Anon=+20.21MB VmSize=+6.48MB goAlloc=+10.07MB goSys=+0.00MB goroutine=+0 elapsed=1.39408749s
+  teardown: raffle-go/t=2/after_teardown threads=24 VmRSS=1006.77MB Anon=948.50MB VmSize=3775.69MB goAlloc=6.99MB goSys=46.90MB goroutine=2 numGC=53  Δraffle-go/t=2/after_teardown threads=+0 VmRSS=-7.17MB Anon=-14.29MB VmSize=-6.48MB goAlloc=-15.09MB goSys=+0.00MB goroutine=+0 elapsed=313.03746ms
+  ratio ΔVmRSS/wasm_file=4.03x ΔAnon/wasm_file=4.03x
+
+--- raffle-go compiler_threads=1 compile_elapsed=2.02937004s total_elapsed=3.30541101s ---
+  store:    raffle-go/t=1/after_store threads=24 VmRSS=999.67MB Anon=948.52MB VmSize=3775.69MB goAlloc=7.03MB goSys=46.90MB goroutine=2 numGC=53  Δraffle-go/t=1/after_store    threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.33718ms
+  validate: raffle-go/t=1/after_validate threads=24 VmRSS=1011.73MB Anon=960.58MB VmSize=3775.69MB goAlloc=12.00MB goSys=46.90MB goroutine=2 numGC=54  Δraffle-go/t=1/after_validate threads=+0 VmRSS=+12.07MB Anon=+12.06MB VmSize=+0.00MB goAlloc=+4.97MB goSys=+0.00MB goroutine=+0 elapsed=339.52194ms
+  compile:  raffle-go/t=1/after_NewModule threads=24 VmRSS=1043.82MB Anon=992.66MB VmSize=3846.17MB goAlloc=22.08MB goSys=46.90MB goroutine=2 numGC=54  Δraffle-go/t=1/after_NewModule threads=+0 VmRSS=+32.09MB Anon=+32.09MB VmSize=+70.48MB goAlloc=+10.07MB goSys=+0.00MB goroutine=+0 elapsed=2.34236286s
+  teardown: raffle-go/t=1/after_teardown threads=24 VmRSS=1004.95MB Anon=953.80MB VmSize=3775.69MB goAlloc=6.99MB goSys=46.90MB goroutine=2 numGC=55  Δraffle-go/t=1/after_teardown threads=+0 VmRSS=-38.88MB Anon=-38.87MB VmSize=-70.48MB goAlloc=-15.09MB goSys=+0.00MB goroutine=+0 elapsed=312.96492ms
+  ratio ΔVmRSS/wasm_file=6.40x ΔAnon/wasm_file=6.40x
+
+########## contract[7/8] itinerary-go (4.66MB) ##########
+--- itinerary-go compiler_threads=12 compile_elapsed=350.875024ms total_elapsed=1.620220019s ---
+  store:    itinerary-go/t=12/after_store threads=24 VmRSS=1009.63MB Anon=958.48MB VmSize=3775.69MB goAlloc=11.70MB goSys=46.90MB goroutine=2 numGC=55  Δitinerary-go/t=12/after_store threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=312.15069ms
+  validate: itinerary-go/t=12/after_validate threads=24 VmRSS=1014.11MB Anon=962.95MB VmSize=3775.69MB goAlloc=15.95MB goSys=46.90MB goroutine=2 numGC=56  Δitinerary-go/t=12/after_validate threads=+0 VmRSS=+4.48MB Anon=+4.47MB VmSize=+0.00MB goAlloc=+4.25MB goSys=+0.00MB goroutine=+0 elapsed=333.25524ms
+  compile:  itinerary-go/t=12/after_NewModule threads=24 VmRSS=1031.54MB Anon=980.39MB VmSize=3781.70MB goAlloc=11.30MB goSys=46.90MB goroutine=2 numGC=57  Δitinerary-go/t=12/after_NewModule threads=+0 VmRSS=+17.43MB Anon=+17.43MB VmSize=+6.02MB goAlloc=-4.65MB goSys=+0.00MB goroutine=+0 elapsed=663.690656ms
+  teardown: itinerary-go/t=12/after_teardown threads=24 VmRSS=1009.38MB Anon=947.91MB VmSize=3775.69MB goAlloc=6.63MB goSys=46.90MB goroutine=2 numGC=58  Δitinerary-go/t=12/after_teardown threads=+0 VmRSS=-22.15MB Anon=-32.47MB VmSize=-6.02MB goAlloc=-4.67MB goSys=+0.00MB goroutine=+0 elapsed=312.855354ms
+  ratio ΔVmRSS/wasm_file=3.74x ΔAnon/wasm_file=3.74x
+
+--- itinerary-go compiler_threads=4 compile_elapsed=567.237046ms total_elapsed=1.839771142s ---
+  store:    itinerary-go/t=4/after_store threads=24 VmRSS=998.59MB Anon=947.44MB VmSize=3775.69MB goAlloc=6.67MB goSys=46.90MB goroutine=2 numGC=58  Δitinerary-go/t=4/after_store threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.425024ms
+  validate: itinerary-go/t=4/after_validate threads=24 VmRSS=1012.48MB Anon=961.33MB VmSize=3775.69MB goAlloc=11.29MB goSys=46.90MB goroutine=2 numGC=59  Δitinerary-go/t=4/after_validate threads=+0 VmRSS=+13.89MB Anon=+13.89MB VmSize=+0.00MB goAlloc=+4.61MB goSys=+0.00MB goroutine=+0 elapsed=337.586644ms
+  compile:  itinerary-go/t=4/after_NewModule threads=24 VmRSS=1034.76MB Anon=983.61MB VmSize=3781.70MB goAlloc=20.64MB goSys=46.90MB goroutine=2 numGC=59  Δitinerary-go/t=4/after_NewModule threads=+0 VmRSS=+22.28MB Anon=+22.28MB VmSize=+6.02MB goAlloc=+9.35MB goSys=+0.00MB goroutine=+0 elapsed=879.417496ms
+  teardown: itinerary-go/t=4/after_teardown threads=24 VmRSS=1026.73MB Anon=971.83MB VmSize=3775.69MB goAlloc=6.63MB goSys=46.90MB goroutine=2 numGC=60  Δitinerary-go/t=4/after_teardown threads=+0 VmRSS=-8.03MB Anon=-11.78MB VmSize=-6.02MB goAlloc=-14.01MB goSys=+0.00MB goroutine=+0 elapsed=312.439946ms
+  ratio ΔVmRSS/wasm_file=4.78x ΔAnon/wasm_file=4.78x
+
+--- itinerary-go compiler_threads=2 compile_elapsed=998.230913ms total_elapsed=2.271133941s ---
+  store:    itinerary-go/t=2/after_store threads=24 VmRSS=1022.98MB Anon=971.83MB VmSize=3775.69MB goAlloc=6.67MB goSys=46.90MB goroutine=2 numGC=60  Δitinerary-go/t=2/after_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=310.324084ms
+  validate: itinerary-go/t=2/after_validate threads=24 VmRSS=1036.90MB Anon=985.74MB VmSize=3775.69MB goAlloc=11.29MB goSys=46.90MB goroutine=2 numGC=61  Δitinerary-go/t=2/after_validate threads=+0 VmRSS=+13.91MB Anon=+13.91MB VmSize=+0.00MB goAlloc=+4.61MB goSys=+0.00MB goroutine=+0 elapsed=336.866075ms
+  compile:  itinerary-go/t=2/after_NewModule threads=24 VmRSS=1048.09MB Anon=996.93MB VmSize=3781.70MB goAlloc=20.64MB goSys=46.90MB goroutine=2 numGC=61  Δitinerary-go/t=2/after_NewModule threads=+0 VmRSS=+11.19MB Anon=+11.19MB VmSize=+6.02MB goAlloc=+9.35MB goSys=+0.00MB goroutine=+0 elapsed=1.310532419s
+  teardown: itinerary-go/t=2/after_teardown threads=24 VmRSS=1041.89MB Anon=989.63MB VmSize=3775.69MB goAlloc=6.63MB goSys=46.90MB goroutine=2 numGC=62  Δitinerary-go/t=2/after_teardown threads=+0 VmRSS=-6.20MB Anon=-7.30MB VmSize=-6.02MB goAlloc=-14.01MB goSys=+0.00MB goroutine=+0 elapsed=313.381279ms
+  ratio ΔVmRSS/wasm_file=2.40x ΔAnon/wasm_file=2.40x
+
+--- itinerary-go compiler_threads=1 compile_elapsed=1.896888301s total_elapsed=3.160136311s ---
+  store:    itinerary-go/t=1/after_store threads=24 VmRSS=1040.79MB Anon=989.63MB VmSize=3775.69MB goAlloc=6.67MB goSys=46.90MB goroutine=2 numGC=62  Δitinerary-go/t=1/after_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.770807ms
+  validate: itinerary-go/t=1/after_validate threads=24 VmRSS=1045.48MB Anon=994.32MB VmSize=3775.69MB goAlloc=11.29MB goSys=46.90MB goroutine=2 numGC=63  Δitinerary-go/t=1/after_validate threads=+0 VmRSS=+4.69MB Anon=+4.69MB VmSize=+0.00MB goAlloc=+4.61MB goSys=+0.00MB goroutine=+0 elapsed=326.604897ms
+  compile:  itinerary-go/t=1/after_NewModule threads=24 VmRSS=1058.59MB Anon=1007.44MB VmSize=3787.51MB goAlloc=20.64MB goSys=46.90MB goroutine=2 numGC=63  Δitinerary-go/t=1/after_NewModule threads=+0 VmRSS=+13.12MB Anon=+13.12MB VmSize=+11.82MB goAlloc=+9.35MB goSys=+0.00MB goroutine=+0 elapsed=2.207855745s
+  teardown: itinerary-go/t=1/after_teardown threads=24 VmRSS=1051.30MB Anon=1000.16MB VmSize=3781.50MB goAlloc=6.63MB goSys=46.90MB goroutine=2 numGC=64  Δitinerary-go/t=1/after_teardown threads=+0 VmRSS=-7.29MB Anon=-7.28MB VmSize=-6.02MB goAlloc=-14.01MB goSys=+0.00MB goroutine=+0 elapsed=314.200247ms
+  ratio ΔVmRSS/wasm_file=2.81x ΔAnon/wasm_file=2.81x
+
+########## contract[8/8] bigInput-go (4.01MB) ##########
+--- bigInput-go compiler_threads=12 compile_elapsed=282.320443ms total_elapsed=1.552293503s ---
+  store:    bigInput-go/t=12/after_store threads=24 VmRSS=1051.32MB Anon=1000.17MB VmSize=3781.50MB goAlloc=10.68MB goSys=46.90MB goroutine=2 numGC=64  ΔbigInput-go/t=12/after_store threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.245873ms
+  validate: bigInput-go/t=12/after_validate threads=24 VmRSS=1051.37MB Anon=1000.21MB VmSize=3781.50MB goAlloc=13.98MB goSys=46.90MB goroutine=2 numGC=65  ΔbigInput-go/t=12/after_validate threads=+0 VmRSS=+0.05MB Anon=+0.04MB VmSize=+0.00MB goAlloc=+3.30MB goSys=+0.00MB goroutine=+0 elapsed=331.653476ms
+  compile:  bigInput-go/t=12/after_NewModule threads=24 VmRSS=1068.66MB Anon=1017.50MB VmSize=3789.25MB goAlloc=9.99MB goSys=46.90MB goroutine=2 numGC=66  ΔbigInput-go/t=12/after_NewModule threads=+0 VmRSS=+17.29MB Anon=+17.29MB VmSize=+7.76MB goAlloc=-4.00MB goSys=+0.00MB goroutine=+0 elapsed=595.58707ms
+  teardown: bigInput-go/t=12/after_teardown threads=24 VmRSS=1050.93MB Anon=999.78MB VmSize=3784.19MB goAlloc=5.98MB goSys=46.90MB goroutine=2 numGC=67  ΔbigInput-go/t=12/after_teardown threads=+0 VmRSS=-17.73MB Anon=-17.72MB VmSize=-5.06MB goAlloc=-4.01MB goSys=+0.00MB goroutine=+0 elapsed=314.560143ms
+  ratio ΔVmRSS/wasm_file=4.32x ΔAnon/wasm_file=4.32x
+
+--- bigInput-go compiler_threads=4 compile_elapsed=503.059125ms total_elapsed=1.775335372s ---
+  store:    bigInput-go/t=4/after_store threads=24 VmRSS=1050.94MB Anon=999.79MB VmSize=3784.19MB goAlloc=6.02MB goSys=46.90MB goroutine=2 numGC=67  ΔbigInput-go/t=4/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=313.220262ms
+  validate: bigInput-go/t=4/after_validate threads=24 VmRSS=1059.03MB Anon=1007.88MB VmSize=3784.19MB goAlloc=9.97MB goSys=46.90MB goroutine=2 numGC=68  ΔbigInput-go/t=4/after_validate threads=+0 VmRSS=+8.09MB Anon=+8.09MB VmSize=+0.00MB goAlloc=+3.96MB goSys=+0.00MB goroutine=+0 elapsed=334.816963ms
+  compile:  bigInput-go/t=4/after_NewModule threads=24 VmRSS=1068.27MB Anon=1017.12MB VmSize=3789.25MB goAlloc=18.02MB goSys=46.90MB goroutine=2 numGC=68  ΔbigInput-go/t=4/after_NewModule threads=+0 VmRSS=+9.25MB Anon=+9.24MB VmSize=+5.06MB goAlloc=+8.04MB goSys=+0.00MB goroutine=+0 elapsed=816.223598ms
+  teardown: bigInput-go/t=4/after_teardown threads=24 VmRSS=1059.01MB Anon=1001.83MB VmSize=3784.19MB goAlloc=5.98MB goSys=46.90MB goroutine=2 numGC=69  ΔbigInput-go/t=4/after_teardown threads=+0 VmRSS=-9.27MB Anon=-15.29MB VmSize=-5.06MB goAlloc=-12.04MB goSys=+0.00MB goroutine=+0 elapsed=313.341735ms
+  ratio ΔVmRSS/wasm_file=2.31x ΔAnon/wasm_file=2.31x
+
+--- bigInput-go compiler_threads=2 compile_elapsed=908.570322ms total_elapsed=2.178776906s ---
+  store:    bigInput-go/t=2/after_store threads=24 VmRSS=1052.98MB Anon=1001.83MB VmSize=3784.19MB goAlloc=6.02MB goSys=46.90MB goroutine=2 numGC=69  ΔbigInput-go/t=2/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.484486ms
+  validate: bigInput-go/t=2/after_validate threads=24 VmRSS=1056.19MB Anon=1005.03MB VmSize=3784.19MB goAlloc=9.97MB goSys=46.90MB goroutine=2 numGC=70  ΔbigInput-go/t=2/after_validate threads=+0 VmRSS=+3.20MB Anon=+3.20MB VmSize=+0.00MB goAlloc=+3.96MB goSys=+0.00MB goroutine=+0 elapsed=332.320306ms
+  compile:  bigInput-go/t=2/after_NewModule threads=24 VmRSS=1077.93MB Anon=1026.77MB VmSize=3789.25MB goAlloc=18.02MB goSys=46.90MB goroutine=2 numGC=70  ΔbigInput-go/t=2/after_NewModule threads=+0 VmRSS=+21.74MB Anon=+21.74MB VmSize=+5.06MB goAlloc=+8.04MB goSys=+0.00MB goroutine=+0 elapsed=1.22166666s
+  teardown: bigInput-go/t=2/after_teardown threads=24 VmRSS=1062.39MB Anon=1005.09MB VmSize=3784.19MB goAlloc=5.98MB goSys=46.90MB goroutine=2 numGC=71  ΔbigInput-go/t=2/after_teardown threads=+0 VmRSS=-15.53MB Anon=-21.68MB VmSize=-5.06MB goAlloc=-12.04MB goSys=+0.00MB goroutine=+0 elapsed=313.205655ms
+  ratio ΔVmRSS/wasm_file=5.43x ΔAnon/wasm_file=5.43x
+
+--- bigInput-go compiler_threads=1 compile_elapsed=1.832368308s total_elapsed=3.11332918s ---
+  store:    bigInput-go/t=1/after_store threads=24 VmRSS=1056.25MB Anon=1005.09MB VmSize=3784.19MB goAlloc=6.02MB goSys=46.90MB goroutine=2 numGC=71  ΔbigInput-go/t=1/after_store  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=311.517881ms
+  validate: bigInput-go/t=1/after_validate threads=24 VmRSS=1067.34MB Anon=1016.18MB VmSize=3784.19MB goAlloc=9.97MB goSys=46.90MB goroutine=2 numGC=72  ΔbigInput-go/t=1/after_validate threads=+0 VmRSS=+11.09MB Anon=+11.09MB VmSize=+0.00MB goAlloc=+3.96MB goSys=+0.00MB goroutine=+0 elapsed=339.269972ms
+  compile:  bigInput-go/t=1/after_NewModule threads=24 VmRSS=1088.94MB Anon=1037.79MB VmSize=3793.26MB goAlloc=18.02MB goSys=46.90MB goroutine=2 numGC=72  ΔbigInput-go/t=1/after_NewModule threads=+0 VmRSS=+21.60MB Anon=+21.60MB VmSize=+9.07MB goAlloc=+8.04MB goSys=+0.00MB goroutine=+0 elapsed=2.146358073s
+  teardown: bigInput-go/t=1/after_teardown threads=24 VmRSS=1077.98MB Anon=1026.26MB VmSize=3788.20MB goAlloc=5.98MB goSys=46.90MB goroutine=2 numGC=73  ΔbigInput-go/t=1/after_teardown threads=+0 VmRSS=-10.96MB Anon=-11.52MB VmSize=-5.06MB goAlloc=-12.04MB goSys=+0.00MB goroutine=+0 elapsed=315.938473ms
+  ratio ΔVmRSS/wasm_file=5.39x ΔAnon/wasm_file=5.39x
+
+=== SUMMARY TABLE (ΔVmRSS MB per NewModule, fresh engine each run) ===
+contract | threads | wasm_MB | compile_s | ΔVmRSS_MB | ΔAnon_MB | Δthreads | proc_threads
+fact-go | 12 | 4.65 | 0.324 | +175.48 | +170.62 | +12 | 23
+fact-go | 4 | 4.65 | 0.585 | +99.65 | +99.64 | +0 | 23
+fact-go | 2 | 4.65 | 0.997 | +26.49 | +26.48 | +0 | 23
+fact-go | 1 | 4.65 | 2.049 | +58.70 | +58.70 | +0 | 23
+exchange-go | 12 | 4.09 | 0.301 | +111.55 | +111.55 | +0 | 23
+exchange-go | 4 | 4.09 | 0.511 | +35.55 | +35.54 | +0 | 23
+exchange-go | 2 | 4.09 | 0.960 | +24.99 | +24.99 | +0 | 23
+exchange-go | 1 | 4.09 | 1.783 | +23.80 | +23.80 | +0 | 24
+erc721-go | 12 | 4.94 | 0.358 | +60.76 | +60.75 | +0 | 24
+erc721-go | 4 | 4.94 | 0.626 | +41.23 | +41.23 | +0 | 24
+erc721-go | 2 | 4.94 | 1.114 | +43.19 | +43.19 | +0 | 24
+erc721-go | 1 | 4.94 | 2.169 | +71.14 | +71.13 | +0 | 24
+compute-go | 12 | 4.41 | 0.315 | +52.32 | +52.32 | +0 | 24
+compute-go | 4 | 4.41 | 0.547 | +38.98 | +38.98 | +0 | 24
+compute-go | 2 | 4.41 | 0.987 | +47.64 | +47.64 | +0 | 24
+compute-go | 1 | 4.41 | 1.839 | +19.59 | +19.58 | +0 | 24
+identity-go | 12 | 4.68 | 0.339 | +37.54 | +37.55 | +0 | 24
+identity-go | 4 | 4.68 | 0.587 | +27.66 | +27.65 | +0 | 24
+identity-go | 2 | 4.68 | 1.053 | +44.45 | +44.45 | +0 | 24
+identity-go | 1 | 4.68 | 1.988 | +24.85 | +24.85 | +0 | 24
+raffle-go | 12 | 5.02 | 0.354 | +17.94 | +17.94 | +0 | 24
+raffle-go | 4 | 5.02 | 0.638 | +43.52 | +43.52 | +0 | 24
+raffle-go | 2 | 5.02 | 1.082 | +20.21 | +20.21 | +0 | 24
+raffle-go | 1 | 5.02 | 2.029 | +32.09 | +32.09 | +0 | 24
+itinerary-go | 12 | 4.66 | 0.351 | +17.43 | +17.43 | +0 | 24
+itinerary-go | 4 | 4.66 | 0.567 | +22.28 | +22.28 | +0 | 24
+itinerary-go | 2 | 4.66 | 0.998 | +11.19 | +11.19 | +0 | 24
+itinerary-go | 1 | 4.66 | 1.897 | +13.12 | +13.12 | +0 | 24
+bigInput-go | 12 | 4.01 | 0.282 | +17.29 | +17.29 | +0 | 24
+bigInput-go | 4 | 4.01 | 0.503 | +9.25 | +9.24 | +0 | 24
+bigInput-go | 2 | 4.01 | 0.909 | +21.74 | +21.74 | +0 | 24
+bigInput-go | 1 | 4.01 | 1.832 | +21.60 | +21.60 | +0 | 24
+
+=== PIVOT: ΔVmRSS_MB by contract × threads ===
+contract | t=12 | t=4 | t=2 | t=1
+fact-go | +175.5 | +99.6 | +26.5 | +58.7
+exchange-go | +111.6 | +35.5 | +25.0 | +23.8
+erc721-go | +60.8 | +41.2 | +43.2 | +71.1
+compute-go | +52.3 | +39.0 | +47.6 | +19.6
+identity-go | +37.5 | +27.7 | +44.5 | +24.9
+raffle-go | +17.9 | +43.5 | +20.2 | +32.1
+itinerary-go | +17.4 | +22.3 | +11.2 | +13.1
+bigInput-go | +17.3 | +9.2 | +21.7 | +21.6
+
+=== PIVOT: compile_seconds by contract × threads ===
+contract | t=12 | t=4 | t=2 | t=1
+fact-go | 0.32 | 0.58 | 1.00 | 2.05
+exchange-go | 0.30 | 0.51 | 0.96 | 1.78
+erc721-go | 0.36 | 0.63 | 1.11 | 2.17
+compute-go | 0.32 | 0.55 | 0.99 | 1.84
+identity-go | 0.34 | 0.59 | 1.05 | 1.99
+raffle-go | 0.35 | 0.64 | 1.08 | 2.03
+itinerary-go | 0.35 | 0.57 | 1.00 | 1.90
+bigInput-go | 0.28 | 0.50 | 0.91 | 1.83
+
+process_final: process_final threads=24 VmRSS=1077.45MB Anon=1026.29MB VmSize=3788.20MB goAlloc=6.07MB goSys=46.90MB goroutine=2 numGC=73
+vs process_baseline: Δprocess_final                threads=+15 VmRSS=+1028.40MB Anon=+1020.11MB VmSize=+1936.01MB goAlloc=+4.01MB goSys=+33.62MB goroutine=+0 elapsed=1m21.528085641s
+log_file=./resource_probe_compiler_threads_matrix.log

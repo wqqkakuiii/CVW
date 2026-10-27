@@ -1,0 +1,29 @@
+=== TestCloseInstanceStepSmaps ===
+time=2026-09-01T18:28:30+08:00 wasm=./testdata/fact-go.wasm settle=500ms
+[0_after_module] 0_after_module threads=23 VmRSS=173.98MB Anon=122.56MB VmSize=2831.20MB goAlloc=11.66MB goSys=29.58MB goroutine=2 numGC=3 smaps_rss=173.85MB smaps_anon=122.42MB
+[1_after_create] 1_after_create threads=36 VmRSS=183.35MB Anon=126.55MB VmSize=9834.57MB goAlloc=7.24MB goSys=29.83MB goroutine=2 numGC=4 smaps_rss=183.25MB smaps_anon=126.46MB
+
+--- create delta vs module ---
+  STEP CREATE proc VmRSS=+9.36MB Anon=+3.99MB threads=+13 | smaps Δrss=+9.40MB |libwasmer_exec=+4.36MB anon_rw_small=+4.15MB libwasmer_data=+0.81MB file_mmap=+0.12MB anon_rw_large=-0.11MB file_executable=+0.06MB|
+    [anon_rw_large] Δrss=-4.66MB after=12.85MB | c000000000-c001800000 
+    [anon_rw_large] Δrss=+4.52MB after=4.52MB | 73bf94000000-73bf94487000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73bda8000000-73bda8800000 
+[2_after_CallDeallocate] 2_after_CallDeallocate threads=36 VmRSS=183.82MB Anon=127.04MB VmSize=9835.64MB goAlloc=7.82MB goSys=29.83MB goroutine=2 numGC=4 smaps_rss=183.37MB smaps_anon=126.57MB
+  STEP CallDeallocate proc VmRSS=+0.48MB Anon=+0.48MB threads=+0 | smaps Δrss=+0.12MB |anon_rw_large=+0.06MB anon_rw_small=+0.05MB|
+[3_after_InstanceClose] 3_after_InstanceClose threads=36 VmRSS=180.59MB Anon=123.80MB VmSize=3691.70MB goAlloc=8.39MB goSys=29.83MB goroutine=2 numGC=4 smaps_rss=180.08MB smaps_anon=123.29MB
+  STEP Instance.Close proc VmRSS=-3.23MB Anon=-3.23MB threads=+0 | smaps Δrss=-3.29MB |anon_rw_small=-3.78MB anon_rw_large=+0.50MB|
+[4_after_WasiClose] 4_after_WasiClose threads=36 VmRSS=181.29MB Anon=124.37MB VmSize=3691.70MB goAlloc=8.95MB goSys=29.83MB goroutine=2 numGC=4 smaps_rss=180.78MB smaps_anon=123.86MB
+  STEP WasiEnv.Close proc VmRSS=+0.70MB Anon=+0.57MB threads=+0 | smaps Δrss=+0.70MB |anon_rw_large=+0.55MB libwasmer_exec=+0.12MB anon_rw_small=+0.02MB|
+    [anon_rw_large] Δrss=+0.55MB after=13.96MB | c000000000-c001800000 
+[5_after_StoreClose] 5_after_StoreClose threads=23 VmRSS=182.04MB Anon=124.94MB VmSize=3691.64MB goAlloc=9.52MB goSys=29.83MB goroutine=2 numGC=4 smaps_rss=181.52MB smaps_anon=124.42MB
+  STEP Store.Close proc VmRSS=+0.75MB Anon=+0.57MB threads=-13 | smaps Δrss=+0.75MB |anon_rw_large=+0.55MB libwasmer_exec=+0.19MB anon_rw_small=+0.01MB|
+    [anon_rw_large] Δrss=+0.55MB after=14.51MB | c000000000-c001800000 
+
+--- total destroy delta vs after_create ---
+  STEP TOTAL_DESTROY proc VmRSS=-1.31MB Anon=-1.62MB threads=-13 | smaps Δrss=-1.73MB |anon_rw_small=-3.70MB anon_rw_large=+1.66MB libwasmer_exec=+0.31MB|
+    [anon_rw_large] Δrss=+1.66MB after=14.51MB | c000000000-c001800000 
+--- net cycle delta vs module ---
+  STEP NET_CYCLE proc VmRSS=+8.05MB Anon=+2.38MB threads=+0 | smaps Δrss=+7.68MB |libwasmer_exec=+4.68MB anon_rw_large=+1.55MB libwasmer_data=+0.81MB anon_rw_small=+0.45MB file_mmap=+0.12MB file_executable=+0.06MB|
+    [anon_rw_large] Δrss=+4.52MB after=4.52MB | 73bf94000000-73bf94487000 
+    [anon_rw_large] Δrss=-3.00MB after=14.51MB | c000000000-c001800000 
+log_file=../resource_probes/logs/resource_probe_close_steps_20260901_182830.log

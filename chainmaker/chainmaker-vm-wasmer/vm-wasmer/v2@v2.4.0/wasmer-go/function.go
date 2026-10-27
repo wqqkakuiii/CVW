@@ -227,7 +227,9 @@ func (self *Function) Type() *FunctionType {
 
 	ty := C.wasm_func_type(self.inner())
 	runtime.KeepAlive(self)
-	self.funcType = newFunctionType(ty, self.ownedBy())
+	// This Box is allocated here. Own it so it is deleted even when the
+	// export Function has no finalizer of its own.
+	self.funcType = newFunctionType(ty, nil)
 
 	return self.funcType
 }
@@ -266,13 +268,11 @@ func (self *Function) Native() NativeFunction {
 		return self.lazyNative
 	}
 
-	ty := self.Type()
-	expectedParameters := ty.Params()
-	expectedReturnNum := len(ty.Results())
+	paramKinds, expectedReturnNum := nativeSignature(self)
 
 	self.lazyNative = func(receivedParameters ...interface{}) (interface{}, error) {
 		numberOfReceivedParameters := len(receivedParameters)
-		numberOfExpectedParameters := len(expectedParameters)
+		numberOfExpectedParameters := len(paramKinds)
 		diff := numberOfExpectedParameters - numberOfReceivedParameters
 
 		if diff > 0 {
@@ -284,7 +284,7 @@ func (self *Function) Native() NativeFunction {
 		allArguments := make([]C.wasm_val_t, numberOfReceivedParameters)
 
 		for nth, receivedParameter := range receivedParameters {
-			argument, err := fromGoValue(receivedParameter, expectedParameters[nth].Kind())
+			argument, err := fromGoValue(receivedParameter, paramKinds[nth])
 
 			if err != nil {
 				return nil, newErrorWith(fmt.Sprintf("Argument %d of the function must of of type `%s`, cannot cast value to this type.", nth+1, err))
@@ -337,6 +337,28 @@ func (self *Function) Native() NativeFunction {
 	}
 
 	return self.lazyNative
+}
+
+// nativeSignature copies parameter kinds out of a private wasm_functype_t
+// and deletes that box. The closure must not keep *ValueType pointers into it.
+// A FunctionType previously returned by Type is left untouched.
+func nativeSignature(self *Function) ([]ValueKind, int) {
+	pointer := C.wasm_func_type(self.inner())
+	runtime.KeepAlive(self)
+	if pointer == nil {
+		return nil, 0
+	}
+
+	signature := newFunctionType(pointer, nil)
+	params := signature.Params()
+	kinds := make([]ValueKind, len(params))
+	for i, param := range params {
+		kinds[i] = param.Kind()
+	}
+	resultCount := len(signature.Results())
+	runtime.KeepAlive(signature)
+	signature.Close()
+	return kinds, resultCount
 }
 
 func (self *Function) Close() {

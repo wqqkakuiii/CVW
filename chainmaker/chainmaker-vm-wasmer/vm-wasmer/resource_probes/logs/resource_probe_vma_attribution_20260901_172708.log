@@ -1,0 +1,189 @@
+=== TestVMAAttributionCreateDestroy ===
+time=2026-09-01T17:27:08+08:00 wasm=./testdata/fact-go.wasm n=10 settle=500ms
+[0_after_module] proc 0_after_module threads=23 VmRSS=170.30MB Anon=121.93MB VmSize=2831.73MB goAlloc=11.66MB goSys=29.90MB goroutine=2 numGC=3 smaps_rss=170.07MB smaps_anon=121.69MB
+[create_01] proc create_01 threads=36 VmRSS=179.75MB Anon=125.62MB VmSize=9834.85MB goAlloc=7.24MB goSys=29.90MB goroutine=2 numGC=4 smaps_rss=179.25MB smaps_anon=125.12MB
+  CREATE_01 smaps Δrss=+9.18MB proc VmRSS=+9.42MB Anon=+3.68MB threads=+13 |libwasmer_exec=+4.69MB anon_rw_small=+4.19MB libwasmer_data=+0.81MB anon_rw_large=-0.76MB file_mmap=+0.12MB file_executable=+0.12MB|
+    [anon_rw_large] Δrss=-5.27MB after=12.38MB | c000000000-c001800000 
+    [libwasmer_exec] Δrss=+4.69MB after=12.19MB | 7a2bcc701000-7a2bcdd01000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [anon_rw_large] Δrss=+4.52MB after=4.52MB | 7a2b64000000-7a2b64487000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [libwasmer_data] Δrss=+0.81MB after=3.06MB | 7a2bcc000000-7a2bcc701000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [anon_rw_small] Δrss=+0.54MB after=0.54MB | 7a2b8400e000-7a2b841fe000 
+    [file_mmap] Δrss=+0.12MB after=14.73MB | 01aa4000-02aa0000 /tmp/go-build3589759421/b001/vm-wasmer.test
+    [anon_rw_small] Δrss=+0.07MB after=0.09MB | 7a2b7c048000-7a2b7c088000 
+    [file_executable] Δrss=+0.06MB after=1.28MB | 7a2bcbc28000-7a2bcbdb0000 /usr/lib/x86_64-linux-gnu/libc.so.6
+    [file_executable] Δrss=+0.06MB after=0.14MB | 7a2bcde51000-7a2bcde75000 /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+    [anon_rw_small] Δrss=+0.06MB after=0.63MB | 7a2bcbe16000-7a2bcbf17000 
+    [anon_rw_small] Δrss=+0.02MB after=0.31MB | 7a2b7d6bb000-7a2b7d77b000 
+[destroy_01] proc destroy_01 threads=23 VmRSS=176.70MB Anon=122.40MB VmSize=3691.92MB goAlloc=7.85MB goSys=29.90MB goroutine=2 numGC=4 smaps_rss=176.21MB smaps_anon=121.89MB
+  DESTROY_01 smaps Δrss=-3.04MB proc VmRSS=-3.04MB Anon=-3.23MB threads=-13 |anon_rw_small=-3.74MB anon_rw_large=+0.51MB libwasmer_exec=+0.19MB|
+    [anon_rw_large] Δrss=+0.51MB after=12.89MB | c000000000-c001800000 
+    [libwasmer_exec] Δrss=+0.19MB after=12.38MB | 7a2bcc701000-7a2bcdd01000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [anon_rw_small] Δrss=+0.07MB after=0.38MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.01MB after=0.54MB | 7a2b8400e000-7a2b841fe000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2b740eb000-7a2b741eb000 
+  NET_01 smaps Δrss=+6.14MB proc VmRSS=+6.38MB Anon=+0.44MB |libwasmer_exec=+4.88MB libwasmer_data=+0.81MB anon_rw_small=+0.45MB anon_rw_large=-0.25MB file_mmap=+0.12MB file_executable=+0.12MB|
+[create_02] proc create_02 threads=36 VmRSS=176.81MB Anon=122.49MB VmSize=9835.92MB goAlloc=7.27MB goSys=29.90MB goroutine=2 numGC=5 smaps_rss=176.80MB smaps_anon=122.48MB
+  CREATE_02 smaps Δrss=+0.59MB proc VmRSS=+0.09MB Anon=+0.10MB threads=+13 |anon_rw_small=+4.05MB anon_rw_large=-3.46MB|
+    [anon_rw_large] Δrss=+4.91MB after=4.91MB | 7a2b64000000-7a2b644ea000 
+    [anon_rw_large] Δrss=-3.86MB after=9.03MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_small] Δrss=+0.11MB after=0.11MB | 7a2b68000000-7a2b68021000 
+    [anon_rw_small] Δrss=+0.06MB after=0.69MB | 7a2bcbe16000-7a2bcbf17000 
+    [anon_rw_small] Δrss=+0.02MB after=0.40MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.02MB after=0.56MB | 7a2b8400e000-7a2b841fe000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7a2b7f800000-7a2b80000000 
+    [anon_rw_small] Δrss=+0.01MB after=0.01MB | 7a2b7efbe000-7a2b7effe000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2af8000000-7a2af8021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.02MB | 7a2b77800000-7a2b78000000 
+    [anon_rw_large] Δrss=+0.00MB after=4.79MB | 7a2b7c9d4000-7a2b7ceba000 
+[destroy_02] proc destroy_02 threads=23 VmRSS=173.10MB Anon=118.78MB VmSize=3691.92MB goAlloc=7.87MB goSys=29.90MB goroutine=2 numGC=5 smaps_rss=173.03MB smaps_anon=118.71MB
+  DESTROY_02 smaps Δrss=-3.77MB proc VmRSS=-3.70MB Anon=-3.71MB threads=-13 |anon_rw_small=-3.81MB anon_rw_large=+0.04MB|
+    [anon_rw_large] Δrss=+0.02MB after=9.05MB | c000000000-c001800000 
+    [anon_rw_large] Δrss=+0.02MB after=4.80MB | 7a2b7c9d4000-7a2b7ceba000 
+    [anon_rw_small] Δrss=+0.01MB after=0.57MB | 7a2b8400e000-7a2b841fe000 
+  NET_02 smaps Δrss=-3.18MB proc VmRSS=-3.61MB Anon=-3.61MB |anon_rw_large=-3.43MB anon_rw_small=+0.25MB|
+[create_03] proc create_03 threads=36 VmRSS=181.34MB Anon=127.02MB VmSize=9835.92MB goAlloc=7.26MB goSys=29.90MB goroutine=2 numGC=6 smaps_rss=181.34MB smaps_anon=127.02MB
+  CREATE_03 smaps Δrss=+8.31MB proc VmRSS=+8.23MB Anon=+8.24MB threads=+13 |anon_rw_large=+4.59MB anon_rw_small=+3.72MB|
+    [anon_rw_large] Δrss=+4.50MB after=4.50MB | 7a2b68000000-7a2b68482000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_large] Δrss=+0.07MB after=9.12MB | c000000000-c001800000 
+    [anon_rw_large] Δrss=+0.02MB after=4.82MB | 7a2b7c9d4000-7a2b7ceba000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2b1c000000-7a2b1c021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2b7c0bf000-7a2b7c0cf000 
+[destroy_03] proc destroy_03 threads=23 VmRSS=177.54MB Anon=123.22MB VmSize=3691.92MB goAlloc=7.85MB goSys=29.90MB goroutine=2 numGC=6 smaps_rss=177.54MB smaps_anon=123.21MB
+  DESTROY_03 smaps Δrss=-3.80MB proc VmRSS=-3.80MB Anon=-3.81MB threads=-13 |anon_rw_small=-3.81MB anon_rw_large=+0.01MB|
+    [anon_rw_large] Δrss=+0.01MB after=9.13MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.58MB | 7a2b8400e000-7a2b841fe000 
+    [anon_rw_small] Δrss=+0.00MB after=0.02MB | 7a2b7efbe000-7a2b7effe000 
+  NET_03 smaps Δrss=+4.50MB proc VmRSS=+4.43MB Anon=+4.43MB |anon_rw_large=+4.60MB anon_rw_small=-0.09MB|
+[create_04] proc create_04 threads=36 VmRSS=181.38MB Anon=127.05MB VmSize=9835.92MB goAlloc=7.26MB goSys=29.90MB goroutine=2 numGC=7 smaps_rss=181.38MB smaps_anon=127.05MB
+  CREATE_04 smaps Δrss=+3.84MB proc VmRSS=+3.84MB Anon=+3.84MB threads=+13 |anon_rw_small=+3.83MB anon_rw_large=+0.01MB|
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_large] Δrss=+0.01MB after=9.14MB | c000000000-c001800000 
+    [anon_rw_large] Δrss=+0.00MB after=4.82MB | 7a2b7c9d4000-7a2b7ceba000 
+    [anon_rw_small] Δrss=+0.00MB after=0.59MB | 7a2b8400e000-7a2b841fe000 
+[destroy_04] proc destroy_04 threads=23 VmRSS=177.56MB Anon=123.24MB VmSize=3691.92MB goAlloc=7.85MB goSys=29.90MB goroutine=2 numGC=7 smaps_rss=177.56MB smaps_anon=123.24MB
+  DESTROY_04 smaps Δrss=-3.82MB proc VmRSS=-3.81MB Anon=-3.81MB threads=-13 |anon_rw_small=-3.82MB|
+    [anon_rw_small] Δrss=+0.01MB after=0.59MB | 7a2b8400e000-7a2b841fe000 
+  NET_04 smaps Δrss=+0.02MB proc VmRSS=+0.02MB Anon=+0.02MB |anon_rw_small=+0.01MB anon_rw_large=+0.01MB|
+[create_05] proc create_05 threads=36 VmRSS=183.45MB Anon=129.12MB VmSize=9838.91MB goAlloc=7.27MB goSys=29.90MB goroutine=2 numGC=8 smaps_rss=183.45MB smaps_anon=129.12MB
+  CREATE_05 smaps Δrss=+5.89MB proc VmRSS=+5.88MB Anon=+5.88MB threads=+13 |anon_rw_small=+3.96MB heap=+1.92MB anon_rw_large=+0.00MB|
+    [heap] Δrss=+34.15MB after=34.15MB | 340c8000-36310000 [heap]
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_small] Δrss=+0.11MB after=0.11MB | 7a2b58000000-7a2b58021000 
+    [anon_rw_small] Δrss=+0.01MB after=0.41MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7a2b7d77c000-7a2b7df7c000 
+    [anon_rw_large] Δrss=+0.00MB after=9.14MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2af7cff000-7a2af7dff000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2b0c000000-7a2b0c021000 
+[destroy_05] proc destroy_05 threads=23 VmRSS=179.64MB Anon=125.32MB VmSize=3694.91MB goAlloc=7.87MB goSys=29.90MB goroutine=2 numGC=8 smaps_rss=179.64MB smaps_anon=125.32MB
+  DESTROY_05 smaps Δrss=-3.81MB proc VmRSS=-3.80MB Anon=-3.80MB threads=-13 |anon_rw_small=-3.81MB|
+    [anon_rw_small] Δrss=+0.01MB after=0.42MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.00MB after=0.60MB | 7a2b8400e000-7a2b841fe000 
+  NET_05 smaps Δrss=+2.08MB proc VmRSS=+2.08MB Anon=+2.08MB |heap=+1.92MB anon_rw_small=+0.15MB anon_rw_large=+0.00MB|
+[create_06] proc create_06 threads=36 VmRSS=188.04MB Anon=133.71MB VmSize=9839.98MB goAlloc=7.28MB goSys=29.90MB goroutine=2 numGC=9 smaps_rss=187.94MB smaps_anon=133.62MB
+  CREATE_06 smaps Δrss=+8.30MB proc VmRSS=+8.39MB Anon=+8.39MB threads=+13 |anon_rw_large=+4.55MB anon_rw_small=+3.75MB|
+    [anon_rw_large] Δrss=+4.50MB after=4.50MB | 7a2b58000000-7a2b58483000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_large] Δrss=+0.04MB after=9.18MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7a2b78000000-7a2b78021000 
+    [anon_rw_small] Δrss=+0.01MB after=0.61MB | 7a2b8400e000-7a2b841fe000 
+    [anon_rw_small] Δrss=+0.01MB after=0.43MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2af7bfe000-7a2af7cfe000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2b04000000-7a2b04021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2b7c09d000-7a2b7c0ad000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2b7c0ae000-7a2b7c0be000 
+[destroy_06] proc destroy_06 threads=23 VmRSS=184.23MB Anon=129.91MB VmSize=3697.05MB goAlloc=7.90MB goSys=29.90MB goroutine=2 numGC=9 smaps_rss=184.23MB smaps_anon=129.91MB
+  DESTROY_06 smaps Δrss=-3.71MB proc VmRSS=-3.80MB Anon=-3.80MB threads=-13 |anon_rw_small=-3.80MB anon_rw_large=+0.09MB|
+    [anon_rw_large] Δrss=+0.09MB after=9.28MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2af7afd000-7a2af7bfd000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2b60000000-7a2b60021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.43MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.00MB after=0.02MB | 7a2b7dfbd000-7a2b7e7bd000 
+    [anon_rw_small] Δrss=+0.00MB after=0.61MB | 7a2b8400e000-7a2b841fe000 
+  NET_06 smaps Δrss=+4.59MB proc VmRSS=+4.59MB Anon=+4.59MB |anon_rw_large=+4.64MB anon_rw_small=-0.05MB|
+[create_07] proc create_07 threads=36 VmRSS=192.57MB Anon=138.25MB VmSize=9841.05MB goAlloc=7.25MB goSys=29.90MB goroutine=2 numGC=10 smaps_rss=192.57MB smaps_anon=138.25MB
+  CREATE_07 smaps Δrss=+8.34MB proc VmRSS=+8.34MB Anon=+8.34MB threads=+13 |anon_rw_large=+4.49MB anon_rw_small=+3.85MB|
+    [anon_rw_large] Δrss=+4.48MB after=4.48MB | 7a2b78000000-7a2b7847d000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_small] Δrss=+0.02MB after=0.03MB | 7a2b60000000-7a2b60021000 
+    [anon_rw_large] Δrss=+0.01MB after=4.51MB | 7a2b58000000-7a2b58483000 
+    [anon_rw_small] Δrss=+0.01MB after=0.44MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7a2b841ff000-7a2b849ff000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2b24000000-7a2b24021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.62MB | 7a2b8400e000-7a2b841fe000 
+[destroy_07] proc destroy_07 threads=23 VmRSS=188.77MB Anon=134.45MB VmSize=3697.30MB goAlloc=7.87MB goSys=30.15MB goroutine=2 numGC=10 smaps_rss=188.76MB smaps_anon=134.44MB
+  DESTROY_07 smaps Δrss=-3.81MB proc VmRSS=-3.80MB Anon=-3.80MB threads=-13 |anon_rw_small=-3.81MB|
+    [anon_rw_small] Δrss=+0.10MB after=0.10MB | 7a2b7c008000-7a2b7c088000 
+    [anon_rw_small] Δrss=+0.00MB after=0.70MB | 7a2bcbe16000-7a2bcbf17000 
+  NET_07 smaps Δrss=+4.53MB proc VmRSS=+4.54MB Anon=+4.54MB |anon_rw_large=+4.49MB anon_rw_small=+0.04MB|
+[create_08] proc create_08 threads=36 VmRSS=193.11MB Anon=138.79MB VmSize=9842.38MB goAlloc=7.26MB goSys=30.15MB goroutine=2 numGC=11 smaps_rss=193.11MB smaps_anon=138.79MB
+  CREATE_08 smaps Δrss=+4.36MB proc VmRSS=+4.34MB Anon=+4.34MB threads=+13 |anon_rw_small=+3.96MB anon_rw_large=+0.39MB|
+    [anon_rw_large] Δrss=+4.87MB after=4.87MB | 7a2b78000000-7a2b784df000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_small] Δrss=+0.11MB after=0.11MB | 7a2b70000000-7a2b70021000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7a2b77800000-7a2b78000000 
+    [anon_rw_small] Δrss=+0.01MB after=0.11MB | 7a2b7c008000-7a2b7c088000 
+    [anon_rw_large] Δrss=+0.00MB after=9.28MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2af79fc000-7a2af7afc000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 7a2b00000000-7a2b00021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.45MB | 7a2b7d6bb000-7a2b7d77b000 
+    [anon_rw_small] Δrss=+0.00MB after=0.62MB | 7a2b8400e000-7a2b841fe000 
+[destroy_08] proc destroy_08 threads=23 VmRSS=189.30MB Anon=134.98MB VmSize=3698.38MB goAlloc=7.89MB goSys=30.15MB goroutine=2 numGC=11 smaps_rss=189.29MB smaps_anon=134.97MB
+  DESTROY_08 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=-13 |anon_rw_small=-3.82MB|
+  NET_08 smaps Δrss=+0.54MB proc VmRSS=+0.52MB Anon=+0.52MB |anon_rw_large=+0.39MB anon_rw_small=+0.14MB|
+[create_09] proc create_09 threads=36 VmRSS=197.67MB Anon=143.35MB VmSize=9843.45MB goAlloc=7.30MB goSys=30.15MB goroutine=2 numGC=12 smaps_rss=197.66MB smaps_anon=143.34MB
+  CREATE_09 smaps Δrss=+8.37MB proc VmRSS=+8.37MB Anon=+8.37MB threads=+13 |anon_rw_large=+4.52MB anon_rw_small=+3.85MB|
+    [anon_rw_large] Δrss=+4.47MB after=4.47MB | 7a2b5c000000-7a2b5c47b000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_large] Δrss=+0.04MB after=9.32MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7a2b7cebb000-7a2b7d6bb000 
+    [anon_rw_small] Δrss=+0.01MB after=0.12MB | 7a2b70000000-7a2b70021000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2af78fb000-7a2af79fb000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2b740da000-7a2b740ea000 
+    [anon_rw_small] Δrss=+0.00MB after=0.11MB | 7a2b7c008000-7a2b7c088000 
+    [anon_rw_large] Δrss=+0.00MB after=4.83MB | 7a2b7c9d4000-7a2b7ceba000 
+    [anon_rw_small] Δrss=+0.00MB after=0.62MB | 7a2b8400e000-7a2b841fe000 
+[destroy_09] proc destroy_09 threads=23 VmRSS=193.87MB Anon=139.55MB VmSize=3700.52MB goAlloc=8.02MB goSys=30.15MB goroutine=2 numGC=12 smaps_rss=193.87MB smaps_anon=139.55MB
+  DESTROY_09 smaps Δrss=-3.79MB proc VmRSS=-3.80MB Anon=-3.80MB threads=-13 |anon_rw_small=-3.80MB anon_rw_large=+0.01MB|
+    [anon_rw_large] Δrss=+0.01MB after=9.33MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2af77fa000-7a2af78fa000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 7a2b740c9000-7a2b740d9000 
+    [anon_rw_small] Δrss=+0.00MB after=0.11MB | 7a2b7c008000-7a2b7c088000 
+    [anon_rw_small] Δrss=+0.00MB after=0.63MB | 7a2b8400e000-7a2b841fe000 
+  NET_09 smaps Δrss=+4.57MB proc VmRSS=+4.57MB Anon=+4.57MB |anon_rw_large=+4.53MB anon_rw_small=+0.05MB|
+[create_10] proc create_10 threads=36 VmRSS=202.17MB Anon=147.85MB VmSize=9844.52MB goAlloc=7.35MB goSys=30.15MB goroutine=2 numGC=13 smaps_rss=202.17MB smaps_anon=147.85MB
+  CREATE_10 smaps Δrss=+8.30MB proc VmRSS=+8.30MB Anon=+8.30MB threads=+13 |anon_rw_large=+4.47MB anon_rw_small=+3.83MB|
+    [anon_rw_large] Δrss=+4.41MB after=4.41MB | 7a2b50000000-7a2b50468000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 7a296c000000-7a296c800000 
+    [anon_rw_large] Δrss=+0.06MB after=9.39MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.64MB | 7a2b8400e000-7a2b841fe000 
+    [anon_rw_small] Δrss=+0.00MB after=0.02MB | 7a2b76fff000-7a2b777ff000 
+[destroy_10] proc destroy_10 threads=23 VmRSS=198.35MB Anon=144.03MB VmSize=3700.52MB goAlloc=8.02MB goSys=30.15MB goroutine=2 numGC=13 smaps_rss=198.35MB smaps_anon=144.03MB
+  DESTROY_10 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=-13 |anon_rw_small=-3.82MB|
+    [anon_rw_small] Δrss=+0.00MB after=0.64MB | 7a2b8400e000-7a2b841fe000 
+  NET_10 smaps Δrss=+4.48MB proc VmRSS=+4.48MB Anon=+4.48MB |anon_rw_large=+4.47MB anon_rw_small=+0.01MB|
+[final_after_n_cycles] proc final_after_n_cycles threads=23 VmRSS=198.88MB Anon=144.56MB VmSize=3700.52MB goAlloc=8.75MB goSys=30.15MB goroutine=2 numGC=13 smaps_rss=198.36MB smaps_anon=144.04MB
+
+=== SUMMARY (10 cycles, equal 500ms settle) ===
+AVG per CREATE:  smaps Δrss=+6.55MB proc VmRSS=+6.52MB Δanon=+5.97MB
+AVG per DESTROY: smaps Δrss=-3.72MB proc VmRSS=-3.72MB Δanon=-3.74MB
+AVG per NET:     smaps Δrss=+2.83MB proc VmRSS=+2.80MB (create+destroy residual per cycle)
+CUMULATIVE create categories (RSS):anon_rw_small=+39.00MB anon_rw_large=+18.80MB libwasmer_exec=+4.69MB heap=+1.92MB libwasmer_data=+0.81MB file_mmap=+0.12MB file_executable=+0.12MB
+CUMULATIVE destroy categories (RSS):anon_rw_small=-38.05MB anon_rw_large=+0.66MB libwasmer_exec=+0.19MB
+CUMULATIVE net categories (RSS):anon_rw_large=+19.46MB libwasmer_exec=+4.88MB heap=+1.92MB anon_rw_small=+0.96MB libwasmer_data=+0.81MB file_mmap=+0.12MB file_executable=+0.12MB
+FINAL vs module baseline: Δrss=+28.29MB Δanon=+22.35MB |anon_rw_large=+19.46MB libwasmer_exec=+4.88MB heap=+1.92MB anon_rw_small=+0.97MB libwasmer_data=+0.81MB file_mmap=+0.12MB file_executable=+0.12MB|
+    [heap] Δrss=+34.15MB after=34.15MB | 340c8000-36310000 [heap]
+    [anon_rw_large] Δrss=-8.25MB after=9.39MB | c000000000-c001800000 
+    [anon_rw_large] Δrss=+4.91MB after=4.91MB | 7a2b64000000-7a2b644ea000 
+    [libwasmer_exec] Δrss=+4.88MB after=12.38MB | 7a2bcc701000-7a2bcdd01000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [anon_rw_large] Δrss=+4.87MB after=4.87MB | 7a2b78000000-7a2b784df000 
+    [anon_rw_large] Δrss=+4.51MB after=4.51MB | 7a2b58000000-7a2b58483000 
+    [anon_rw_large] Δrss=+4.50MB after=4.50MB | 7a2b68000000-7a2b68482000 
+    [anon_rw_large] Δrss=+4.47MB after=4.47MB | 7a2b5c000000-7a2b5c47b000 
+    [anon_rw_large] Δrss=+4.41MB after=4.41MB | 7a2b50000000-7a2b50468000 
+    [libwasmer_data] Δrss=+0.81MB after=3.06MB | 7a2bcc000000-7a2bcc701000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [anon_rw_small] Δrss=+0.65MB after=0.65MB | 7a2b8400e000-7a2b841fe000 
+    [anon_rw_small] Δrss=+0.15MB after=0.45MB | 7a2b7d6bb000-7a2b7d77b000 
+log_file=../resource_probes/logs/resource_probe_vma_attribution_20260901_172708.log

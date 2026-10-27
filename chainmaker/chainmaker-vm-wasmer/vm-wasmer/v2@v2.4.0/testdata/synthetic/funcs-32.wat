@@ -1,0 +1,1 @@
+/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/resource_probes/testdata/synthetic/funcs-32.wat

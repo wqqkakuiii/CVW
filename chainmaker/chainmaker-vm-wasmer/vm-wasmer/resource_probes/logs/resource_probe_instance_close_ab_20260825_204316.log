@@ -1,0 +1,66 @@
+=== TestInstanceCloseABIsolated ===
+time=2026-08-25T20:43:16+08:00
+log_file=./resource_probe_instance_close_ab_20260825_204316.log
+wasm=./testdata/fact-go.wasm n=10 settle=300ms
+ONLY variable: Instance.CloseLegacy vs Instance.Close (enhanced)
+identical: CallDeallocate, WasiEnv.Close, Module/Store/Engine kept alive until after measure
+
+----- subprocess arm=legacy -----
+=== arm=legacy n=10 (ONLY Instance.Close differs) ===
+0_baseline threads=10 VmRSS=54.75MB Anon=11.46MB VmSize=1924.35MB goAlloc=6.61MB goSys=21.33MB goroutine=2 numGC=2
+2026-08-25 20:43:18.912	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:43:18.913	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000f34000 
+2026-08-25 20:43:18.913	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+1_after_module threads=23 VmRSS=173.88MB Anon=122.88MB VmSize=2799.54MB goAlloc=11.28MB goSys=29.83MB goroutine=2 numGC=3  Δ1_after_module               threads=+13 VmRSS=+119.13MB Anon=+111.41MB VmSize=+875.20MB goAlloc=+4.67MB goSys=+8.50MB goroutine=+0 elapsed=1.004914293s
+2026-08-25 20:43:19.906	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PEAK 2_peak threads=153 VmRSS=239.35MB Anon=183.13MB VmSize=69183.93MB goAlloc=6.65MB goSys=29.83MB goroutine=2 numGC=13
+--- SHRINK arm=legacy ---
+  alive=9 Δshrink_alive_9               threads=+0 VmRSS=-3.70MB Anon=-3.81MB VmSize=-6144.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.974172ms
+  alive=8 Δshrink_alive_8               threads=+0 VmRSS=-7.51MB Anon=-7.63MB VmSize=-12288.00MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=609.278945ms
+  alive=7 Δshrink_alive_7               threads=+0 VmRSS=-11.33MB Anon=-11.45MB VmSize=-18432.00MB goAlloc=+0.04MB goSys=+0.00MB goroutine=+0 elapsed=913.367217ms
+  alive=6 Δshrink_alive_6               threads=+0 VmRSS=-15.14MB Anon=-15.26MB VmSize=-24575.75MB goAlloc=+0.05MB goSys=+0.25MB goroutine=+0 elapsed=1.217747689s
+  alive=5 Δshrink_alive_5               threads=+0 VmRSS=-18.95MB Anon=-19.07MB VmSize=-30719.75MB goAlloc=+0.07MB goSys=+0.25MB goroutine=+0 elapsed=1.521468362s
+  alive=4 Δshrink_alive_4               threads=+0 VmRSS=-22.76MB Anon=-22.87MB VmSize=-36863.75MB goAlloc=+0.08MB goSys=+0.25MB goroutine=+0 elapsed=1.825700934s
+  alive=3 Δshrink_alive_3               threads=+0 VmRSS=-26.56MB Anon=-26.68MB VmSize=-43007.75MB goAlloc=+0.09MB goSys=+0.25MB goroutine=+0 elapsed=2.129542006s
+  alive=2 Δshrink_alive_2               threads=+0 VmRSS=-30.38MB Anon=-30.50MB VmSize=-49151.75MB goAlloc=+0.11MB goSys=+0.25MB goroutine=+0 elapsed=2.433705379s
+  alive=1 Δshrink_alive_1               threads=+0 VmRSS=-34.18MB Anon=-34.30MB VmSize=-55295.75MB goAlloc=+0.12MB goSys=+0.25MB goroutine=+0 elapsed=2.737207551s
+  alive=0 Δshrink_alive_0               threads=+0 VmRSS=-37.99MB Anon=-38.11MB VmSize=-61439.75MB goAlloc=+0.14MB goSys=+0.25MB goroutine=+0 elapsed=3.040843023s
+AFTER 3_after_shrink threads=153 VmRSS=196.59MB Anon=140.25MB VmSize=7744.18MB goAlloc=1.97MB goSys=30.08MB goroutine=2 numGC=14  vs peak Δ3_after_shrink               threads=+0 VmRSS=-42.76MB Anon=-42.88MB VmSize=-61439.75MB goAlloc=-4.68MB goSys=+0.25MB goroutine=+0 elapsed=3.645210068s
+RECLAIM arm=legacy RSS=42.76MB Anon=42.88MB threads 153→153
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	13.412s
+RESULT arm=legacy peak=239.35 after=196.59 reclaim=42.76MB threads 153→153
+----- subprocess arm=enhanced -----
+=== arm=enhanced n=10 (ONLY Instance.Close differs) ===
+0_baseline threads=10 VmRSS=54.46MB Anon=11.18MB VmSize=1924.35MB goAlloc=6.61MB goSys=21.33MB goroutine=2 numGC=2
+2026-08-25 20:43:34.555	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:43:34.555	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000f52000 
+2026-08-25 20:43:34.555	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+1_after_module threads=23 VmRSS=173.51MB Anon=122.48MB VmSize=2799.29MB goAlloc=11.28MB goSys=29.58MB goroutine=2 numGC=3  Δ1_after_module               threads=+13 VmRSS=+119.05MB Anon=+111.30MB VmSize=+874.95MB goAlloc=+4.67MB goSys=+8.25MB goroutine=+0 elapsed=1.043606124s
+2026-08-25 20:43:35.593	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PEAK 2_peak threads=153 VmRSS=238.16MB Anon=181.89MB VmSize=69184.19MB goAlloc=6.65MB goSys=29.83MB goroutine=2 numGC=13
+--- SHRINK arm=enhanced ---
+  alive=9 Δshrink_alive_9               threads=+0 VmRSS=-3.70MB Anon=-3.81MB VmSize=-6144.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.064888ms
+  alive=8 Δshrink_alive_8               threads=+0 VmRSS=-7.50MB Anon=-7.62MB VmSize=-12288.00MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=608.080677ms
+  alive=7 Δshrink_alive_7               threads=+0 VmRSS=-11.32MB Anon=-11.45MB VmSize=-18432.00MB goAlloc=+0.04MB goSys=+0.00MB goroutine=+0 elapsed=912.756265ms
+  alive=6 Δshrink_alive_6               threads=+0 VmRSS=-15.14MB Anon=-15.26MB VmSize=-24576.00MB goAlloc=+0.05MB goSys=+0.00MB goroutine=+0 elapsed=1.217029953s
+  alive=5 Δshrink_alive_5               threads=+0 VmRSS=-18.95MB Anon=-19.08MB VmSize=-30720.00MB goAlloc=+0.07MB goSys=+0.00MB goroutine=+0 elapsed=1.521089542s
+  alive=4 Δshrink_alive_4               threads=+0 VmRSS=-22.77MB Anon=-22.89MB VmSize=-36864.00MB goAlloc=+0.08MB goSys=+0.00MB goroutine=+0 elapsed=1.82475353s
+  alive=3 Δshrink_alive_3               threads=+0 VmRSS=-26.58MB Anon=-26.71MB VmSize=-43008.00MB goAlloc=+0.09MB goSys=+0.00MB goroutine=+0 elapsed=2.129124219s
+  alive=2 Δshrink_alive_2               threads=+0 VmRSS=-30.40MB Anon=-30.53MB VmSize=-49152.00MB goAlloc=+0.11MB goSys=+0.00MB goroutine=+0 elapsed=2.433814707s
+  alive=1 Δshrink_alive_1               threads=+0 VmRSS=-34.22MB Anon=-34.35MB VmSize=-55296.00MB goAlloc=+0.12MB goSys=+0.00MB goroutine=+0 elapsed=2.738269995s
+  alive=0 Δshrink_alive_0               threads=+0 VmRSS=-38.04MB Anon=-38.16MB VmSize=-61440.00MB goAlloc=+0.14MB goSys=+0.00MB goroutine=+0 elapsed=3.043160184s
+AFTER 3_after_shrink threads=153 VmRSS=195.29MB Anon=138.90MB VmSize=7744.19MB goAlloc=1.94MB goSys=29.83MB goroutine=2 numGC=14  vs peak Δ3_after_shrink               threads=+0 VmRSS=-42.86MB Anon=-42.99MB VmSize=-61440.00MB goAlloc=-4.72MB goSys=+0.00MB goroutine=+0 elapsed=3.647434761s
+RECLAIM arm=enhanced RSS=42.86MB Anon=42.99MB threads 153→153
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	13.460s
+RESULT arm=enhanced peak=238.16 after=195.29 reclaim=42.86MB threads 153→153
+
+=== COMPARISON (only Instance.Close differs) ===
+arm           N   peak_RSS    after_RSS  reclaim_RSS  peak_Anon reclaim_Anon   thr_pk   thr_af
+legacy       10     239.35       196.59        42.76     183.13        42.88      153      153
+enhanced     10     238.16       195.29        42.86     181.89        42.99      153      153
+delta_reclaim_RSS(enhanced-legacy)=+0.10MB
+verdict: no meaningful RSS reclaim difference (|Δ|<1MB)
+note: Instance.Close enhancement is correctness (nil refs / idempotent); OS reclaim comes from wasm_instance_delete which both arms call
+log_file=./resource_probe_instance_close_ab_20260825_204316.log

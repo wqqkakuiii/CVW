@@ -1,0 +1,109 @@
+=== TestSmapsCreateDestroyCycle ===
+time=2026-09-01T17:15:03+08:00 wasm=./testdata/fact-go.wasm n=10
+[0_after_module] 0_after_module threads=23 VmRSS=174.03MB Anon=122.87MB VmSize=2799.25MB goAlloc=11.27MB goSys=29.65MB goroutine=2 numGC=3 rollup_rss=174.04MB rollup_anon=122.87MB threads=23
+  top anon/rw VMAs @0_after_module:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=7.50MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.22MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_01] create_01 threads=36 VmRSS=183.16MB Anon=126.30MB VmSize=9802.38MB goAlloc=6.63MB goSys=29.65MB goroutine=2 numGC=4 rollup_rss=183.16MB rollup_anon=126.30MB threads=36
+  top anon/rw VMAs @create_01:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.19MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_01] destroy_01 threads=23 VmRSS=175.11MB Anon=118.01MB VmSize=3658.38MB goAlloc=6.58MB goSys=29.65MB goroutine=2 numGC=5 rollup_rss=175.12MB rollup_anon=118.01MB threads=23
+  top anon/rw VMAs @destroy_01:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_02] create_02 threads=36 VmRSS=183.64MB Anon=126.53MB VmSize=9803.45MB goAlloc=6.58MB goSys=29.65MB goroutine=2 numGC=6 rollup_rss=183.64MB rollup_anon=126.53MB threads=36
+  top anon/rw VMAs @create_02:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_02] destroy_02 threads=23 VmRSS=179.65MB Anon=122.55MB VmSize=3659.45MB goAlloc=6.57MB goSys=29.65MB goroutine=2 numGC=7 rollup_rss=179.66MB rollup_anon=122.55MB threads=23
+  top anon/rw VMAs @destroy_02:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_03] create_03 threads=36 VmRSS=185.59MB Anon=128.48MB VmSize=9804.52MB goAlloc=6.58MB goSys=29.65MB goroutine=2 numGC=8 rollup_rss=185.59MB rollup_anon=128.48MB threads=36
+  top anon/rw VMAs @create_03:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_03] destroy_03 threads=23 VmRSS=181.61MB Anon=124.51MB VmSize=3660.52MB goAlloc=6.57MB goSys=29.65MB goroutine=2 numGC=9 rollup_rss=181.62MB rollup_anon=124.51MB threads=23
+  top anon/rw VMAs @destroy_03:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_04] create_04 threads=36 VmRSS=185.65MB Anon=128.54MB VmSize=9805.59MB goAlloc=6.58MB goSys=29.65MB goroutine=2 numGC=10 rollup_rss=185.65MB rollup_anon=128.54MB threads=36
+  top anon/rw VMAs @create_04:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_04] destroy_04 threads=23 VmRSS=181.66MB Anon=124.55MB VmSize=3661.59MB goAlloc=6.57MB goSys=29.65MB goroutine=2 numGC=11 rollup_rss=181.67MB rollup_anon=124.56MB threads=23
+  top anon/rw VMAs @destroy_04:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_05] create_05 threads=36 VmRSS=185.80MB Anon=128.69MB VmSize=9806.66MB goAlloc=6.58MB goSys=29.65MB goroutine=2 numGC=12 rollup_rss=185.80MB rollup_anon=128.69MB threads=36
+  top anon/rw VMAs @create_05:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_05] destroy_05 threads=24 VmRSS=310.43MB Anon=253.32MB VmSize=3741.73MB goAlloc=20.54MB goSys=37.65MB goroutine=2 numGC=14 rollup_rss=310.44MB rollup_anon=253.33MB threads=24
+  top anon/rw VMAs @destroy_05:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_06] create_06 threads=37 VmRSS=314.25MB Anon=257.14MB VmSize=9885.73MB goAlloc=6.60MB goSys=37.65MB goroutine=2 numGC=15 rollup_rss=314.25MB rollup_anon=257.14MB threads=37
+  top anon/rw VMAs @create_06:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_06] destroy_06 threads=24 VmRSS=296.46MB Anon=239.36MB VmSize=3741.73MB goAlloc=6.57MB goSys=37.65MB goroutine=2 numGC=16 rollup_rss=296.48MB rollup_anon=239.37MB threads=24
+  top anon/rw VMAs @destroy_06:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_07] create_07 threads=37 VmRSS=300.49MB Anon=243.38MB VmSize=9886.80MB goAlloc=6.59MB goSys=37.65MB goroutine=2 numGC=17 rollup_rss=300.49MB rollup_anon=243.38MB threads=37
+  top anon/rw VMAs @create_07:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_07] destroy_07 threads=24 VmRSS=296.48MB Anon=239.38MB VmSize=3742.80MB goAlloc=6.57MB goSys=37.65MB goroutine=2 numGC=18 rollup_rss=296.50MB rollup_anon=239.39MB threads=24
+  top anon/rw VMAs @destroy_07:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_08] create_08 threads=37 VmRSS=304.94MB Anon=247.83MB VmSize=9891.16MB goAlloc=6.59MB goSys=37.65MB goroutine=2 numGC=19 rollup_rss=304.94MB rollup_anon=247.83MB threads=37
+  top anon/rw VMAs @create_08:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_08] destroy_08 threads=24 VmRSS=300.96MB Anon=243.86MB VmSize=3748.23MB goAlloc=6.57MB goSys=37.65MB goroutine=2 numGC=20 rollup_rss=300.98MB rollup_anon=243.87MB threads=24
+  top anon/rw VMAs @destroy_08:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_09] create_09 threads=37 VmRSS=309.39MB Anon=252.28MB VmSize=9892.23MB goAlloc=6.59MB goSys=37.65MB goroutine=2 numGC=21 rollup_rss=309.39MB rollup_anon=252.28MB threads=37
+  top anon/rw VMAs @create_09:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_09] destroy_09 threads=24 VmRSS=305.41MB Anon=248.30MB VmSize=3748.23MB goAlloc=6.57MB goSys=37.65MB goroutine=2 numGC=22 rollup_rss=305.42MB rollup_anon=248.31MB threads=24
+  top anon/rw VMAs @destroy_09:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[create_10] create_10 threads=37 VmRSS=309.41MB Anon=252.30MB VmSize=9892.23MB goAlloc=6.59MB goSys=37.65MB goroutine=2 numGC=23 rollup_rss=309.41MB rollup_anon=252.30MB threads=37
+  top anon/rw VMAs @create_10:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+[destroy_10] destroy_10 threads=24 VmRSS=422.75MB Anon=365.64MB VmSize=3754.23MB goAlloc=20.54MB goSys=37.65MB goroutine=2 numGC=25 rollup_rss=422.76MB rollup_anon=365.65MB threads=24
+  top anon/rw VMAs @destroy_10:
+    rss=13.25MB | 00aaf000-01aa5000 r-xp 006af000 08:30 878865                             /tmp/go-build341150254/b001/vm-wasmer.test
+    rss=12.44MB | 7befbe501000-7befbfb01000 r-xp 00700000 08:30 165327                     /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    rss=1.28MB | 7befbda28000-7befbdbb0000 r-xp 00028000 08:30 64560                      /usr/lib/x86_64-linux-gnu/libc.so.6
+NET anon drift after 10 cycles: module_only→final = +242.80MB (rollup)
+log_file=../resource_probes/logs/resource_probe_smaps_cycle_20260901_171503.log

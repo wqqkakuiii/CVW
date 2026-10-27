@@ -101,12 +101,24 @@ func (self *ImportObject) Register(namespaceName string, namespace map[string]In
 	}
 }
 
-// MODIFIED
+// Close releases every host function and owned extern before the caller
+// closes the Store. wasm_func_delete / wasm_extern_delete drop the StoreRef
+// clones that would otherwise keep the Store alive.
 func (self *ImportObject) Close() {
+	if self == nil {
+		return
+	}
 	for _, namespace := range self.externs {
-		for name, _ := range namespace {
+		for name, ext := range namespace {
+			switch e := ext.(type) {
+			case *Function:
+				e.Close()
+			case *Extern:
+				e.Close()
+			}
 			delete(namespace, name)
 		}
 	}
 	C.wasm_extern_vec_destroy(self._inner)
+	self._inner = nil
 }

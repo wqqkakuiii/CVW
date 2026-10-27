@@ -1,0 +1,55 @@
+=== TestInstanceDestroyStepsAF ===
+time=2026-08-25T17:25:08+08:00
+log_file=./resource_probe_destroy_after_store_release.log
+wasm=./testdata/fact-go.wasm n=8 settle=300ms reclaim_frac=0.15
+note: wasiEnv held alive (no wasi_env_delete); focus = Instance / linear memory RSS
+
+===== arm A/B/C: create → dealloc-only → full Close =====
+A_peak_alive threads=127 VmRSS=297.49MB Anon=241.28MB VmSize=56836.14MB goAlloc=6.67MB goSys=37.83MB goroutine=2 numGC=12 alive=8
+--- B_deallocate_only ---
+  before: A_peak_alive threads=127 VmRSS=297.49MB Anon=241.28MB VmSize=56836.14MB goAlloc=6.67MB goSys=37.83MB goroutine=2 numGC=12
+  after:  B_after_deallocate_only threads=127 VmRSS=297.52MB Anon=241.31MB VmSize=56837.21MB goAlloc=6.66MB goSys=37.83MB goroutine=2 numGC=13
+  ΔB_after_deallocate_only      threads=+0 VmRSS=+0.04MB Anon=+0.04MB VmSize=+1.07MB goAlloc=-0.00MB goSys=+0.00MB goroutine=+0 elapsed=308.607492ms
+  note: expect ~0 RSS drop (Guest args only)
+--- C_full_Close_no_recreate ---
+  before: A_peak_alive threads=127 VmRSS=297.49MB Anon=241.28MB VmSize=56836.14MB goAlloc=6.67MB goSys=37.83MB goroutine=2 numGC=12
+  after:  C_after_full_Close threads=127 VmRSS=266.97MB Anon=210.76MB VmSize=7685.21MB goAlloc=6.60MB goSys=37.83MB goroutine=2 numGC=15
+  ΔC_after_full_Close           threads=+0 VmRSS=-30.52MB Anon=-30.52MB VmSize=-49150.93MB goAlloc=-0.06MB goSys=+0.00MB goroutine=+0 elapsed=916.764807ms
+  note: expect reclaim if wasm_instance_delete returns pages; compare |Δ| to create cost
+===== arm D: create → Close (skip deallocate) =====
+--- D_Close_skip_deallocate ---
+  before: D_peak_alive threads=231 VmRSS=308.97MB Anon=252.76MB VmSize=57053.47MB goAlloc=6.67MB goSys=37.83MB goroutine=2 numGC=24
+  after:  D_after_Close_no_dealloc threads=231 VmRSS=278.39MB Anon=222.18MB VmSize=7901.47MB goAlloc=6.60MB goSys=37.83MB goroutine=2 numGC=26
+  ΔD_after_Close_no_dealloc     threads=+0 VmRSS=-30.57MB Anon=-30.57MB VmSize=-49152.00MB goAlloc=-0.06MB goSys=+0.00MB goroutine=+0 elapsed=608.59233ms
+  note: compare to C; should be similar if dealloc irrelevant to Host RSS
+===== arm E: create → Exports.Close only =====
+--- E_Exports_Close_only ---
+  before: E_peak_alive threads=335 VmRSS=316.10MB Anon=259.89MB VmSize=57262.00MB goAlloc=6.67MB goSys=37.83MB goroutine=2 numGC=35
+  after:  E_after_Exports_Close_only threads=335 VmRSS=316.10MB Anon=259.89MB VmSize=57262.00MB goAlloc=6.66MB goSys=37.83MB goroutine=2 numGC=36
+  ΔE_after_Exports_Close_only   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.632838ms
+  note: expect ~0 RSS drop (exports vec only)
+  E cleanup CloseNativeOnly count=8 (not part of E delta)
+===== arm F: Close count == N =====
+--- F_close_count ---
+  before: F_peak_alive threads=439 VmRSS=318.55MB Anon=262.34MB VmSize=57470.54MB goAlloc=2.02MB goSys=37.83MB goroutine=2 numGC=45
+  after:  F_after_Close threads=439 VmRSS=283.36MB Anon=226.74MB VmSize=8318.54MB goAlloc=2.01MB goSys=37.83MB goroutine=2 numGC=46
+  ΔF_after_Close                threads=+0 VmRSS=-35.19MB Anon=-35.60MB VmSize=-49152.00MB goAlloc=-0.01MB goSys=+0.00MB goroutine=+0 elapsed=308.853345ms
+  note: closeN=8 want=8 wasmInstance_nil=true
+
+=== ANALYSIS ===
+C: peak_VmRSS=297.49MB after_Close=266.97MB reclaimed=30.52MB (Anon peak=241.28 after=210.76 reclaimed=30.52)
+C: close_calls=8
+VERDICT_C: meaningful RSS drop after full Close (reclaimed=30.52MB)
+B: ΔVmRSS=+0.04MB ΔAnon=+0.04MB
+VERDICT_B: deallocate does not free Host RSS (as expected)
+D vs C reclaimed: D=30.57MB C=30.52MB
+VERDICT_D: skip deallocate ≈ full Close → CallDeallocate not the Host leak point
+E: ΔVmRSS=+0.00MB ΔAnon=+0.00MB
+VERDICT_E: Exports.Close alone does not free Instance linear memory (as expected)
+F: closeN=8 want=8 wasmInstance_nil=true closeN=8
+VERDICT_F: Close count matches N — Go path invokes delete N times
+SUMMARY:
+  Host Instance pages are released (logically) only in Instance.Close → wasm_instance_delete.
+  If C shows little/no VmRSS/Anon drop while F confirms N deletes, pages stay in native allocator.
+  B/E ~flat confirms CallDeallocate / Exports.Close are not the reclaim step.
+log_file=./resource_probe_destroy_after_store_release.log

@@ -23,8 +23,3 @@ void wasm_config_set_max_pages(wasm_config_t *config, uint32_t max_pages) {
     (void)config;
     (void)max_pages;
 }
-
-bool wasm_memory_reset(wasm_memory_t *memory) {
-    (void)memory;
-    return false;
-}

@@ -1,0 +1,20 @@
+=== TestInstanceDestroyMemoryArc ===
+time=2026-08-25T01:17:38+08:00 wasm=./testdata/fact-go.wasm n=4 cycles=1 settle=300ms smaps=true close_mode=wasm_close
+log_file=./resource_probe_instance_destroy_20260825_011738.log
+
+[RSS] 0_after_NewEngine threads=11 VmRSS=53.68MB Anon=11.40MB VmSize=1997.57MB goAlloc=6.61MB goSys=21.90MB goroutine=2 numGC=2
+[Arc] 0_after_NewEngine engineInnerStrong=2
+[RSS] 1_after_NewStore threads=11 VmRSS=53.71MB Anon=11.42MB VmSize=1997.57MB goAlloc=6.62MB goSys=21.90MB goroutine=2 numGC=2
+[Arc] 1_after_NewStore engineInnerStrong=2
+[RSS] 2_after_NewModule threads=23 VmRSS=235.21MB Anon=186.64MB VmSize=2800.77MB goAlloc=11.32MB goSys=30.40MB goroutine=2 numGC=3
+[Arc] 2_after_NewModule engineInnerStrong=2
+===== cycle 1/1: create 4 instances =====
+[RSS] cycle1_after_create_4 threads=75 VmRSS=261.29MB Anon=207.21MB VmSize=30811.11MB goAlloc=6.73MB goSys=30.40MB goroutine=2 numGC=4
+[Arc] cycle1_after_create_4 engineInnerStrong=6
+[Δ] create cost: Δcycle1_after_create_4        threads=+52 VmRSS=+31.16MB Anon=+25.66MB VmSize=+28010.34MB goAlloc=+0.09MB goSys=+0.00MB goroutine=+0 elapsed=3.541128293s
+===== cycle 1/1: CloseInstance × 4 =====
+[RSS] cycle1_after_CloseInstance threads=75 VmRSS=261.30MB Anon=207.22MB VmSize=30811.11MB goAlloc=6.75MB goSys=30.40MB goroutine=2 numGC=4
+[Arc] cycle1_after_CloseInstance engineInnerStrong=6
+[Δ] destroy reclaim (cycle1): Δcycle1_after_CloseInstance   threads=+0 VmRSS=+0.01MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=305.8236ms
+[verdict] instance destroy reclaimed -0.0% of create VmRSS (-0.01MB of 31.16MB)
+===== teardown: module → store → engine =====

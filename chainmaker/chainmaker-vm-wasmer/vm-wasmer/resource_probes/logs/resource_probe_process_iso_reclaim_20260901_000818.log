@@ -1,0 +1,66 @@
+=== TestProcessIsoCreateDestroyReclaim ===
+time=2026-09-01T00:08:18+08:00 wasm=./testdata/fact-go.wasm n=4 settle=300ms worker=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-process-worker
+log_file=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/resource_probes/logs/resource_probe_process_iso_reclaim_20260901_000818.log
+
+PARENT 0_baseline threads=10 VmRSS=51.61MB Anon=11.52MB VmSize=1924.39MB goAlloc=6.60MB goSys=21.58MB goroutine=2 numGC=2
+TIMING engine_store_new             4.216631ms
+TIMING module_compile               870.902724ms
+PARENT 1_after_module threads=23 VmRSS=207.90MB Anon=159.92MB VmSize=2802.97MB goAlloc=6.63MB goSys=29.83MB goroutine=2 numGC=3
+TIMING serialize_write              65.339876ms
+artifact_bytes=29624280 (28.25MB)
+PARENT 2_after_serialize threads=23 VmRSS=269.39MB Anon=221.41MB VmSize=2808.97MB goAlloc=30.19MB goSys=61.83MB goroutine=2 numGC=4
+TIMING spawn_ready_01               52.52048ms
+TIMING ping_01                      77.614µs
+CHILD  create#1 pid=21161 VmRSS=127.65MB Anon=79.29MB threads=23 | PARENT VmRSS=269.43MB | spawn=52.5ms ping=0.1ms
+TIMING spawn_ready_02               48.528628ms
+TIMING ping_02                      114.409µs
+CHILD  create#2 pid=21184 VmRSS=127.67MB Anon=79.27MB threads=22 | PARENT VmRSS=269.46MB | spawn=48.5ms ping=0.1ms
+TIMING spawn_ready_03               57.18191ms
+TIMING ping_03                      87.131µs
+CHILD  create#3 pid=21206 VmRSS=127.78MB Anon=79.40MB threads=22 | PARENT VmRSS=269.50MB | spawn=57.2ms ping=0.1ms
+TIMING spawn_ready_04               61.709698ms
+TIMING ping_04                      135.407µs
+CHILD  create#4 pid=21228 VmRSS=127.74MB Anon=79.36MB threads=23 | PARENT VmRSS=269.52MB | spawn=61.7ms ping=0.1ms
+PARENT peak_all_alive 3b_parent_peak_all_alive threads=23 VmRSS=269.54MB Anon=221.54MB VmSize=2808.98MB goAlloc=30.38MB goSys=61.83MB goroutine=2 numGC=4
+SUM child_VmRSS=510.84MB (n=4, avg=127.71MB)
+TIMING kill_01                      6.855314ms
+KILL   #4 pid=21228 proc_gone=true kill=6.9ms | PARENT VmRSS=269.56MB (Δ vs peak +0.02MB)
+TIMING kill_02                      8.105766ms
+KILL   #3 pid=21206 proc_gone=true kill=8.1ms | PARENT VmRSS=269.57MB (Δ vs peak +0.04MB)
+TIMING kill_03                      6.808412ms
+KILL   #2 pid=21184 proc_gone=true kill=6.8ms | PARENT VmRSS=269.58MB (Δ vs peak +0.05MB)
+TIMING kill_04                      8.479018ms
+KILL   #1 pid=21161 proc_gone=true kill=8.5ms | PARENT VmRSS=269.59MB (Δ vs peak +0.06MB)
+PARENT 5_parent_all_killed threads=23 VmRSS=269.60MB Anon=221.61MB VmSize=2808.98MB goAlloc=30.45MB goSys=61.83MB goroutine=2 numGC=4
+
+=== PER-WORKER TABLE ===
+idx       pid   childRSS  childAnon      thr   spawn_ms    ping_ms    kill_ms  proc_gone
+1       21161     127.65      79.29       23       52.5        0.1        8.5       true
+2       21184     127.67      79.27       22       48.5        0.1        6.8       true
+3       21206     127.78      79.40       22       57.2        0.1        8.1       true
+4       21228     127.74      79.36       23       61.7        0.1        6.9       true
+AVG  spawn=55.0ms ping=0.1ms kill=7.6ms childRSS=127.71MB
+
+=== PARENT SUMMARY ===
+baseline_RSS=51.61MB after_module=207.90MB after_serialize=269.39MB peak_workers=269.54MB after_all_kill=269.60MB
+parent ΔRSS create_all_workers=+0.14MB (should be ~0 if cost is in children)
+parent ΔRSS after_all_kill_vs_peak=+0.06MB (parent kept module+artifact; not expected to drop to baseline)
+child_proc_gone 4/4
+
+=== TIMING SUMMARY ===
+engine_store_new               4.216631ms
+module_compile               870.902724ms
+serialize_write               65.339876ms
+spawn_ready_01                 52.52048ms
+ping_01                          77.614µs
+spawn_ready_02                48.528628ms
+ping_02                         114.409µs
+spawn_ready_03                 57.18191ms
+ping_03                          87.131µs
+spawn_ready_04                61.709698ms
+ping_04                         135.407µs
+kill_01                        6.855314ms
+kill_02                        8.105766ms
+kill_03                        6.808412ms
+kill_04                        8.479018ms
+log_file=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/resource_probes/logs/resource_probe_process_iso_reclaim_20260901_000818.log

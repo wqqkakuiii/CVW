@@ -1,0 +1,15 @@
+=== TestInstanceDestroyMemoryArc ===
+time=2026-08-25T01:15:43+08:00 wasm=./testdata/fact-go.wasm n=1 cycles=1 settle=300ms smaps=true
+log_file=./resource_probe_instance_destroy_20260825_011543.log
+
+[RSS] 0_after_NewEngine threads=10 VmRSS=57.27MB Anon=11.09MB VmSize=1925.50MB goAlloc=6.56MB goSys=21.83MB goroutine=2 numGC=3
+[Arc] 0_after_NewEngine engineInnerStrong=2
+[RSS] 1_after_NewStore threads=10 VmRSS=57.30MB Anon=11.22MB VmSize=1925.50MB goAlloc=6.52MB goSys=21.83MB goroutine=2 numGC=4
+[Arc] 1_after_NewStore engineInnerStrong=2
+[RSS] 2_after_NewModule threads=22 VmRSS=240.50MB Anon=183.11MB VmSize=2728.95MB goAlloc=6.61MB goSys=30.58MB goroutine=2 numGC=6
+[Arc] 2_after_NewModule engineInnerStrong=2
+===== cycle 1/1: create 1 instances =====
+[RSS] cycle1_after_create_1 threads=35 VmRSS=245.44MB Anon=187.25MB VmSize=9732.32MB goAlloc=6.62MB goSys=30.83MB goroutine=2 numGC=8
+[Arc] cycle1_after_create_1 engineInnerStrong=3
+[Δ] create cost: Δcycle1_after_create_1        threads=+13 VmRSS=+14.26MB Anon=+8.63MB VmSize=+7003.37MB goAlloc=+0.01MB goSys=+0.25MB goroutine=+0 elapsed=1.1136686s
+===== cycle 1/1: CloseInstance × 1 =====

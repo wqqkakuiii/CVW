@@ -1,0 +1,2 @@
+=== TestCloseInstanceStepSmaps ===
+time=2026-09-01T18:17:57+08:00 wasm=./testdata/fact-go.wasm settle=500ms

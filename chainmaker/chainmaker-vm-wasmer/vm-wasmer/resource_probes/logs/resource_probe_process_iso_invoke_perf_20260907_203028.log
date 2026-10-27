@@ -1,0 +1,15 @@
+=== TestProcessIsolationInvokePerf ===
+time=2026-09-07T20:30:28+08:00 wasm=./testdata/fact-go.wasm contract=fact method=save warmup=5 measure_n=30
+
+--- in-process isolation=0 ---
+  newVmPool_ms=3992.319 processIsolation=false
+  invoke_n=30 avg=6.037ms min=4.603 max=9.224 p50=5.676 p95=8.131
+--- process-iso isolation=1 ---
+  newVmPool_ms=3946.546 processIsolation=true
+  invoke_n=30 avg=593.005ms min=503.239 max=744.393 p50=578.254 p95=702.311
+
+=== COMPARISON (exclude warmup) ===
+in-process   avg=6.037ms  p50=5.676  p95=8.131  n=30
+process-iso  avg=593.005ms  p50=578.254  p95=702.311  n=30
+overhead_ratio avg(process)/avg(inproc)=98.23x  delta_ms=586.968
+log_file=../resource_probes/logs/resource_probe_process_iso_invoke_perf_20260907_203028.log

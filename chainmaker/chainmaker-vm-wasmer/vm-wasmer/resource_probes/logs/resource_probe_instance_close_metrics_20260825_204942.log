@@ -1,0 +1,355 @@
+=== TestInstanceCloseMetricsAB ===
+time=2026-08-25T20:49:42+08:00
+log_file=./resource_probe_instance_close_metrics_20260825_204942.log
+wasm=./testdata/fact-go.wasm n=8 settle=250ms
+compare: CloseLegacy (原版语义) vs Close (增强版)
+
+### METRIC 1: Close 后 Go 引用是否清空
+----- case=refs_legacy exit=0 -----
+2026-08-25 20:49:44.320	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:49:44.320	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000fce000 
+2026-08-25 20:49:44.320	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2026-08-25 20:49:45.055	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	1.579s
+----- case=refs_enhanced exit=0 -----
+2026-08-25 20:49:48.148	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:49:48.148	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000ede000 
+2026-08-25 20:49:48.148	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2026-08-25 20:49:48.861	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	1.557s
+legacy:   native_alive=true exports_held=true
+enhanced: native_alive=false exports_held=false
+improved=true  (增强版应 native_alive=false exports_held=false；原版仍为 true)
+
+### METRIC 2: 连续 Close 两次是否安全
+----- case=dbl_legacy exit=1 -----
+2026-08-25 20:49:51.964	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:49:51.965	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000f20000 
+2026-08-25 20:49:51.965	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2026-08-25 20:49:52.677	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+SIGSEGV: segmentation violation
+PC=0x7675594ade55 m=8 sigcode=128 addr=0x0
+signal arrived during cgo execution
+
+goroutine 8 gp=0xc000484e00 m=8 mp=0xc000580008 [syscall]:
+runtime.cgocall(0x176a6f0, 0xc0000e1da8)
+	/usr/local/go/src/runtime/cgocall.go:167 +0x4b fp=0xc0000e1d80 sp=0xc0000e1d48 pc=0xb33e4b
+chainmaker.org/chainmaker/vm-wasmer/v2/wasmer-go._Cfunc_wasm_instance_delete(0x7674ec04ab30)
+	_cgo_gotypes.go:1677 +0x3a fp=0xc0000e1da8 sp=0xc0000e1d80 pc=0x16093da
+chainmaker.org/chainmaker/vm-wasmer/v2/wasmer-go.(*Instance).CloseLegacy.func1(...)
+	/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/instance.go:175
+chainmaker.org/chainmaker/vm-wasmer/v2/wasmer-go.(*Instance).CloseLegacy(0xc000161218)
+	/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/instance.go:175 +0x93 fp=0xc0000e1de8 sp=0xc0000e1da8 pc=0x1611cb3
+chainmaker.org/chainmaker/vm-wasmer/v2.TestInstanceCloseMetricsWorker(0xc000484c40)
+	/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/resource_probe_instance_close_metrics_test.go:242 +0x297 fp=0xc0000e1f70 sp=0xc0000e1de8 pc=0x16ddc17
+testing.tRunner(0xc000484c40, 0x1f3ec50)
+	/usr/local/go/src/testing/testing.go:1792 +0xf4 fp=0xc0000e1fc0 sp=0xc0000e1f70 pc=0xc22934
+testing.(*T).Run.gowrap1()
+	/usr/local/go/src/testing/testing.go:1851 +0x25 fp=0xc0000e1fe0 sp=0xc0000e1fc0 pc=0xc239c5
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000e1fe8 sp=0xc0000e1fe0 pc=0xb3f821
+created by testing.(*T).Run in goroutine 1
+	/usr/local/go/src/testing/testing.go:1851 +0x413
+
+goroutine 1 gp=0xc000002380 m=nil [chan receive]:
+runtime.gopark(0x3000000597c0108?, 0x300000010162ad8?, 0xd8?, 0x2a?, 0x7675597c0108?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000019998 sp=0xc000019978 pc=0xb3764e
+runtime.chanrecv(0xc0001102a0, 0xc0005a5a7f, 0x1)
+	/usr/local/go/src/runtime/chan.go:664 +0x445 fp=0xc000019a10 sp=0xc000019998 pc=0xacc4a5
+runtime.chanrecv1(0x3026180?, 0x20c2e60?)
+	/usr/local/go/src/runtime/chan.go:506 +0x12 fp=0xc000019a38 sp=0xc000019a10 pc=0xacc032
+testing.(*T).Run(0xc000484a80, {0x1dc268d?, 0xc0005a5b30?}, 0x1f3ec50)
+	/usr/local/go/src/testing/testing.go:1859 +0x431 fp=0xc000019b10 sp=0xc000019a38 pc=0xc23851
+testing.runTests.func1(0xc000484a80)
+	/usr/local/go/src/testing/testing.go:2279 +0x37 fp=0xc000019b50 sp=0xc000019b10 pc=0xc25bb7
+testing.tRunner(0xc000484a80, 0xc0005a5c70)
+	/usr/local/go/src/testing/testing.go:1792 +0xf4 fp=0xc000019ba0 sp=0xc000019b50 pc=0xc22934
+testing.runTests(0xc0004aa2d0, {0x2b23f00, 0x14, 0x14}, {0x3029020?, 0xf?, 0x3027320?})
+	/usr/local/go/src/testing/testing.go:2277 +0x4b4 fp=0xc000019ca0 sp=0xc000019ba0 pc=0xc25a94
+testing.(*M).Run(0xc0004a12c0)
+	/usr/local/go/src/testing/testing.go:2142 +0x64a fp=0xc000019ed0 sp=0xc000019ca0 pc=0xc2444a
+main.main()
+	_testmain.go:83 +0x9b fp=0xc000019f50 sp=0xc000019ed0 pc=0x16fb3bb
+runtime.main()
+	/usr/local/go/src/runtime/proc.go:283 +0x28b fp=0xc000019fe0 sp=0xc000019f50 pc=0xb00d8b
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000019fe8 sp=0xc000019fe0 pc=0xb3f821
+
+goroutine 2 gp=0xc000002e00 m=nil [force gc (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000086fa8 sp=0xc000086f88 pc=0xb3764e
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:441
+runtime.forcegchelper()
+	/usr/local/go/src/runtime/proc.go:348 +0xb3 fp=0xc000086fe0 sp=0xc000086fa8 pc=0xb010d3
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000086fe8 sp=0xc000086fe0 pc=0xb3f821
+created by runtime.init.7 in goroutine 1
+	/usr/local/go/src/runtime/proc.go:336 +0x1a
+
+goroutine 3 gp=0xc000003340 m=nil [GC sweep wait]:
+runtime.gopark(0x1?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000087780 sp=0xc000087760 pc=0xb3764e
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:441
+runtime.bgsweep(0xc00004c080)
+	/usr/local/go/src/runtime/mgcsweep.go:316 +0xdf fp=0xc0000877c8 sp=0xc000087780 pc=0xae7a7f
+runtime.gcenable.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:204 +0x25 fp=0xc0000877e0 sp=0xc0000877c8 pc=0xadbd05
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000877e8 sp=0xc0000877e0 pc=0xb3f821
+created by runtime.gcenable in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:204 +0x66
+
+goroutine 4 gp=0xc000003500 m=nil [sleep]:
+runtime.gopark(0xc0000640c0?, 0x2e8435b6cff0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000087f38 sp=0xc000087f18 pc=0xb3764e
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:441
+runtime.(*scavengerState).sleep(0x30274a0, 0x4125d8f800000000)
+	/usr/local/go/src/runtime/mgcscavenge.go:504 +0xf6 fp=0xc000087fa8 sp=0xc000087f38 pc=0xae54f6
+runtime.bgscavenge(0xc00004c080)
+	/usr/local/go/src/runtime/mgcscavenge.go:662 +0x74 fp=0xc000087fc8 sp=0xc000087fa8 pc=0xae58f4
+runtime.gcenable.gowrap2()
+	/usr/local/go/src/runtime/mgc.go:205 +0x25 fp=0xc000087fe0 sp=0xc000087fc8 pc=0xadbca5
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000087fe8 sp=0xc000087fe0 pc=0xb3f821
+created by runtime.gcenable in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:205 +0xa5
+
+goroutine 18 gp=0xc000102700 m=nil [finalizer wait]:
+runtime.gopark(0x1b8?, 0xc000002380?, 0x1?, 0x23?, 0xc000086688?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000086630 sp=0xc000086610 pc=0xb3764e
+runtime.runfinq()
+	/usr/local/go/src/runtime/mfinal.go:196 +0x107 fp=0xc0000867e0 sp=0xc000086630 pc=0xadacc7
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000867e8 sp=0xc0000867e0 pc=0xb3f821
+created by runtime.createfing in goroutine 1
+	/usr/local/go/src/runtime/mfinal.go:166 +0x3d
+
+goroutine 19 gp=0xc0003b81c0 m=nil [chan receive]:
+runtime.gopark(0xc0003c0a00?, 0xc000160018?, 0x60?, 0x27?, 0xd5a528?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000082718 sp=0xc0000826f8 pc=0xb3764e
+runtime.chanrecv(0xc000110620, 0x0, 0x1)
+	/usr/local/go/src/runtime/chan.go:664 +0x445 fp=0xc000082790 sp=0xc000082718 pc=0xacc4a5
+runtime.chanrecv1(0x0?, 0x0?)
+	/usr/local/go/src/runtime/chan.go:506 +0x12 fp=0xc0000827b8 sp=0xc000082790 pc=0xacc032
+runtime.unique_runtime_registerUniqueMapCleanup.func2(...)
+	/usr/local/go/src/runtime/mgc.go:1796
+runtime.unique_runtime_registerUniqueMapCleanup.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1799 +0x2f fp=0xc0000827e0 sp=0xc0000827b8 pc=0xadee4f
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000827e8 sp=0xc0000827e0 pc=0xb3f821
+created by unique.runtime_registerUniqueMapCleanup in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1794 +0x79
+
+goroutine 20 gp=0xc0003b8380 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000082f38 sp=0xc000082f18 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc000082fc8 sp=0xc000082f38 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc000082fe0 sp=0xc000082fc8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000082fe8 sp=0xc000082fe0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 34 gp=0xc000484000 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc00048a738 sp=0xc00048a718 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc00048a7c8 sp=0xc00048a738 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc00048a7e0 sp=0xc00048a7c8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00048a7e8 sp=0xc00048a7e0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 5 gp=0xc000003a40 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000088738 sp=0xc000088718 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc0000887c8 sp=0xc000088738 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc0000887e0 sp=0xc0000887c8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000887e8 sp=0xc0000887e0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 35 gp=0xc0004841c0 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc00048af38 sp=0xc00048af18 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc00048afc8 sp=0xc00048af38 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc00048afe0 sp=0xc00048afc8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00048afe8 sp=0xc00048afe0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 21 gp=0xc0003b8540 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000083738 sp=0xc000083718 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc0000837c8 sp=0xc000083738 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc0000837e0 sp=0xc0000837c8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000837e8 sp=0xc0000837e0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 6 gp=0xc000003c00 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000088f38 sp=0xc000088f18 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc000088fc8 sp=0xc000088f38 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc000088fe0 sp=0xc000088fc8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000088fe8 sp=0xc000088fe0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 36 gp=0xc000484380 m=nil [GC worker (idle)]:
+runtime.gopark(0x2e83fa0d29a4?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc00048b738 sp=0xc00048b718 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc00048b7c8 sp=0xc00048b738 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc00048b7e0 sp=0xc00048b7c8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00048b7e8 sp=0xc00048b7e0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 22 gp=0xc0003b8700 m=nil [GC worker (idle)]:
+runtime.gopark(0x2e83fa0d2df0?, 0x3?, 0x64?, 0xaf?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc00002ff38 sp=0xc00002ff18 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc00002ffc8 sp=0xc00002ff38 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc00002ffe0 sp=0xc00002ffc8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00002ffe8 sp=0xc00002ffe0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 7 gp=0xc000003dc0 m=nil [GC worker (idle)]:
+runtime.gopark(0x2e83fa0d4df8?, 0x3?, 0xcc?, 0xb9?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000089738 sp=0xc000089718 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc0000897c8 sp=0xc000089738 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc0000897e0 sp=0xc0000897c8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000897e8 sp=0xc0000897e0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 37 gp=0xc000484540 m=nil [GC worker (idle)]:
+runtime.gopark(0x2e83fa0d2ad0?, 0x1?, 0x1c?, 0x3e?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc00048bf38 sp=0xc00048bf18 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc00048bfc8 sp=0xc00048bf38 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc00048bfe0 sp=0xc00048bfc8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00048bfe8 sp=0xc00048bfe0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 23 gp=0xc0003b88c0 m=nil [GC worker (idle)]:
+runtime.gopark(0x2e83fa0d2814?, 0x1?, 0xf4?, 0x9e?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000084738 sp=0xc000084718 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc0000847c8 sp=0xc000084738 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc0000847e0 sp=0xc0000847c8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000847e8 sp=0xc0000847e0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+goroutine 24 gp=0xc0003b8a80 m=nil [GC worker (idle)]:
+runtime.gopark(0x2e83fa0d2d8c?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:435 +0xce fp=0xc000084f38 sp=0xc000084f18 pc=0xb3764e
+runtime.gcBgMarkWorker(0xc000110a80)
+	/usr/local/go/src/runtime/mgc.go:1423 +0xe9 fp=0xc000084fc8 sp=0xc000084f38 pc=0xade169
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/local/go/src/runtime/mgc.go:1339 +0x25 fp=0xc000084fe0 sp=0xc000084fc8 pc=0xade045
+runtime.goexit({})
+	/usr/local/go/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000084fe8 sp=0xc000084fe0 pc=0xb3f821
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	/usr/local/go/src/runtime/mgc.go:1339 +0x105
+
+rax    0x7674ec04a
+rbx    0xffffffffffffeac0
+rcx    0x7674fb7fd538
+rdx    0x8
+rdi    0xfad858aadab24d4a
+rsi    0x19e993a1030
+rbp    0x7674fb7fc8f0
+rsp    0x7674fb7fc8c0
+r8     0xc000580008
+r9     0x0
+r10    0xc00049a5d0
+r11    0x212
+r12    0xc0000e1d28
+r13    0xfad858aadab24d3a
+r14    0x0
+r15    0xc00049b6e0
+rip    0x7675594ade55
+rflags 0x10206
+cs     0x33
+fs     0x0
+gs     0x0
+exit status 2
+FAIL	chainmaker.org/chainmaker/vm-wasmer/v2	1.558s
+----- case=dbl_enhanced exit=0 -----
+2026-08-25 20:49:55.867	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:49:55.868	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000f50000 
+2026-08-25 20:49:55.868	[INFO]	inst_close_metrics_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2026-08-25 20:49:56.601	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	1.579s
+legacy double-Close exit=1 (0=ok, non-zero=crash/fail)
+enhanced double-Close exit=0
+improved=true  (增强版幂等；原版二次 Close 会再次 wasm_instance_delete → 崩溃)
+
+### METRIC 3: 创建 N 再销毁后的 RSS 回收量
+----- case=rss_legacy exit=0 -----
+2026-08-25 20:49:59.977	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:49:59.978	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc001004000 
+2026-08-25 20:49:59.978	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2026-08-25 20:50:01.101	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	10.699s
+----- case=rss_enhanced exit=0 -----
+2026-08-25 20:50:12.911	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 20:50:12.912	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000f5e000 
+2026-08-25 20:50:12.912	[INFO]	inst_close_ab_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2026-08-25 20:50:13.859	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	10.527s
+legacy:   reclaim_rss_mb=35.24 reclaim_anon_mb=35.36 peak=227.97 after=192.73 thr=127→127
+enhanced: reclaim_rss_mb=35.18 reclaim_anon_mb=35.30 peak=221.23 after=186.05 thr=127→127
+delta_reclaim(enhanced-legacy)=-0.06MB
+improved=false  (通常为 false：两边都调 wasm_instance_delete)
+
+=== SUMMARY: 哪项有提升 ===
+metric                       legacy       enhanced     提升?     
+Close后_inner置nil             true→alive   false→alive  是       
+Close后Exports置nil            true         false        是       
+二次Close安全(exit)              1            0            是       
+RSS回收MB                      35.24        35.18        否       
+线程数回收                        127          127          否       
+
+log_file=./resource_probe_instance_close_metrics_20260825_204942.log
+log_abs=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/resource_probe_instance_close_metrics_20260825_204942.log

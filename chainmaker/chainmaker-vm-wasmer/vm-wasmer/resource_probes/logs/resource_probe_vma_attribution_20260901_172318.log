@@ -1,0 +1,30 @@
+=== TestVMAAttributionCreateDestroy ===
+time=2026-09-01T17:23:18+08:00 wasm=./testdata/fact-go.wasm n=10 settle=500ms
+[0_after_module] proc 0_after_module threads=23 VmRSS=173.20MB Anon=122.04MB VmSize=2798.93MB goAlloc=11.62MB goSys=29.33MB goroutine=2 numGC=3 smaps_rss=58.63MB smaps_anon=7.47MB
+[create_01] proc create_01 threads=36 VmRSS=182.61MB Anon=125.75MB VmSize=9806.46MB goAlloc=7.12MB goSys=29.33MB goroutine=2 numGC=4 smaps_rss=68.86MB smaps_anon=12.00MB
+  CREATE_01 Δrss=+10.23MB Δanon=+4.54MB |libwasmer_exec=+4.69MB heap=+4.51MB libwasmer_data=+0.81MB file_mmap=+0.12MB file_executable=+0.06MB anon_rw_small=+0.03MB|
+    [libwasmer_exec] Δrss=+4.69MB after=12.19MB | 7bc3caf01000-7bc3cc501000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [heap] Δrss=+4.52MB after=4.52MB | 3f09e000-3f526000 [heap]
+    [libwasmer_data] Δrss=+0.81MB after=3.06MB | 7bc3ca800000-7bc3caf01000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+    [file_mmap] Δrss=+0.12MB after=14.73MB | 01aa4000-02a9f000 /tmp/go-build3534522043/b001/vm-wasmer.test
+    [file_executable] Δrss=+0.06MB after=1.28MB | 7bc3ca428000-7bc3ca5b0000 /usr/lib/x86_64-linux-gnu/libc.so.6
+    [anon_rw_small] Δrss=+0.01MB after=0.01MB | 7bc327e00000-7bc328000000 
+    [anon_rw_small] Δrss=+0.01MB after=0.01MB | 7bc368144000-7bc368344000 
+    [anon_rw_small] Δrss=+0.00MB after=0.02MB | 7bc36b800000-7bc36c000000 
+[destroy_01] proc destroy_01 threads=23 VmRSS=179.39MB Anon=122.29MB VmSize=3663.53MB goAlloc=7.66MB goSys=29.33MB goroutine=2 numGC=4 smaps_rss=69.11MB smaps_anon=12.00MB
+  DESTROY_01 Δrss=+0.25MB Δanon=+0.00MB |libwasmer_exec=+0.25MB|
+    [libwasmer_exec] Δrss=+0.25MB after=12.44MB | 7bc3caf01000-7bc3cc501000 /home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/v2@v2.4.0/wasmer-go/packaged/lib/linux-amd64/libwasmer.so
+  NET_01 (create+destroy) Δrss=+10.48MB Δanon=+4.54MB |libwasmer_exec=+4.94MB heap=+4.51MB libwasmer_data=+0.81MB file_mmap=+0.12MB file_executable=+0.06MB anon_rw_small=+0.03MB|
+[create_02] proc create_02 threads=36 VmRSS=183.83MB Anon=126.73MB VmSize=9807.53MB goAlloc=7.14MB goSys=29.33MB goroutine=2 numGC=5 smaps_rss=69.13MB smaps_anon=12.02MB
+  CREATE_02 Δrss=+0.02MB Δanon=+0.02MB |anon_rw_small=+0.01MB heap=+0.01MB|
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7bc38085b000-7bc38105b000 
+    [heap] Δrss=+0.01MB after=4.52MB | 3f09e000-3f526000 [heap]
+[destroy_02] proc destroy_02 threads=23 VmRSS=180.06MB Anon=122.96MB VmSize=3664.60MB goAlloc=7.69MB goSys=29.33MB goroutine=2 numGC=5 smaps_rss=69.13MB smaps_anon=12.02MB
+  DESTROY_02 Δrss=+0.00MB Δanon=+0.00MB ||
+  NET_02 (create+destroy) Δrss=+0.02MB Δanon=+0.02MB |anon_rw_small=+0.01MB heap=+0.01MB|
+[create_03] proc create_03 threads=36 VmRSS=188.62MB Anon=131.51MB VmSize=9808.85MB goAlloc=7.14MB goSys=29.58MB goroutine=2 numGC=6 smaps_rss=69.14MB smaps_anon=12.04MB
+  CREATE_03 Δrss=+0.01MB Δanon=+0.01MB |anon_rw_small=+0.01MB|
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 7bc38191d000-7bc38211d000 
+[destroy_03] proc destroy_03 threads=23 VmRSS=184.81MB Anon=127.71MB VmSize=3665.92MB goAlloc=7.70MB goSys=29.58MB goroutine=2 numGC=6 smaps_rss=69.14MB smaps_anon=12.04MB
+  DESTROY_03 Δrss=+0.00MB Δanon=+0.00MB ||
+  NET_03 (create+destroy) Δrss=+0.01MB Δanon=+0.01MB |anon_rw_small=+0.01MB|

@@ -1,0 +1,106 @@
+=== TestCreateInstanceResourcePhases ===
+time=2026-08-09T18:51:41+08:00
+log_file=./resource_probe_wasi_bind_delete.log
+repeat=2 cycles=2 settle=300ms detail_first=true
+pattern=grow(N)→shrink(0) × 2
+destroy=probe-only: CallDeallocate → wasmInstance.Close → wasiEnv.Close(wasi_env_delete)
+contracts=[./testdata/fact-go.wasm]
+note: process RSS/threads accumulate across contracts; compare within each contract section.
+
+########## contract[1/1] fact-go (./testdata/fact-go.wasm) ##########
+fact-go/0_baseline threads=11 VmRSS=54.48MB VmSize=1991.98MB goAlloc=6.56MB goSys=21.65MB goroutine=2 numGC=3
+fact-go/1_after_engine_store threads=11 VmRSS=55.50MB VmSize=1991.98MB goAlloc=6.57MB goSys=21.65MB goroutine=2 numGC=3
+fact-go/2_after_validate threads=12 VmRSS=70.52MB VmSize=2068.88MB goAlloc=11.18MB goSys=29.90MB goroutine=2 numGC=4
+fact-go/3_after_NewModule threads=12 VmRSS=243.62MB VmSize=2867.15MB goAlloc=20.53MB goSys=37.90MB goroutine=2 numGC=4
+===== fact-go cycle 1/2: GROW 2 =====
+fact-go/c1/inst0_4_after_WASI_Finalize threads=25 VmRSS=246.08MB VmSize=2933.15MB goAlloc=20.56MB goSys=37.90MB goroutine=2 numGC=4
+fact-go/c1/inst0_5_after_imports threads=25 VmRSS=246.41MB VmSize=2933.15MB goAlloc=20.59MB goSys=37.90MB goroutine=2 numGC=4
+fact-go/c1/inst0_6_after_NewInstance threads=25 VmRSS=251.20MB VmSize=9077.15MB goAlloc=20.60MB goSys=37.90MB goroutine=2 numGC=4
+fact-go/c1/inst0_7_after_WASI_Init threads=25 VmRSS=254.59MB VmSize=9078.22MB goAlloc=20.61MB goSys=37.90MB goroutine=2 numGC=4
+fact-go/c1/create_done_0 threads=25 VmRSS=254.60MB VmSize=9078.22MB goAlloc=20.62MB goSys=37.90MB goroutine=2 numGC=4 alive=1
+fact-go/c1/create_done_1 threads=38 VmRSS=258.94MB VmSize=16080.27MB goAlloc=20.64MB goSys=37.90MB goroutine=2 numGC=4 alive=2
+--- fact-go/c1 all 2 created ---
+fact-go/c1/peak_all_alive threads=38 VmRSS=258.94MB VmSize=16080.27MB goAlloc=20.66MB goSys=37.90MB goroutine=2 numGC=4
+===== fact-go cycle 1/2: SHRINK to 0 (wasiEnv.Close) =====
+fact-go/c1/after_close_alive_1 threads=38 VmRSS=259.01MB VmSize=16080.34MB goAlloc=20.67MB goSys=37.90MB goroutine=2 numGC=4 closed=probe-fact-go-c1-1 alive=1
+fact-go/c1/after_close_alive_0 threads=38 VmRSS=259.01MB VmSize=16080.34MB goAlloc=20.68MB goSys=37.90MB goroutine=2 numGC=4 closed=probe-fact-go-c1-0 alive=0
+fact-go/c1/after_shrink_zero threads=38 VmRSS=259.02MB VmSize=16080.34MB goAlloc=20.69MB goSys=37.90MB goroutine=2 numGC=4
+===== fact-go cycle 2/2: GROW 2 =====
+fact-go/c2/create_done_0 threads=51 VmRSS=263.37MB VmSize=23082.39MB goAlloc=20.71MB goSys=37.90MB goroutine=2 numGC=4 alive=1
+fact-go/c2/create_done_1 threads=64 VmRSS=267.74MB VmSize=30084.44MB goAlloc=20.74MB goSys=37.90MB goroutine=2 numGC=4 alive=2
+--- fact-go/c2 all 2 created ---
+fact-go/c2/peak_all_alive threads=64 VmRSS=267.75MB VmSize=30084.44MB goAlloc=20.75MB goSys=37.90MB goroutine=2 numGC=4
+===== fact-go cycle 2/2: SHRINK to 0 (wasiEnv.Close) =====
+fact-go/c2/after_close_alive_1 threads=64 VmRSS=267.76MB VmSize=30084.44MB goAlloc=20.76MB goSys=37.90MB goroutine=2 numGC=4 closed=probe-fact-go-c2-1 alive=1
+fact-go/c2/after_close_alive_0 threads=64 VmRSS=267.78MB VmSize=30084.44MB goAlloc=20.77MB goSys=37.90MB goroutine=2 numGC=4 closed=probe-fact-go-c2-0 alive=0
+fact-go/c2/after_shrink_zero threads=64 VmRSS=267.80MB VmSize=30084.44MB goAlloc=20.78MB goSys=37.90MB goroutine=2 numGC=4
+fact-go/9_after_module_store_close threads=64 VmRSS=267.80MB VmSize=30084.44MB goAlloc=20.79MB goSys=37.90MB goroutine=2 numGC=4
+fact-go/9b_after_GC threads=64 VmRSS=267.93MB VmSize=30084.44MB goAlloc=1.94MB goSys=37.90MB goroutine=2 numGC=5
+--- report for fact-go ---
+=== resource probe report ===
+absolute:
+  fact-go/0_baseline threads=11 VmRSS=54.48MB VmSize=1991.98MB goAlloc=6.56MB goSys=21.65MB goroutine=2 numGC=3
+  fact-go/1_after_engine_store threads=11 VmRSS=55.50MB VmSize=1991.98MB goAlloc=6.57MB goSys=21.65MB goroutine=2 numGC=3
+  fact-go/2_after_validate threads=12 VmRSS=70.52MB VmSize=2068.88MB goAlloc=11.18MB goSys=29.90MB goroutine=2 numGC=4
+  fact-go/3_after_NewModule threads=12 VmRSS=243.62MB VmSize=2867.15MB goAlloc=20.53MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/inst0_4_after_WASI_Finalize threads=25 VmRSS=246.08MB VmSize=2933.15MB goAlloc=20.56MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/inst0_5_after_imports threads=25 VmRSS=246.41MB VmSize=2933.15MB goAlloc=20.59MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/inst0_6_after_NewInstance threads=25 VmRSS=251.20MB VmSize=9077.15MB goAlloc=20.60MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/inst0_7_after_WASI_Init threads=25 VmRSS=254.59MB VmSize=9078.22MB goAlloc=20.61MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/create_done_0 threads=25 VmRSS=254.60MB VmSize=9078.22MB goAlloc=20.62MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/create_done_1 threads=38 VmRSS=258.94MB VmSize=16080.27MB goAlloc=20.64MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/peak_all_alive threads=38 VmRSS=258.94MB VmSize=16080.27MB goAlloc=20.66MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/after_close_alive_1 threads=38 VmRSS=259.01MB VmSize=16080.34MB goAlloc=20.67MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/after_close_alive_0 threads=38 VmRSS=259.01MB VmSize=16080.34MB goAlloc=20.68MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c1/after_shrink_zero threads=38 VmRSS=259.02MB VmSize=16080.34MB goAlloc=20.69MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c2/create_done_0 threads=51 VmRSS=263.37MB VmSize=23082.39MB goAlloc=20.71MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c2/create_done_1 threads=64 VmRSS=267.74MB VmSize=30084.44MB goAlloc=20.74MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c2/peak_all_alive threads=64 VmRSS=267.75MB VmSize=30084.44MB goAlloc=20.75MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c2/after_close_alive_1 threads=64 VmRSS=267.76MB VmSize=30084.44MB goAlloc=20.76MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c2/after_close_alive_0 threads=64 VmRSS=267.78MB VmSize=30084.44MB goAlloc=20.77MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/c2/after_shrink_zero threads=64 VmRSS=267.80MB VmSize=30084.44MB goAlloc=20.78MB goSys=37.90MB goroutine=2 numGC=4
+  fact-go/9_after_module_store_close threads=64 VmRSS=267.80MB VmSize=30084.44MB goAlloc=20.79MB goSys=37.90MB goroutine=2 numGC=4
+delta vs previous step:
+  Δfact-go/1_after_engine_store threads=+0 VmRSS=+1.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.845966ms
+  Δfact-go/2_after_validate     threads=+1 VmRSS=+15.03MB VmSize=+76.90MB goAlloc=+4.60MB goSys=+8.25MB goroutine=+0 elapsed=324.760774ms
+  Δfact-go/3_after_NewModule    threads=+0 VmRSS=+173.09MB VmSize=+798.27MB goAlloc=+9.36MB goSys=+8.00MB goroutine=+0 elapsed=766.692059ms
+  Δfact-go/c1/inst0_4_after_WASI_Finalize threads=+13 VmRSS=+2.46MB VmSize=+66.00MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=302.06216ms
+  Δfact-go/c1/inst0_5_after_imports threads=+0 VmRSS=+0.32MB VmSize=+0.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=300.836091ms
+  Δfact-go/c1/inst0_6_after_NewInstance threads=+0 VmRSS=+4.79MB VmSize=+6144.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=305.446089ms
+  Δfact-go/c1/inst0_7_after_WASI_Init threads=+0 VmRSS=+3.39MB VmSize=+1.07MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=302.240809ms
+  Δfact-go/c1/create_done_0     threads=+0 VmRSS=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=188.979µs
+  Δfact-go/c1/create_done_1     threads=+13 VmRSS=+4.34MB VmSize=+7002.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.205529595s
+  Δfact-go/c1/peak_all_alive    threads=+0 VmRSS=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=232.835µs
+  Δfact-go/c1/after_close_alive_1 threads=+0 VmRSS=+0.07MB VmSize=+0.07MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=300.793488ms
+  Δfact-go/c1/after_close_alive_0 threads=+0 VmRSS=+0.00MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=300.838377ms
+  Δfact-go/c1/after_shrink_zero threads=+0 VmRSS=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=251.801µs
+  Δfact-go/c2/create_done_0     threads=+13 VmRSS=+4.35MB VmSize=+7002.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.206324421s
+  Δfact-go/c2/create_done_1     threads=+13 VmRSS=+4.37MB VmSize=+7002.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.20657527s
+  Δfact-go/c2/peak_all_alive    threads=+0 VmRSS=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=278.868µs
+  Δfact-go/c2/after_close_alive_1 threads=+0 VmRSS=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=300.832183ms
+  Δfact-go/c2/after_close_alive_0 threads=+0 VmRSS=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.067972ms
+  Δfact-go/c2/after_shrink_zero threads=+0 VmRSS=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=253.802µs
+  Δfact-go/9_after_module_store_close threads=+0 VmRSS=+0.01MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=300.593153ms
+delta vs baseline:
+  Δfact-go/1_after_engine_store threads=+0 VmRSS=+1.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=304.845966ms
+  Δfact-go/2_after_validate     threads=+1 VmRSS=+16.05MB VmSize=+76.90MB goAlloc=+4.62MB goSys=+8.25MB goroutine=+0 elapsed=629.60674ms
+  Δfact-go/3_after_NewModule    threads=+1 VmRSS=+189.14MB VmSize=+875.17MB goAlloc=+13.97MB goSys=+16.25MB goroutine=+0 elapsed=1.396298799s
+  Δfact-go/c1/inst0_4_after_WASI_Finalize threads=+14 VmRSS=+191.61MB VmSize=+941.18MB goAlloc=+14.01MB goSys=+16.25MB goroutine=+0 elapsed=1.698360959s
+  Δfact-go/c1/inst0_5_after_imports threads=+14 VmRSS=+191.93MB VmSize=+941.18MB goAlloc=+14.03MB goSys=+16.25MB goroutine=+0 elapsed=1.99919705s
+  Δfact-go/c1/inst0_6_after_NewInstance threads=+14 VmRSS=+196.72MB VmSize=+7085.18MB goAlloc=+14.04MB goSys=+16.25MB goroutine=+0 elapsed=2.304643139s
+  Δfact-go/c1/inst0_7_after_WASI_Init threads=+14 VmRSS=+200.12MB VmSize=+7086.25MB goAlloc=+14.05MB goSys=+16.25MB goroutine=+0 elapsed=2.606883948s
+  Δfact-go/c1/create_done_0     threads=+14 VmRSS=+200.12MB VmSize=+7086.25MB goAlloc=+14.06MB goSys=+16.25MB goroutine=+0 elapsed=2.607072927s
+  Δfact-go/c1/create_done_1     threads=+27 VmRSS=+204.46MB VmSize=+14088.30MB goAlloc=+14.08MB goSys=+16.25MB goroutine=+0 elapsed=3.812602522s
+  Δfact-go/c1/peak_all_alive    threads=+27 VmRSS=+204.46MB VmSize=+14088.30MB goAlloc=+14.10MB goSys=+16.25MB goroutine=+0 elapsed=3.812835357s
+  Δfact-go/c1/after_close_alive_1 threads=+27 VmRSS=+204.53MB VmSize=+14088.36MB goAlloc=+14.11MB goSys=+16.25MB goroutine=+0 elapsed=4.113628845s
+  Δfact-go/c1/after_close_alive_0 threads=+27 VmRSS=+204.53MB VmSize=+14088.36MB goAlloc=+14.12MB goSys=+16.25MB goroutine=+0 elapsed=4.414467222s
+  Δfact-go/c1/after_shrink_zero threads=+27 VmRSS=+204.55MB VmSize=+14088.36MB goAlloc=+14.13MB goSys=+16.25MB goroutine=+0 elapsed=4.414719023s
+  Δfact-go/c2/create_done_0     threads=+40 VmRSS=+208.89MB VmSize=+21090.41MB goAlloc=+14.15MB goSys=+16.25MB goroutine=+0 elapsed=5.621043444s
+  Δfact-go/c2/create_done_1     threads=+53 VmRSS=+213.26MB VmSize=+28092.46MB goAlloc=+14.18MB goSys=+16.25MB goroutine=+0 elapsed=6.827618714s
+  Δfact-go/c2/peak_all_alive    threads=+53 VmRSS=+213.27MB VmSize=+28092.46MB goAlloc=+14.19MB goSys=+16.25MB goroutine=+0 elapsed=6.827897582s
+  Δfact-go/c2/after_close_alive_1 threads=+53 VmRSS=+213.28MB VmSize=+28092.46MB goAlloc=+14.20MB goSys=+16.25MB goroutine=+0 elapsed=7.128729765s
+  Δfact-go/c2/after_close_alive_0 threads=+53 VmRSS=+213.30MB VmSize=+28092.46MB goAlloc=+14.21MB goSys=+16.25MB goroutine=+0 elapsed=7.429797737s
+  Δfact-go/c2/after_shrink_zero threads=+53 VmRSS=+213.32MB VmSize=+28092.46MB goAlloc=+14.23MB goSys=+16.25MB goroutine=+0 elapsed=7.430051539s
+  Δfact-go/9_after_module_store_close threads=+53 VmRSS=+213.33MB VmSize=+28092.46MB goAlloc=+14.24MB goSys=+16.25MB goroutine=+0 elapsed=7.730644692s
+
+=== all contracts finished ===

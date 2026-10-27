@@ -1,0 +1,134 @@
+=== E_CNY compiler threads: 10 rounds average ===
+time=2026-09-07T11:37:24+0800
+log_file=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/resource_probes/logs/resource_probe_compiler_threads_ecny_avg10_20260907.log
+rounds=10
+threads=[12, 4, 2, 1]
+contracts=['./testdata/synthetic/E_CNY-go.wasm', './testdata/synthetic/E_CNY_mock_1.wasm']
+
+--- E_CNY-go threads=12 (10 rounds) ---
+  r01/10 compile_s=0.394728 ΔVmRSS=+183.7266 ΔAnon=+178.6133 subprocess=4.86s  [1/80]
+  r02/10 compile_s=0.412029 ΔVmRSS=+183.7188 ΔAnon=+178.7109 subprocess=4.16s  [2/80]
+  r03/10 compile_s=0.399154 ΔVmRSS=+182.5742 ΔAnon=+177.5938 subprocess=4.16s  [3/80]
+  r04/10 compile_s=0.420198 ΔVmRSS=+183.7383 ΔAnon=+178.7500 subprocess=4.11s  [4/80]
+  r05/10 compile_s=0.408005 ΔVmRSS=+184.0273 ΔAnon=+179.0430 subprocess=4.12s  [5/80]
+  r06/10 compile_s=0.403006 ΔVmRSS=+183.4922 ΔAnon=+178.5117 subprocess=4.11s  [6/80]
+  r07/10 compile_s=0.403944 ΔVmRSS=+183.5938 ΔAnon=+178.6211 subprocess=4.19s  [7/80]
+  r08/10 compile_s=0.391716 ΔVmRSS=+183.8984 ΔAnon=+178.9297 subprocess=4.11s  [8/80]
+  r09/10 compile_s=0.413486 ΔVmRSS=+183.1641 ΔAnon=+178.1875 subprocess=4.11s  [9/80]
+  r10/10 compile_s=0.432459 ΔVmRSS=+182.9375 ΔAnon=+177.9727 subprocess=4.14s  [10/80]
+  AVG compile_s=0.407873 (σ=0.011637) ΔVmRSS=+183.4871 (σ=0.4343) ΔAnon=+178.4934
+
+--- E_CNY-go threads=4 (10 rounds) ---
+  r01/10 compile_s=0.724343 ΔVmRSS=+114.7305 ΔAnon=+109.7305 subprocess=4.39s  [11/80]
+  r02/10 compile_s=0.718647 ΔVmRSS=+114.4609 ΔAnon=+109.4609 subprocess=4.40s  [12/80]
+  r03/10 compile_s=0.702916 ΔVmRSS=+114.6719 ΔAnon=+109.6992 subprocess=4.39s  [13/80]
+  r04/10 compile_s=0.712025 ΔVmRSS=+114.7969 ΔAnon=+109.8203 subprocess=4.42s  [14/80]
+  r05/10 compile_s=0.683879 ΔVmRSS=+114.1680 ΔAnon=+109.2109 subprocess=4.37s  [15/80]
+  r06/10 compile_s=0.702219 ΔVmRSS=+114.5898 ΔAnon=+109.5898 subprocess=4.44s  [16/80]
+  r07/10 compile_s=0.721535 ΔVmRSS=+114.9570 ΔAnon=+109.9570 subprocess=4.42s  [17/80]
+  r08/10 compile_s=0.706697 ΔVmRSS=+114.1953 ΔAnon=+109.2344 subprocess=4.44s  [18/80]
+  r09/10 compile_s=0.709528 ΔVmRSS=+114.7773 ΔAnon=+109.7695 subprocess=4.38s  [19/80]
+  r10/10 compile_s=0.704401 ΔVmRSS=+114.5312 ΔAnon=+109.5469 subprocess=4.41s  [20/80]
+  AVG compile_s=0.708619 (σ=0.011109) ΔVmRSS=+114.5879 (σ=0.2435) ΔAnon=+109.6019
+
+--- E_CNY-go threads=2 (10 rounds) ---
+  r01/10 compile_s=1.294663 ΔVmRSS=+94.1523 ΔAnon=+89.1836 subprocess=4.98s  [21/80]
+  r02/10 compile_s=1.257198 ΔVmRSS=+94.0508 ΔAnon=+89.0898 subprocess=4.92s  [22/80]
+  r03/10 compile_s=1.266367 ΔVmRSS=+94.0625 ΔAnon=+89.0625 subprocess=4.98s  [23/80]
+  r04/10 compile_s=1.295604 ΔVmRSS=+93.8398 ΔAnon=+88.8555 subprocess=4.99s  [24/80]
+  r05/10 compile_s=1.272883 ΔVmRSS=+93.9609 ΔAnon=+88.9609 subprocess=5.02s  [25/80]
+  r06/10 compile_s=1.277253 ΔVmRSS=+93.8320 ΔAnon=+88.8594 subprocess=4.97s  [26/80]
+  r07/10 compile_s=1.272016 ΔVmRSS=+93.8984 ΔAnon=+88.8828 subprocess=4.98s  [27/80]
+  r08/10 compile_s=1.254996 ΔVmRSS=+94.1328 ΔAnon=+89.1680 subprocess=4.99s  [28/80]
+  r09/10 compile_s=1.363607 ΔVmRSS=+93.8398 ΔAnon=+88.8633 subprocess=5.07s  [29/80]
+  r10/10 compile_s=1.272895 ΔVmRSS=+94.0312 ΔAnon=+89.0625 subprocess=4.95s  [30/80]
+  AVG compile_s=1.282748 (σ=0.029793) ΔVmRSS=+93.9800 (σ=0.1165) ΔAnon=+88.9988
+
+--- E_CNY-go threads=1 (10 rounds) ---
+  r01/10 compile_s=2.372713 ΔVmRSS=+93.3594 ΔAnon=+88.3633 subprocess=6.09s  [31/80]
+  r02/10 compile_s=2.462125 ΔVmRSS=+93.3477 ΔAnon=+88.3828 subprocess=6.15s  [32/80]
+  r03/10 compile_s=2.367105 ΔVmRSS=+93.3555 ΔAnon=+88.3867 subprocess=6.05s  [33/80]
+  r04/10 compile_s=2.361177 ΔVmRSS=+93.3906 ΔAnon=+88.3906 subprocess=6.05s  [34/80]
+  r05/10 compile_s=2.368964 ΔVmRSS=+93.3789 ΔAnon=+88.3789 subprocess=6.13s  [35/80]
+  r06/10 compile_s=2.356639 ΔVmRSS=+93.3633 ΔAnon=+88.3750 subprocess=6.04s  [36/80]
+  r07/10 compile_s=2.359456 ΔVmRSS=+93.3555 ΔAnon=+88.3594 subprocess=6.04s  [37/80]
+  r08/10 compile_s=2.360027 ΔVmRSS=+93.3438 ΔAnon=+88.3672 subprocess=6.02s  [38/80]
+  r09/10 compile_s=2.359384 ΔVmRSS=+93.3516 ΔAnon=+88.3594 subprocess=6.10s  [39/80]
+  r10/10 compile_s=2.357420 ΔVmRSS=+93.0156 ΔAnon=+88.0625 subprocess=6.05s  [40/80]
+  AVG compile_s=2.372501 (σ=0.030297) ΔVmRSS=+93.3262 (σ=0.1044) ΔAnon=+88.3426
+
+--- E_CNY_mock_1 threads=12 (10 rounds) ---
+  r01/10 compile_s=0.538328 ΔVmRSS=+219.8398 ΔAnon=+214.8477 subprocess=4.25s  [41/80]
+  r02/10 compile_s=0.686649 ΔVmRSS=+220.8594 ΔAnon=+215.8594 subprocess=4.46s  [42/80]
+  r03/10 compile_s=0.617132 ΔVmRSS=+221.2773 ΔAnon=+216.2891 subprocess=4.53s  [43/80]
+  r04/10 compile_s=0.547299 ΔVmRSS=+220.6055 ΔAnon=+215.6055 subprocess=4.46s  [44/80]
+  r05/10 compile_s=0.637974 ΔVmRSS=+220.9648 ΔAnon=+216.0000 subprocess=4.34s  [45/80]
+  r06/10 compile_s=0.554618 ΔVmRSS=+219.8945 ΔAnon=+214.8867 subprocess=4.28s  [46/80]
+  r07/10 compile_s=0.528367 ΔVmRSS=+221.8945 ΔAnon=+216.8867 subprocess=4.30s  [47/80]
+  r08/10 compile_s=0.550292 ΔVmRSS=+221.2266 ΔAnon=+216.2539 subprocess=4.27s  [48/80]
+  r09/10 compile_s=0.538518 ΔVmRSS=+222.9727 ΔAnon=+217.9648 subprocess=4.29s  [49/80]
+  r10/10 compile_s=0.526551 ΔVmRSS=+223.7422 ΔAnon=+218.7461 subprocess=4.27s  [50/80]
+  AVG compile_s=0.572573 (σ=0.052095) ΔVmRSS=+221.3277 (σ=1.1837) ΔAnon=+216.3340
+
+--- E_CNY_mock_1 threads=4 (10 rounds) ---
+  r01/10 compile_s=0.950528 ΔVmRSS=+137.2305 ΔAnon=+132.2578 subprocess=4.72s  [51/80]
+  r02/10 compile_s=0.994039 ΔVmRSS=+137.0352 ΔAnon=+132.0586 subprocess=4.71s  [52/80]
+  r03/10 compile_s=0.951908 ΔVmRSS=+137.8008 ΔAnon=+132.8281 subprocess=4.68s  [53/80]
+  r04/10 compile_s=0.982539 ΔVmRSS=+137.2070 ΔAnon=+132.2227 subprocess=4.73s  [54/80]
+  r05/10 compile_s=0.946460 ΔVmRSS=+137.4375 ΔAnon=+132.4688 subprocess=4.68s  [55/80]
+  r06/10 compile_s=0.948945 ΔVmRSS=+137.4492 ΔAnon=+132.4492 subprocess=4.70s  [56/80]
+  r07/10 compile_s=0.936073 ΔVmRSS=+137.8242 ΔAnon=+132.8477 subprocess=4.64s  [57/80]
+  r08/10 compile_s=0.938439 ΔVmRSS=+137.3945 ΔAnon=+132.4219 subprocess=4.67s  [58/80]
+  r09/10 compile_s=0.978065 ΔVmRSS=+137.7070 ΔAnon=+132.7031 subprocess=4.72s  [59/80]
+  r10/10 compile_s=0.969085 ΔVmRSS=+137.1328 ΔAnon=+132.1250 subprocess=4.64s  [60/80]
+  AVG compile_s=0.959608 (σ=0.018900) ΔVmRSS=+137.4219 (σ=0.2654) ΔAnon=+132.4383
+
+--- E_CNY_mock_1 threads=2 (10 rounds) ---
+  r01/10 compile_s=1.713971 ΔVmRSS=+123.6953 ΔAnon=+118.6992 subprocess=5.43s  [61/80]
+  r02/10 compile_s=1.703602 ΔVmRSS=+123.6758 ΔAnon=+118.6758 subprocess=5.38s  [62/80]
+  r03/10 compile_s=1.680288 ΔVmRSS=+123.7500 ΔAnon=+118.7422 subprocess=5.42s  [63/80]
+  r04/10 compile_s=1.666935 ΔVmRSS=+123.7188 ΔAnon=+118.7539 subprocess=5.40s  [64/80]
+  r05/10 compile_s=1.697741 ΔVmRSS=+123.7070 ΔAnon=+118.7227 subprocess=5.42s  [65/80]
+  r06/10 compile_s=1.699985 ΔVmRSS=+123.7734 ΔAnon=+118.7891 subprocess=5.44s  [66/80]
+  r07/10 compile_s=1.689193 ΔVmRSS=+123.7109 ΔAnon=+118.7266 subprocess=5.38s  [67/80]
+  r08/10 compile_s=1.707638 ΔVmRSS=+123.7266 ΔAnon=+118.7188 subprocess=5.43s  [68/80]
+  r09/10 compile_s=1.668245 ΔVmRSS=+123.8438 ΔAnon=+118.8633 subprocess=5.37s  [69/80]
+  r10/10 compile_s=1.673088 ΔVmRSS=+123.7227 ΔAnon=+118.7227 subprocess=5.41s  [70/80]
+  AVG compile_s=1.690069 (σ=0.016176) ΔVmRSS=+123.7324 (σ=0.0452) ΔAnon=+118.7414
+
+--- E_CNY_mock_1 threads=1 (10 rounds) ---
+  r01/10 compile_s=3.238037 ΔVmRSS=+123.4219 ΔAnon=+118.4492 subprocess=6.95s  [71/80]
+  r02/10 compile_s=3.200087 ΔVmRSS=+123.3828 ΔAnon=+118.3945 subprocess=6.93s  [72/80]
+  r03/10 compile_s=3.249491 ΔVmRSS=+123.3984 ΔAnon=+118.3906 subprocess=7.00s  [73/80]
+  r04/10 compile_s=3.228665 ΔVmRSS=+123.3867 ΔAnon=+118.3789 subprocess=6.94s  [74/80]
+  r05/10 compile_s=3.157985 ΔVmRSS=+123.3320 ΔAnon=+118.3672 subprocess=6.91s  [75/80]
+  r06/10 compile_s=3.175905 ΔVmRSS=+123.4219 ΔAnon=+118.4453 subprocess=6.92s  [76/80]
+  r07/10 compile_s=3.473490 ΔVmRSS=+123.3398 ΔAnon=+118.3477 subprocess=7.20s  [77/80]
+  r08/10 compile_s=3.379699 ΔVmRSS=+123.3320 ΔAnon=+118.3672 subprocess=7.32s  [78/80]
+  r09/10 compile_s=3.312346 ΔVmRSS=+123.3125 ΔAnon=+118.3164 subprocess=7.12s  [79/80]
+  r10/10 compile_s=3.337684 ΔVmRSS=+123.3555 ΔAnon=+118.3594 subprocess=7.12s  [80/80]
+  AVG compile_s=3.275339 (σ=0.094325) ΔVmRSS=+123.3683 (σ=0.0373) ΔAnon=+118.3816
+
+=== SUMMARY AVG (n=10) ===
+contract | threads | wasm_MB | compile_s_avg | compile_s_σ | ΔVmRSS_avg | ΔVmRSS_σ | ΔAnon_avg
+E_CNY-go | 12 | 4.97 | 0.408 | 0.012 | +183.49 | 0.43 | +178.49
+E_CNY-go | 4 | 4.97 | 0.709 | 0.011 | +114.59 | 0.24 | +109.60
+E_CNY-go | 2 | 4.97 | 1.283 | 0.030 | +93.98 | 0.12 | +89.00
+E_CNY-go | 1 | 4.97 | 2.373 | 0.030 | +93.33 | 0.10 | +88.34
+E_CNY_mock_1 | 12 | 6.77 | 0.573 | 0.052 | +221.33 | 1.18 | +216.33
+E_CNY_mock_1 | 4 | 6.77 | 0.960 | 0.019 | +137.42 | 0.27 | +132.44
+E_CNY_mock_1 | 2 | 6.77 | 1.690 | 0.016 | +123.73 | 0.05 | +118.74
+E_CNY_mock_1 | 1 | 6.77 | 3.275 | 0.094 | +123.37 | 0.04 | +118.38
+
+=== PIVOT: compile_s AVG ===
+contract | t=12 | t=4 | t=2 | t=1
+E_CNY-go | 0.408 | 0.709 | 1.283 | 2.373
+E_CNY_mock_1 | 0.573 | 0.960 | 1.690 | 3.275
+
+=== PIVOT: ΔVmRSS_MB AVG ===
+contract | t=12 | t=4 | t=2 | t=1
+E_CNY-go | +183.5 | +114.6 | +94.0 | +93.3
+E_CNY_mock_1 | +221.3 | +137.4 | +123.7 | +123.4
+
+total_elapsed=411.6s
+log_file=/home/projects/CVW/chainmaker/chainmaker-vm-wasmer/vm-wasmer/resource_probes/logs/resource_probe_compiler_threads_ecny_avg10_20260907.log

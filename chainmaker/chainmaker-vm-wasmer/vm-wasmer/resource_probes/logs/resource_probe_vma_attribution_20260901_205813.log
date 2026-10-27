@@ -1,0 +1,131 @@
+=== TestVMAAttributionCreateDestroy ===
+time=2026-09-01T20:58:13+08:00 wasm=./testdata/fact-go.wasm n=10 settle=500ms
+[0_after_module] proc 0_after_module threads=26 VmRSS=348.38MB Anon=290.70MB VmSize=3339.11MB goAlloc=11.82MB goSys=30.33MB goroutine=2 numGC=29 smaps_rss=348.07MB smaps_anon=290.39MB
+[create_01] proc create_01 threads=26 VmRSS=347.73MB Anon=290.05MB VmSize=9484.18MB goAlloc=7.24MB goSys=30.33MB goroutine=2 numGC=30 smaps_rss=347.70MB smaps_anon=290.02MB
+  CREATE_01 smaps Δrss=-0.36MB proc VmRSS=-0.66MB Anon=-0.65MB threads=+0 |anon_rw_large=-4.20MB anon_rw_small=+3.83MB|
+    [anon_rw_large] Δrss=-4.20MB after=13.21MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f45416f000-73f4541bf000 
+    [anon_rw_small] Δrss=+0.00MB after=0.05MB | 73f46c007000-73f46c057000 
+[destroy_01] proc destroy_01 threads=26 VmRSS=344.37MB Anon=286.69MB VmSize=3339.17MB goAlloc=7.82MB goSys=30.33MB goroutine=2 numGC=30 smaps_rss=343.94MB smaps_anon=286.26MB
+  DESTROY_01 smaps Δrss=-3.76MB proc VmRSS=-3.36MB Anon=-3.36MB threads=+0 |anon_rw_small=-3.82MB anon_rw_large=+0.06MB|
+    [anon_rw_large] Δrss=+0.06MB after=13.27MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.36MB | 73f46d59b000-73f46d65b000 
+  NET_01 smaps Δrss=-4.12MB proc VmRSS=-4.02MB Anon=-4.02MB |anon_rw_large=-4.13MB anon_rw_small=+0.01MB|
+[create_02] proc create_02 threads=26 VmRSS=343.89MB Anon=286.21MB VmSize=9483.17MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=31 smaps_rss=343.63MB smaps_anon=285.95MB
+  CREATE_02 smaps Δrss=-0.31MB proc VmRSS=-0.48MB Anon=-0.47MB threads=+0 |anon_rw_large=-4.14MB anon_rw_small=+3.83MB|
+    [anon_rw_large] Δrss=-4.14MB after=9.13MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.01MB | 73f45416f000-73f4541bf000 
+    [anon_rw_small] Δrss=+0.00MB after=0.69MB | 73f46c459000-73f46c559000 
+[destroy_02] proc destroy_02 threads=26 VmRSS=340.10MB Anon=282.42MB VmSize=3338.17MB goAlloc=7.84MB goSys=30.33MB goroutine=2 numGC=31 smaps_rss=340.08MB smaps_anon=282.40MB
+  DESTROY_02 smaps Δrss=-3.55MB proc VmRSS=-3.79MB Anon=-3.80MB threads=+0 |anon_rw_small=-3.82MB anon_rw_large=+0.27MB|
+    [anon_rw_large] Δrss=+0.27MB after=9.41MB | c000000000-c001800000 
+  NET_02 smaps Δrss=-3.86MB proc VmRSS=-4.27MB Anon=-4.27MB |anon_rw_large=-3.87MB anon_rw_small=+0.00MB|
+[create_03] proc create_03 threads=26 VmRSS=344.32MB Anon=286.64MB VmSize=9483.17MB goAlloc=7.27MB goSys=30.33MB goroutine=2 numGC=32 smaps_rss=344.32MB smaps_anon=286.64MB
+  CREATE_03 smaps Δrss=+4.25MB proc VmRSS=+4.22MB Anon=+4.22MB threads=+0 |anon_rw_small=+3.85MB anon_rw_large=+0.39MB|
+    [anon_rw_large] Δrss=+4.80MB after=4.80MB | 73f464000000-73f4644cc000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.02MB after=0.14MB | 73f456213000-73f456253000 
+    [anon_rw_large] Δrss=+0.01MB after=9.42MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+    [anon_rw_small] Δrss=+0.00MB after=0.37MB | 73f46d59b000-73f46d65b000 
+    [anon_rw_small] Δrss=+0.00MB after=0.35MB | 73f46e65d000-73f46e7fd000 
+[destroy_03] proc destroy_03 threads=26 VmRSS=340.52MB Anon=282.84MB VmSize=3338.17MB goAlloc=7.85MB goSys=30.33MB goroutine=2 numGC=32 smaps_rss=340.50MB smaps_anon=282.82MB
+  DESTROY_03 smaps Δrss=-3.82MB proc VmRSS=-3.81MB Anon=-3.81MB threads=+0 |anon_rw_small=-3.82MB|
+    [anon_rw_small] Δrss=+0.00MB after=0.37MB | 73f46d59b000-73f46d65b000 
+  NET_03 smaps Δrss=+0.42MB proc VmRSS=+0.41MB Anon=+0.41MB |anon_rw_large=+0.39MB anon_rw_small=+0.03MB|
+[create_04] proc create_04 threads=26 VmRSS=344.37MB Anon=286.69MB VmSize=9483.17MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=33 smaps_rss=344.37MB smaps_anon=286.69MB
+  CREATE_04 smaps Δrss=+3.87MB proc VmRSS=+3.85MB Anon=+3.85MB threads=+0 |anon_rw_small=+3.84MB anon_rw_large=+0.03MB|
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_large] Δrss=+0.03MB after=9.45MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.36MB | 73f46e65d000-73f46e7fd000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+    [anon_rw_small] Δrss=+0.00MB after=0.14MB | 73f456213000-73f456253000 
+    [anon_rw_small] Δrss=+0.00MB after=0.70MB | 73f46c459000-73f46c559000 
+[destroy_04] proc destroy_04 threads=26 VmRSS=340.55MB Anon=282.87MB VmSize=3338.17MB goAlloc=7.85MB goSys=30.33MB goroutine=2 numGC=33 smaps_rss=340.55MB smaps_anon=282.87MB
+  DESTROY_04 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=+0 |anon_rw_small=-3.82MB anon_rw_large=+0.00MB|
+    [anon_rw_large] Δrss=+0.00MB after=9.45MB | c000000000-c001800000 
+  NET_04 smaps Δrss=+0.05MB proc VmRSS=+0.03MB Anon=+0.03MB |anon_rw_large=+0.03MB anon_rw_small=+0.02MB|
+[create_05] proc create_05 threads=26 VmRSS=348.81MB Anon=291.13MB VmSize=9483.17MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=34 smaps_rss=348.80MB smaps_anon=291.12MB
+  CREATE_05 smaps Δrss=+8.26MB proc VmRSS=+8.27MB Anon=+8.27MB threads=+0 |anon_rw_large=+4.41MB anon_rw_small=+3.84MB|
+    [anon_rw_large] Δrss=+4.41MB after=4.41MB | 73f448000000-73f44846a000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.37MB | 73f46e65d000-73f46e7fd000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 73f456fff000-73f4577ff000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+[destroy_05] proc destroy_05 threads=26 VmRSS=344.99MB Anon=287.31MB VmSize=3338.17MB goAlloc=7.88MB goSys=30.33MB goroutine=2 numGC=34 smaps_rss=344.99MB smaps_anon=287.31MB
+  DESTROY_05 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=+0 |anon_rw_small=-3.82MB anon_rw_large=+0.00MB|
+    [anon_rw_small] Δrss=+0.01MB after=0.38MB | 73f46e65d000-73f46e7fd000 
+    [anon_rw_large] Δrss=+0.00MB after=9.45MB | c000000000-c001800000 
+  NET_05 smaps Δrss=+4.44MB proc VmRSS=+4.44MB Anon=+4.44MB |anon_rw_large=+4.42MB anon_rw_small=+0.02MB|
+[create_06] proc create_06 threads=26 VmRSS=348.82MB Anon=291.14MB VmSize=9483.17MB goAlloc=7.31MB goSys=30.33MB goroutine=2 numGC=35 smaps_rss=348.82MB smaps_anon=291.14MB
+  CREATE_06 smaps Δrss=+3.83MB proc VmRSS=+3.83MB Anon=+3.83MB threads=+0 |anon_rw_small=+3.83MB|
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f4540e1000-73f4540f1000 
+[destroy_06] proc destroy_06 threads=26 VmRSS=345.00MB Anon=287.32MB VmSize=3338.17MB goAlloc=7.88MB goSys=30.33MB goroutine=2 numGC=35 smaps_rss=344.99MB smaps_anon=287.31MB
+  DESTROY_06 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=+0 |anon_rw_small=-3.82MB|
+  NET_06 smaps Δrss=+0.00MB proc VmRSS=+0.01MB Anon=+0.01MB |anon_rw_small=+0.00MB|
+[create_07] proc create_07 threads=26 VmRSS=350.75MB Anon=293.07MB VmSize=9483.17MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=36 smaps_rss=350.75MB smaps_anon=293.07MB
+  CREATE_07 smaps Δrss=+5.76MB proc VmRSS=+5.75MB Anon=+5.75MB threads=+0 |anon_rw_small=+3.84MB anon_rw_large=+1.93MB|
+    [anon_rw_large] Δrss=+38.73MB after=38.73MB | 73f400000000-73f4026bc000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.01MB after=0.38MB | 73f46e65d000-73f46e7fd000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+    [anon_rw_small] Δrss=+0.00MB after=0.70MB | 73f46c459000-73f46c559000 
+[destroy_07] proc destroy_07 threads=26 VmRSS=346.93MB Anon=289.25MB VmSize=3338.17MB goAlloc=7.85MB goSys=30.33MB goroutine=2 numGC=36 smaps_rss=346.93MB smaps_anon=289.25MB
+  DESTROY_07 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=+0 |anon_rw_small=-3.82MB|
+    [anon_rw_small] Δrss=+0.00MB after=0.39MB | 73f46e65d000-73f46e7fd000 
+  NET_07 smaps Δrss=+1.94MB proc VmRSS=+1.93MB Anon=+1.93MB |anon_rw_large=+1.93MB anon_rw_small=+0.02MB|
+[create_08] proc create_08 threads=26 VmRSS=350.76MB Anon=293.08MB VmSize=9483.17MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=37 smaps_rss=350.76MB smaps_anon=293.08MB
+  CREATE_08 smaps Δrss=+3.83MB proc VmRSS=+3.83MB Anon=+3.83MB threads=+0 |anon_rw_small=+3.83MB|
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40b100000-73f40b200000 
+[destroy_08] proc destroy_08 threads=26 VmRSS=346.95MB Anon=289.27MB VmSize=3339.17MB goAlloc=7.85MB goSys=30.33MB goroutine=2 numGC=37 smaps_rss=346.95MB smaps_anon=289.27MB
+  DESTROY_08 smaps Δrss=-3.81MB proc VmRSS=-3.81MB Anon=-3.81MB threads=+0 |anon_rw_small=-3.81MB|
+    [anon_rw_small] Δrss=+0.01MB after=0.39MB | 73f46e65d000-73f46e7fd000 
+    [anon_rw_small] Δrss=+0.00MB after=0.15MB | 73f456213000-73f456253000 
+  NET_08 smaps Δrss=+0.02MB proc VmRSS=+0.02MB Anon=+0.02MB |anon_rw_small=+0.02MB|
+[create_09] proc create_09 threads=26 VmRSS=355.18MB Anon=297.50MB VmSize=9484.18MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=38 smaps_rss=355.18MB smaps_anon=297.50MB
+  CREATE_09 smaps Δrss=+8.23MB proc VmRSS=+8.23MB Anon=+8.23MB threads=+0 |anon_rw_large=+4.41MB anon_rw_small=+3.82MB|
+    [anon_rw_large] Δrss=+4.41MB after=4.41MB | 73f460000000-73f460469000 
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40afff000-73f40b0ff000 
+    [anon_rw_small] Δrss=+0.00MB after=0.02MB | 73f46efff000-73f46f7ff000 
+[destroy_09] proc destroy_09 threads=26 VmRSS=351.36MB Anon=293.68MB VmSize=3339.17MB goAlloc=7.85MB goSys=30.33MB goroutine=2 numGC=38 smaps_rss=351.36MB smaps_anon=293.68MB
+  DESTROY_09 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=+0 |anon_rw_small=-3.82MB|
+  NET_09 smaps Δrss=+4.41MB proc VmRSS=+4.41MB Anon=+4.41MB |anon_rw_large=+4.41MB anon_rw_small=-0.00MB|
+[create_10] proc create_10 threads=26 VmRSS=355.19MB Anon=297.51MB VmSize=9484.18MB goAlloc=7.28MB goSys=30.33MB goroutine=2 numGC=39 smaps_rss=355.19MB smaps_anon=297.51MB
+  CREATE_10 smaps Δrss=+3.84MB proc VmRSS=+3.84MB Anon=+3.84MB threads=+0 |anon_rw_small=+3.83MB anon_rw_large=+0.01MB|
+    [anon_rw_small] Δrss=+3.82MB after=3.82MB | 73f270000000-73f270800000 
+    [anon_rw_large] Δrss=+0.01MB after=9.46MB | c000000000-c001800000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f40afff000-73f40b0ff000 
+    [anon_rw_small] Δrss=+0.00MB after=0.40MB | 73f46e65d000-73f46e7fd000 
+[destroy_10] proc destroy_10 threads=26 VmRSS=351.37MB Anon=293.69MB VmSize=3339.17MB goAlloc=7.85MB goSys=30.33MB goroutine=2 numGC=39 smaps_rss=351.37MB smaps_anon=293.69MB
+  DESTROY_10 smaps Δrss=-3.82MB proc VmRSS=-3.82MB Anon=-3.82MB threads=+0 |anon_rw_small=-3.82MB|
+  NET_10 smaps Δrss=+0.01MB proc VmRSS=+0.01MB Anon=+0.01MB |anon_rw_large=+0.01MB anon_rw_small=+0.00MB|
+[final_after_n_cycles] proc final_after_n_cycles threads=26 VmRSS=351.87MB Anon=294.19MB VmSize=3339.17MB goAlloc=8.48MB goSys=30.33MB goroutine=2 numGC=39 smaps_rss=351.41MB smaps_anon=293.73MB
+
+=== SUMMARY (10 cycles, equal 500ms settle) ===
+AVG per CREATE:  smaps Δrss=+4.12MB proc VmRSS=+4.07MB Δanon=+4.12MB
+AVG per DESTROY: smaps Δrss=-3.79MB proc VmRSS=-3.77MB Δanon=-3.79MB
+AVG per NET:     smaps Δrss=+0.33MB proc VmRSS=+0.30MB (create+destroy residual per cycle)
+CUMULATIVE create categories (RSS):anon_rw_small=+38.34MB anon_rw_large=+2.84MB
+CUMULATIVE destroy categories (RSS):anon_rw_small=-38.22MB anon_rw_large=+0.34MB
+CUMULATIVE net categories (RSS):anon_rw_large=+3.19MB anon_rw_small=+0.11MB
+FINAL vs module baseline: Δrss=+3.34MB Δanon=+3.34MB |anon_rw_large=+3.23MB anon_rw_small=+0.12MB|
+    [anon_rw_large] Δrss=+38.73MB after=38.73MB | 73f400000000-73f4026bc000 
+    [anon_rw_large] Δrss=-7.91MB after=9.50MB | c000000000-c001800000 
+    [anon_rw_large] Δrss=+4.80MB after=4.80MB | 73f464000000-73f4644cc000 
+    [anon_rw_large] Δrss=+4.41MB after=4.41MB | 73f448000000-73f44846a000 
+    [anon_rw_large] Δrss=+4.41MB after=4.41MB | 73f460000000-73f460469000 
+    [anon_rw_small] Δrss=+0.05MB after=0.40MB | 73f46e65d000-73f46e7fd000 
+    [anon_rw_small] Δrss=+0.02MB after=0.15MB | 73f456213000-73f456253000 
+    [anon_rw_small] Δrss=+0.02MB after=0.70MB | 73f46c459000-73f46c559000 
+    [anon_rw_small] Δrss=+0.01MB after=0.37MB | 73f46d59b000-73f46d65b000 
+    [anon_rw_small] Δrss=+0.01MB after=0.01MB | 73f45416f000-73f4541bf000 
+    [anon_rw_small] Δrss=+0.01MB after=0.02MB | 73f456fff000-73f4577ff000 
+    [anon_rw_small] Δrss=+0.00MB after=0.00MB | 73f4540e1000-73f4540f1000 
+log_file=../resource_probes/logs/resource_probe_vma_attribution_20260901_205813.log

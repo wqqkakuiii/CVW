@@ -1,0 +1,28 @@
+=== TestRefAuditAfterPoolClose ===
+time=2026-08-22T21:47:14+08:00
+log_file=./resource_probe_ref_audit_20260822_214714.log
+wasm=./testdata/fact-go.wasm size=4.65MB grow=0 close_engine=true settle=500ms
+
+0_baseline threads=11 VmRSS=53.90MB Anon=11.37MB VmSize=1992.38MB goAlloc=6.52MB goSys=21.90MB goroutine=2 numGC=5
+=== RefRegistry live entries ===
+  (empty — no tracked Go wrappers registered)
+1_after_pool_init threads=24 VmRSS=260.09MB Anon=206.87MB VmSize=9006.39MB goAlloc=6.60MB goSys=37.90MB goroutine=3 numGC=7
+  vs baseline: Δ1_after_pool_init            threads=+13 VmRSS=+206.18MB Anon=+195.50MB VmSize=+7014.01MB goAlloc=+0.07MB goSys=+16.00MB goroutine=+1 elapsed=439.743836ms
+=== RefRegistry live entries ===
+  Engine id=1 ptr=0xc000610228
+  Module id=3 ptr=0xc0003c00c0
+  Store id=2 ptr=0xc000614410
+  WasiEnv id=4 ptr=0xc0004d0198
+counts: Engine=1 Store=1 Module=1 Instance=0 WasiEnv=1 
+explicit engine.Close() after pool close (ref_audit_close_engine=true)
+2_after_pool_close threads=24 VmRSS=241.51MB Anon=188.33MB VmSize=9006.39MB goAlloc=1.91MB goSys=37.90MB goroutine=2 numGC=10
+  vs baseline: Δ2_after_pool_close           threads=+13 VmRSS=+187.61MB Anon=+176.96MB VmSize=+7014.01MB goAlloc=-4.61MB goSys=+16.00MB goroutine=+0 elapsed=944.742963ms
+  vs pool peak: Δ2_after_pool_close           threads=+0 VmRSS=-18.58MB Anon=-18.54MB VmSize=+0.00MB goAlloc=-4.69MB goSys=+0.00MB goroutine=-1 elapsed=504.999127ms
+=== RefRegistry live entries ===
+  (empty — no tracked Go wrappers registered)
+=== Ref audit classification ===
+CATEGORY_GO_REF: CLEAR (no Module/Store/Instance/WasiEnv registered)
+CATEGORY_GO_REF_ENGINE: CLEAR
+CATEGORY_RSS baseline_VmRSS=53.90MB after_close_VmRSS=241.51MB delta=+187.61MB
+CATEGORY_NON_REF_RSS: 187.61MB above baseline with no Module/Store/Instance/WasiEnv refs (mmap/allocator/threads — not Go wrapper refs)
+log_file=./resource_probe_ref_audit_20260822_214714.log

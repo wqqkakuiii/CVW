@@ -1,0 +1,13 @@
+=== TestModuleCompileRSS ===
+time=2026-08-22T21:09:28+08:00
+log_file=./resource_probe_module_20260822_210928.log
+wasm=./testdata/test.wasm size=11.56MB n=1 settle=300ms close_each=true
+focus: ΔRSS of NewModule (wasm_module_new / LLVM compile); no Instance
+
+0_baseline threads=9 VmRSS=50.23MB Anon=7.26MB VmSize=1787.39MB goAlloc=1.90MB goSys=13.33MB goroutine=2 numGC=2
+1_after_engine_store threads=9 VmRSS=52.21MB Anon=7.62MB VmSize=1787.64MB goAlloc=1.90MB goSys=13.33MB goroutine=2 numGC=3
+  Δ1_after_engine_store         threads=+0 VmRSS=+1.98MB Anon=+0.36MB VmSize=+0.25MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=305.495843ms
+2_after_ReadFile threads=10 VmRSS=64.15MB Anon=19.55MB VmSize=1859.89MB goAlloc=13.43MB goSys=25.33MB goroutine=2 numGC=5
+  Δ2_after_ReadFile             threads=+1 VmRSS=+11.94MB Anon=+11.93MB VmSize=+72.25MB goAlloc=+11.53MB goSys=+12.00MB goroutine=+0 elapsed=311.428654ms  (file=11.56MB)
+3_after_ValidateModule threads=11 VmRSS=100.88MB Anon=48.28MB VmSize=1943.96MB goAlloc=13.43MB goSys=49.58MB goroutine=2 numGC=7
+  Δ3_after_ValidateModule       threads=+1 VmRSS=+36.73MB Anon=+28.73MB VmSize=+84.07MB goAlloc=+0.01MB goSys=+24.25MB goroutine=+0 elapsed=356.13668ms

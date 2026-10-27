@@ -1,0 +1,33 @@
+=== TestModuleCompileRSS ===
+time=2026-08-24T22:34:14+08:00
+log_file=./resource_probe_module_fact_tinygo.log
+wasm=./testdata/fact-tinygo.wasm size=0.89MB n=1 settle=300ms close_each=true
+focus: ΔRSS of NewModule (wasm_module_new / LLVM compile); no Instance
+
+0_baseline threads=9 VmRSS=46.79MB Anon=6.39MB VmSize=1848.83MB goAlloc=1.90MB goSys=13.58MB goroutine=2 numGC=2
+1_after_engine_store threads=9 VmRSS=48.07MB Anon=6.40MB VmSize=1848.83MB goAlloc=1.91MB goSys=13.58MB goroutine=2 numGC=3
+  Δ1_after_engine_store         threads=+0 VmRSS=+1.28MB Anon=+0.01MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=301.931329ms
+2_after_ReadFile threads=9 VmRSS=48.81MB Anon=7.27MB VmSize=1848.83MB goAlloc=2.76MB goSys=13.58MB goroutine=2 numGC=4
+  Δ2_after_ReadFile             threads=+0 VmRSS=+0.74MB Anon=+0.87MB VmSize=+0.00MB goAlloc=+0.85MB goSys=+0.00MB goroutine=+0 elapsed=301.983459ms  (file=0.89MB)
+3_after_ValidateModule threads=9 VmRSS=52.58MB Anon=10.10MB VmSize=1849.97MB goAlloc=2.76MB goSys=17.83MB goroutine=2 numGC=5
+  Δ3_after_ValidateModule       threads=+0 VmRSS=+3.77MB Anon=+2.83MB VmSize=+1.14MB goAlloc=+0.00MB goSys=+4.25MB goroutine=+0 elapsed=308.785352ms
+--- NewModule #1/1 elapsed=195.058444ms ---
+  before: 3_after_ValidateModule threads=9 VmRSS=52.58MB Anon=10.10MB VmSize=1849.97MB goAlloc=2.76MB goSys=17.83MB goroutine=2 numGC=5
+  after:  4_compile_0_after_NewModule threads=9 VmRSS=185.81MB Anon=139.27MB VmSize=2644.54MB goAlloc=2.80MB goSys=17.83MB goroutine=2 numGC=7
+  Δ4_compile_0_after_NewModule  threads=+0 VmRSS=+133.23MB Anon=+129.17MB VmSize=+794.57MB goAlloc=+0.04MB goSys=+0.00MB goroutine=+0 elapsed=798.13392ms
+  ratio: ΔVmRSS / wasm_file = 150.43x  ΔAnon / wasm_file = 145.84x
+  after Close: 5_compile_0_after_Module_Close threads=9 VmRSS=174.03MB Anon=127.42MB VmSize=2644.54MB goAlloc=2.78MB goSys=17.83MB goroutine=2 numGC=9
+  Δ5_compile_0_after_Module_Close threads=+0 VmRSS=-11.78MB Anon=-11.85MB VmSize=+0.00MB goAlloc=-0.02MB goSys=+0.00MB goroutine=+0 elapsed=304.605945ms
+6_final threads=9 VmRSS=172.87MB Anon=126.26MB VmSize=2644.54MB goAlloc=1.89MB goSys=17.83MB goroutine=2 numGC=11
+  vs baseline: Δ6_final                      threads=+0 VmRSS=+126.09MB Anon=+119.87MB VmSize=+795.71MB goAlloc=-0.02MB goSys=+4.25MB goroutine=+0 elapsed=2.319539571s
+
+=== ANALYSIS ===
+wasm_file=0.89MB
+Δ_engine_store: VmRSS=+1.28MB Anon=+0.01MB
+Δ_ReadFile:     VmRSS=+0.74MB Anon=+0.87MB (Go heap for bytecode)
+Δ_Validate:     VmRSS=+3.77MB Anon=+2.83MB
+Δ_NewModule:    VmRSS=+133.23MB Anon=+129.17MB  ← compile / native artifact
+Δ_Module_Close: VmRSS=-11.78MB Anon=-11.85MB
+VERDICT_CLOSE: Module.Close did NOT return most compile RSS to kernel
+VERDICT_COMPILE: NewModule Host cost ≈ VmRSS +133.23MB / Anon +129.17MB for this wasm
+log_file=./resource_probe_module_fact_tinygo.log

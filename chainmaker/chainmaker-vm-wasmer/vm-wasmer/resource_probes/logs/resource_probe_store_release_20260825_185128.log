@@ -1,0 +1,96 @@
+=== TestStoreReleaseGrowShrinkIsolated ===
+time=2026-08-25T18:51:28+08:00
+log_file=./resource_probe_store_release_20260825_185128.log
+wasm=./testdata/fact-go.wasm n=8 cycles=1 settle=300ms reclaim_frac=0.15
+arms=basic (CloseInstance) | full_release (nil Go refs + GC)
+
+----- subprocess arm=basic -----
+=== arm=basic wasm=./testdata/fact-go.wasm n=8 cycles=1 ===
+0_baseline threads=10 VmRSS=55.66MB Anon=11.34MB VmSize=1924.29MB goAlloc=6.57MB goSys=21.33MB goroutine=2 numGC=2
+1_after_engine_store threads=10 VmRSS=57.95MB Anon=11.36MB VmSize=1924.29MB goAlloc=6.59MB goSys=21.33MB goroutine=2 numGC=2  Δ1_after_engine_store         threads=+0 VmRSS=+2.28MB Anon=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.29093ms
+2026-08-25 18:51:31.297	[INFO]	store_release_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 18:51:31.297	[INFO]	store_release_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000fce000 
+2026-08-25 18:51:31.298	[INFO]	store_release_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2_after_NewModule threads=23 VmRSS=176.21MB Anon=123.46MB VmSize=2799.49MB goAlloc=11.28MB goSys=29.83MB goroutine=2 numGC=3  Δ2_after_NewModule            threads=+13 VmRSS=+118.27MB Anon=+112.10MB VmSize=+875.20MB goAlloc=+4.69MB goSys=+8.50MB goroutine=+0 elapsed=938.57724ms
+--- c1 GROW 8 ---
+2026-08-25 18:51:32.232	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+  inst#0 Δc1_grow_0                    threads=+13 VmRSS=+9.30MB Anon=+3.24MB VmSize=+7003.37MB goAlloc=-4.64MB goSys=+0.25MB goroutine=+0 elapsed=1.11550626s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=1
+  inst#1 Δc1_grow_1                    threads=+26 VmRSS=+13.51MB Anon=+7.45MB VmSize=+14006.49MB goAlloc=-4.66MB goSys=+0.25MB goroutine=+0 elapsed=2.22777882s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=2
+  inst#2 Δc1_grow_2                    threads=+39 VmRSS=+22.04MB Anon=+15.98MB VmSize=+21009.61MB goAlloc=-4.68MB goSys=+0.25MB goroutine=+0 elapsed=3.34057545s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=3
+  inst#3 Δc1_grow_3                    threads=+52 VmRSS=+26.48MB Anon=+20.42MB VmSize=+28011.66MB goAlloc=-4.67MB goSys=+0.25MB goroutine=+0 elapsed=4.45235445s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=4
+  inst#4 Δc1_grow_4                    threads=+65 VmRSS=+35.03MB Anon=+28.97MB VmSize=+35014.79MB goAlloc=-4.66MB goSys=+0.25MB goroutine=+0 elapsed=5.56674192s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=5
+  inst#5 Δc1_grow_5                    threads=+78 VmRSS=+43.58MB Anon=+37.52MB VmSize=+41697.91MB goAlloc=-4.65MB goSys=+0.25MB goroutine=+0 elapsed=6.68139138s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=6
+  inst#6 Δc1_grow_6                    threads=+91 VmRSS=+48.12MB Anon=+42.06MB VmSize=+47869.03MB goAlloc=-4.64MB goSys=+0.25MB goroutine=+0 elapsed=7.79478327s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=7
+  inst#7 Δc1_grow_7                    threads=+104 VmRSS=+56.52MB Anon=+50.46MB VmSize=+54039.08MB goAlloc=-4.63MB goSys=+0.25MB goroutine=+0 elapsed=8.90895708s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=8
+PEAK c1_peak_8 threads=127 VmRSS=232.73MB Anon=173.93MB VmSize=56838.57MB goAlloc=6.66MB goSys=30.08MB goroutine=2 numGC=11 growΔ Δc1_peak_8                    threads=+104 VmRSS=+56.52MB Anon=+50.47MB VmSize=+54039.08MB goAlloc=-4.62MB goSys=+0.25MB goroutine=+0 elapsed=9.2117529s (RSS=+56.52MB Anon=+50.47MB threads=+104)
+--- c1 SHRINK to 0 (arm=basic) ---
+2026-08-25 18:51:41.442	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-7
+2026-08-25 18:51:41.442	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=7 Δc1_shrink_alive_7            threads=+0 VmRSS=-3.56MB Anon=-3.82MB VmSize=-6144.00MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=303.83001ms audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=7
+2026-08-25 18:51:41.745	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-6
+2026-08-25 18:51:41.746	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=6 Δc1_shrink_alive_6            threads=+0 VmRSS=-7.38MB Anon=-7.64MB VmSize=-12288.00MB goAlloc=+0.05MB goSys=+0.00MB goroutine=+0 elapsed=607.86603ms audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=6
+2026-08-25 18:51:42.049	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-5
+2026-08-25 18:51:42.050	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=5 Δc1_shrink_alive_5            threads=+0 VmRSS=-11.20MB Anon=-11.45MB VmSize=-18432.00MB goAlloc=+0.06MB goSys=+0.00MB goroutine=+0 elapsed=911.54484ms audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=5
+2026-08-25 18:51:42.353	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-4
+2026-08-25 18:51:42.353	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=4 Δc1_shrink_alive_4            threads=+0 VmRSS=-15.00MB Anon=-15.25MB VmSize=-24576.00MB goAlloc=+0.07MB goSys=+0.00MB goroutine=+0 elapsed=1.2146697s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=4
+2026-08-25 18:51:42.656	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-3
+2026-08-25 18:51:42.656	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=3 Δc1_shrink_alive_3            threads=+0 VmRSS=-18.80MB Anon=-19.05MB VmSize=-30720.00MB goAlloc=+0.09MB goSys=+0.00MB goroutine=+0 elapsed=1.51795602s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=3
+2026-08-25 18:51:42.959	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-2
+2026-08-25 18:51:42.959	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=2 Δc1_shrink_alive_2            threads=+0 VmRSS=-22.61MB Anon=-22.86MB VmSize=-36864.00MB goAlloc=+0.11MB goSys=+0.00MB goroutine=+0 elapsed=1.8210879s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=2
+2026-08-25 18:51:43.262	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-1
+2026-08-25 18:51:43.263	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=1 Δc1_shrink_alive_1            threads=+0 VmRSS=-26.42MB Anon=-26.68MB VmSize=-43008.00MB goAlloc=+0.12MB goSys=+0.00MB goroutine=+0 elapsed=2.12459211s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=1
+2026-08-25 18:51:43.565	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:671	CallDeallocate site=CloseInstance instance_id=probe-fact-go-c1-0
+2026-08-25 18:51:43.566	[DEBUG]	store_release_fact-go	v2@v2.4.0/vm_pool.go:683	instance closed.
+  closed alive=0 Δc1_shrink_alive_0            threads=+0 VmRSS=-30.23MB Anon=-30.50MB VmSize=-49151.75MB goAlloc=+0.14MB goSys=+0.25MB goroutine=+0 elapsed=2.42756541s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=0
+SHRINK_ZERO c1_shrink_zero threads=127 VmRSS=202.53MB Anon=143.46MB VmSize=7686.82MB goAlloc=6.60MB goSys=30.33MB goroutine=2 numGC=12 shrinkΔ Δc1_shrink_zero               threads=+0 VmRSS=-30.21MB Anon=-30.46MB VmSize=-49151.75MB goAlloc=-0.06MB goSys=+0.25MB goroutine=+0 elapsed=3.03152373s (RSS=-30.21MB Anon=-30.46MB threads=+0)
+VERDICT arm=basic grow=+56.52MB shrink=-30.21MB reclaimed=true refs_ok=true (threshold=8.48MB)
+TEARDOWN 3_after_module_store_engine_close threads=127 VmRSS=197.59MB Anon=138.53MB VmSize=7686.82MB goAlloc=1.92MB goSys=30.33MB goroutine=2 numGC=13 vs shrink_zero Δ3_after_module_store_engine_close threads=+0 VmRSS=-4.94MB Anon=-4.93MB VmSize=+0.00MB goAlloc=-4.68MB goSys=+0.00MB goroutine=+0 elapsed=603.76617ms
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	14.414s
+RESULT arm=basic grow_RSS=+56.52MB shrink_RSS=-30.21MB reclaimed=true refs_ok=true
+----- subprocess arm=full_release -----
+=== arm=full_release wasm=./testdata/fact-go.wasm n=8 cycles=1 ===
+0_baseline threads=10 VmRSS=55.52MB Anon=11.23MB VmSize=1924.61MB goAlloc=6.57MB goSys=21.65MB goroutine=2 numGC=2
+1_after_engine_store threads=10 VmRSS=57.80MB Anon=11.25MB VmSize=1924.61MB goAlloc=6.59MB goSys=21.65MB goroutine=2 numGC=2  Δ1_after_engine_store         threads=+0 VmRSS=+2.28MB Anon=+0.02MB VmSize=+0.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=301.392519ms
+2026-08-25 18:51:51.184	[INFO]	store_release_fact-go	wasmer-go/module.go:103	store.inner() => &{{{}}} 
+2026-08-25 18:51:51.185	[INFO]	store_release_fact-go	wasmer-go/module.go:104	wasmBytesPtr => 0xc000fd6000 
+2026-08-25 18:51:51.185	[INFO]	store_release_fact-go	wasmer-go/module.go:105	wasmBytesLength => 4871418 
+2_after_NewModule threads=23 VmRSS=174.34MB Anon=121.62MB VmSize=2831.78MB goAlloc=11.28MB goSys=29.90MB goroutine=2 numGC=3  Δ2_after_NewModule            threads=+13 VmRSS=+116.54MB Anon=+110.36MB VmSize=+907.18MB goAlloc=+4.69MB goSys=+8.25MB goroutine=+0 elapsed=932.701666ms
+--- c1 GROW 8 ---
+2026-08-25 18:51:52.112	[DEBUG]	[Vm]	v2@v2.4.0/vm_bridge.go:524	init vmBridgeManager
+  inst#0 Δc1_grow_0                    threads=+13 VmRSS=+9.51MB Anon=+3.45MB VmSize=+7003.12MB goAlloc=-4.64MB goSys=+0.00MB goroutine=+0 elapsed=1.113318895s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=1
+  inst#1 Δc1_grow_1                    threads=+26 VmRSS=+13.70MB Anon=+7.64MB VmSize=+14006.24MB goAlloc=-4.66MB goSys=+0.00MB goroutine=+0 elapsed=2.226848235s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=2
+  inst#2 Δc1_grow_2                    threads=+39 VmRSS=+22.14MB Anon=+16.08MB VmSize=+21008.29MB goAlloc=-4.68MB goSys=+0.00MB goroutine=+0 elapsed=3.339988125s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=3
+  inst#3 Δc1_grow_3                    threads=+52 VmRSS=+30.71MB Anon=+24.65MB VmSize=+28011.41MB goAlloc=-4.67MB goSys=+0.00MB goroutine=+0 elapsed=4.453711785s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=4
+  inst#4 Δc1_grow_4                    threads=+65 VmRSS=+39.13MB Anon=+33.07MB VmSize=+35014.54MB goAlloc=-4.66MB goSys=+0.00MB goroutine=+0 elapsed=5.566823896s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=5
+  inst#5 Δc1_grow_5                    threads=+78 VmRSS=+43.44MB Anon=+37.38MB VmSize=+41697.66MB goAlloc=-4.65MB goSys=+0.00MB goroutine=+0 elapsed=6.679006096s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=6
+  inst#6 Δc1_grow_6                    threads=+91 VmRSS=+47.61MB Anon=+41.55MB VmSize=+47868.78MB goAlloc=-4.64MB goSys=+0.00MB goroutine=+0 elapsed=7.792467376s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=7
+  inst#7 Δc1_grow_7                    threads=+104 VmRSS=+51.78MB Anon=+45.72MB VmSize=+54038.83MB goAlloc=-4.63MB goSys=+0.00MB goroutine=+0 elapsed=8.905130626s audit=wasmInstance_nil=false wasiEnv_nil=false alive_slice_len=8
+PEAK c1_peak_8 threads=127 VmRSS=226.12MB Anon=167.34MB VmSize=56870.61MB goAlloc=6.66MB goSys=29.90MB goroutine=2 numGC=11 growΔ Δc1_peak_8                    threads=+104 VmRSS=+51.78MB Anon=+45.73MB VmSize=+54038.83MB goAlloc=-4.62MB goSys=+0.00MB goroutine=+0 elapsed=9.208320376s (RSS=+51.78MB Anon=+45.73MB threads=+104)
+--- c1 SHRINK to 0 (arm=full_release) ---
+  closed alive=7 Δc1_shrink_alive_7            threads=+0 VmRSS=-3.56MB Anon=-3.82MB VmSize=-6144.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=303.96042ms audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=7
+  closed alive=6 Δc1_shrink_alive_6            threads=+0 VmRSS=-7.39MB Anon=-7.64MB VmSize=-12288.00MB goAlloc=-0.05MB goSys=+0.00MB goroutine=+0 elapsed=607.64418ms audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=6
+  closed alive=5 Δc1_shrink_alive_5            threads=+0 VmRSS=-11.21MB Anon=-11.46MB VmSize=-18432.00MB goAlloc=-0.05MB goSys=+0.00MB goroutine=+0 elapsed=911.51775ms audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=5
+  closed alive=4 Δc1_shrink_alive_4            threads=+0 VmRSS=-15.03MB Anon=-15.28MB VmSize=-24576.00MB goAlloc=-0.06MB goSys=+0.00MB goroutine=+0 elapsed=1.21492935s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=4
+  closed alive=3 Δc1_shrink_alive_3            threads=+0 VmRSS=-18.84MB Anon=-19.09MB VmSize=-30718.93MB goAlloc=-0.07MB goSys=+0.00MB goroutine=+0 elapsed=1.51875261s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=3
+  closed alive=2 Δc1_shrink_alive_2            threads=+0 VmRSS=-22.62MB Anon=-22.88MB VmSize=-36862.93MB goAlloc=-0.07MB goSys=+0.00MB goroutine=+0 elapsed=1.82254536s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=2
+  closed alive=1 Δc1_shrink_alive_1            threads=+0 VmRSS=-26.40MB Anon=-26.65MB VmSize=-43006.93MB goAlloc=-0.08MB goSys=+0.00MB goroutine=+0 elapsed=2.12627331s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=1
+  closed alive=0 Δc1_shrink_alive_0            threads=+0 VmRSS=-30.21MB Anon=-30.46MB VmSize=-49149.86MB goAlloc=-0.09MB goSys=+0.00MB goroutine=+0 elapsed=2.42983287s audit=wasmInstance_nil=true wasiEnv_nil=true alive_slice_len=0
+SHRINK_ZERO c1_shrink_zero threads=127 VmRSS=195.91MB Anon=136.88MB VmSize=7720.75MB goAlloc=6.57MB goSys=29.90MB goroutine=2 numGC=20 shrinkΔ Δc1_shrink_zero               threads=+0 VmRSS=-30.21MB Anon=-30.46MB VmSize=-49149.86MB goAlloc=-0.09MB goSys=+0.00MB goroutine=+0 elapsed=3.03286617s (RSS=-30.21MB Anon=-30.46MB threads=+0)
+VERDICT arm=full_release grow=+51.78MB shrink=-30.21MB reclaimed=true refs_ok=true (threshold=7.77MB)
+TEARDOWN 3_after_module_store_engine_close threads=127 VmRSS=191.11MB Anon=132.08MB VmSize=7720.75MB goAlloc=1.92MB goSys=29.90MB goroutine=2 numGC=21 vs shrink_zero Δ3_after_module_store_engine_close threads=+0 VmRSS=-4.81MB Anon=-4.80MB VmSize=+0.00MB goAlloc=-4.65MB goSys=+0.00MB goroutine=+0 elapsed=604.22616ms
+PASS
+ok  	chainmaker.org/chainmaker/vm-wasmer/v2	14.405s
+RESULT arm=full_release grow_RSS=+51.78MB shrink_RSS=-30.21MB reclaimed=true refs_ok=true
+
+=== SUMMARY ===
+arm               N   grow_RSS  grow_Anon   shrink_RSS  shrink_Anon  reclaimed  refs_ok
+basic             8      56.52      50.47       -30.21       -30.46       true     true
+full_release      8      51.78      45.73       -30.21       -30.46       true     true
+log_file=./resource_probe_store_release_20260825_185128.log

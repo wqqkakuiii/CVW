@@ -1,0 +1,18 @@
+=== TestProcessIsolationWarmWorkerMultiInstance ===
+time=2026-09-07T17:20:28+08:00 wasm=./testdata/fact-go.wasm n=4 rss_limit_mb=2048 settle=300ms
+worker_bin=./wasmer-process-worker
+model: 1 contract → 1 warm worker → N instances; destroy checks VmRSS; retire at limit
+
+PARENT 0_after_pool threads=23 VmRSS=249.70MB Anon=198.66MB VmSize=2831.66MB goAlloc=34.87MB goSys=70.08MB goroutine=3 numGC=4
+CREATE_01 parent_pid=27915 worker_pid=27941 inst=7dce48d09b64451dbbf1ca3e2ffa693a active=1 worker_VmRSS=128.41MB Anon=79.73MB threads=12
+CREATE_02 parent_pid=27915 worker_pid=27941 inst=42a9f1e53e9a4d8c8a3c2a6b63d69d3d active=2 worker_VmRSS=132.46MB Anon=83.79MB threads=12
+CREATE_03 parent_pid=27915 worker_pid=27941 inst=82e8f4cbf10441f1a4c72f554cd43b71 active=3 worker_VmRSS=136.54MB Anon=87.87MB threads=12
+CREATE_04 parent_pid=27915 worker_pid=27941 inst=4e6c7457817a49a9af2d4ad604fa91a0 active=4 worker_VmRSS=140.60MB Anon=91.92MB threads=12
+DESTROY_01 worker_pid=27941 alive=true draining=false active=3 worker_VmRSS=136.79MB
+DESTROY_02 worker_pid=27941 alive=true draining=false active=2 worker_VmRSS=133.00MB
+DESTROY_03 worker_pid=27941 alive=true draining=false active=1 worker_VmRSS=129.20MB
+DESTROY_04 worker_pid=27941 alive=true draining=false active=0 worker_VmRSS=125.41MB
+AFTER_ALL worker still warm pid=27941 active=0 VmRSS=125.42MB (under limit, expected)
+RECREATE worker_pid=27941 (was 27941)
+PARENT 9_final_parent threads=23 VmRSS=249.72MB Anon=198.68MB VmSize=2831.66MB goAlloc=34.93MB goSys=70.08MB goroutine=3 numGC=4
+log_file=../resource_probes/logs/resource_probe_process_iso_warm_20260907_172028.log

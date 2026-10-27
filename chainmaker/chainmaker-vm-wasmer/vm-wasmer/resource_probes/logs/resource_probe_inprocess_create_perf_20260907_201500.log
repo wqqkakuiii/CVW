@@ -1,0 +1,6 @@
+=== TestInProcessCreateDestroyPerf ===
+time=2026-09-07T20:15:00+08:00 wasm=./testdata/fact-go.wasm n=10 rounds=3
+TIMING newVmPool_ms=3629.191
+create_n=30 avg=7.313ms
+destroy_n=30 avg=0.428ms
+log_file=../resource_probes/logs/resource_probe_inprocess_create_perf_20260907_201500.log

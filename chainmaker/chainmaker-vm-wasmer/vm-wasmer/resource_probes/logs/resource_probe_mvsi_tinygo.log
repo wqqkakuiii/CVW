@@ -1,0 +1,245 @@
+=== TestModuleVsInstanceRSS ===
+time=2026-08-24T22:31:03+08:00
+log_file=./resource_probe_mvsi_tinygo.log
+instances=3 settle=250ms
+contracts=[./testdata/fact-tinygo.wasm ./testdata/exchange-tinygo.wasm ./testdata/erc721-tinygo.wasm ./testdata/compute-tinygo.wasm ./testdata/identity-tinygo.wasm ./testdata/raffle-tinygo.wasm ./testdata/itinerary-tinygo.wasm ./testdata/bigInput-tinygo.wasm]
+note: Module = NewModule only; Instance = wasiEnv+imports+NewInstance+WASI Init
+note: instances kept alive → each pays full Finalize (no freelist reuse)
+
+########## [1/8] fact-tinygo (./testdata/fact-tinygo.wasm) ##########
+fact-tinygo/0_baseline threads=9 VmRSS=46.91MB Anon=6.59MB VmSize=1849.08MB goAlloc=1.90MB goSys=13.83MB goroutine=2 numGC=2
+fact-tinygo/1_after_engine_store threads=9 VmRSS=48.13MB Anon=6.70MB VmSize=1849.08MB goAlloc=1.87MB goSys=13.83MB goroutine=2 numGC=3
+  Δfact-tinygo/1_after_engine_store threads=+0 VmRSS=+1.22MB Anon=+0.10MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=257.651978ms
+fact-tinygo/2_after_ReadFile threads=10 VmRSS=48.78MB Anon=7.34MB VmSize=1921.34MB goAlloc=2.76MB goSys=14.08MB goroutine=2 numGC=4
+  Δfact-tinygo/2_after_ReadFile threads=+1 VmRSS=+0.64MB Anon=+0.64MB VmSize=+72.25MB goAlloc=+0.90MB goSys=+0.25MB goroutine=+0 elapsed=252.258372ms  (file=0.89MB)
+fact-tinygo/3_after_Validate threads=10 VmRSS=52.48MB Anon=10.11MB VmSize=1922.22MB goAlloc=2.76MB goSys=18.08MB goroutine=2 numGC=5
+  Δfact-tinygo/3_after_Validate threads=+0 VmRSS=+3.71MB Anon=+2.77MB VmSize=+0.89MB goAlloc=+0.00MB goSys=+4.00MB goroutine=+0 elapsed=258.49816ms
+--- MODULE NewModule elapsed=189.785205ms ---
+  before: fact-tinygo/3_after_Validate threads=10 VmRSS=52.48MB Anon=10.11MB VmSize=1922.22MB goAlloc=2.76MB goSys=18.08MB goroutine=2 numGC=5
+  after:  fact-tinygo/4_after_NewModule threads=10 VmRSS=185.77MB Anon=139.24MB VmSize=2716.79MB goAlloc=2.81MB goSys=18.08MB goroutine=2 numGC=6
+  Δfact-tinygo/4_after_NewModule threads=+0 VmRSS=+133.29MB Anon=+129.13MB VmSize=+794.57MB goAlloc=+0.05MB goSys=+0.00MB goroutine=+0 elapsed=441.652069ms
+  MODULE_COST VmRSS=+133.29MB Anon=+129.13MB (×file=150.5x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δfact-tinygo/inst0_after      threads=+13 VmRSS=+2.97MB Anon=+0.46MB VmSize=+6211.20MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=1.058780408s
+  inst#1 Δ: Δfact-tinygo/inst1_after      threads=+13 VmRSS=+0.59MB Anon=+0.59MB VmSize=+7002.12MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.060287109s
+  inst#2 Δ: Δfact-tinygo/inst2_after      threads=+13 VmRSS=+0.55MB Anon=+0.55MB VmSize=+7002.38MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.060285969s
+--- INSTANCES peak N=3 ---
+  before_instances: fact-tinygo/4_after_NewModule threads=10 VmRSS=185.77MB Anon=139.24MB VmSize=2716.79MB goAlloc=2.81MB goSys=18.08MB goroutine=2 numGC=6
+  peak:             fact-tinygo/5_peak_N_alive threads=49 VmRSS=189.90MB Anon=139.36MB VmSize=22932.49MB goAlloc=2.82MB goSys=18.08MB goroutine=2 numGC=16
+  Δfact-tinygo/5_peak_N_alive   threads=+39 VmRSS=+4.12MB Anon=+0.12MB VmSize=+20215.70MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.194717805s
+  INSTANCE_COST_1st VmRSS=+2.99MB Anon=-1.02MB
+  INSTANCE_COST_avg VmRSS=+1.38MB Anon=+0.04MB (total/N)
+  INSTANCE_COST_tot VmRSS=+4.12MB Anon=+0.12MB
+  COMPARE module_RSS=133.29MB vs inst_avg_RSS=1.38MB (ratio inst/mod=0.01)
+fact-tinygo/6_after_cleanup threads=52 VmRSS=190.34MB Anon=139.36MB VmSize=23130.57MB goAlloc=1.93MB goSys=18.08MB goroutine=2 numGC=17
+  vs peak: Δfact-tinygo/6_after_cleanup  threads=+3 VmRSS=+0.45MB Anon=+0.01MB VmSize=+198.08MB goAlloc=-0.89MB goSys=+0.00MB goroutine=+0 elapsed=256.704184ms
+
+########## [2/8] exchange-tinygo (./testdata/exchange-tinygo.wasm) ##########
+exchange-tinygo/0_baseline threads=52 VmRSS=189.19MB Anon=138.21MB VmSize=23130.57MB goAlloc=1.94MB goSys=18.08MB goroutine=2 numGC=18
+exchange-tinygo/1_after_engine_store threads=52 VmRSS=189.19MB Anon=138.21MB VmSize=23130.57MB goAlloc=1.90MB goSys=18.08MB goroutine=2 numGC=19
+  Δexchange-tinygo/1_after_engine_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=253.798862ms
+exchange-tinygo/2_after_ReadFile threads=52 VmRSS=189.82MB Anon=138.84MB VmSize=23130.57MB goAlloc=2.52MB goSys=18.08MB goroutine=2 numGC=20
+  Δexchange-tinygo/2_after_ReadFile threads=+0 VmRSS=+0.63MB Anon=+0.63MB VmSize=+0.00MB goAlloc=+0.62MB goSys=+0.00MB goroutine=+0 elapsed=254.724297ms  (file=0.62MB)
+exchange-tinygo/3_after_Validate threads=52 VmRSS=192.97MB Anon=141.99MB VmSize=23130.57MB goAlloc=2.52MB goSys=18.08MB goroutine=2 numGC=21
+  Δexchange-tinygo/3_after_Validate threads=+0 VmRSS=+3.15MB Anon=+3.15MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=258.84008ms
+--- MODULE NewModule elapsed=117.027816ms ---
+  before: exchange-tinygo/3_after_Validate threads=52 VmRSS=192.97MB Anon=141.99MB VmSize=23130.57MB goAlloc=2.52MB goSys=18.08MB goroutine=2 numGC=21
+  after:  exchange-tinygo/4_after_NewModule threads=52 VmRSS=300.47MB Anon=249.49MB VmSize=23924.26MB goAlloc=2.56MB goSys=18.08MB goroutine=2 numGC=22
+  Δexchange-tinygo/4_after_NewModule threads=+0 VmRSS=+107.50MB Anon=+107.50MB VmSize=+793.70MB goAlloc=+0.04MB goSys=+0.00MB goroutine=+0 elapsed=371.198431ms
+  MODULE_COST VmRSS=+107.50MB Anon=+107.50MB (×file=174.2x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δexchange-tinygo/inst0_after  threads=+13 VmRSS=-0.74MB Anon=-0.74MB VmSize=+6210.20MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.063491031s
+  inst#1 Δ: Δexchange-tinygo/inst1_after  threads=+13 VmRSS=+0.40MB Anon=+0.40MB VmSize=+7002.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.064577737s
+  inst#2 Δ: Δexchange-tinygo/inst2_after  threads=+13 VmRSS=+0.49MB Anon=+0.49MB VmSize=+7002.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.06921261s
+--- INSTANCES peak N=3 ---
+  before_instances: exchange-tinygo/4_after_NewModule threads=52 VmRSS=300.47MB Anon=249.49MB VmSize=23924.26MB goAlloc=2.56MB goSys=18.08MB goroutine=2 numGC=22
+  peak:             exchange-tinygo/5_peak_N_alive threads=91 VmRSS=300.63MB Anon=249.65MB VmSize=44138.56MB goAlloc=2.57MB goSys=18.08MB goroutine=2 numGC=32
+  Δexchange-tinygo/5_peak_N_alive threads=+39 VmRSS=+0.16MB Anon=+0.16MB VmSize=+20214.30MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.220252263s
+  INSTANCE_COST_1st VmRSS=-0.74MB Anon=-0.74MB
+  INSTANCE_COST_avg VmRSS=+0.05MB Anon=+0.05MB (total/N)
+  INSTANCE_COST_tot VmRSS=+0.16MB Anon=+0.16MB
+  COMPARE module_RSS=107.50MB vs inst_avg_RSS=0.05MB (ratio inst/mod=0.00)
+exchange-tinygo/6_after_cleanup threads=94 VmRSS=300.68MB Anon=249.70MB VmSize=44336.57MB goAlloc=1.95MB goSys=18.08MB goroutine=2 numGC=33
+  vs peak: Δexchange-tinygo/6_after_cleanup threads=+3 VmRSS=+0.05MB Anon=+0.05MB VmSize=+198.01MB goAlloc=-0.61MB goSys=+0.00MB goroutine=+0 elapsed=257.874947ms
+
+########## [3/8] erc721-tinygo (./testdata/erc721-tinygo.wasm) ##########
+erc721-tinygo/0_baseline threads=94 VmRSS=299.88MB Anon=248.90MB VmSize=44336.57MB goAlloc=1.96MB goSys=18.08MB goroutine=2 numGC=34
+erc721-tinygo/1_after_engine_store threads=94 VmRSS=299.88MB Anon=248.90MB VmSize=44336.57MB goAlloc=1.93MB goSys=18.08MB goroutine=2 numGC=35
+  Δerc721-tinygo/1_after_engine_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=256.187015ms
+erc721-tinygo/2_after_ReadFile threads=94 VmRSS=300.88MB Anon=249.89MB VmSize=44336.57MB goAlloc=2.92MB goSys=18.08MB goroutine=2 numGC=36
+  Δerc721-tinygo/2_after_ReadFile threads=+0 VmRSS=+1.00MB Anon=+1.00MB VmSize=+0.00MB goAlloc=+0.99MB goSys=+0.00MB goroutine=+0 elapsed=256.544814ms  (file=0.99MB)
+erc721-tinygo/3_after_Validate threads=94 VmRSS=304.59MB Anon=253.61MB VmSize=44336.57MB goAlloc=2.92MB goSys=18.08MB goroutine=2 numGC=37
+  Δerc721-tinygo/3_after_Validate threads=+0 VmRSS=+3.71MB Anon=+3.71MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=263.819758ms
+--- MODULE NewModule elapsed=207.851619ms ---
+  before: erc721-tinygo/3_after_Validate threads=94 VmRSS=304.59MB Anon=253.61MB VmSize=44336.57MB goAlloc=2.92MB goSys=18.08MB goroutine=2 numGC=37
+  after:  erc721-tinygo/4_after_NewModule threads=94 VmRSS=449.40MB Anon=398.42MB VmSize=44507.61MB goAlloc=2.94MB goSys=18.08MB goroutine=2 numGC=38
+  Δerc721-tinygo/4_after_NewModule threads=+0 VmRSS=+144.82MB Anon=+144.82MB VmSize=+171.04MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=464.1579ms
+  MODULE_COST VmRSS=+144.82MB Anon=+144.82MB (×file=146.7x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δerc721-tinygo/inst0_after    threads=+13 VmRSS=-1.35MB Anon=-1.35MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.065773084s
+  inst#1 Δ: Δerc721-tinygo/inst1_after    threads=+10 VmRSS=+0.52MB Anon=+0.52MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.068869283s
+  inst#2 Δ: Δerc721-tinygo/inst2_after    threads=+13 VmRSS=+0.32MB Anon=+0.32MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.068011392s
+--- INSTANCES peak N=3 ---
+  before_instances: erc721-tinygo/4_after_NewModule threads=94 VmRSS=449.40MB Anon=398.42MB VmSize=44507.61MB goAlloc=2.94MB goSys=18.08MB goroutine=2 numGC=38
+  peak:             erc721-tinygo/5_peak_N_alive threads=130 VmRSS=448.89MB Anon=397.91MB VmSize=62993.72MB goAlloc=2.95MB goSys=18.08MB goroutine=2 numGC=48
+  Δerc721-tinygo/5_peak_N_alive threads=+36 VmRSS=-0.51MB Anon=-0.51MB VmSize=+18486.11MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.233799586s
+  INSTANCE_COST_1st VmRSS=-1.35MB Anon=-1.35MB
+  INSTANCE_COST_avg VmRSS=-0.17MB Anon=-0.17MB (total/N)
+  INSTANCE_COST_tot VmRSS=-0.51MB Anon=-0.51MB
+  COMPARE module_RSS=144.82MB vs inst_avg_RSS=-0.17MB (ratio inst/mod=-0.00)
+erc721-tinygo/6_after_cleanup threads=133 VmRSS=448.95MB Anon=397.97MB VmSize=62999.80MB goAlloc=1.96MB goSys=18.08MB goroutine=2 numGC=49
+  vs peak: Δerc721-tinygo/6_after_cleanup threads=+3 VmRSS=+0.06MB Anon=+0.06MB VmSize=+6.08MB goAlloc=-0.99MB goSys=+0.00MB goroutine=+0 elapsed=261.67769ms
+
+########## [4/8] compute-tinygo (./testdata/compute-tinygo.wasm) ##########
+compute-tinygo/0_baseline threads=133 VmRSS=447.63MB Anon=396.65MB VmSize=62999.80MB goAlloc=1.97MB goSys=18.08MB goroutine=2 numGC=50
+compute-tinygo/1_after_engine_store threads=133 VmRSS=447.63MB Anon=396.65MB VmSize=62999.80MB goAlloc=1.93MB goSys=18.08MB goroutine=2 numGC=51
+  Δcompute-tinygo/1_after_engine_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=258.103147ms
+compute-tinygo/2_after_ReadFile threads=133 VmRSS=448.43MB Anon=397.45MB VmSize=62999.80MB goAlloc=2.69MB goSys=18.08MB goroutine=2 numGC=52
+  Δcompute-tinygo/2_after_ReadFile threads=+0 VmRSS=+0.80MB Anon=+0.80MB VmSize=+0.00MB goAlloc=+0.76MB goSys=+0.00MB goroutine=+0 elapsed=258.505621ms  (file=0.75MB)
+compute-tinygo/3_after_Validate threads=133 VmRSS=449.95MB Anon=398.96MB VmSize=62999.80MB goAlloc=2.69MB goSys=18.08MB goroutine=2 numGC=53
+  Δcompute-tinygo/3_after_Validate threads=+0 VmRSS=+1.52MB Anon=+1.52MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=264.228925ms
+--- MODULE NewModule elapsed=147.462167ms ---
+  before: compute-tinygo/3_after_Validate threads=133 VmRSS=449.95MB Anon=398.96MB VmSize=62999.80MB goAlloc=2.69MB goSys=18.08MB goroutine=2 numGC=53
+  after:  compute-tinygo/4_after_NewModule threads=133 VmRSS=564.96MB Anon=513.98MB VmSize=63025.85MB goAlloc=2.71MB goSys=18.08MB goroutine=2 numGC=54
+  Δcompute-tinygo/4_after_NewModule threads=+0 VmRSS=+115.02MB Anon=+115.02MB VmSize=+26.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=405.539531ms
+  MODULE_COST VmRSS=+115.02MB Anon=+115.02MB (×file=153.3x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δcompute-tinygo/inst0_after   threads=+13 VmRSS=-1.10MB Anon=-1.10MB VmSize=+6146.07MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.069210595s
+  inst#1 Δ: Δcompute-tinygo/inst1_after   threads=+11 VmRSS=+0.49MB Anon=+0.49MB VmSize=+6178.12MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.072279958s
+  inst#2 Δ: Δcompute-tinygo/inst2_after   threads=+13 VmRSS=+0.32MB Anon=+0.32MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.071835542s
+--- INSTANCES peak N=3 ---
+  before_instances: compute-tinygo/4_after_NewModule threads=133 VmRSS=564.96MB Anon=513.98MB VmSize=63025.85MB goAlloc=2.71MB goSys=18.08MB goroutine=2 numGC=54
+  peak:             compute-tinygo/5_peak_N_alive threads=170 VmRSS=564.68MB Anon=513.70MB VmSize=81520.09MB goAlloc=2.72MB goSys=18.08MB goroutine=2 numGC=64
+  Δcompute-tinygo/5_peak_N_alive threads=+37 VmRSS=-0.29MB Anon=-0.29MB VmSize=+18494.24MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.251290717s
+  INSTANCE_COST_1st VmRSS=-1.10MB Anon=-1.10MB
+  INSTANCE_COST_avg VmRSS=-0.10MB Anon=-0.10MB (total/N)
+  INSTANCE_COST_tot VmRSS=-0.29MB Anon=-0.29MB
+  COMPARE module_RSS=115.02MB vs inst_avg_RSS=-0.10MB (ratio inst/mod=-0.00)
+compute-tinygo/6_after_cleanup threads=173 VmRSS=564.71MB Anon=513.73MB VmSize=81526.11MB goAlloc=1.97MB goSys=18.08MB goroutine=2 numGC=65
+  vs peak: Δcompute-tinygo/6_after_cleanup threads=+3 VmRSS=+0.04MB Anon=+0.04MB VmSize=+6.01MB goAlloc=-0.75MB goSys=+0.00MB goroutine=+0 elapsed=261.354847ms
+
+########## [5/8] identity-tinygo (./testdata/identity-tinygo.wasm) ##########
+identity-tinygo/0_baseline threads=173 VmRSS=563.77MB Anon=512.79MB VmSize=81526.11MB goAlloc=1.98MB goSys=18.08MB goroutine=2 numGC=66
+identity-tinygo/1_after_engine_store threads=173 VmRSS=563.80MB Anon=512.82MB VmSize=81526.11MB goAlloc=1.94MB goSys=18.08MB goroutine=2 numGC=67
+  Δidentity-tinygo/1_after_engine_store threads=+0 VmRSS=+0.03MB Anon=+0.03MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=259.96562ms
+identity-tinygo/2_after_ReadFile threads=173 VmRSS=564.70MB Anon=513.72MB VmSize=81526.11MB goAlloc=2.84MB goSys=18.08MB goroutine=2 numGC=68
+  Δidentity-tinygo/2_after_ReadFile threads=+0 VmRSS=+0.90MB Anon=+0.90MB VmSize=+0.00MB goAlloc=+0.90MB goSys=+0.00MB goroutine=+0 elapsed=261.216606ms  (file=0.90MB)
+identity-tinygo/3_after_Validate threads=173 VmRSS=569.20MB Anon=518.21MB VmSize=81526.11MB goAlloc=2.84MB goSys=18.08MB goroutine=2 numGC=69
+  Δidentity-tinygo/3_after_Validate threads=+0 VmRSS=+4.50MB Anon=+4.50MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=265.978822ms
+--- MODULE NewModule elapsed=191.382278ms ---
+  before: identity-tinygo/3_after_Validate threads=173 VmRSS=569.20MB Anon=518.21MB VmSize=81526.11MB goAlloc=2.84MB goSys=18.08MB goroutine=2 numGC=69
+  after:  identity-tinygo/4_after_NewModule threads=173 VmRSS=668.82MB Anon=617.84MB VmSize=81552.71MB goAlloc=2.86MB goSys=18.08MB goroutine=2 numGC=70
+  Δidentity-tinygo/4_after_NewModule threads=+0 VmRSS=+99.62MB Anon=+99.62MB VmSize=+26.61MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=452.097322ms
+  MODULE_COST VmRSS=+99.62MB Anon=+99.62MB (×file=111.2x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δidentity-tinygo/inst0_after  threads=+13 VmRSS=-1.37MB Anon=-1.37MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.070147149s
+  inst#1 Δ: Δidentity-tinygo/inst1_after  threads=+10 VmRSS=+0.48MB Anon=+0.48MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.092882403s
+  inst#2 Δ: Δidentity-tinygo/inst2_after  threads=+13 VmRSS=+0.29MB Anon=+0.29MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.076706623s
+--- INSTANCES peak N=3 ---
+  before_instances: identity-tinygo/4_after_NewModule threads=173 VmRSS=668.82MB Anon=617.84MB VmSize=81552.71MB goAlloc=2.86MB goSys=18.08MB goroutine=2 numGC=70
+  peak:             identity-tinygo/5_peak_N_alive threads=209 VmRSS=668.23MB Anon=617.25MB VmSize=100038.82MB goAlloc=2.87MB goSys=18.08MB goroutine=2 numGC=80
+  Δidentity-tinygo/5_peak_N_alive threads=+36 VmRSS=-0.59MB Anon=-0.59MB VmSize=+18486.11MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.283877726s
+  INSTANCE_COST_1st VmRSS=-1.37MB Anon=-1.37MB
+  INSTANCE_COST_avg VmRSS=-0.20MB Anon=-0.20MB (total/N)
+  INSTANCE_COST_tot VmRSS=-0.59MB Anon=-0.59MB
+  COMPARE module_RSS=99.62MB vs inst_avg_RSS=-0.20MB (ratio inst/mod=-0.00)
+identity-tinygo/6_after_cleanup threads=212 VmRSS=668.26MB Anon=617.28MB VmSize=100044.83MB goAlloc=1.97MB goSys=18.08MB goroutine=2 numGC=81
+  vs peak: Δidentity-tinygo/6_after_cleanup threads=+3 VmRSS=+0.04MB Anon=+0.04MB VmSize=+6.01MB goAlloc=-0.89MB goSys=+0.00MB goroutine=+0 elapsed=263.282478ms
+
+########## [6/8] raffle-tinygo (./testdata/raffle-tinygo.wasm) ##########
+raffle-tinygo/0_baseline threads=212 VmRSS=667.05MB Anon=616.07MB VmSize=100044.83MB goAlloc=1.98MB goSys=18.08MB goroutine=2 numGC=82
+raffle-tinygo/1_after_engine_store threads=212 VmRSS=667.06MB Anon=616.08MB VmSize=100044.83MB goAlloc=1.94MB goSys=18.08MB goroutine=2 numGC=83
+  Δraffle-tinygo/1_after_engine_store threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=259.411989ms
+raffle-tinygo/2_after_ReadFile threads=212 VmRSS=668.11MB Anon=617.13MB VmSize=100044.83MB goAlloc=2.99MB goSys=18.08MB goroutine=2 numGC=84
+  Δraffle-tinygo/2_after_ReadFile threads=+0 VmRSS=+1.05MB Anon=+1.05MB VmSize=+0.00MB goAlloc=+1.05MB goSys=+0.00MB goroutine=+0 elapsed=260.038234ms  (file=1.05MB)
+raffle-tinygo/3_after_Validate threads=212 VmRSS=673.36MB Anon=622.38MB VmSize=100044.83MB goAlloc=2.99MB goSys=18.08MB goroutine=2 numGC=85
+  Δraffle-tinygo/3_after_Validate threads=+0 VmRSS=+5.25MB Anon=+5.25MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=265.002932ms
+--- MODULE NewModule elapsed=204.258306ms ---
+  before: raffle-tinygo/3_after_Validate threads=212 VmRSS=673.36MB Anon=622.38MB VmSize=100044.83MB goAlloc=2.99MB goSys=18.08MB goroutine=2 numGC=85
+  after:  raffle-tinygo/4_after_NewModule threads=212 VmRSS=823.81MB Anon=772.83MB VmSize=100071.82MB goAlloc=3.02MB goSys=18.08MB goroutine=2 numGC=86
+  Δraffle-tinygo/4_after_NewModule threads=+0 VmRSS=+150.45MB Anon=+150.45MB VmSize=+26.99MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=463.693653ms
+  MODULE_COST VmRSS=+150.45MB Anon=+150.45MB (×file=143.9x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δraffle-tinygo/inst0_after    threads=+13 VmRSS=-1.61MB Anon=-1.61MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.072528488s
+  inst#1 Δ: Δraffle-tinygo/inst1_after    threads=+10 VmRSS=+0.34MB Anon=+0.34MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.079706901s
+  inst#2 Δ: Δraffle-tinygo/inst2_after    threads=+13 VmRSS=+0.46MB Anon=+0.46MB VmSize=+6170.12MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.077572278s
+--- INSTANCES peak N=3 ---
+  before_instances: raffle-tinygo/4_after_NewModule threads=212 VmRSS=823.81MB Anon=772.83MB VmSize=100071.82MB goAlloc=3.02MB goSys=18.08MB goroutine=2 numGC=86
+  peak:             raffle-tinygo/5_peak_N_alive threads=248 VmRSS=823.02MB Anon=772.04MB VmSize=118557.99MB goAlloc=3.03MB goSys=18.08MB goroutine=2 numGC=96
+  Δraffle-tinygo/5_peak_N_alive threads=+36 VmRSS=-0.79MB Anon=-0.80MB VmSize=+18486.17MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.280991835s
+  INSTANCE_COST_1st VmRSS=-1.60MB Anon=-1.60MB
+  INSTANCE_COST_avg VmRSS=-0.26MB Anon=-0.27MB (total/N)
+  INSTANCE_COST_tot VmRSS=-0.79MB Anon=-0.80MB
+  COMPARE module_RSS=150.45MB vs inst_avg_RSS=-0.26MB (ratio inst/mod=-0.00)
+raffle-tinygo/6_after_cleanup threads=252 VmRSS=823.08MB Anon=772.10MB VmSize=118566.01MB goAlloc=1.98MB goSys=18.08MB goroutine=2 numGC=97
+  vs peak: Δraffle-tinygo/6_after_cleanup threads=+4 VmRSS=+0.07MB Anon=+0.07MB VmSize=+8.02MB goAlloc=-1.04MB goSys=+0.00MB goroutine=+0 elapsed=264.599837ms
+
+########## [7/8] itinerary-tinygo (./testdata/itinerary-tinygo.wasm) ##########
+itinerary-tinygo/0_baseline threads=252 VmRSS=821.74MB Anon=770.76MB VmSize=118566.01MB goAlloc=1.99MB goSys=18.08MB goroutine=2 numGC=98
+itinerary-tinygo/1_after_engine_store threads=252 VmRSS=821.74MB Anon=770.76MB VmSize=118566.01MB goAlloc=1.95MB goSys=18.08MB goroutine=2 numGC=99
+  Δitinerary-tinygo/1_after_engine_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=264.270467ms
+itinerary-tinygo/2_after_ReadFile threads=252 VmRSS=822.65MB Anon=771.67MB VmSize=118566.01MB goAlloc=2.86MB goSys=18.08MB goroutine=2 numGC=100
+  Δitinerary-tinygo/2_after_ReadFile threads=+0 VmRSS=+0.91MB Anon=+0.91MB VmSize=+0.00MB goAlloc=+0.91MB goSys=+0.00MB goroutine=+0 elapsed=263.895676ms  (file=0.90MB)
+itinerary-tinygo/3_after_Validate threads=252 VmRSS=825.55MB Anon=774.57MB VmSize=118566.01MB goAlloc=2.86MB goSys=18.08MB goroutine=2 numGC=101
+  Δitinerary-tinygo/3_after_Validate threads=+0 VmRSS=+2.90MB Anon=+2.90MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=268.847566ms
+--- MODULE NewModule elapsed=232.386212ms ---
+  before: itinerary-tinygo/3_after_Validate threads=252 VmRSS=825.55MB Anon=774.57MB VmSize=118566.01MB goAlloc=2.86MB goSys=18.08MB goroutine=2 numGC=101
+  after:  itinerary-tinygo/4_after_NewModule threads=252 VmRSS=973.64MB Anon=922.66MB VmSize=118592.61MB goAlloc=2.88MB goSys=18.08MB goroutine=2 numGC=102
+  Δitinerary-tinygo/4_after_NewModule threads=+0 VmRSS=+148.09MB Anon=+148.09MB VmSize=+26.60MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=495.031713ms
+  MODULE_COST VmRSS=+148.09MB Anon=+148.09MB (×file=164.8x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δitinerary-tinygo/inst0_after threads=+13 VmRSS=-1.34MB Anon=-1.34MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.077065105s
+  inst#1 Δ: Δitinerary-tinygo/inst1_after threads=+10 VmRSS=+0.46MB Anon=+0.46MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.085218698s
+  inst#2 Δ: Δitinerary-tinygo/inst2_after threads=+13 VmRSS=+0.34MB Anon=+0.34MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.0813292s
+--- INSTANCES peak N=3 ---
+  before_instances: itinerary-tinygo/4_after_NewModule threads=252 VmRSS=973.64MB Anon=922.66MB VmSize=118592.61MB goAlloc=2.88MB goSys=18.08MB goroutine=2 numGC=102
+  peak:             itinerary-tinygo/5_peak_N_alive threads=288 VmRSS=973.10MB Anon=922.12MB VmSize=137078.71MB goAlloc=2.89MB goSys=18.08MB goroutine=2 numGC=112
+  Δitinerary-tinygo/5_peak_N_alive threads=+36 VmRSS=-0.55MB Anon=-0.55MB VmSize=+18486.11MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.30286498s
+  INSTANCE_COST_1st VmRSS=-1.34MB Anon=-1.34MB
+  INSTANCE_COST_avg VmRSS=-0.18MB Anon=-0.18MB (total/N)
+  INSTANCE_COST_tot VmRSS=-0.55MB Anon=-0.55MB
+  COMPARE module_RSS=148.09MB vs inst_avg_RSS=-0.18MB (ratio inst/mod=-0.00)
+itinerary-tinygo/6_after_cleanup threads=291 VmRSS=973.16MB Anon=922.18MB VmSize=137084.72MB goAlloc=1.99MB goSys=18.08MB goroutine=2 numGC=113
+  vs peak: Δitinerary-tinygo/6_after_cleanup threads=+3 VmRSS=+0.06MB Anon=+0.06MB VmSize=+6.01MB goAlloc=-0.90MB goSys=+0.00MB goroutine=+0 elapsed=267.203522ms
+
+########## [8/8] bigInput-tinygo (./testdata/bigInput-tinygo.wasm) ##########
+bigInput-tinygo/0_baseline threads=291 VmRSS=971.94MB Anon=920.96MB VmSize=137084.72MB goAlloc=2.00MB goSys=18.08MB goroutine=2 numGC=114
+bigInput-tinygo/1_after_engine_store threads=291 VmRSS=971.94MB Anon=920.96MB VmSize=137084.72MB goAlloc=1.96MB goSys=18.08MB goroutine=2 numGC=115
+  ΔbigInput-tinygo/1_after_engine_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=265.097428ms
+bigInput-tinygo/2_after_ReadFile threads=291 VmRSS=972.55MB Anon=921.57MB VmSize=137084.72MB goAlloc=2.57MB goSys=18.08MB goroutine=2 numGC=116
+  ΔbigInput-tinygo/2_after_ReadFile threads=+0 VmRSS=+0.61MB Anon=+0.61MB VmSize=+0.00MB goAlloc=+0.61MB goSys=+0.00MB goroutine=+0 elapsed=266.109171ms  (file=0.60MB)
+bigInput-tinygo/3_after_Validate threads=291 VmRSS=975.58MB Anon=924.61MB VmSize=137084.72MB goAlloc=2.57MB goSys=18.08MB goroutine=2 numGC=117
+  ΔbigInput-tinygo/3_after_Validate threads=+0 VmRSS=+3.03MB Anon=+3.04MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=269.27078ms
+--- MODULE NewModule elapsed=116.81829ms ---
+  before: bigInput-tinygo/3_after_Validate threads=291 VmRSS=975.58MB Anon=924.61MB VmSize=137084.72MB goAlloc=2.57MB goSys=18.08MB goroutine=2 numGC=117
+  after:  bigInput-tinygo/4_after_NewModule threads=291 VmRSS=1030.90MB Anon=979.92MB VmSize=137110.39MB goAlloc=2.59MB goSys=18.08MB goroutine=2 numGC=118
+  ΔbigInput-tinygo/4_after_NewModule threads=+0 VmRSS=+55.32MB Anon=+55.32MB VmSize=+25.66MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=383.150301ms
+  MODULE_COST VmRSS=+55.32MB Anon=+55.32MB (×file=91.5x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: ΔbigInput-tinygo/inst0_after  threads=+13 VmRSS=-0.64MB Anon=+0.29MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.083722685s
+  inst#1 Δ: ΔbigInput-tinygo/inst1_after  threads=+9 VmRSS=+0.27MB Anon=+0.27MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.084386081s
+  inst#2 Δ: ΔbigInput-tinygo/inst2_after  threads=+13 VmRSS=+0.28MB Anon=+0.28MB VmSize=+6168.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.085563244s
+--- INSTANCES peak N=3 ---
+  before_instances: bigInput-tinygo/4_after_NewModule threads=291 VmRSS=1030.90MB Anon=979.92MB VmSize=137110.39MB goAlloc=2.59MB goSys=18.08MB goroutine=2 numGC=118
+  peak:             bigInput-tinygo/5_peak_N_alive threads=326 VmRSS=1030.75MB Anon=979.77MB VmSize=155594.49MB goAlloc=2.59MB goSys=18.08MB goroutine=2 numGC=128
+  ΔbigInput-tinygo/5_peak_N_alive threads=+35 VmRSS=-0.15MB Anon=-0.15MB VmSize=+18484.10MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.315143442s
+  INSTANCE_COST_1st VmRSS=-0.70MB Anon=-0.70MB
+  INSTANCE_COST_avg VmRSS=-0.05MB Anon=-0.05MB (total/N)
+  INSTANCE_COST_tot VmRSS=-0.15MB Anon=-0.15MB
+  COMPARE module_RSS=55.32MB vs inst_avg_RSS=-0.05MB (ratio inst/mod=-0.00)
+bigInput-tinygo/6_after_cleanup threads=329 VmRSS=1030.79MB Anon=978.93MB VmSize=155600.50MB goAlloc=1.99MB goSys=18.08MB goroutine=2 numGC=129
+  vs peak: ΔbigInput-tinygo/6_after_cleanup threads=+3 VmRSS=+0.04MB Anon=-0.84MB VmSize=+6.01MB goAlloc=-0.60MB goSys=+0.00MB goroutine=+0 elapsed=268.683771ms
+
+=== SUMMARY (MB) ===
+contract             wasm    mod_RSS   mod_Anon      N  inst1_RSS inst1_Anon instAvgRSS instAvgAnon instTotRSS instTotAnon
+fact-tinygo          0.89     133.29     129.13      3       2.99      -1.02       1.38       0.04       4.12       0.12
+exchange-tinygo      0.62     107.50     107.50      3      -0.74      -0.74       0.05       0.05       0.16       0.16
+erc721-tinygo        0.99     144.82     144.82      3      -1.35      -1.35      -0.17      -0.17      -0.51      -0.51
+compute-tinygo       0.75     115.02     115.02      3      -1.10      -1.10      -0.10      -0.10      -0.29      -0.29
+identity-tinygo      0.90      99.62      99.62      3      -1.37      -1.37      -0.20      -0.20      -0.59      -0.59
+raffle-tinygo        1.05     150.45     150.45      3      -1.60      -1.60      -0.26      -0.27      -0.79      -0.80
+itinerary-tinygo     0.90     148.09     148.09      3      -1.34      -1.34      -0.18      -0.18      -0.55      -0.55
+bigInput-tinygo      0.60      55.32      55.32      3      -0.70      -0.70      -0.05      -0.05      -0.15      -0.15
+
+legend: mod_* = Δ after NewModule; inst1_* = first instance; instAvg_* = totalΔ/N
+log_file=./resource_probe_mvsi_tinygo.log

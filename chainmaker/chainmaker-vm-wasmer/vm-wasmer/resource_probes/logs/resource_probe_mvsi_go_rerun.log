@@ -1,0 +1,245 @@
+=== TestModuleVsInstanceRSS ===
+time=2026-08-24T22:32:06+08:00
+log_file=./resource_probe_mvsi_go_rerun.log
+instances=3 settle=250ms
+contracts=[./testdata/fact-go.wasm ./testdata/exchange-go.wasm ./testdata/erc721-go.wasm ./testdata/compute-go.wasm ./testdata/identity-go.wasm ./testdata/raffle-go.wasm ./testdata/itinerary-go.wasm ./testdata/bigInput-go.wasm]
+note: Module = NewModule only; Instance = wasiEnv+imports+NewInstance+WASI Init
+note: instances kept alive → each pays full Finalize (no freelist reuse)
+
+########## [1/8] fact-go (./testdata/fact-go.wasm) ##########
+fact-go/0_baseline threads=9 VmRSS=47.18MB Anon=6.61MB VmSize=1848.89MB goAlloc=1.97MB goSys=13.65MB goroutine=2 numGC=2
+fact-go/1_after_engine_store threads=9 VmRSS=48.19MB Anon=6.51MB VmSize=1848.89MB goAlloc=1.87MB goSys=13.65MB goroutine=2 numGC=3
+  Δfact-go/1_after_engine_store threads=+0 VmRSS=+1.00MB Anon=-0.10MB VmSize=+0.00MB goAlloc=-0.11MB goSys=+0.00MB goroutine=+0 elapsed=251.646651ms
+fact-go/2_after_ReadFile threads=10 VmRSS=52.74MB Anon=11.23MB VmSize=1920.90MB goAlloc=6.52MB goSys=21.65MB goroutine=2 numGC=5
+  Δfact-go/2_after_ReadFile     threads=+1 VmRSS=+4.55MB Anon=+4.72MB VmSize=+72.00MB goAlloc=+4.65MB goSys=+8.00MB goroutine=+0 elapsed=257.477035ms  (file=4.65MB)
+fact-go/3_after_Validate threads=10 VmRSS=68.02MB Anon=20.86MB VmSize=1925.55MB goAlloc=6.52MB goSys=29.65MB goroutine=2 numGC=7
+  Δfact-go/3_after_Validate     threads=+0 VmRSS=+15.28MB Anon=+9.63MB VmSize=+4.65MB goAlloc=-0.00MB goSys=+8.00MB goroutine=+0 elapsed=281.358669ms
+--- MODULE NewModule elapsed=421.230038ms ---
+  before: fact-go/3_after_Validate threads=10 VmRSS=68.02MB Anon=20.86MB VmSize=1925.55MB goAlloc=6.52MB goSys=29.65MB goroutine=2 numGC=7
+  after:  fact-go/4_after_NewModule threads=10 VmRSS=237.34MB Anon=185.68MB VmSize=2723.82MB goAlloc=6.55MB goSys=29.65MB goroutine=2 numGC=9
+  Δfact-go/4_after_NewModule    threads=+0 VmRSS=+169.32MB Anon=+164.81MB VmSize=+798.27MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=673.039356ms
+  MODULE_COST VmRSS=+169.32MB Anon=+164.81MB (×file=36.4x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δfact-go/inst0_after          threads=+13 VmRSS=+7.18MB Anon=+6.94MB VmSize=+6214.12MB goAlloc=+0.03MB goSys=+0.00MB goroutine=+0 elapsed=1.062082816s
+  inst#1 Δ: Δfact-go/inst1_after          threads=+13 VmRSS=+6.91MB Anon=+6.91MB VmSize=+7002.12MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.061891795s
+  inst#2 Δ: Δfact-go/inst2_after          threads=+13 VmRSS=+4.38MB Anon=+4.38MB VmSize=+7002.12MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.064449671s
+--- INSTANCES peak N=3 ---
+  before_instances: fact-go/4_after_NewModule threads=10 VmRSS=237.34MB Anon=185.68MB VmSize=2723.82MB goAlloc=6.55MB goSys=29.65MB goroutine=2 numGC=9
+  peak:             fact-go/5_peak_N_alive threads=49 VmRSS=250.56MB Anon=199.86MB VmSize=22942.17MB goAlloc=6.55MB goSys=29.65MB goroutine=2 numGC=19
+  Δfact-go/5_peak_N_alive       threads=+39 VmRSS=+13.22MB Anon=+14.19MB VmSize=+20218.36MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.203267928s
+  INSTANCE_COST_1st VmRSS=+1.88MB Anon=+2.86MB
+  INSTANCE_COST_avg VmRSS=+4.41MB Anon=+4.73MB (total/N)
+  INSTANCE_COST_tot VmRSS=+13.22MB Anon=+14.19MB
+  COMPARE module_RSS=169.32MB vs inst_avg_RSS=4.41MB (ratio inst/mod=0.03)
+fact-go/6_after_cleanup threads=49 VmRSS=250.64MB Anon=199.88MB VmSize=22942.49MB goAlloc=1.91MB goSys=29.90MB goroutine=2 numGC=20
+  vs peak: Δfact-go/6_after_cleanup      threads=+0 VmRSS=+0.08MB Anon=+0.02MB VmSize=+0.32MB goAlloc=-4.64MB goSys=+0.25MB goroutine=+0 elapsed=254.877259ms
+
+########## [2/8] exchange-go (./testdata/exchange-go.wasm) ##########
+exchange-go/0_baseline threads=49 VmRSS=246.60MB Anon=195.46MB VmSize=22942.49MB goAlloc=1.92MB goSys=29.90MB goroutine=2 numGC=21
+exchange-go/1_after_engine_store threads=49 VmRSS=246.25MB Anon=195.50MB VmSize=22942.49MB goAlloc=1.88MB goSys=29.90MB goroutine=2 numGC=22
+  Δexchange-go/1_after_engine_store threads=+0 VmRSS=-0.34MB Anon=+0.03MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=255.239942ms
+exchange-go/2_after_ReadFile threads=50 VmRSS=250.04MB Anon=199.28MB VmSize=23014.49MB goAlloc=5.97MB goSys=29.90MB goroutine=2 numGC=24
+  Δexchange-go/2_after_ReadFile threads=+1 VmRSS=+3.79MB Anon=+3.79MB VmSize=+72.00MB goAlloc=+4.09MB goSys=+0.00MB goroutine=+0 elapsed=259.87033ms  (file=4.09MB)
+exchange-go/3_after_Validate threads=50 VmRSS=270.55MB Anon=215.66MB VmSize=23014.49MB goAlloc=5.97MB goSys=29.90MB goroutine=2 numGC=26
+  Δexchange-go/3_after_Validate threads=+0 VmRSS=+20.51MB Anon=+16.38MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=281.672291ms
+--- MODULE NewModule elapsed=374.879659ms ---
+  before: exchange-go/3_after_Validate threads=50 VmRSS=270.55MB Anon=215.66MB VmSize=23014.49MB goAlloc=5.97MB goSys=29.90MB goroutine=2 numGC=26
+  after:  exchange-go/4_after_NewModule threads=50 VmRSS=416.26MB Anon=358.48MB VmSize=23811.93MB goAlloc=5.99MB goSys=29.90MB goroutine=2 numGC=28
+  Δexchange-go/4_after_NewModule threads=+0 VmRSS=+145.71MB Anon=+142.82MB VmSize=+797.44MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=629.842621ms
+  MODULE_COST VmRSS=+145.71MB Anon=+142.82MB (×file=35.7x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δexchange-go/inst0_after      threads=+13 VmRSS=+3.97MB Anon=+3.97MB VmSize=+6210.07MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.064702559s
+  inst#1 Δ: Δexchange-go/inst1_after      threads=+13 VmRSS=+6.78MB Anon=+6.78MB VmSize=+7002.12MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.067347484s
+  inst#2 Δ: Δexchange-go/inst2_after      threads=+13 VmRSS=+4.07MB Anon=+4.07MB VmSize=+7002.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.074926598s
+--- INSTANCES peak N=3 ---
+  before_instances: exchange-go/4_after_NewModule threads=50 VmRSS=416.26MB Anon=358.48MB VmSize=23811.93MB goAlloc=5.99MB goSys=29.90MB goroutine=2 numGC=28
+  peak:             exchange-go/5_peak_N_alive threads=89 VmRSS=422.95MB Anon=372.20MB VmSize=44026.17MB goAlloc=6.00MB goSys=29.90MB goroutine=2 numGC=38
+  Δexchange-go/5_peak_N_alive   threads=+39 VmRSS=+6.70MB Anon=+13.72MB VmSize=+20214.24MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.23264984s
+  INSTANCE_COST_1st VmRSS=-4.16MB Anon=+2.87MB
+  INSTANCE_COST_avg VmRSS=+2.23MB Anon=+4.57MB (total/N)
+  INSTANCE_COST_tot VmRSS=+6.70MB Anon=+13.72MB
+  COMPARE module_RSS=145.71MB vs inst_avg_RSS=2.23MB (ratio inst/mod=0.02)
+exchange-go/6_after_cleanup threads=89 VmRSS=422.96MB Anon=372.20MB VmSize=44026.17MB goAlloc=1.92MB goSys=29.90MB goroutine=2 numGC=39
+  vs peak: Δexchange-go/6_after_cleanup  threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-4.08MB goSys=+0.00MB goroutine=+0 elapsed=257.398248ms
+
+########## [3/8] erc721-go (./testdata/erc721-go.wasm) ##########
+erc721-go/0_baseline threads=89 VmRSS=418.86MB Anon=368.11MB VmSize=44026.42MB goAlloc=1.93MB goSys=30.15MB goroutine=2 numGC=40
+erc721-go/1_after_engine_store threads=89 VmRSS=418.90MB Anon=368.14MB VmSize=44026.42MB goAlloc=1.89MB goSys=30.15MB goroutine=2 numGC=41
+  Δerc721-go/1_after_engine_store threads=+0 VmRSS=+0.04MB Anon=+0.03MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=256.76488ms
+erc721-go/2_after_ReadFile threads=89 VmRSS=423.74MB Anon=372.98MB VmSize=44026.42MB goAlloc=6.82MB goSys=30.15MB goroutine=2 numGC=43
+  Δerc721-go/2_after_ReadFile   threads=+0 VmRSS=+4.84MB Anon=+4.84MB VmSize=+0.00MB goAlloc=+4.93MB goSys=+0.00MB goroutine=+0 elapsed=263.168763ms  (file=4.94MB)
+erc721-go/3_after_Validate threads=89 VmRSS=433.70MB Anon=377.95MB VmSize=44026.42MB goAlloc=6.82MB goSys=30.15MB goroutine=2 numGC=45
+  Δerc721-go/3_after_Validate   threads=+0 VmRSS=+9.96MB Anon=+4.96MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=285.304112ms
+--- MODULE NewModule elapsed=485.513993ms ---
+  before: erc721-go/3_after_Validate threads=89 VmRSS=433.70MB Anon=377.95MB VmSize=44026.42MB goAlloc=6.82MB goSys=30.15MB goroutine=2 numGC=45
+  after:  erc721-go/4_after_NewModule threads=89 VmRSS=588.69MB Anon=528.29MB VmSize=44519.87MB goAlloc=6.89MB goSys=30.15MB goroutine=2 numGC=47
+  Δerc721-go/4_after_NewModule  threads=+0 VmRSS=+154.98MB Anon=+150.34MB VmSize=+493.45MB goAlloc=+0.06MB goSys=+0.00MB goroutine=+0 elapsed=742.088117ms
+  MODULE_COST VmRSS=+154.98MB Anon=+150.34MB (×file=31.4x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δerc721-go/inst0_after        threads=+13 VmRSS=+4.42MB Anon=+4.42MB VmSize=+6146.07MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.069615626s
+  inst#1 Δ: Δerc721-go/inst1_after        threads=+13 VmRSS=+6.07MB Anon=+6.07MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.0728304s
+  inst#2 Δ: Δerc721-go/inst2_after        threads=+13 VmRSS=+6.07MB Anon=+6.07MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.073525967s
+--- INSTANCES peak N=3 ---
+  before_instances: erc721-go/4_after_NewModule threads=89 VmRSS=588.69MB Anon=528.29MB VmSize=44519.87MB goAlloc=6.89MB goSys=30.15MB goroutine=2 numGC=47
+  peak:             erc721-go/5_peak_N_alive threads=128 VmRSS=595.62MB Anon=544.87MB VmSize=63006.04MB goAlloc=6.90MB goSys=30.15MB goroutine=2 numGC=57
+  Δerc721-go/5_peak_N_alive     threads=+39 VmRSS=+6.93MB Anon=+16.58MB VmSize=+18486.17MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.250066935s
+  INSTANCE_COST_1st VmRSS=-5.25MB Anon=+4.39MB
+  INSTANCE_COST_avg VmRSS=+2.31MB Anon=+5.53MB (total/N)
+  INSTANCE_COST_tot VmRSS=+6.93MB Anon=+16.58MB
+  COMPARE module_RSS=154.98MB vs inst_avg_RSS=2.31MB (ratio inst/mod=0.01)
+erc721-go/6_after_cleanup threads=128 VmRSS=595.66MB Anon=544.91MB VmSize=63006.04MB goAlloc=1.96MB goSys=30.15MB goroutine=2 numGC=58
+  vs peak: Δerc721-go/6_after_cleanup    threads=+0 VmRSS=+0.04MB Anon=+0.04MB VmSize=+0.00MB goAlloc=-4.94MB goSys=+0.00MB goroutine=+0 elapsed=257.577104ms
+
+########## [4/8] compute-go (./testdata/compute-go.wasm) ##########
+compute-go/0_baseline threads=128 VmRSS=591.23MB Anon=539.85MB VmSize=63006.04MB goAlloc=1.97MB goSys=30.15MB goroutine=2 numGC=59
+compute-go/1_after_engine_store threads=128 VmRSS=590.61MB Anon=539.85MB VmSize=63006.04MB goAlloc=1.93MB goSys=30.15MB goroutine=2 numGC=60
+  Δcompute-go/1_after_engine_store threads=+0 VmRSS=-0.62MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=258.07106ms
+compute-go/2_after_ReadFile threads=128 VmRSS=594.97MB Anon=544.21MB VmSize=63006.04MB goAlloc=6.34MB goSys=30.15MB goroutine=2 numGC=62
+  Δcompute-go/2_after_ReadFile  threads=+0 VmRSS=+4.37MB Anon=+4.37MB VmSize=+0.00MB goAlloc=+4.41MB goSys=+0.00MB goroutine=+0 elapsed=264.331359ms  (file=4.41MB)
+compute-go/3_after_Validate threads=129 VmRSS=616.95MB Anon=561.30MB VmSize=63014.04MB goAlloc=6.35MB goSys=30.15MB goroutine=2 numGC=64
+  Δcompute-go/3_after_Validate  threads=+1 VmRSS=+21.98MB Anon=+17.09MB VmSize=+8.00MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=285.230818ms
+--- MODULE NewModule elapsed=395.262729ms ---
+  before: compute-go/3_after_Validate threads=129 VmRSS=616.95MB Anon=561.30MB VmSize=63014.04MB goAlloc=6.35MB goSys=30.15MB goroutine=2 numGC=64
+  after:  compute-go/4_after_NewModule threads=129 VmRSS=719.57MB Anon=663.78MB VmSize=63043.91MB goAlloc=6.37MB goSys=30.15MB goroutine=2 numGC=66
+  Δcompute-go/4_after_NewModule threads=+0 VmRSS=+102.62MB Anon=+102.47MB VmSize=+29.87MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=654.335161ms
+  MODULE_COST VmRSS=+102.62MB Anon=+102.47MB (×file=23.3x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δcompute-go/inst0_after       threads=+13 VmRSS=-0.10MB Anon=-0.10MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.070548866s
+  inst#1 Δ: Δcompute-go/inst1_after       threads=+13 VmRSS=+5.92MB Anon=+5.91MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.077616902s
+  inst#2 Δ: Δcompute-go/inst2_after       threads=+13 VmRSS=+4.36MB Anon=+4.36MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.075696068s
+--- INSTANCES peak N=3 ---
+  before_instances: compute-go/4_after_NewModule threads=129 VmRSS=719.57MB Anon=663.78MB VmSize=63043.91MB goAlloc=6.37MB goSys=30.15MB goroutine=2 numGC=66
+  peak:             compute-go/5_peak_N_alive threads=168 VmRSS=724.78MB Anon=674.02MB VmSize=81530.02MB goAlloc=6.38MB goSys=30.15MB goroutine=2 numGC=76
+  Δcompute-go/5_peak_N_alive    threads=+39 VmRSS=+5.21MB Anon=+10.25MB VmSize=+18486.11MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.264904651s
+  INSTANCE_COST_1st VmRSS=-5.10MB Anon=-0.06MB
+  INSTANCE_COST_avg VmRSS=+1.74MB Anon=+3.42MB (total/N)
+  INSTANCE_COST_tot VmRSS=+5.21MB Anon=+10.25MB
+  COMPARE module_RSS=102.62MB vs inst_avg_RSS=1.74MB (ratio inst/mod=0.02)
+compute-go/6_after_cleanup threads=168 VmRSS=724.78MB Anon=674.02MB VmSize=81530.02MB goAlloc=1.97MB goSys=30.15MB goroutine=2 numGC=77
+  vs peak: Δcompute-go/6_after_cleanup   threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-4.41MB goSys=+0.00MB goroutine=+0 elapsed=262.15049ms
+
+########## [5/8] identity-go (./testdata/identity-go.wasm) ##########
+identity-go/0_baseline threads=168 VmRSS=720.29MB Anon=669.53MB VmSize=81530.02MB goAlloc=1.98MB goSys=30.15MB goroutine=2 numGC=78
+identity-go/1_after_engine_store threads=168 VmRSS=720.30MB Anon=669.55MB VmSize=81530.02MB goAlloc=1.94MB goSys=30.15MB goroutine=2 numGC=79
+  Δidentity-go/1_after_engine_store threads=+0 VmRSS=+0.02MB Anon=+0.02MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=261.4591ms
+identity-go/2_after_ReadFile threads=168 VmRSS=725.02MB Anon=674.26MB VmSize=81530.02MB goAlloc=6.62MB goSys=30.15MB goroutine=2 numGC=81
+  Δidentity-go/2_after_ReadFile threads=+0 VmRSS=+4.71MB Anon=+4.70MB VmSize=+0.00MB goAlloc=+4.68MB goSys=+0.00MB goroutine=+0 elapsed=265.459746ms  (file=4.68MB)
+identity-go/3_after_Validate threads=168 VmRSS=739.80MB Anon=683.83MB VmSize=81530.02MB goAlloc=6.62MB goSys=30.15MB goroutine=2 numGC=83
+  Δidentity-go/3_after_Validate threads=+0 VmRSS=+14.78MB Anon=+9.57MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=287.393232ms
+--- MODULE NewModule elapsed=419.686018ms ---
+  before: identity-go/3_after_Validate threads=168 VmRSS=739.80MB Anon=683.83MB VmSize=81530.02MB goAlloc=6.62MB goSys=30.15MB goroutine=2 numGC=83
+  after:  identity-go/4_after_NewModule threads=168 VmRSS=838.52MB Anon=778.95MB VmSize=81552.59MB goAlloc=6.64MB goSys=30.15MB goroutine=2 numGC=85
+  Δidentity-go/4_after_NewModule threads=+0 VmRSS=+98.73MB Anon=+95.12MB VmSize=+22.57MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=681.738334ms
+  MODULE_COST VmRSS=+98.73MB Anon=+95.12MB (×file=21.1x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δidentity-go/inst0_after      threads=+13 VmRSS=+3.89MB Anon=+3.89MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.074672841s
+  inst#1 Δ: Δidentity-go/inst1_after      threads=+13 VmRSS=+4.93MB Anon=+4.93MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.089324045s
+  inst#2 Δ: Δidentity-go/inst2_after      threads=+13 VmRSS=+4.00MB Anon=+4.01MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.078242185s
+--- INSTANCES peak N=3 ---
+  before_instances: identity-go/4_after_NewModule threads=168 VmRSS=838.52MB Anon=778.95MB VmSize=81552.59MB goAlloc=6.64MB goSys=30.15MB goroutine=2 numGC=85
+  peak:             identity-go/5_peak_N_alive threads=207 VmRSS=842.14MB Anon=791.39MB VmSize=100038.70MB goAlloc=6.65MB goSys=30.15MB goroutine=2 numGC=95
+  Δidentity-go/5_peak_N_alive   threads=+39 VmRSS=+3.62MB Anon=+12.44MB VmSize=+18486.11MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.288883008s
+  INSTANCE_COST_1st VmRSS=-5.36MB Anon=+3.46MB
+  INSTANCE_COST_avg VmRSS=+1.21MB Anon=+4.15MB (total/N)
+  INSTANCE_COST_tot VmRSS=+3.62MB Anon=+12.44MB
+  COMPARE module_RSS=98.73MB vs inst_avg_RSS=1.21MB (ratio inst/mod=0.01)
+identity-go/6_after_cleanup threads=207 VmRSS=842.15MB Anon=791.39MB VmSize=100038.76MB goAlloc=1.97MB goSys=30.15MB goroutine=2 numGC=96
+  vs peak: Δidentity-go/6_after_cleanup  threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.07MB goAlloc=-4.68MB goSys=+0.00MB goroutine=+0 elapsed=263.683513ms
+
+########## [6/8] raffle-go (./testdata/raffle-go.wasm) ##########
+raffle-go/0_baseline threads=207 VmRSS=837.31MB Anon=786.56MB VmSize=100038.76MB goAlloc=1.99MB goSys=30.15MB goroutine=2 numGC=97
+raffle-go/1_after_engine_store threads=207 VmRSS=837.35MB Anon=786.59MB VmSize=100038.76MB goAlloc=1.95MB goSys=30.15MB goroutine=2 numGC=98
+  Δraffle-go/1_after_engine_store threads=+0 VmRSS=+0.04MB Anon=+0.04MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=261.640566ms
+raffle-go/2_after_ReadFile threads=207 VmRSS=842.41MB Anon=791.65MB VmSize=100038.76MB goAlloc=6.97MB goSys=30.15MB goroutine=2 numGC=100
+  Δraffle-go/2_after_ReadFile   threads=+0 VmRSS=+5.06MB Anon=+5.06MB VmSize=+0.00MB goAlloc=+5.02MB goSys=+0.00MB goroutine=+0 elapsed=268.575982ms  (file=5.02MB)
+raffle-go/3_after_Validate threads=207 VmRSS=857.52MB Anon=801.62MB VmSize=100043.78MB goAlloc=6.97MB goSys=30.15MB goroutine=2 numGC=102
+  Δraffle-go/3_after_Validate   threads=+0 VmRSS=+15.11MB Anon=+9.97MB VmSize=+5.02MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=293.413651ms
+--- MODULE NewModule elapsed=476.839733ms ---
+  before: raffle-go/3_after_Validate threads=207 VmRSS=857.52MB Anon=801.62MB VmSize=100043.78MB goAlloc=6.97MB goSys=30.15MB goroutine=2 numGC=102
+  after:  raffle-go/4_after_NewModule threads=207 VmRSS=973.38MB Anon=914.79MB VmSize=100074.55MB goAlloc=6.99MB goSys=30.15MB goroutine=2 numGC=104
+  Δraffle-go/4_after_NewModule  threads=+0 VmRSS=+115.87MB Anon=+113.17MB VmSize=+30.77MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=738.579765ms
+  MODULE_COST VmRSS=+115.87MB Anon=+113.17MB (×file=23.1x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δraffle-go/inst0_after        threads=+13 VmRSS=+4.04MB Anon=+4.04MB VmSize=+6146.00MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.076961675s
+  inst#1 Δ: Δraffle-go/inst1_after        threads=+13 VmRSS=+7.04MB Anon=+7.04MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.082791729s
+  inst#2 Δ: Δraffle-go/inst2_after        threads=+13 VmRSS=+6.11MB Anon=+6.11MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.082553898s
+--- INSTANCES peak N=3 ---
+  before_instances: raffle-go/4_after_NewModule threads=207 VmRSS=973.38MB Anon=914.79MB VmSize=100074.55MB goAlloc=6.99MB goSys=30.15MB goroutine=2 numGC=104
+  peak:             raffle-go/5_peak_N_alive threads=246 VmRSS=980.77MB Anon=930.02MB VmSize=118560.65MB goAlloc=7.00MB goSys=30.15MB goroutine=2 numGC=114
+  Δraffle-go/5_peak_N_alive     threads=+39 VmRSS=+7.39MB Anon=+15.23MB VmSize=+18486.11MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.295212435s
+  INSTANCE_COST_1st VmRSS=-5.80MB Anon=+2.04MB
+  INSTANCE_COST_avg VmRSS=+2.46MB Anon=+5.08MB (total/N)
+  INSTANCE_COST_tot VmRSS=+7.39MB Anon=+15.23MB
+  COMPARE module_RSS=115.87MB vs inst_avg_RSS=2.46MB (ratio inst/mod=0.02)
+raffle-go/6_after_cleanup threads=246 VmRSS=980.78MB Anon=930.02MB VmSize=118560.65MB goAlloc=1.98MB goSys=30.15MB goroutine=2 numGC=115
+  vs peak: Δraffle-go/6_after_cleanup    threads=+0 VmRSS=+0.01MB Anon=+0.01MB VmSize=+0.00MB goAlloc=-5.02MB goSys=+0.00MB goroutine=+0 elapsed=265.305563ms
+
+########## [7/8] itinerary-go (./testdata/itinerary-go.wasm) ##########
+itinerary-go/0_baseline threads=246 VmRSS=975.42MB Anon=924.66MB VmSize=118560.65MB goAlloc=1.99MB goSys=30.15MB goroutine=2 numGC=116
+itinerary-go/1_after_engine_store threads=246 VmRSS=975.42MB Anon=924.66MB VmSize=118560.65MB goAlloc=1.95MB goSys=30.15MB goroutine=2 numGC=117
+  Δitinerary-go/1_after_engine_store threads=+0 VmRSS=+0.00MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=263.235427ms
+itinerary-go/2_after_ReadFile threads=246 VmRSS=980.12MB Anon=929.36MB VmSize=118560.65MB goAlloc=6.61MB goSys=30.15MB goroutine=2 numGC=119
+  Δitinerary-go/2_after_ReadFile threads=+0 VmRSS=+4.70MB Anon=+4.70MB VmSize=+0.00MB goAlloc=+4.66MB goSys=+0.00MB goroutine=+0 elapsed=270.875434ms  (file=4.66MB)
+itinerary-go/3_after_Validate threads=246 VmRSS=993.86MB Anon=938.41MB VmSize=118560.65MB goAlloc=6.61MB goSys=30.15MB goroutine=2 numGC=121
+  Δitinerary-go/3_after_Validate threads=+0 VmRSS=+13.74MB Anon=+9.05MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=296.70198ms
+--- MODULE NewModule elapsed=450.161204ms ---
+  before: itinerary-go/3_after_Validate threads=246 VmRSS=993.86MB Anon=938.41MB VmSize=118560.65MB goAlloc=6.61MB goSys=30.15MB goroutine=2 numGC=121
+  after:  itinerary-go/4_after_NewModule threads=246 VmRSS=1098.48MB Anon=1042.46MB VmSize=118595.89MB goAlloc=6.63MB goSys=30.15MB goroutine=2 numGC=123
+  Δitinerary-go/4_after_NewModule threads=+0 VmRSS=+104.62MB Anon=+104.05MB VmSize=+35.24MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=715.39058ms
+  MODULE_COST VmRSS=+104.62MB Anon=+104.05MB (×file=22.5x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: Δitinerary-go/inst0_after     threads=+13 VmRSS=-0.12MB Anon=+3.88MB VmSize=+6146.07MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.078408137s
+  inst#1 Δ: Δitinerary-go/inst1_after     threads=+13 VmRSS=+5.09MB Anon=+5.09MB VmSize=+6171.09MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.084658256s
+  inst#2 Δ: Δitinerary-go/inst2_after     threads=+13 VmRSS=+4.04MB Anon=+4.04MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.084493481s
+--- INSTANCES peak N=3 ---
+  before_instances: itinerary-go/4_after_NewModule threads=246 VmRSS=1098.48MB Anon=1042.46MB VmSize=118595.89MB goAlloc=6.63MB goSys=30.15MB goroutine=2 numGC=123
+  peak:             itinerary-go/5_peak_N_alive threads=285 VmRSS=1102.20MB Anon=1051.45MB VmSize=137083.11MB goAlloc=6.64MB goSys=30.15MB goroutine=2 numGC=133
+  Δitinerary-go/5_peak_N_alive  threads=+39 VmRSS=+3.72MB Anon=+8.99MB VmSize=+18487.21MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.307469562s
+  INSTANCE_COST_1st VmRSS=-5.41MB Anon=-0.14MB
+  INSTANCE_COST_avg VmRSS=+1.24MB Anon=+3.00MB (total/N)
+  INSTANCE_COST_tot VmRSS=+3.72MB Anon=+8.99MB
+  COMPARE module_RSS=104.62MB vs inst_avg_RSS=1.24MB (ratio inst/mod=0.01)
+itinerary-go/6_after_cleanup threads=285 VmRSS=1102.21MB Anon=1051.46MB VmSize=137083.11MB goAlloc=1.98MB goSys=30.15MB goroutine=2 numGC=134
+  vs peak: Δitinerary-go/6_after_cleanup threads=+0 VmRSS=+0.01MB Anon=+0.01MB VmSize=+0.00MB goAlloc=-4.66MB goSys=+0.00MB goroutine=+0 elapsed=266.609826ms
+
+########## [8/8] bigInput-go (./testdata/bigInput-go.wasm) ##########
+bigInput-go/0_baseline threads=285 VmRSS=1097.45MB Anon=1046.70MB VmSize=137083.11MB goAlloc=1.99MB goSys=30.15MB goroutine=2 numGC=135
+bigInput-go/1_after_engine_store threads=285 VmRSS=1097.46MB Anon=1046.70MB VmSize=137083.11MB goAlloc=1.95MB goSys=30.15MB goroutine=2 numGC=136
+  ΔbigInput-go/1_after_engine_store threads=+0 VmRSS=+0.01MB Anon=+0.00MB VmSize=+0.00MB goAlloc=-0.04MB goSys=+0.00MB goroutine=+0 elapsed=264.840868ms
+bigInput-go/2_after_ReadFile threads=285 VmRSS=1101.51MB Anon=1050.75MB VmSize=137083.11MB goAlloc=5.96MB goSys=30.15MB goroutine=2 numGC=138
+  ΔbigInput-go/2_after_ReadFile threads=+0 VmRSS=+4.05MB Anon=+4.05MB VmSize=+0.00MB goAlloc=+4.00MB goSys=+0.00MB goroutine=+0 elapsed=270.248524ms  (file=4.01MB)
+bigInput-go/3_after_Validate threads=285 VmRSS=1118.77MB Anon=1063.62MB VmSize=137083.11MB goAlloc=5.96MB goSys=30.15MB goroutine=2 numGC=140
+  ΔbigInput-go/3_after_Validate threads=+0 VmRSS=+17.26MB Anon=+12.87MB VmSize=+0.00MB goAlloc=+0.00MB goSys=+0.00MB goroutine=+0 elapsed=292.727129ms
+--- MODULE NewModule elapsed=362.935363ms ---
+  before: bigInput-go/3_after_Validate threads=285 VmRSS=1118.77MB Anon=1063.62MB VmSize=137083.11MB goAlloc=5.96MB goSys=30.15MB goroutine=2 numGC=140
+  after:  bigInput-go/4_after_NewModule threads=285 VmRSS=1210.70MB Anon=1152.33MB VmSize=137112.42MB goAlloc=5.98MB goSys=30.15MB goroutine=2 numGC=142
+  ΔbigInput-go/4_after_NewModule threads=+0 VmRSS=+91.93MB Anon=+88.71MB VmSize=+29.31MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=629.342948ms
+  MODULE_COST VmRSS=+91.93MB Anon=+88.71MB (×file=23.0x)
+--- INSTANCE create × 3 (keep alive) ---
+  inst#0 Δ: ΔbigInput-go/inst0_after      threads=+13 VmRSS=+3.88MB Anon=+3.88MB VmSize=+6146.07MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.0820649s
+  inst#1 Δ: ΔbigInput-go/inst1_after      threads=+13 VmRSS=+5.77MB Anon=+5.77MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.088338149s
+  inst#2 Δ: ΔbigInput-go/inst2_after      threads=+13 VmRSS=+4.01MB Anon=+4.01MB VmSize=+6170.05MB goAlloc=+0.02MB goSys=+0.00MB goroutine=+0 elapsed=1.088111579s
+--- INSTANCES peak N=3 ---
+  before_instances: bigInput-go/4_after_NewModule threads=285 VmRSS=1210.70MB Anon=1152.33MB VmSize=137112.42MB goAlloc=5.98MB goSys=30.15MB goroutine=2 numGC=142
+  peak:             bigInput-go/5_peak_N_alive threads=324 VmRSS=1216.45MB Anon=1165.69MB VmSize=155598.59MB goAlloc=5.99MB goSys=30.15MB goroutine=2 numGC=152
+  ΔbigInput-go/5_peak_N_alive   threads=+39 VmRSS=+5.75MB Anon=+13.36MB VmSize=+18486.17MB goAlloc=+0.01MB goSys=+0.00MB goroutine=+0 elapsed=4.322292216s
+  INSTANCE_COST_1st VmRSS=-4.03MB Anon=+3.58MB
+  INSTANCE_COST_avg VmRSS=+1.92MB Anon=+4.45MB (total/N)
+  INSTANCE_COST_tot VmRSS=+5.75MB Anon=+13.36MB
+  COMPARE module_RSS=91.93MB vs inst_avg_RSS=1.92MB (ratio inst/mod=0.02)
+bigInput-go/6_after_cleanup threads=324 VmRSS=1216.39MB Anon=1161.46MB VmSize=155598.59MB goAlloc=1.98MB goSys=30.15MB goroutine=2 numGC=153
+  vs peak: ΔbigInput-go/6_after_cleanup  threads=+0 VmRSS=-0.06MB Anon=-4.23MB VmSize=+0.00MB goAlloc=-4.00MB goSys=+0.00MB goroutine=+0 elapsed=267.116808ms
+
+=== SUMMARY (MB) ===
+contract             wasm    mod_RSS   mod_Anon      N  inst1_RSS inst1_Anon instAvgRSS instAvgAnon instTotRSS instTotAnon
+fact-go              4.65     169.32     164.81      3       1.88       2.86       4.41       4.73      13.22      14.19
+exchange-go          4.09     145.71     142.82      3      -4.16       2.87       2.23       4.57       6.70      13.72
+erc721-go            4.94     154.98     150.34      3      -5.25       4.39       2.31       5.53       6.93      16.58
+compute-go           4.41     102.62     102.47      3      -5.10      -0.06       1.74       3.42       5.21      10.25
+identity-go          4.68      98.73      95.12      3      -5.36       3.46       1.21       4.15       3.62      12.44
+raffle-go            5.02     115.87     113.17      3      -5.80       2.04       2.46       5.08       7.39      15.23
+itinerary-go         4.66     104.62     104.05      3      -5.41      -0.14       1.24       3.00       3.72       8.99
+bigInput-go          4.01      91.93      88.71      3      -4.03       3.58       1.92       4.45       5.75      13.36
+
+legend: mod_* = Δ after NewModule; inst1_* = first instance; instAvg_* = totalΔ/N
+log_file=./resource_probe_mvsi_go_rerun.log
