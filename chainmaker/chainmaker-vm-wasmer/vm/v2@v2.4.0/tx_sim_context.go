@@ -131,6 +131,8 @@ func PutTxSimContext(tsc protocol.TxSimContext) {
 	tscImpl.blockVersion = 0
 	tscImpl.usedSimContextIterator = tscImpl.usedSimContextIterator[:0]
 	tscImpl.usedSimContextKeyHistoryIterator = tscImpl.usedSimContextKeyHistoryIterator[:0]
+	// 对象池复用上下文时清掉上一笔的实例选择模式。
+	tscImpl.wasmerExecMode = WasmerExecDefault
 	txSimContextPool.Put(tscImpl)
 }
 
@@ -163,6 +165,9 @@ type txSimContextImpl struct {
 	usedSimContextKeyHistoryIterator []*SimContextKeyHistoryIterator
 	dbSpendTime                      int64  //合约执行过程中，访问DB花费的时间（毫秒）
 	gasRemaining                     uint64 // 统一计费使用的字段
+	// wasmerExecMode tells the wasmer runtime how to pick an instance for this call.
+	// 0 default, 1 proposer fresh, 2 replay reuse, 3 force a new instance.
+	wasmerExecMode int32
 }
 
 // call contract result

@@ -8,6 +8,7 @@ SPDX-License-Identifier: Apache-2.0
 package wasmer
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
@@ -41,6 +42,41 @@ func (r *RuntimeInstance) Pool() *vmPool {
 	return r.pool
 }
 
+// borrowInstance 出块和强制重跑走 NewInstance，重放从池中取实例。
+func (r *RuntimeInstance) borrowInstance(reuse bool, createFresh bool) (*wrappedInstance, error) {
+	if r == nil || r.pool == nil {
+		return nil, errors.New("wasmer pool is nil")
+	}
+	if createFresh {
+		inst, err := r.pool.NewInstance()
+		if err != nil {
+			return nil, err
+		}
+		if inst != nil {
+			inst.setRevertMode(false)
+		}
+		return inst, nil
+	}
+	inst := r.pool.GetInstance()
+	if inst != nil {
+		inst.setRevertMode(reuse)
+	}
+	return inst, nil
+}
+
+// returnInstance closes a one-shot instance without touching the pool size.
+// A reused instance goes back through RevertInstance.
+func (r *RuntimeInstance) returnInstance(inst *wrappedInstance, createFresh bool) {
+	if inst == nil || r == nil || r.pool == nil {
+		return
+	}
+	if createFresh {
+		r.pool.CloseInstance(inst)
+		return
+	}
+	r.pool.RevertInstance(inst)
+}
+
 // Invoke contract by call vm, implement protocol.RuntimeInstance
 func (r *RuntimeInstance) Invoke(contract *commonPb.Contract, method string, byteCode []byte,
 	parameters map[string][]byte, txContext protocol.TxSimContext, gasUsed uint64) (
@@ -59,13 +95,15 @@ func (r *RuntimeInstance) Invoke(contract *commonPb.Contract, method string, byt
 	}
 	specialTxType = protocol.ExecOrderTxTypeNormal
 
-	reuse, reuseErr := resolveInstanceReuse(contract, method, parameters, txContext)
+	configured, reuseErr := resolveInstanceReuse(contract, method, parameters, txContext)
 	if reuseErr != nil {
 		contractResult.Code = 1
 		contractResult.Message = reuseErr.Error()
 		r.log.Errorf("resolve instance reuse failed, contract:%s, err:%v", contract.GetName(), reuseErr)
 		return
 	}
+	// 出块新建、重放复用、gas 不一致后再新建，都由这里覆盖装载选项。
+	reuse, createFresh := decideInstanceReuse(configured, txContext)
 	if method == InitContractFunc || method == UpgradeContractFunc {
 		r.log.Infof("contract[%s] instance reuse=%v", contract.GetName(), reuse)
 	}
@@ -87,26 +125,15 @@ func (r *RuntimeInstance) Invoke(contract *commonPb.Contract, method string, byt
 		}
 	}()
 
-	// if cross contract call, then new instance
-	if txContext.GetDepth() > 0 {
-		//var err error
-		//instanceInfo, err = r.pool.NewInstance()
-		//defer r.pool.CloseInstance(instanceInfo)
-		//if err != nil {
-		//	panic(err)
-		//}
-		r.log.Debugf("depth>0 before get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo = r.pool.GetInstance()
-		r.log.Debugf("depth>0 after get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo.setRevertMode(reuse)
-		defer r.pool.RevertInstance(instanceInfo)
-	} else {
-		r.log.Debugf("before get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo = r.pool.GetInstance()
-		r.log.Debugf("after get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo.setRevertMode(reuse)
-		defer r.pool.RevertInstance(instanceInfo)
+	var borrowErr error
+	instanceInfo, borrowErr = r.borrowInstance(reuse, createFresh)
+	if borrowErr != nil {
+		contractResult.Code = 1
+		contractResult.Message = borrowErr.Error()
+		r.log.Errorf("borrow instance failed, contract:%s, method:%s, err:%v", contract.GetName(), method, borrowErr)
+		return
 	}
+	defer r.returnInstance(instanceInfo, createFresh)
 
 	var sc = NewSimContext(method, r.log, r.chainId)
 	defer sc.removeCtxPointer()
@@ -258,7 +285,7 @@ func (r *RuntimeInstance) InvokeTime(contract *commonPb.Contract, method string,
 	}
 	specialTxType = protocol.ExecOrderTxTypeNormal
 
-	reuse, reuseErr := resolveInstanceReuse(contract, method, parameters, txContext)
+	configured, reuseErr := resolveInstanceReuse(contract, method, parameters, txContext)
 	if reuseErr != nil {
 		contractResult.Code = 1
 		contractResult.Message = reuseErr.Error()
@@ -266,6 +293,8 @@ func (r *RuntimeInstance) InvokeTime(contract *commonPb.Contract, method string,
 		executionTime = float64(endTime-startTime) / 1e9
 		return
 	}
+	// 出块新建、重放复用、gas 不一致后再新建，都由这里覆盖装载选项。
+	reuse, createFresh := decideInstanceReuse(configured, txContext)
 
 	var instanceInfo *wrappedInstance
 	defer func() {
@@ -288,26 +317,15 @@ func (r *RuntimeInstance) InvokeTime(contract *commonPb.Contract, method string,
 		r.log.Debugf(logStr)
 	}()
 
-	// if cross contract call, then new instance
-	if txContext.GetDepth() > 0 {
-		//var err error
-		//instanceInfo, err = r.pool.NewInstance()
-		//defer r.pool.CloseInstance(instanceInfo)
-		//if err != nil {
-		//	panic(err)
-		//}
-		//r.log.Debugf("before get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo = r.pool.GetInstance()
-		//r.log.Debugf("after get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo.setRevertMode(reuse)
-		defer r.pool.RevertInstance(instanceInfo)
-	} else {
-		//r.log.Debugf("before get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo = r.pool.GetInstance()
-		//r.log.Debugf("after get instance for tx: %s", txContext.GetTx().Payload.TxId)
-		instanceInfo.setRevertMode(reuse)
-		defer r.pool.RevertInstance(instanceInfo)
+	var borrowErr error
+	instanceInfo, borrowErr = r.borrowInstance(reuse, createFresh)
+	if borrowErr != nil {
+		contractResult.Code = 1
+		contractResult.Message = borrowErr.Error()
+		r.log.Errorf("borrow instance failed, contract:%s, method:%s, err:%v", contract.GetName(), method, borrowErr)
+		return
 	}
+	defer r.returnInstance(instanceInfo, createFresh)
 	instanceInfoSnapshot := *instanceInfo
 	defer func() {
 		if instanceInfo == nil || instanceInfo.wasmInstance == nil {

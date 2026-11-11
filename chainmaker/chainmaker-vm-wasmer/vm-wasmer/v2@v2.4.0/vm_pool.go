@@ -30,7 +30,7 @@ const (
 	defaultRefreshTime = time.Hour * 12
 
 	// the max pool size for every contract
-	defaultMaxSize = 10
+	defaultMaxSize = 100
 	// the min pool size
 	defaultMinSize = 5
 	// grow pool size
@@ -1135,8 +1135,8 @@ func (p *vmPool) startRefreshingLoop() {
 					if instance != nil {
 						p.CloseInstance(instance)
 					}
-					if p.currentSize > 0 {
-						p.currentSize--
+					if atomic.LoadInt32(&p.currentSize) > 0 {
+						p.releaseInstanceSlot()
 					}
 				default:
 					goto poolDrained
@@ -1154,17 +1154,17 @@ func (p *vmPool) startRefreshingLoop() {
 			return
 		case <-p.resetC:
 			p.log.Debugf("[%s] vmPool handling an `reset` Signal", key)
-			for p.currentSize > 0 {
+			for atomic.LoadInt32(&p.currentSize) > 0 {
 				instance := <-p.instances
 				p.CloseInstance(instance)
-				p.currentSize--
+				p.releaseInstanceSlot()
 			}
 			close(p.instances)
 			p.instances = make(chan *wrappedInstance, defaultMaxSize)
 			p.grow(defaultMinSize)
 		case <-p.removeInstanceC:
 			p.log.Debugf("[%s] vmPool handling an `remove instance` Signal", key)
-			p.currentSize--
+			p.releaseInstanceSlot()
 		case <-p.addInstanceC:
 			p.log.Debugf("[%s] vmPool handling an `add instance` Signal", key)
 			if !p.grow(1) {
@@ -1199,29 +1199,53 @@ func (p *vmPool) shouldGrow() bool {
 	return false
 }
 
+// reserveInstanceSlot claims one slot under defaultMaxSize.
+// The slot is counted before the instance exists, so concurrent growers
+// cannot pass the cap.
+func (p *vmPool) reserveInstanceSlot() bool {
+	for {
+		cur := atomic.LoadInt32(&p.currentSize)
+		if cur >= int32(defaultMaxSize) {
+			return false
+		}
+		if atomic.CompareAndSwapInt32(&p.currentSize, cur, cur+1) {
+			return true
+		}
+	}
+}
+
+func (p *vmPool) releaseInstanceSlot() {
+	atomic.AddInt32(&p.currentSize, -1)
+}
+
 // grow adds instances. It returns false when the pool is closing, so the
 // refresh loop can leave a full channel instead of blocking in the send.
+// A full pool is not an error: creation stops once every slot is reserved.
 func (p *vmPool) grow(count int32) bool {
-	for count > 0 {
-		size := int32(defaultChangeSize)
-		if count < size {
-			size = count
+	var created int32
+	for created < count {
+		if !p.reserveInstanceSlot() {
+			break
 		}
-		count -= size
-
-		for i := int32(0); i < size; i++ {
-			instance, _ := p.newInstanceFromModule()
-			select {
-			case <-p.closeC:
-				if instance != nil {
-					p.CloseInstance(instance)
-				}
-				return false
-			case p.instances <- instance:
-				atomic.AddInt32(&p.currentSize, 1)
+		instance, err := p.newInstanceFromModule()
+		if err != nil || instance == nil {
+			p.releaseInstanceSlot()
+			break
+		}
+		select {
+		case <-p.closeC:
+			p.CloseInstance(instance)
+			p.releaseInstanceSlot()
+			if created > 0 {
+				p.log.Infof("vm pool grow size = %d", created)
 			}
+			return false
+		case p.instances <- instance:
+			created++
 		}
-		p.log.Infof("vm pool grow size = %d", size)
+	}
+	if created > 0 {
+		p.log.Infof("vm pool grow size = %d", created)
 	}
 	return true
 }
@@ -1241,7 +1265,7 @@ func (p *vmPool) shrink(count int32) {
 	for i := int32(0); i < count; i++ {
 		instance := <-p.instances
 		p.CloseInstance(instance)
-		p.currentSize--
+		p.releaseInstanceSlot()
 	}
 }
 

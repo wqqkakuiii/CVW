@@ -14,12 +14,15 @@ import (
 	"fmt"
 	"math/big"
 	"math/rand"
+	"os"
 	"strconv"
 	"strings"
 	"sync"
 	"testing"
 	"time"
 
+	cmlog "chainmaker.org/chainmaker/common/v2/log"
+	logger2 "chainmaker.org/chainmaker/logger/v2"
 	"chainmaker.org/chainmaker/pb-go/v2/common"
 	"chainmaker.org/chainmaker/protocol/v2"
 )
@@ -367,6 +370,17 @@ func readWriteSet(txSimContext protocol.TxSimContext) ([]byte, error) {
 
 // TestInvoke comment at next version
 func TestInvoke(t *testing.T) {
+	// CM_LOG_LEVEL=INFO skips Debugf on the hot path (PutState/GetState/callContract).
+	if os.Getenv("CM_LOG_LEVEL") == "INFO" {
+		node := logger2.GetDefaultLogNodeConfig()
+		node.LogLevelDefault = cmlog.INFO
+		node.LogInConsole = false
+		logger2.SetLogConfig(&logger2.LogConfig{
+			SystemLog: node,
+			BriefLog:  node,
+			EventLog:  node,
+		})
+	}
 	runInvokeWithConfig(t, *invokeContractMethod, *invokeContractName, *invokeContractType, *invokeTestTime)
 }
 

@@ -104,6 +104,43 @@ func resolveInstanceReuse(contract *commonPb.Contract, method string, parameters
 	return reuse, nil
 }
 
+// These values match vm.WasmerExec* in chainmaker.org/chainmaker/vm/v2.
+// The wasmer package cannot import that package without a cycle.
+const (
+	execModeDefault        int32 = 0
+	execModeProposeNoReuse int32 = 1
+	execModeReplayReuse    int32 = 2
+	execModeForceFresh     int32 = 3
+)
+
+type wasmerExecModeGetter interface {
+	GetWasmerExecMode() int32
+}
+
+// decideInstanceReuse applies the block role on top of the contract option.
+// The proposer always builds on a new instance. A verifying node replays with
+// reuse first. A gas mismatch rerun forces another new instance.
+// createFresh means the instance must be constructed for this call, not taken
+// from the pool.
+func decideInstanceReuse(configured bool, txContext protocol.TxSimContext) (reuse bool, createFresh bool) {
+	// CM_WASMER_FORCE_NO_REUSE=1 覆盖出块和重放：本调用新建实例，并且不归还到池。
+	if os.Getenv("CM_WASMER_FORCE_NO_REUSE") == "1" {
+		return false, true
+	}
+	mode := execModeDefault
+	if getter, ok := txContext.(wasmerExecModeGetter); ok && getter != nil {
+		mode = getter.GetWasmerExecMode()
+	}
+	switch mode {
+	case execModeProposeNoReuse, execModeForceFresh:
+		return false, true
+	case execModeReplayReuse:
+		return true, false
+	default:
+		return configured, false
+	}
+}
+
 func (instance *wrappedInstance) setRevertMode(reuse bool) {
 	if instance == nil {
 		return
