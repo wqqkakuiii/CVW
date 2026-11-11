@@ -111,15 +111,15 @@ const (
 	execModeProposeNoReuse int32 = 1
 	execModeReplayReuse    int32 = 2
 	execModeForceFresh     int32 = 3
+	execModeHoldFresh      int32 = 4
 )
 
 type wasmerExecModeGetter interface {
 	GetWasmerExecMode() int32
 }
 
-// decideInstanceReuse applies the block role on top of the contract option.
-// The proposer always builds on a new instance. A verifying node replays with
-// reuse first. A gas mismatch rerun forces another new instance.
+// decideInstanceReuse applies the call mode on top of the contract option.
+// Normal execution reuses. A forced fresh call builds a new instance.
 // createFresh means the instance must be constructed for this call, not taken
 // from the pool.
 func decideInstanceReuse(configured bool, txContext protocol.TxSimContext) (reuse bool, createFresh bool) {
@@ -134,7 +134,7 @@ func decideInstanceReuse(configured bool, txContext protocol.TxSimContext) (reus
 	switch mode {
 	case execModeProposeNoReuse, execModeForceFresh:
 		return false, true
-	case execModeReplayReuse:
+	case execModeReplayReuse, execModeHoldFresh:
 		return true, false
 	default:
 		return configured, false

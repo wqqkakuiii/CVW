@@ -133,6 +133,7 @@ func PutTxSimContext(tsc protocol.TxSimContext) {
 	tscImpl.usedSimContextKeyHistoryIterator = tscImpl.usedSimContextKeyHistoryIterator[:0]
 	// 对象池复用上下文时清掉上一笔的实例选择模式。
 	tscImpl.wasmerExecMode = WasmerExecDefault
+	tscImpl.wasmerHoldAttempt = 0
 	txSimContextPool.Put(tscImpl)
 }
 
@@ -168,6 +169,7 @@ type txSimContextImpl struct {
 	// wasmerExecMode tells the wasmer runtime how to pick an instance for this call.
 	// 0 default, 1 proposer fresh, 2 replay reuse, 3 force a new instance.
 	wasmerExecMode int32
+	wasmerHoldAttempt int32
 }
 
 // call contract result

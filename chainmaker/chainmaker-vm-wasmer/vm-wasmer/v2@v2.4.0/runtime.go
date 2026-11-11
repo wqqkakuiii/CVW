@@ -10,6 +10,8 @@ package wasmer
 import (
 	"errors"
 	"fmt"
+	"strings"
+	"sync"
 	"time"
 
 	"chainmaker.org/chainmaker/logger/v2"
@@ -17,7 +19,47 @@ import (
 	"chainmaker.org/chainmaker/protocol/v2"
 	"chainmaker.org/chainmaker/utils/v2"
 	wasmer "chainmaker.org/chainmaker/vm-wasmer/v2/wasmer-go"
+	"chainmaker.org/chainmaker/vm/v2"
 )
+
+type holdPin struct {
+	inst *wrappedInstance
+	pool *vmPool
+}
+
+var (
+	holdMu   sync.Mutex
+	holdByTx = map[string]*holdPin{}
+)
+
+func init() {
+	vm.RegisterWasmerHoldReleaser(releaseWasmerHold)
+}
+
+func holdKey(txId, contractName string) string {
+	return txId + "\x00" + contractName
+}
+
+func releaseWasmerHold(txId string) {
+	if txId == "" {
+		return
+	}
+	prefix := txId + "\x00"
+	holdMu.Lock()
+	pins := make([]*holdPin, 0, 1)
+	for key, pin := range holdByTx {
+		if strings.HasPrefix(key, prefix) {
+			pins = append(pins, pin)
+			delete(holdByTx, key)
+		}
+	}
+	holdMu.Unlock()
+	for _, pin := range pins {
+		if pin != nil && pin.pool != nil {
+			pin.pool.CloseInstance(pin.inst)
+		}
+	}
+}
 
 const (
 	// InitContractFunc means `init_contract` function name
@@ -42,7 +84,7 @@ func (r *RuntimeInstance) Pool() *vmPool {
 	return r.pool
 }
 
-// borrowInstance 出块和强制重跑走 NewInstance，重放从池中取实例。
+// borrowInstance 正常调用从池中取实例。强制新建才走 NewInstance。
 func (r *RuntimeInstance) borrowInstance(reuse bool, createFresh bool) (*wrappedInstance, error) {
 	if r == nil || r.pool == nil {
 		return nil, errors.New("wasmer pool is nil")
@@ -65,9 +107,9 @@ func (r *RuntimeInstance) borrowInstance(reuse bool, createFresh bool) (*wrapped
 }
 
 // returnInstance closes a one-shot instance without touching the pool size.
-// A reused instance goes back through RevertInstance.
+// A reused instance goes back through RevertInstance. A held instance stays out of the pool.
 func (r *RuntimeInstance) returnInstance(inst *wrappedInstance, createFresh bool) {
-	if inst == nil || r == nil || r.pool == nil {
+	if inst == nil || r == nil || r.pool == nil || inst.hold {
 		return
 	}
 	if createFresh {
@@ -75,6 +117,50 @@ func (r *RuntimeInstance) returnInstance(inst *wrappedInstance, createFresh bool
 		return
 	}
 	r.pool.RevertInstance(inst)
+}
+
+func execModeOf(txContext protocol.TxSimContext) int32 {
+	if getter, ok := txContext.(wasmerExecModeGetter); ok && getter != nil {
+		return getter.GetWasmerExecMode()
+	}
+	return execModeDefault
+}
+
+// borrowHold returns the same new instance for every verifier stabilize attempt of this transaction.
+func (r *RuntimeInstance) borrowHold(txContext protocol.TxSimContext, contract *commonPb.Contract) (*wrappedInstance, error) {
+	if r == nil || r.pool == nil || txContext == nil || txContext.GetTx() == nil || txContext.GetTx().Payload == nil {
+		return nil, errors.New("hold instance missing tx or pool")
+	}
+	name := ""
+	if contract != nil {
+		name = contract.GetName()
+	}
+	key := holdKey(txContext.GetTx().Payload.TxId, name)
+	holdMu.Lock()
+	if pin := holdByTx[key]; pin != nil && pin.inst != nil {
+		pin.inst.hold = true
+		holdMu.Unlock()
+		return pin.inst, nil
+	}
+	holdMu.Unlock()
+	inst, err := r.pool.NewInstance()
+	if err != nil || inst == nil {
+		if err == nil {
+			err = errors.New("hold instance create failed")
+		}
+		return nil, err
+	}
+	inst.hold = true
+	holdMu.Lock()
+	if pin := holdByTx[key]; pin != nil && pin.inst != nil {
+		holdMu.Unlock()
+		r.pool.CloseInstance(inst)
+		pin.inst.hold = true
+		return pin.inst, nil
+	}
+	holdByTx[key] = &holdPin{inst: inst, pool: r.pool}
+	holdMu.Unlock()
+	return inst, nil
 }
 
 // Invoke contract by call vm, implement protocol.RuntimeInstance
@@ -102,8 +188,13 @@ func (r *RuntimeInstance) Invoke(contract *commonPb.Contract, method string, byt
 		r.log.Errorf("resolve instance reuse failed, contract:%s, err:%v", contract.GetName(), reuseErr)
 		return
 	}
-	// 出块新建、重放复用、gas 不一致后再新建，都由这里覆盖装载选项。
-	reuse, createFresh := decideInstanceReuse(configured, txContext)
+	// 正常调用按装载选项复用。验证节点核对 gas 时，同一块新实例被反复使用。
+	mode := execModeOf(txContext)
+	hold := mode == execModeHoldFresh
+	reuse, createFresh := false, false
+	if !hold {
+		reuse, createFresh = decideInstanceReuse(configured, txContext)
+	}
 	if method == InitContractFunc || method == UpgradeContractFunc {
 		r.log.Infof("contract[%s] instance reuse=%v", contract.GetName(), reuse)
 	}
@@ -126,7 +217,11 @@ func (r *RuntimeInstance) Invoke(contract *commonPb.Contract, method string, byt
 	}()
 
 	var borrowErr error
-	instanceInfo, borrowErr = r.borrowInstance(reuse, createFresh)
+	if hold {
+		instanceInfo, borrowErr = r.borrowHold(txContext, contract)
+	} else {
+		instanceInfo, borrowErr = r.borrowInstance(reuse, createFresh)
+	}
 	if borrowErr != nil {
 		contractResult.Code = 1
 		contractResult.Message = borrowErr.Error()

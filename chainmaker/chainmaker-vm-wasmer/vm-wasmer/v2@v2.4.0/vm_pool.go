@@ -23,6 +23,7 @@ import (
 	commonPb "chainmaker.org/chainmaker/pb-go/v2/common"
 	"chainmaker.org/chainmaker/utils/v2"
 	wasmergo "chainmaker.org/chainmaker/vm-wasmer/v2/wasmer-go"
+	"chainmaker.org/chainmaker/vm/v2"
 )
 
 const (
@@ -625,6 +626,10 @@ type wrappedInstance struct {
 	createTime int64
 	// errCount, current instance invoke method error count
 	errCount int32
+	// invokeCount is how many times this pooled instance has been returned after a call.
+	invokeCount int32
+	// hold keeps this instance out of the pool for a proposer's gas stabilize loop.
+	hold bool
 	// revertMode snapshots this call's reuse decision.
 	// 0 follows CM_WASMER_FORCE_NO_REUSE, 1 discards, 2 returns the instance to the pool.
 	revertMode int32
@@ -674,8 +679,12 @@ func (p *vmPool) GetInstance() *wrappedInstance {
 // When that option was not set, CM_WASMER_FORCE_NO_REUSE!=0 (the default) discards.
 func (p *vmPool) RevertInstance(instance *wrappedInstance) {
 	forceNoReuse := instanceDiscardOnRevert(instance)
-	if forceNoReuse || p.shouldDiscard(instance) {
-		p.log.Debugf("discard instance, forceNoReuse=%v errCount=%d", forceNoReuse, instance.errCount)
+	// 复用次数达到上限后丢弃，池子再补一个新实例。
+	instance.invokeCount++
+	overUse := instance.invokeCount >= vm.WasmerMaxInstanceUse
+	if forceNoReuse || p.shouldDiscard(instance) || overUse {
+		p.log.Infof("discard instance, forceNoReuse=%v errCount=%d invokeCount=%d",
+			forceNoReuse, instance.errCount, instance.invokeCount)
 		go func() {
 			p.CloseInstance(instance)
 			p.removeInstanceC <- struct{}{}
